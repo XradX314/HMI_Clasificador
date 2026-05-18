@@ -18,6 +18,7 @@
 #include <QTimer>
 #include <QTabWidget>
 #include <QAction>
+#include <QQueue>
 
 #include "comunicacion/SerialManager.h"
 #include "comunicacion/UnerProtocol.h"
@@ -178,11 +179,20 @@ private:
     AvanzadoDialog   *m_avanzadoDialog  {nullptr}; ///< Diálogo de config. avanzada (0x64–0x67).
 
     // ── Estado ───────────────────────────────────────────────
-    bool  m_running       {false}; ///< true mientras el sistema está en marcha.
-    bool  m_darkMode      {false}; ///< true si el tema oscuro está activo.
-    int   m_cajasEntrada  {0};     ///< Contador de cajas que entraron en sesión.
-    int   m_cajasSalida   {0};     ///< Contador de cajas que salieron en sesión.
-    int   m_cajasTransito {0};     ///< Cajas actualmente en la cinta.
+    bool  m_running  {false}; ///< true mientras el sistema está en marcha.
+    bool  m_darkMode {false}; ///< true si el tema oscuro está activo.
+
+    /**
+     * @brief Contadores por tipo de caja: índice 0=Pequeña, 1=Mediana, 2=Grande.
+     * El total se obtiene sumando los tres elementos.
+     */
+    int m_cajasEntrada[3]  {0, 0, 0}; ///< Cajas entradas por tipo en la sesión.
+    int m_cajasSalida[3]   {0, 0, 0}; ///< Cajas eyectadas por tipo en la sesión.
+    int m_cajasTransito[3] {0, 0, 0}; ///< Cajas actualmente en la cinta por tipo.
+
+    /** @brief Cola FIFO de tipos (0/1/2) de cajas en tránsito para despacho ordenado. */
+    QQueue<int> m_colaTransito;
+
     bool  m_irState[4]    {false, false, false, false}; ///< Estado de los 4 sensores IR.
     bool  m_brazoState[3] {false, false, false};        ///< Estado de los 3 brazos.
 
@@ -217,9 +227,13 @@ private:
     QLabel *m_lblBrazoEstado[3] {nullptr, nullptr, nullptr};          ///< Texto "extendido/retraído".
 
     // ── Tab Monitor – contadores ─────────────────────────────
-    QLabel *m_lblEntradas   {nullptr}; ///< Número de cajas entradas.
-    QLabel *m_lblSalidas    {nullptr}; ///< Número de cajas salidas.
-    QLabel *m_lblTransito   {nullptr}; ///< Número de cajas en tránsito.
+    QLabel *m_lblEntradas  {nullptr}; ///< Total de cajas entradas.
+    QLabel *m_lblSalidas   {nullptr}; ///< Total de cajas salidas.
+    QLabel *m_lblTransito  {nullptr}; ///< Total de cajas en tránsito.
+    /** @brief Desglose por tipo [0]=Pequeña [1]=Mediana [2]=Grande para cada estado. */
+    QLabel *m_lblEntradaTipo[3]  {nullptr, nullptr, nullptr};
+    QLabel *m_lblSalidaTipo[3]   {nullptr, nullptr, nullptr};
+    QLabel *m_lblTransitoTipo[3] {nullptr, nullptr, nullptr};
 
     // ── Tab Monitor – última caja ────────────────────────────
     QLabel *m_lblUltimaCajaCm   {nullptr}; ///< Altura en cm de la última caja.
@@ -306,6 +320,13 @@ private:
      * @return Cadena con el tipo ("Pequeña", "Mediana", "Grande" o descripción).
      */
     static QString tipoCajaStr(uint8_t cm);
+
+    /**
+     * @brief Convierte una altura en cm al índice de tipo: 0=Pequeña, 1=Mediana, 2=Grande.
+     * @param cm Altura medida.
+     * @return Índice 0–2, o -1 si no corresponde a ningún tipo conocido.
+     */
+    static int cmToTipoIdx(uint8_t cm);
 
     /**
      * @brief Convierte el índice del ComboBox de salida al tipo de caja.

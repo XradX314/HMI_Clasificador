@@ -509,26 +509,41 @@ QWidget *MainWindow::buildPanelContadores()
     hl->setSpacing(8);
     hl->setContentsMargins(10, 14, 10, 10);
 
-    auto makeCard = [&](const QString &label, QLabel *&numOut) {
+    auto makeCard = [&](const QString &titulo, QLabel *&totalOut, QLabel *tiposOut[3]) {
         auto *card = new QFrame;
         card->setObjectName("cardCounter");
         auto *vl = new QVBoxLayout(card);
-        vl->setContentsMargins(16, 10, 16, 10);
+        vl->setContentsMargins(14, 10, 14, 10);
         vl->setSpacing(2);
-        auto *lbl = new QLabel(label);
+
+        auto *lbl = new QLabel(titulo);
         lbl->setAlignment(Qt::AlignCenter);
         lbl->setStyleSheet("font-size: 11px; color: #9CA3AF;");
-        numOut = new QLabel("0");
-        numOut->setAlignment(Qt::AlignCenter);
-        numOut->setStyleSheet("font-size: 30px; font-weight: 600; color: #111827;");
+
+        totalOut = new QLabel("0");
+        totalOut->setAlignment(Qt::AlignCenter);
+        totalOut->setStyleSheet("font-size: 28px; font-weight: 600; color: #111827;");
+
+        // Fila con desglose Pequeña / Mediana / Grande
+        auto *rowTipos = new QHBoxLayout;
+        rowTipos->setSpacing(4);
+        const char *tags[3] = {"P: 0", "M: 0", "G: 0"};
+        for (int i = 0; i < 3; i++) {
+            tiposOut[i] = new QLabel(tags[i]);
+            tiposOut[i]->setAlignment(Qt::AlignCenter);
+            tiposOut[i]->setStyleSheet("font-size: 11px; color: #6B7280;");
+            rowTipos->addWidget(tiposOut[i]);
+        }
+
         vl->addWidget(lbl);
-        vl->addWidget(numOut);
+        vl->addWidget(totalOut);
+        vl->addLayout(rowTipos);
         return card;
     };
 
-    hl->addWidget(makeCard("entradas",     m_lblEntradas));
-    hl->addWidget(makeCard("salidas",      m_lblSalidas));
-    hl->addWidget(makeCard("en tránsito",  m_lblTransito));
+    hl->addWidget(makeCard("entradas",    m_lblEntradas, m_lblEntradaTipo));
+    hl->addWidget(makeCard("salidas",     m_lblSalidas,  m_lblSalidaTipo));
+    hl->addWidget(makeCard("en tránsito", m_lblTransito, m_lblTransitoTipo));
 
     return gb;
 }
@@ -591,8 +606,12 @@ void MainWindow::onRefreshPorts()
 
 void MainWindow::onCajaMedida(uint8_t alturaCm)
 {
-    m_cajasEntrada++;
-    m_cajasTransito++;
+    const int idx = cmToTipoIdx(alturaCm);
+    if (idx >= 0) {
+        m_cajasEntrada[idx]++;
+        m_cajasTransito[idx]++;
+        m_colaTransito.enqueue(idx);
+    }
     updateContadores();
 
     m_lblUltimaCajaCm->setText(QString("%1 cm").arg(alturaCm));
@@ -625,8 +644,11 @@ void MainWindow::onBrazoActuado(uint8_t servoIdx)
     m_brazoState[servoIdx] = true;
     updateBrazoLabel(servoIdx);
 
-    m_cajasSalida++;
-    if (m_cajasTransito > 0) m_cajasTransito--;
+    if (!m_colaTransito.isEmpty()) {
+        const int idx = m_colaTransito.dequeue();
+        m_cajasSalida[idx]++;
+        if (m_cajasTransito[idx] > 0) m_cajasTransito[idx]--;
+    }
     updateContadores();
     statusMsg(QString("Brazo %1 activado — caja eyectada.").arg(servoIdx));
 
@@ -648,7 +670,8 @@ void MainWindow::onStartClicked()
         comboToTipo(m_comboSalida[1]->currentIndex()),
         comboToTipo(m_comboSalida[2]->currentIndex()));
     setRunningState(true);
-    m_cajasEntrada = m_cajasSalida = m_cajasTransito = 0;
+    for (int i = 0; i < 3; i++) m_cajasEntrada[i] = m_cajasSalida[i] = m_cajasTransito[i] = 0;
+    m_colaTransito.clear();
     updateContadores();
     statusMsg("Sistema iniciado.");
 }
@@ -666,7 +689,8 @@ void MainWindow::onResetClicked()
     if (!m_serial->isOpen()) return;
     m_serial->sendReset();
     setRunningState(false);
-    m_cajasEntrada = m_cajasSalida = m_cajasTransito = 0;
+    for (int i = 0; i < 3; i++) m_cajasEntrada[i] = m_cajasSalida[i] = m_cajasTransito[i] = 0;
+    m_colaTransito.clear();
     updateContadores();
     for (int i = 0; i < 4; i++) { m_irState[i]   = false; updateIrLabel(i); }
     for (int i = 0; i < 3; i++) { m_brazoState[i] = false; updateBrazoLabel(i); }
@@ -819,10 +843,19 @@ void MainWindow::applyTheme()
 {
     setStyleSheet(m_darkMode ? STYLE_DARK : STYLE_LIGHT);
 
-    const QString numColor = m_darkMode ? "#F9FAFB" : "#111827";
+    const QString numColor  = m_darkMode ? "#F9FAFB" : "#111827";
+    const QString tipoColor = m_darkMode ? "#9CA3AF" : "#6B7280";
+
     for (QLabel *l : {m_lblEntradas, m_lblSalidas, m_lblTransito})
         if (l) l->setStyleSheet(
-            QString("font-size: 30px; font-weight: 600; color: %1;").arg(numColor));
+            QString("font-size: 28px; font-weight: 600; color: %1;").arg(numColor));
+
+    for (int i = 0; i < 3; i++) {
+        const QString ss = QString("font-size: 11px; color: %1;").arg(tipoColor);
+        if (m_lblEntradaTipo[i])  m_lblEntradaTipo[i]->setStyleSheet(ss);
+        if (m_lblSalidaTipo[i])   m_lblSalidaTipo[i]->setStyleSheet(ss);
+        if (m_lblTransitoTipo[i]) m_lblTransitoTipo[i]->setStyleSheet(ss);
+    }
 }
 
 // =============================================================
@@ -878,9 +911,19 @@ void MainWindow::updateBrazoLabel(int idx)
 
 void MainWindow::updateContadores()
 {
-    m_lblEntradas->setText(QString::number(m_cajasEntrada));
-    m_lblSalidas ->setText(QString::number(m_cajasSalida));
-    m_lblTransito->setText(QString::number(m_cajasTransito));
+    static const char *tags[3] = {"P", "M", "G"};
+
+    auto total = [](const int a[3]) { return a[0] + a[1] + a[2]; };
+
+    m_lblEntradas->setText(QString::number(total(m_cajasEntrada)));
+    m_lblSalidas ->setText(QString::number(total(m_cajasSalida)));
+    m_lblTransito->setText(QString::number(total(m_cajasTransito)));
+
+    for (int i = 0; i < 3; i++) {
+        m_lblEntradaTipo[i] ->setText(QString("%1: %2").arg(tags[i]).arg(m_cajasEntrada[i]));
+        m_lblSalidaTipo[i]  ->setText(QString("%1: %2").arg(tags[i]).arg(m_cajasSalida[i]));
+        m_lblTransitoTipo[i]->setText(QString("%1: %2").arg(tags[i]).arg(m_cajasTransito[i]));
+    }
 }
 
 void MainWindow::statusMsg(const QString &msg, int ms)
@@ -899,6 +942,16 @@ QString MainWindow::tipoCajaStr(uint8_t cm)
     case 8:  return "Mediana";
     case 10: return "Grande";
     default: return QString("Desconocida (%1cm)").arg(cm);
+    }
+}
+
+int MainWindow::cmToTipoIdx(uint8_t cm)
+{
+    switch (cm) {
+    case 6:  return 0;
+    case 8:  return 1;
+    case 10: return 2;
+    default: return -1;
     }
 }
 
