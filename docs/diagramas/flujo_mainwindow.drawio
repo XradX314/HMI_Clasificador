@@ -1,0 +1,312 @@
+<mxfile host="Electron">
+  <diagram name="MainWindow – Flujo de Control UI" id="mainwindow-ui">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ── ARRANQUE ───────────────────────────────────── -->
+
+        <mxCell id="m1" parent="1" vertex="1"
+          style="rounded=1;whiteSpace=wrap;arcSize=50;strokeWidth=2;fillColor=#888780;strokeColor=#5F5E5A;fontColor=#fff;"
+          value="Inicio: main() crea QApplication y MainWindow">
+          <mxGeometry x="200" y="50" width="260" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m2" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;"
+          value="buildUi(): construye toolbar de conexión, tab Monitor con paneles de control, salidas, sensores, brazos, contadores y última caja">
+          <mxGeometry x="200" y="130" width="260" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ── CONEXIÓN ───────────────────────────────────── -->
+
+        <mxCell id="m3" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#FAEEDA;strokeColor=#BA7517;fontColor=#633806;"
+          value="Usuario selecciona puerto COM y baudrate; presiona Conectar → onConnectClicked()">
+          <mxGeometry x="200" y="260" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m4" parent="1" vertex="1"
+          style="rhombus;strokeWidth=2;whiteSpace=wrap;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#2C2C2A;"
+          value="¿serial→open() exitoso?">
+          <mxGeometry x="215" y="375" width="230" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m5" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#FAECE7;strokeColor=#993C1D;fontColor=#712B13;"
+          value="statusMsg(error): muestra mensaje en barra de estado; UI permanece desconectada">
+          <mxGeometry x="540" y="390" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m6" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#EAF3DE;strokeColor=#3B6D11;fontColor=#27500A;"
+          value="onConnected(): setConnectedState(true), habilita Start/Stop/Reset/Vel/Ciego/Trigger">
+          <mxGeometry x="200" y="520" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── BUCLE CONECTADO ─────────────────────────────── -->
+
+        <mxCell id="m7" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;"
+          value="Bucle de eventos Qt: recepción de señales del SerialManager y acciones del usuario">
+          <mxGeometry x="200" y="640" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── EVENTOS DE RECEPCIÓN (derecha) ─────────────── -->
+
+        <mxCell id="m8" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#085041;"
+          value="aliveReceived() → ledAlive→onAlive(): parpadea LED verde, actualiza estadísticas heartbeat">
+          <mxGeometry x="540" y="550" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m9" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#085041;"
+          value="cajaMedida(cm) → onCajaMedida(): incrementa contadores entrada/tránsito, actualiza última caja y tipo">
+          <mxGeometry x="540" y="640" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m10" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#085041;"
+          value="sensorIrActualizado(n, activo) → updateIrLabel(n): cambia color del indicador IR">
+          <mxGeometry x="540" y="740" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m11" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#085041;"
+          value="brazoActuado(idx) → updateBrazoLabel(idx) + updateContadores(): actualiza brazos y salidas">
+          <mxGeometry x="540" y="830" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m12" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#FAECE7;strokeColor=#993C1D;fontColor=#712B13;"
+          value="connectionLost() → onConnectionLost(): muestra alerta, llama onDisconnected()">
+          <mxGeometry x="540" y="920" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── ACCIONES DEL USUARIO (izquierda) ──────────── -->
+
+        <mxCell id="m13" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#E6F1FB;strokeColor=#185FA5;fontColor=#0C447C;"
+          value="onStartClicked(): lee tipos de salida de combos, serial→sendStart(s0,s1,s2), setRunningState(true)">
+          <mxGeometry x="200" y="760" width="260" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m14" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#FAEEDA;strokeColor=#BA7517;fontColor=#633806;"
+          value="onBlindModeToggled(checked): lee m_spinDist[0..2], arma CiegoDistancias, serial→sendBlindDist(cfg, 4)">
+          <mxGeometry x="200" y="890" width="260" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m15" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#FAEEDA;strokeColor=#BA7517;fontColor=#633806;"
+          value="onTriggerClicked(): serial→sendTrigger() — disparo manual de medición (CMD 0x61)">
+          <mxGeometry x="200" y="1020" width="260" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m16" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#FAECE7;strokeColor=#993C1D;fontColor=#712B13;"
+          value="onStopClicked(): serial→sendStop(); onResetClicked(): serial→sendReset(), resetea contadores">
+          <mxGeometry x="200" y="1130" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── DIÁLOGOS DE CONFIGURACIÓN ─────────────────── -->
+
+        <mxCell id="m17" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;"
+          value="onOpenConfig(): crea/muestra ConfigDialog (lazy) → configApplied(cfg) → serial→sendCalibracion(cfg)  [CMD 0x63]">
+          <mxGeometry x="540" y="1020" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m18" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;"
+          value="onOpenVelocidad(): crea/muestra VelocidadDialog → requestAnchoCaja(cm) → serial→sendAnchoCaja(cm)  [CMD 0x62]">
+          <mxGeometry x="540" y="1120" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m19" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;"
+          value="onOpenAvanzado(): crea/muestra AvanzadoDialog → sendHcsr04 / sendSg90 / sendIrDebounce / sendTimers  [CMDs 0x64–0x67]">
+          <mxGeometry x="540" y="1220" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ══════════════ FLECHAS ══════════════ -->
+
+        <mxCell id="g1" edge="1" parent="1" source="m1" target="m2"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g2" edge="1" parent="1" source="m2" target="m3"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g3" edge="1" parent="1" source="m3" target="m4"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- m4 → m5 (No) -->
+        <mxCell id="g4" edge="1" parent="1" source="m4" target="m5"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- m5 → m3 (reintentar) -->
+        <mxCell id="g5" edge="1" parent="1" source="m5" target="m3"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;dashed=1;"
+          value="reintentar">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="425" />
+              <mxPoint x="800" y="295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- m4 → m6 (Sí) -->
+        <mxCell id="g6" edge="1" parent="1" source="m4" target="m6"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="Sí">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- m6 → m7 -->
+        <mxCell id="g7" edge="1" parent="1" source="m6" target="m7"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- m6 → m8 (aliveReceived) -->
+        <mxCell id="g8" edge="1" parent="1" source="m6" target="m8"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;dashed=1;"
+          value="aliveReceived">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- m7 → m9 (cajaMedida) -->
+        <mxCell id="g9" edge="1" parent="1" source="m7" target="m9"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="cajaMedida">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- m7 → m10 (sensorIr) -->
+        <mxCell id="g10" edge="1" parent="1" source="m7" target="m10"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="sensorIr">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="675" />
+              <mxPoint x="460" y="775" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- m7 → m11 (brazoActuado) -->
+        <mxCell id="g11" edge="1" parent="1" source="m7" target="m11"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="brazoActuado">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="675" />
+              <mxPoint x="460" y="865" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- m7 → m12 (connectionLost) -->
+        <mxCell id="g12" edge="1" parent="1" source="m7" target="m12"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="connectionLost">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="675" />
+              <mxPoint x="460" y="955" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- m7 → m13 (Start) -->
+        <mxCell id="g13" edge="1" parent="1" source="m7" target="m13"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="Start">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- m13 → m14 (Modo Ciego) -->
+        <mxCell id="g14" edge="1" parent="1" source="m13" target="m14"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="Modo Ciego">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- m14 → m15 (Trigger) -->
+        <mxCell id="g15" edge="1" parent="1" source="m14" target="m15"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="Trigger">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- m15 → m16 (Stop/Reset) -->
+        <mxCell id="g16" edge="1" parent="1" source="m15" target="m16"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="Stop / Reset">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- m16 → m3 (desconectar / reiniciar sesión) -->
+        <mxCell id="g17" edge="1" parent="1" source="m16" target="m3"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;dashed=1;"
+          value="nueva sesión">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="1165" />
+              <mxPoint x="170" y="295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- m7 → m17 (Config 0x63) -->
+        <mxCell id="g18" edge="1" parent="1" source="m7" target="m17"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="Calibración (0x63)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="675" />
+              <mxPoint x="460" y="1060" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- m7 → m18 (Ancho 0x62) -->
+        <mxCell id="g19" edge="1" parent="1" source="m7" target="m18"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="Ancho caja (0x62)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="675" />
+              <mxPoint x="460" y="1160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- m7 → m19 (Avanzado 0x64–67) -->
+        <mxCell id="g20" edge="1" parent="1" source="m7" target="m19"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="Config. avanzada (0x64–0x67)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="675" />
+              <mxPoint x="460" y="1260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

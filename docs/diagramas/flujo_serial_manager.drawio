@@ -1,0 +1,247 @@
+<mxfile host="Electron">
+  <diagram name="SerialManager – Conexión y Despacho" id="serial-manager">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ── APERTURA DE CONEXIÓN ──────────────────────── -->
+
+        <mxCell id="s1" parent="1" vertex="1"
+          style="rounded=1;whiteSpace=wrap;arcSize=50;strokeWidth=2;fillColor=#888780;strokeColor=#5F5E5A;fontColor=#fff;"
+          value="open(portName, baud): solicitud de conexión al puerto serie">
+          <mxGeometry x="195" y="50" width="260" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s2" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;"
+          value="Configura QSerialPort: puerto, baudrate, 8N1, sin control de flujo">
+          <mxGeometry x="195" y="130" width="260" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s3" parent="1" vertex="1"
+          style="rhombus;strokeWidth=2;whiteSpace=wrap;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#2C2C2A;"
+          value="¿QSerialPort::open() exitoso?">
+          <mxGeometry x="210" y="230" width="230" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s4" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#FAECE7;strokeColor=#993C1D;fontColor=#712B13;"
+          value="emit errorOccurred(msg): no se pudo abrir el puerto">
+          <mxGeometry x="540" y="250" width="240" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s5" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#EAF3DE;strokeColor=#3B6D11;fontColor=#27500A;"
+          value="protocol→reset(), heartbeatTimer→start(7s), emit connected(portName)">
+          <mxGeometry x="195" y="390" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── BUCLE DE RECEPCIÓN ────────────────────────── -->
+
+        <mxCell id="s6" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#FAEEDA;strokeColor=#BA7517;fontColor=#633806;"
+          value="onDataReady(): QSerialPort::readAll() → protocol→feed(data)">
+          <mxGeometry x="195" y="510" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s7" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#FAEEDA;strokeColor=#BA7517;fontColor=#633806;"
+          value="Watchdog: onHeartbeatTimeout() → emit connectionLost() si no llega 0xF0 en 7 s">
+          <mxGeometry x="540" y="510" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s8" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;"
+          value="UnerProtocol emite frameReceived(frame) → onFrameReceived() → emit frameReady(frame) + dispatchFrame(frame)">
+          <mxGeometry x="195" y="630" width="260" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ── SWITCH CMD ────────────────────────────────── -->
+
+        <mxCell id="s9" parent="1" vertex="1"
+          style="rhombus;strokeWidth=2;whiteSpace=wrap;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#2C2C2A;"
+          value="switch (frame.cmd)">
+          <mxGeometry x="210" y="760" width="230" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- 0xF0 ALIVE -->
+        <mxCell id="s10" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#EAF3DE;strokeColor=#3B6D11;fontColor=#27500A;"
+          value="0xF0 CMD_ALIVE: reinicia heartbeatTimer, envía ackAlive(), emit aliveReceived()">
+          <mxGeometry x="30" y="930" width="210" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- 0x5F CAJA -->
+        <mxCell id="s11" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#E6F1FB;strokeColor=#185FA5;fontColor=#0C447C;"
+          value="0x5F CMD_CAJA_DETECT: emit cajaMedida(payload[0])">
+          <mxGeometry x="265" y="930" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- 0x5E IR -->
+        <mxCell id="s12" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#E6F1FB;strokeColor=#185FA5;fontColor=#0C447C;"
+          value="0x5E CMD_IR_STATE: itera pares (outNum, state) → emit sensorIrActualizado(outNum, activo)">
+          <mxGeometry x="465" y="930" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- 0x52 BRAZO -->
+        <mxCell id="s13" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#FAEEDA;strokeColor=#BA7517;fontColor=#633806;"
+          value="0x52 CMD_BRAZO: lee máscara de bits; por cada bit i activo → emit brazoActuado(i)">
+          <mxGeometry x="665" y="930" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- default -->
+        <mxCell id="s14" parent="1" vertex="1"
+          style="whiteSpace=wrap;strokeWidth=2;fillColor=#888780;strokeColor=#5F5E5A;fontColor=#fff;"
+          value="default: qDebug — frame.cmd no manejado">
+          <mxGeometry x="265" y="1070" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ── CLOSE ──────────────────────────────────────── -->
+
+        <mxCell id="s15" parent="1" vertex="1"
+          style="rounded=1;whiteSpace=wrap;arcSize=50;strokeWidth=2;fillColor=#888780;strokeColor=#5F5E5A;fontColor=#fff;"
+          value="close(): heartbeatTimer→stop(), QSerialPort::close(), emit disconnected(), protocol→reset()">
+          <mxGeometry x="540" y="390" width="240" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ══════════════ FLECHAS ══════════════ -->
+
+        <mxCell id="f1" edge="1" parent="1" source="s1" target="s2"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="f2" edge="1" parent="1" source="s2" target="s3"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- s3 → s4 (No) -->
+        <mxCell id="f3" edge="1" parent="1" source="s3" target="s4"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- s3 → s5 (Sí) -->
+        <mxCell id="f4" edge="1" parent="1" source="s3" target="s5"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="Sí">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- s5 → s6 -->
+        <mxCell id="f5" edge="1" parent="1" source="s5" target="s6"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="en espera de datos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- s5 → s7 (watchdog, paralelo) -->
+        <mxCell id="f6" edge="1" parent="1" source="s5" target="s7"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;dashed=1;"
+          value="paralelo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- s7 → s15 (connectionLost → close) -->
+        <mxCell id="f7" edge="1" parent="1" source="s7" target="s15"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="timeout 7 s">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- s6 → s8 -->
+        <mxCell id="f8" edge="1" parent="1" source="s6" target="s8"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- s8 → s9 -->
+        <mxCell id="f9" edge="1" parent="1" source="s8" target="s9"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- s9 → s10 (0xF0) -->
+        <mxCell id="f10" edge="1" parent="1" source="s9" target="s10"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="0xF0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="870" />
+              <mxPoint x="135" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- s9 → s11 (0x5F) -->
+        <mxCell id="f11" edge="1" parent="1" source="s9" target="s11"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="0x5F">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- s9 → s12 (0x5E) -->
+        <mxCell id="f12" edge="1" parent="1" source="s9" target="s12"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="0x5E">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="870" />
+              <mxPoint x="555" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- s9 → s13 (0x52) -->
+        <mxCell id="f13" edge="1" parent="1" source="s9" target="s13"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="0x52">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="870" />
+              <mxPoint x="765" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- s9 → s14 (default) -->
+        <mxCell id="f14" edge="1" parent="1" source="s9" target="s14"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;"
+          value="default">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- s10/s11/s12/s13/s14 → s6 (loop) -->
+        <mxCell id="f15" edge="1" parent="1" source="s10" target="s6"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;dashed=1;"
+          value="siguiente trama">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="30" y="1060" />
+              <mxPoint x="30" y="545" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="f16" edge="1" parent="1" source="s13" target="s6"
+          style="curved=1;startArrow=none;endArrow=block;rounded=0;strokeWidth=2;dashed=1;"
+          value="siguiente trama">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="1060" />
+              <mxPoint x="880" y="545" />
+              <mxPoint x="455" y="545" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
