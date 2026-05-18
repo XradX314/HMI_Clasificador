@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Archivo de código fuente comunicacion/SerialManager.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_serial_manager_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SerialManager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_serial_manager_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;QSerialPort&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;QSerialPortInfo&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_uner_protocol_8h.html">UnerProtocol.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_serial_manager.html">   29</a></span><span class="keyword">class </span><a class="code hl_function" href="class_serial_manager.html#aa2d090c2f7dc822a3fb1f3ac432abd0d">SerialManager</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    Q_OBJECT</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a0ed36f65dd2e04e21e8d886726f96e05">   35</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> qint32 <a class="code hl_variable" href="class_serial_manager.html#a0ed36f65dd2e04e21e8d886726f96e05">DEFAULT_BAUD</a>         = 9600;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a927114c12f09c17bee2d2ea0ccc15bb0">   38</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span>    <a class="code hl_variable" href="class_serial_manager.html#a927114c12f09c17bee2d2ea0ccc15bb0">HEARTBEAT_TIMEOUT_MS</a> = 7000;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_serial_manager.html#aa2d090c2f7dc822a3fb1f3ac432abd0d">SerialManager</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_function" href="class_serial_manager.html#a2b96975d8838b2f3a83ddc00fe9dc2bd">~SerialManager</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">// ── Gestión de conexión ────────────────────────────────────</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">bool</span>   <a class="code hl_function" href="class_serial_manager.html#a1bf39fdb897211849981c9fa6790ccac">open</a>(<span class="keyword">const</span> QString &amp;portName, qint32 baud = <a class="code hl_variable" href="class_serial_manager.html#a0ed36f65dd2e04e21e8d886726f96e05">DEFAULT_BAUD</a>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span>   <a class="code hl_function" href="class_serial_manager.html#a281981027f9aa6ab540c19586041232c">close</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">bool</span>   <a class="code hl_function" href="class_serial_manager.html#a4c37e46fdace2987034668b81e9cee19">isOpen</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    QString <a class="code hl_function" href="class_serial_manager.html#aae090ab68f6d5b3d213f7e1d53140217">currentPort</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">static</span> QStringList <a class="code hl_function" href="class_serial_manager.html#a7c134a1ca1df92b64e2b14c4dfbfc70d">availablePorts</a>();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// ── Comandos de control ────────────────────────────────────</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#a15fd01ddb4c75098fb8de46c5fac7e91">sendStart</a>(<a class="code hl_enumeration" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s0, <a class="code hl_enumeration" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s1, <a class="code hl_enumeration" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s2);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#aaba43a056cb5a164c373161afa0c9234">sendStop</a>();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#ae846c1325ee7a5fc429b85c15ced9a4c">sendReset</a>();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#accfccf549d794bf550a94e190ab6c31c">sendVelocidad</a>(uint8_t velIdx);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// ── Comandos de configuración (0x60–0x67) ─────────────────</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#a90c9a1b403d3f61470bf8fc2418183b1">sendBlindDist</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a> &amp;cfg, uint8_t numBytes = 4);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#a420e78a97531f6b6ad698c8c016f4b73">sendTrigger</a>();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#a9bdc52f0e51b29d0d4f5a2585a98cda8">sendAnchoCaja</a>(uint8_t anchoCm);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#aab55b5999fd9371a4a9634f190b2943b">sendCalibracion</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#ac025e98df7f822ed79dd84fbfd9ff760">sendHcsr04Cfg</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#ac83ee453af942d7bea7deb338774f019">sendSg90Cfg</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#aac64f8999d245cb0232947acb7c17213">sendIrDebounce</a>(uint8_t debounce);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#a0cbe9fedcac42e0eaa885e1d871080e6">sendTimersCfg</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#a977d89604b4159656e8052a05a2a5dd0">sendRaw</a>(<span class="keyword">const</span> QByteArray &amp;frame);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>signals:</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="class_serial_manager.html#aa8f14189331d7d377e1c8955e0fc5a92">  161</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_serial_manager.html#aa8f14189331d7d377e1c8955e0fc5a92">connected</a>(<span class="keyword">const</span> QString &amp;port);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a35c3260cdd251e6628824ff41fb1deee">  164</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_serial_manager.html#a35c3260cdd251e6628824ff41fb1deee">disconnected</a>();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="class_serial_manager.html#ad464ee521bbe5507d7a51ea85ed1b71c">  169</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_serial_manager.html#ad464ee521bbe5507d7a51ea85ed1b71c">connectionLost</a>();</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a9b3cd79603c051d48e2c88ad4f29225f">  175</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_serial_manager.html#a9b3cd79603c051d48e2c88ad4f29225f">errorOccurred</a>(<span class="keyword">const</span> QString &amp;msg);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a8b899ebe90cce007f3eba9916930f3b0">  181</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_serial_manager.html#a8b899ebe90cce007f3eba9916930f3b0">frameReady</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;frame);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="class_serial_manager.html#af373e7864feb43dbb301013f18da400f">  184</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_serial_manager.html#af373e7864feb43dbb301013f18da400f">aliveReceived</a>();</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="class_serial_manager.html#abdb8b9d0efc962b0c203bdcd380c9d0b">  190</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_serial_manager.html#abdb8b9d0efc962b0c203bdcd380c9d0b">cajaMedida</a>(uint8_t alturaCm);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a38fa6e820d63dd624c8cd19f5c7c9fb9">  197</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_serial_manager.html#a38fa6e820d63dd624c8cd19f5c7c9fb9">sensorIrActualizado</a>(uint8_t outNum, <span class="keywordtype">bool</span> activo);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a5971d65e88f270812b9c4f39185c8f12">  203</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_serial_manager.html#a5971d65e88f270812b9c4f39185c8f12">brazoActuado</a>(uint8_t servoIdx);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_serial_manager.html#ab1b59e460773686f62bf149b44475eab">onDataReady</a>();</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_serial_manager.html#a39ca559f5c27d29c3b45d00f184b7975">onSerialError</a>(QSerialPort::SerialPortError error);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_serial_manager.html#a10633a8286337ba6aa78f75f08d0dbee">onHeartbeatTimeout</a>();</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_serial_manager.html#a3f3113d08a283e9253bce08074b0962a">onFrameReceived</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;frame);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a4c410199582498ad63f7267eca103e2c">  225</a></span>    QSerialPort  *<a class="code hl_variable" href="class_serial_manager.html#a4c410199582498ad63f7267eca103e2c">m_serial</a>          {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a5d218707ed6b1b1c31b3e55ca11f8079">  226</a></span>    <a class="code hl_class" href="class_uner_protocol.html">UnerProtocol</a> *<a class="code hl_variable" href="class_serial_manager.html#a5d218707ed6b1b1c31b3e55ca11f8079">m_protocol</a>        {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="class_serial_manager.html#afad30fe1617bd4993e1ffe0c94b1e38c">  227</a></span>    QTimer       *<a class="code hl_variable" href="class_serial_manager.html#afad30fe1617bd4993e1ffe0c94b1e38c">m_heartbeatTimer</a>  {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#a48012723aff97c1cd60eb5dd0f4d1f4c">dispatchFrame</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;frame);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>};</div>
+</div>
+<div class="ttc" id="a_uner_protocol_8h_html"><div class="ttname"><a href="_uner_protocol_8h.html">UnerProtocol.h</a></div><div class="ttdoc">Definición del protocolo de comunicación serie UNER y el codificador/decodificador de tramas.</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a0cbe9fedcac42e0eaa885e1d871080e6"><div class="ttname"><a href="class_serial_manager.html#a0cbe9fedcac42e0eaa885e1d871080e6">SerialManager::sendTimersCfg</a></div><div class="ttdeci">void sendTimersCfg(const Uner::TimersCfg &amp;cfg)</div><div class="ttdoc">Envía timers generales y alturas de caja (0x67).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:104</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a0ed36f65dd2e04e21e8d886726f96e05"><div class="ttname"><a href="class_serial_manager.html#a0ed36f65dd2e04e21e8d886726f96e05">SerialManager::DEFAULT_BAUD</a></div><div class="ttdeci">static constexpr qint32 DEFAULT_BAUD</div><div class="ttdoc">Velocidad de baudios por defecto.</div><div class="ttdef"><b>Definition</b> SerialManager.h:35</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a10633a8286337ba6aa78f75f08d0dbee"><div class="ttname"><a href="class_serial_manager.html#a10633a8286337ba6aa78f75f08d0dbee">SerialManager::onHeartbeatTimeout</a></div><div class="ttdeci">void onHeartbeatTimeout()</div><div class="ttdoc">Slot invocado cuando expira el watchdog de heartbeat.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:125</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a15fd01ddb4c75098fb8de46c5fac7e91"><div class="ttname"><a href="class_serial_manager.html#a15fd01ddb4c75098fb8de46c5fac7e91">SerialManager::sendStart</a></div><div class="ttdeci">void sendStart(Uner::TipoCaja s0, Uner::TipoCaja s1, Uner::TipoCaja s2)</div><div class="ttdoc">Envía el comando de inicio del clasificador (0x50).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:75</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a1bf39fdb897211849981c9fa6790ccac"><div class="ttname"><a href="class_serial_manager.html#a1bf39fdb897211849981c9fa6790ccac">SerialManager::open</a></div><div class="ttdeci">bool open(const QString &amp;portName, qint32 baud=DEFAULT_BAUD)</div><div class="ttdoc">Abre el puerto serie especificado.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:28</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a281981027f9aa6ab540c19586041232c"><div class="ttname"><a href="class_serial_manager.html#a281981027f9aa6ab540c19586041232c">SerialManager::close</a></div><div class="ttdeci">void close()</div><div class="ttdoc">Cierra el puerto serie y detiene el watchdog.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:49</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a2b96975d8838b2f3a83ddc00fe9dc2bd"><div class="ttname"><a href="class_serial_manager.html#a2b96975d8838b2f3a83ddc00fe9dc2bd">SerialManager::~SerialManager</a></div><div class="ttdeci">~SerialManager() override</div><div class="ttdoc">Destructor – cierra el puerto si está abierto.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:26</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a35c3260cdd251e6628824ff41fb1deee"><div class="ttname"><a href="class_serial_manager.html#a35c3260cdd251e6628824ff41fb1deee">SerialManager::disconnected</a></div><div class="ttdeci">void disconnected()</div><div class="ttdoc">Se emite cuando el puerto serie se cierra correctamente.</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a38fa6e820d63dd624c8cd19f5c7c9fb9"><div class="ttname"><a href="class_serial_manager.html#a38fa6e820d63dd624c8cd19f5c7c9fb9">SerialManager::sensorIrActualizado</a></div><div class="ttdeci">void sensorIrActualizado(uint8_t outNum, bool activo)</div><div class="ttdoc">Se emite cuando cambia el estado de un sensor IR (0x5E).</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a39ca559f5c27d29c3b45d00f184b7975"><div class="ttname"><a href="class_serial_manager.html#a39ca559f5c27d29c3b45d00f184b7975">SerialManager::onSerialError</a></div><div class="ttdeci">void onSerialError(QSerialPort::SerialPortError error)</div><div class="ttdoc">Slot invocado ante errores del QSerialPort.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:115</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a3f3113d08a283e9253bce08074b0962a"><div class="ttname"><a href="class_serial_manager.html#a3f3113d08a283e9253bce08074b0962a">SerialManager::onFrameReceived</a></div><div class="ttdeci">void onFrameReceived(const Uner::Frame &amp;frame)</div><div class="ttdoc">Slot invocado por UnerProtocol cuando llega una trama decodificada.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:131</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a420e78a97531f6b6ad698c8c016f4b73"><div class="ttname"><a href="class_serial_manager.html#a420e78a97531f6b6ad698c8c016f4b73">SerialManager::sendTrigger</a></div><div class="ttdeci">void sendTrigger()</div><div class="ttdoc">Envía un disparo de trigger del HC-SR04 (0x61, sin payload).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:86</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a48012723aff97c1cd60eb5dd0f4d1f4c"><div class="ttname"><a href="class_serial_manager.html#a48012723aff97c1cd60eb5dd0f4d1f4c">SerialManager::dispatchFrame</a></div><div class="ttdeci">void dispatchFrame(const Uner::Frame &amp;frame)</div><div class="ttdoc">Despacha una trama decodificada a la señal apropiada.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:138</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a4c37e46fdace2987034668b81e9cee19"><div class="ttname"><a href="class_serial_manager.html#a4c37e46fdace2987034668b81e9cee19">SerialManager::isOpen</a></div><div class="ttdeci">bool isOpen() const</div><div class="ttdoc">Indica si el puerto está actualmente abierto.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:56</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a4c410199582498ad63f7267eca103e2c"><div class="ttname"><a href="class_serial_manager.html#a4c410199582498ad63f7267eca103e2c">SerialManager::m_serial</a></div><div class="ttdeci">QSerialPort * m_serial</div><div class="ttdoc">Puerto serie Qt.</div><div class="ttdef"><b>Definition</b> SerialManager.h:225</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a5971d65e88f270812b9c4f39185c8f12"><div class="ttname"><a href="class_serial_manager.html#a5971d65e88f270812b9c4f39185c8f12">SerialManager::brazoActuado</a></div><div class="ttdeci">void brazoActuado(uint8_t servoIdx)</div><div class="ttdoc">Se emite cuando el MCU activa un brazo actuador (0x52).</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a5d218707ed6b1b1c31b3e55ca11f8079"><div class="ttname"><a href="class_serial_manager.html#a5d218707ed6b1b1c31b3e55ca11f8079">SerialManager::m_protocol</a></div><div class="ttdeci">UnerProtocol * m_protocol</div><div class="ttdoc">Parser/encoder del protocolo UNER.</div><div class="ttdef"><b>Definition</b> SerialManager.h:226</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a7c134a1ca1df92b64e2b14c4dfbfc70d"><div class="ttname"><a href="class_serial_manager.html#a7c134a1ca1df92b64e2b14c4dfbfc70d">SerialManager::availablePorts</a></div><div class="ttdeci">static QStringList availablePorts()</div><div class="ttdoc">Lista los puertos serie disponibles en el sistema.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:59</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a8b899ebe90cce007f3eba9916930f3b0"><div class="ttname"><a href="class_serial_manager.html#a8b899ebe90cce007f3eba9916930f3b0">SerialManager::frameReady</a></div><div class="ttdeci">void frameReady(const Uner::Frame &amp;frame)</div><div class="ttdoc">Se emite para cada trama decodificada (señal de bajo nivel).</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a90c9a1b403d3f61470bf8fc2418183b1"><div class="ttname"><a href="class_serial_manager.html#a90c9a1b403d3f61470bf8fc2418183b1">SerialManager::sendBlindDist</a></div><div class="ttdeci">void sendBlindDist(const Uner::CiegoDistancias &amp;cfg, uint8_t numBytes=4)</div><div class="ttdoc">Envía la configuración de modo ciego y distancias (0x60).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:83</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a927114c12f09c17bee2d2ea0ccc15bb0"><div class="ttname"><a href="class_serial_manager.html#a927114c12f09c17bee2d2ea0ccc15bb0">SerialManager::HEARTBEAT_TIMEOUT_MS</a></div><div class="ttdeci">static constexpr int HEARTBEAT_TIMEOUT_MS</div><div class="ttdoc">Tiempo máximo sin recibir heartbeat antes de emitir connectionLost (ms).</div><div class="ttdef"><b>Definition</b> SerialManager.h:38</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a977d89604b4159656e8052a05a2a5dd0"><div class="ttname"><a href="class_serial_manager.html#a977d89604b4159656e8052a05a2a5dd0">SerialManager::sendRaw</a></div><div class="ttdeci">void sendRaw(const QByteArray &amp;frame)</div><div class="ttdoc">Envía una trama ya construida directamente al puerto.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:67</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a9b3cd79603c051d48e2c88ad4f29225f"><div class="ttname"><a href="class_serial_manager.html#a9b3cd79603c051d48e2c88ad4f29225f">SerialManager::errorOccurred</a></div><div class="ttdeci">void errorOccurred(const QString &amp;msg)</div><div class="ttdoc">Se emite ante un error del QSerialPort.</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a9bdc52f0e51b29d0d4f5a2585a98cda8"><div class="ttname"><a href="class_serial_manager.html#a9bdc52f0e51b29d0d4f5a2585a98cda8">SerialManager::sendAnchoCaja</a></div><div class="ttdeci">void sendAnchoCaja(uint8_t anchoCm)</div><div class="ttdoc">Envía el ancho de la caja de referencia (0x62).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:89</div></div>
+<div class="ttc" id="aclass_serial_manager_html_aa2d090c2f7dc822a3fb1f3ac432abd0d"><div class="ttname"><a href="class_serial_manager.html#aa2d090c2f7dc822a3fb1f3ac432abd0d">SerialManager::SerialManager</a></div><div class="ttdeci">SerialManager(QObject *parent=nullptr)</div><div class="ttdoc">Construye el SerialManager.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:8</div></div>
+<div class="ttc" id="aclass_serial_manager_html_aa8f14189331d7d377e1c8955e0fc5a92"><div class="ttname"><a href="class_serial_manager.html#aa8f14189331d7d377e1c8955e0fc5a92">SerialManager::connected</a></div><div class="ttdeci">void connected(const QString &amp;port)</div><div class="ttdoc">Se emite cuando el puerto serie se conecta exitosamente.</div></div>
+<div class="ttc" id="aclass_serial_manager_html_aab55b5999fd9371a4a9634f190b2943b"><div class="ttname"><a href="class_serial_manager.html#aab55b5999fd9371a4a9634f190b2943b">SerialManager::sendCalibracion</a></div><div class="ttdeci">void sendCalibracion(const Uner::CalibracionCfg &amp;cfg)</div><div class="ttdoc">Envía la calibración completa del sensor (0x63).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:92</div></div>
+<div class="ttc" id="aclass_serial_manager_html_aaba43a056cb5a164c373161afa0c9234"><div class="ttname"><a href="class_serial_manager.html#aaba43a056cb5a164c373161afa0c9234">SerialManager::sendStop</a></div><div class="ttdeci">void sendStop()</div><div class="ttdoc">Envía el comando de detención (0x51).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:78</div></div>
+<div class="ttc" id="aclass_serial_manager_html_aac64f8999d245cb0232947acb7c17213"><div class="ttname"><a href="class_serial_manager.html#aac64f8999d245cb0232947acb7c17213">SerialManager::sendIrDebounce</a></div><div class="ttdeci">void sendIrDebounce(uint8_t debounce)</div><div class="ttdoc">Envía el tiempo de debounce de los sensores IR (0x66).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:101</div></div>
+<div class="ttc" id="aclass_serial_manager_html_aae090ab68f6d5b3d213f7e1d53140217"><div class="ttname"><a href="class_serial_manager.html#aae090ab68f6d5b3d213f7e1d53140217">SerialManager::currentPort</a></div><div class="ttdeci">QString currentPort() const</div><div class="ttdoc">Nombre del puerto actualmente abierto.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:57</div></div>
+<div class="ttc" id="aclass_serial_manager_html_ab1b59e460773686f62bf149b44475eab"><div class="ttname"><a href="class_serial_manager.html#ab1b59e460773686f62bf149b44475eab">SerialManager::onDataReady</a></div><div class="ttdeci">void onDataReady()</div><div class="ttdoc">Slot invocado cuando hay datos disponibles en el puerto.</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:108</div></div>
+<div class="ttc" id="aclass_serial_manager_html_abdb8b9d0efc962b0c203bdcd380c9d0b"><div class="ttname"><a href="class_serial_manager.html#abdb8b9d0efc962b0c203bdcd380c9d0b">SerialManager::cajaMedida</a></div><div class="ttdeci">void cajaMedida(uint8_t alturaCm)</div><div class="ttdoc">Se emite cuando el MCU detecta una caja (0x5F).</div></div>
+<div class="ttc" id="aclass_serial_manager_html_ac025e98df7f822ed79dd84fbfd9ff760"><div class="ttname"><a href="class_serial_manager.html#ac025e98df7f822ed79dd84fbfd9ff760">SerialManager::sendHcsr04Cfg</a></div><div class="ttdeci">void sendHcsr04Cfg(const Uner::Hcsr04Cfg &amp;cfg)</div><div class="ttdoc">Envía la configuración del sensor HC-SR04 (0x64).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:95</div></div>
+<div class="ttc" id="aclass_serial_manager_html_ac83ee453af942d7bea7deb338774f019"><div class="ttname"><a href="class_serial_manager.html#ac83ee453af942d7bea7deb338774f019">SerialManager::sendSg90Cfg</a></div><div class="ttdeci">void sendSg90Cfg(const Uner::Sg90Cfg &amp;cfg)</div><div class="ttdoc">Envía la configuración del servo SG90 (0x65).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:98</div></div>
+<div class="ttc" id="aclass_serial_manager_html_accfccf549d794bf550a94e190ab6c31c"><div class="ttname"><a href="class_serial_manager.html#accfccf549d794bf550a94e190ab6c31c">SerialManager::sendVelocidad</a></div><div class="ttdeci">void sendVelocidad(uint8_t velIdx)</div><div class="ttdoc">Envía el índice de velocidad de la cinta (0x54).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:80</div></div>
+<div class="ttc" id="aclass_serial_manager_html_ad464ee521bbe5507d7a51ea85ed1b71c"><div class="ttname"><a href="class_serial_manager.html#ad464ee521bbe5507d7a51ea85ed1b71c">SerialManager::connectionLost</a></div><div class="ttdeci">void connectionLost()</div><div class="ttdoc">Se emite cuando el watchdog de heartbeat expira (7 s sin 0xF0).</div></div>
+<div class="ttc" id="aclass_serial_manager_html_ae846c1325ee7a5fc429b85c15ced9a4c"><div class="ttname"><a href="class_serial_manager.html#ae846c1325ee7a5fc429b85c15ced9a4c">SerialManager::sendReset</a></div><div class="ttdeci">void sendReset()</div><div class="ttdoc">Envía el comando de reset (0x53).</div><div class="ttdef"><b>Definition</b> SerialManager.cpp:79</div></div>
+<div class="ttc" id="aclass_serial_manager_html_af373e7864feb43dbb301013f18da400f"><div class="ttname"><a href="class_serial_manager.html#af373e7864feb43dbb301013f18da400f">SerialManager::aliveReceived</a></div><div class="ttdeci">void aliveReceived()</div><div class="ttdoc">Se emite cuando se recibe un heartbeat 0xF0 del MCU.</div></div>
+<div class="ttc" id="aclass_serial_manager_html_afad30fe1617bd4993e1ffe0c94b1e38c"><div class="ttname"><a href="class_serial_manager.html#afad30fe1617bd4993e1ffe0c94b1e38c">SerialManager::m_heartbeatTimer</a></div><div class="ttdeci">QTimer * m_heartbeatTimer</div><div class="ttdoc">Watchdog de heartbeat.</div><div class="ttdef"><b>Definition</b> SerialManager.h:227</div></div>
+<div class="ttc" id="aclass_uner_protocol_html"><div class="ttname"><a href="class_uner_protocol.html">UnerProtocol</a></div><div class="ttdoc">Codificador y decodificador de tramas del protocolo UNER.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:220</div></div>
+<div class="ttc" id="anamespace_uner_html_a00367a55e50e11f85f8f665d6d76f1c3"><div class="ttname"><a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a></div><div class="ttdeci">TipoCaja</div><div class="ttdoc">Identificador del tipo de caja según su altura medida en cm.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:101</div></div>
+<div class="ttc" id="astruct_uner_1_1_calibracion_cfg_html"><div class="ttname"><a href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a></div><div class="ttdoc">Datos para el comando 0x63 – Calibración.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:141</div></div>
+<div class="ttc" id="astruct_uner_1_1_ciego_distancias_html"><div class="ttname"><a href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a></div><div class="ttdoc">Datos para el comando 0x60 – Modo ciego y distancias.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:130</div></div>
+<div class="ttc" id="astruct_uner_1_1_frame_html"><div class="ttname"><a href="struct_uner_1_1_frame.html">Uner::Frame</a></div><div class="ttdoc">Trama decodificada del protocolo UNER.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:115</div></div>
+<div class="ttc" id="astruct_uner_1_1_hcsr04_cfg_html"><div class="ttname"><a href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a></div><div class="ttdoc">Datos para el comando 0x64 – Configuración del sensor HC-SR04.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:154</div></div>
+<div class="ttc" id="astruct_uner_1_1_sg90_cfg_html"><div class="ttname"><a href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a></div><div class="ttdoc">Datos para el comando 0x65 – Configuración del servo SG90.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:165</div></div>
+<div class="ttc" id="astruct_uner_1_1_timers_cfg_html"><div class="ttname"><a href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a></div><div class="ttdoc">Datos para el comando 0x67 – Timers y configuraciones generales.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:179</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_f83c429584914f285e07e7f54890e179.html">comunicacion</a></li><li class="navelem"><a href="_serial_manager_8h.html">SerialManager.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

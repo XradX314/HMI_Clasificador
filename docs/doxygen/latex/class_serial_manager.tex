@@ -1,0 +1,666 @@
+\doxysection{Referencia de la clase Serial\+Manager}
+\hypertarget{class_serial_manager}{}\label{class_serial_manager}\index{SerialManager@{SerialManager}}
+
+
+Gestiona la conexión serie y el ciclo de vida del protocolo UNER.  
+
+
+
+
+{\ttfamily \+\#include $<$Serial\+Manager.\+h$>$}
+
+Diagrama de herencia de Serial\+Manager\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_serial_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Señales}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_serial_manager_aa8f14189331d7d377e1c8955e0fc5a92}{connected}} (const QString \&port)
+\begin{DoxyCompactList}\small\item\em Se emite cuando el puerto serie se conecta exitosamente. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a35c3260cdd251e6628824ff41fb1deee}{disconnected}} ()
+\begin{DoxyCompactList}\small\item\em Se emite cuando el puerto serie se cierra correctamente. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_ad464ee521bbe5507d7a51ea85ed1b71c}{connection\+Lost}} ()
+\begin{DoxyCompactList}\small\item\em Se emite cuando el watchdog de heartbeat expira (7 s sin 0x\+F0). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a9b3cd79603c051d48e2c88ad4f29225f}{error\+Occurred}} (const QString \&msg)
+\begin{DoxyCompactList}\small\item\em Se emite ante un error del QSerial\+Port. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a8b899ebe90cce007f3eba9916930f3b0}{frame\+Ready}} (const \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::\+\+Frame}} \&frame)
+\begin{DoxyCompactList}\small\item\em Se emite para cada trama decodificada (señal de bajo nivel). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_af373e7864feb43dbb301013f18da400f}{alive\+Received}} ()
+\begin{DoxyCompactList}\small\item\em Se emite cuando se recibe un heartbeat 0x\+F0 del MCU. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_abdb8b9d0efc962b0c203bdcd380c9d0b}{caja\+Medida}} (uint8\+\_\+t altura\+Cm)
+\begin{DoxyCompactList}\small\item\em Se emite cuando el MCU detecta una caja (0x5F). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a38fa6e820d63dd624c8cd19f5c7c9fb9}{sensor\+Ir\+Actualizado}} (uint8\+\_\+t out\+Num, bool activo)
+\begin{DoxyCompactList}\small\item\em Se emite cuando cambia el estado de un sensor IR (0x5E). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a5971d65e88f270812b9c4f39185c8f12}{brazo\+Actuado}} (uint8\+\_\+t servo\+Idx)
+\begin{DoxyCompactList}\small\item\em Se emite cuando el MCU activa un brazo actuador (0x52). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_serial_manager_aa2d090c2f7dc822a3fb1f3ac432abd0d}{Serial\+Manager}} (QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Construye el \doxylink{class_serial_manager}{Serial\+Manager}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_serial_manager_a2b96975d8838b2f3a83ddc00fe9dc2bd}{\texorpdfstring{$\sim$}{\string~}\+Serial\+Manager}} () override
+\begin{DoxyCompactList}\small\item\em Destructor – cierra el puerto si está abierto. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_serial_manager_a1bf39fdb897211849981c9fa6790ccac}{open}} (const QString \&port\+Name, qint32 baud=\doxymbox{\hyperlink{class_serial_manager_a0ed36f65dd2e04e21e8d886726f96e05}{DEFAULT\+\_\+\+BAUD}})
+\begin{DoxyCompactList}\small\item\em Abre el puerto serie especificado. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a281981027f9aa6ab540c19586041232c}{close}} ()
+\begin{DoxyCompactList}\small\item\em Cierra el puerto serie y detiene el watchdog. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_serial_manager_a4c37e46fdace2987034668b81e9cee19}{is\+Open}} () const
+\begin{DoxyCompactList}\small\item\em Indica si el puerto está actualmente abierto. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{class_serial_manager_aae090ab68f6d5b3d213f7e1d53140217}{current\+Port}} () const
+\begin{DoxyCompactList}\small\item\em Nombre del puerto actualmente abierto. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a15fd01ddb4c75098fb8de46c5fac7e91}{send\+Start}} (\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}} s0, \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}} s1, \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}} s2)
+\begin{DoxyCompactList}\small\item\em Envía el comando de inicio del clasificador (0x50). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_aaba43a056cb5a164c373161afa0c9234}{send\+Stop}} ()
+\begin{DoxyCompactList}\small\item\em Envía el comando de detención (0x51). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_ae846c1325ee7a5fc429b85c15ced9a4c}{send\+Reset}} ()
+\begin{DoxyCompactList}\small\item\em Envía el comando de reset (0x53). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_accfccf549d794bf550a94e190ab6c31c}{send\+Velocidad}} (uint8\+\_\+t vel\+Idx)
+\begin{DoxyCompactList}\small\item\em Envía el índice de velocidad de la cinta (0x54). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a90c9a1b403d3f61470bf8fc2418183b1}{send\+Blind\+Dist}} (const \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{Uner::\+\+Ciego\+Distancias}} \&cfg, uint8\+\_\+t num\+Bytes=4)
+\begin{DoxyCompactList}\small\item\em Envía la configuración de modo ciego y distancias (0x60). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a420e78a97531f6b6ad698c8c016f4b73}{send\+Trigger}} ()
+\begin{DoxyCompactList}\small\item\em Envía un disparo de trigger del HC-\/\+SR04 (0x61, sin payload). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a9bdc52f0e51b29d0d4f5a2585a98cda8}{send\+Ancho\+Caja}} (uint8\+\_\+t ancho\+Cm)
+\begin{DoxyCompactList}\small\item\em Envía el ancho de la caja de referencia (0x62). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_aab55b5999fd9371a4a9634f190b2943b}{send\+Calibracion}} (const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Envía la calibración completa del sensor (0x63). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_ac025e98df7f822ed79dd84fbfd9ff760}{send\+Hcsr04\+Cfg}} (const \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Uner::\+\+Hcsr04\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Envía la configuración del sensor HC-\/\+SR04 (0x64). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_ac83ee453af942d7bea7deb338774f019}{send\+Sg90\+Cfg}} (const \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Uner::\+\+Sg90\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Envía la configuración del servo SG90 (0x65). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_aac64f8999d245cb0232947acb7c17213}{send\+Ir\+Debounce}} (uint8\+\_\+t debounce)
+\begin{DoxyCompactList}\small\item\em Envía el tiempo de debounce de los sensores IR (0x66). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a0cbe9fedcac42e0eaa885e1d871080e6}{send\+Timers\+Cfg}} (const \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Uner::\+\+Timers\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Envía timers generales y alturas de caja (0x67). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a977d89604b4159656e8052a05a2a5dd0}{send\+Raw}} (const QByte\+Array \&frame)
+\begin{DoxyCompactList}\small\item\em Envía una trama ya construida directamente al puerto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static QString\+List \doxymbox{\hyperlink{class_serial_manager_a7c134a1ca1df92b64e2b14c4dfbfc70d}{available\+Ports}} ()
+\begin{DoxyCompactList}\small\item\em Lista los puertos serie disponibles en el sistema. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr qint32 \doxymbox{\hyperlink{class_serial_manager_a0ed36f65dd2e04e21e8d886726f96e05}{DEFAULT\+\_\+\+BAUD}} = 9600
+\begin{DoxyCompactList}\small\item\em Velocidad de baudios por defecto. \end{DoxyCompactList}\item 
+static constexpr int \doxymbox{\hyperlink{class_serial_manager_a927114c12f09c17bee2d2ea0ccc15bb0}{HEARTBEAT\+\_\+\+TIMEOUT\+\_\+\+MS}} = 7000
+\begin{DoxyCompactList}\small\item\em Tiempo máximo sin recibir heartbeat antes de emitir connection\+Lost (ms). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_serial_manager_ab1b59e460773686f62bf149b44475eab}{on\+Data\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Slot invocado cuando hay datos disponibles en el puerto. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a39ca559f5c27d29c3b45d00f184b7975}{on\+Serial\+Error}} (QSerial\+Port::\+\+Serial\+Port\+Error error)
+\begin{DoxyCompactList}\small\item\em Slot invocado ante errores del QSerial\+Port. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a10633a8286337ba6aa78f75f08d0dbee}{on\+Heartbeat\+Timeout}} ()
+\begin{DoxyCompactList}\small\item\em Slot invocado cuando expira el watchdog de heartbeat. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_serial_manager_a3f3113d08a283e9253bce08074b0962a}{on\+Frame\+Received}} (const \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::\+\+Frame}} \&frame)
+\begin{DoxyCompactList}\small\item\em Slot invocado por \doxylink{class_uner_protocol}{Uner\+Protocol} cuando llega una trama decodificada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_serial_manager_a48012723aff97c1cd60eb5dd0f4d1f4c}{dispatch\+Frame}} (const \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::\+\+Frame}} \&frame)
+\begin{DoxyCompactList}\small\item\em Despacha una trama decodificada a la señal apropiada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+QSerial\+Port \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_serial_manager_a4c410199582498ad63f7267eca103e2c}{m\+\_\+serial}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Puerto serie Qt. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_uner_protocol}{Uner\+Protocol}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_serial_manager_a5d218707ed6b1b1c31b3e55ca11f8079}{m\+\_\+protocol}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Parser/\+encoder del protocolo UNER. \end{DoxyCompactList}\item 
+QTimer \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_serial_manager_afad30fe1617bd4993e1ffe0c94b1e38c}{m\+\_\+heartbeat\+Timer}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Watchdog de heartbeat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Gestiona la conexión serie y el ciclo de vida del protocolo UNER. 
+
+Responsabilidades:\+
+\begin{DoxyItemize}
+\item Abrir y cerrar el QSerial\+Port con los parámetros correctos (8N1).
+\item Reenviar bytes recibidos al \doxylink{class_uner_protocol}{Uner\+Protocol} para su decodificación.
+\item Mantener el watchdog de heartbeat (timeout 7 s).
+\item Exponer métodos de envío tipados para cada comando del protocolo.
+\item Emitir señales de alto nivel cuando llegan tramas del MCU. 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{class_serial_manager_doc-constructors}
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_serial_manager_aa2d090c2f7dc822a3fb1f3ac432abd0d}\index{SerialManager@{SerialManager}!SerialManager@{SerialManager}}
+\index{SerialManager@{SerialManager}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{SerialManager()}{SerialManager()}}
+{\footnotesize\ttfamily \label{class_serial_manager_aa2d090c2f7dc822a3fb1f3ac432abd0d} 
+Serial\+Manager::\+\+Serial\+Manager (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construye el \doxylink{class_serial_manager}{Serial\+Manager}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em parent} & Objeto padre Qt (o nullptr). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a2b96975d8838b2f3a83ddc00fe9dc2bd}\index{SerialManager@{SerialManager}!````~SerialManager@{\texorpdfstring{$\sim$}{\string~}SerialManager}}
+\index{````~SerialManager@{\texorpdfstring{$\sim$}{\string~}SerialManager}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SerialManager()}{\string~SerialManager()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a2b96975d8838b2f3a83ddc00fe9dc2bd} 
+Serial\+Manager::\+\texorpdfstring{$\sim$}{\string~}\+Serial\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor – cierra el puerto si está abierto. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_serial_manager_doc-func-members}
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_serial_manager_af373e7864feb43dbb301013f18da400f}\index{SerialManager@{SerialManager}!aliveReceived@{aliveReceived}}
+\index{aliveReceived@{aliveReceived}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{aliveReceived}{aliveReceived}}
+{\footnotesize\ttfamily \label{class_serial_manager_af373e7864feb43dbb301013f18da400f} 
+void Serial\+Manager::\+alive\+Received (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando se recibe un heartbeat 0x\+F0 del MCU. 
+
+\Hypertarget{class_serial_manager_a7c134a1ca1df92b64e2b14c4dfbfc70d}\index{SerialManager@{SerialManager}!availablePorts@{availablePorts}}
+\index{availablePorts@{availablePorts}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{availablePorts()}{availablePorts()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a7c134a1ca1df92b64e2b14c4dfbfc70d} 
+QString\+List Serial\+Manager::\+available\+Ports (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Lista los puertos serie disponibles en el sistema. 
+
+\begin{DoxyReturn}{Devuelve}
+Lista de nombres de puertos (ej. \+["{}\+COM1"{}, "{}\+COM3"{}]\+). 
+\end{DoxyReturn}
+\Hypertarget{class_serial_manager_a5971d65e88f270812b9c4f39185c8f12}\index{SerialManager@{SerialManager}!brazoActuado@{brazoActuado}}
+\index{brazoActuado@{brazoActuado}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{brazoActuado}{brazoActuado}}
+{\footnotesize\ttfamily \label{class_serial_manager_a5971d65e88f270812b9c4f39185c8f12} 
+void Serial\+Manager::\+brazo\+Actuado (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{servo\+Idx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando el MCU activa un brazo actuador (0x52). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em servo\+Idx} & Índice del servo actuado (0–2). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_abdb8b9d0efc962b0c203bdcd380c9d0b}\index{SerialManager@{SerialManager}!cajaMedida@{cajaMedida}}
+\index{cajaMedida@{cajaMedida}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{cajaMedida}{cajaMedida}}
+{\footnotesize\ttfamily \label{class_serial_manager_abdb8b9d0efc962b0c203bdcd380c9d0b} 
+void Serial\+Manager::\+caja\+Medida (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{altura\+Cm}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando el MCU detecta una caja (0x5F). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em altura\+Cm} & Altura medida en centímetros. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a281981027f9aa6ab540c19586041232c}\index{SerialManager@{SerialManager}!close@{close}}
+\index{close@{close}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a281981027f9aa6ab540c19586041232c} 
+void Serial\+Manager::\+close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Cierra el puerto serie y detiene el watchdog. 
+
+\Hypertarget{class_serial_manager_aa8f14189331d7d377e1c8955e0fc5a92}\index{SerialManager@{SerialManager}!connected@{connected}}
+\index{connected@{connected}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{connected}{connected}}
+{\footnotesize\ttfamily \label{class_serial_manager_aa8f14189331d7d377e1c8955e0fc5a92} 
+void Serial\+Manager::\+connected (\begin{DoxyParamCaption}\item[{const QString \&}]{port}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando el puerto serie se conecta exitosamente. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em port} & Nombre del puerto abierto. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_ad464ee521bbe5507d7a51ea85ed1b71c}\index{SerialManager@{SerialManager}!connectionLost@{connectionLost}}
+\index{connectionLost@{connectionLost}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{connectionLost}{connectionLost}}
+{\footnotesize\ttfamily \label{class_serial_manager_ad464ee521bbe5507d7a51ea85ed1b71c} 
+void Serial\+Manager::\+connection\+Lost (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando el watchdog de heartbeat expira (7 s sin 0x\+F0). 
+
+\Hypertarget{class_serial_manager_aae090ab68f6d5b3d213f7e1d53140217}\index{SerialManager@{SerialManager}!currentPort@{currentPort}}
+\index{currentPort@{currentPort}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{currentPort()}{currentPort()}}
+{\footnotesize\ttfamily \label{class_serial_manager_aae090ab68f6d5b3d213f7e1d53140217} 
+QString Serial\+Manager::\+current\+Port (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Nombre del puerto actualmente abierto. 
+
+\begin{DoxyReturn}{Devuelve}
+Nombre del puerto, o cadena vacía si no está conectado. 
+\end{DoxyReturn}
+\Hypertarget{class_serial_manager_a35c3260cdd251e6628824ff41fb1deee}\index{SerialManager@{SerialManager}!disconnected@{disconnected}}
+\index{disconnected@{disconnected}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{disconnected}{disconnected}}
+{\footnotesize\ttfamily \label{class_serial_manager_a35c3260cdd251e6628824ff41fb1deee} 
+void Serial\+Manager::\+disconnected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando el puerto serie se cierra correctamente. 
+
+\Hypertarget{class_serial_manager_a48012723aff97c1cd60eb5dd0f4d1f4c}\index{SerialManager@{SerialManager}!dispatchFrame@{dispatchFrame}}
+\index{dispatchFrame@{dispatchFrame}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{dispatchFrame()}{dispatchFrame()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a48012723aff97c1cd60eb5dd0f4d1f4c} 
+void Serial\+Manager::\+dispatch\+Frame (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::\+\+Frame}} \&}]{frame}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Despacha una trama decodificada a la señal apropiada. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em frame} & Trama a despachar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a9b3cd79603c051d48e2c88ad4f29225f}\index{SerialManager@{SerialManager}!errorOccurred@{errorOccurred}}
+\index{errorOccurred@{errorOccurred}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{errorOccurred}{errorOccurred}}
+{\footnotesize\ttfamily \label{class_serial_manager_a9b3cd79603c051d48e2c88ad4f29225f} 
+void Serial\+Manager::\+error\+Occurred (\begin{DoxyParamCaption}\item[{const QString \&}]{msg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite ante un error del QSerial\+Port. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em msg} & Descripción del error. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a8b899ebe90cce007f3eba9916930f3b0}\index{SerialManager@{SerialManager}!frameReady@{frameReady}}
+\index{frameReady@{frameReady}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{frameReady}{frameReady}}
+{\footnotesize\ttfamily \label{class_serial_manager_a8b899ebe90cce007f3eba9916930f3b0} 
+void Serial\+Manager::\+frame\+Ready (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::\+\+Frame}} \&}]{frame}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite para cada trama decodificada (señal de bajo nivel). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em frame} & Trama recibida. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a4c37e46fdace2987034668b81e9cee19}\index{SerialManager@{SerialManager}!isOpen@{isOpen}}
+\index{isOpen@{isOpen}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{isOpen()}{isOpen()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a4c37e46fdace2987034668b81e9cee19} 
+bool Serial\+Manager::\+is\+Open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Indica si el puerto está actualmente abierto. 
+
+\begin{DoxyReturn}{Devuelve}
+true si el puerto está abierto. 
+\end{DoxyReturn}
+\Hypertarget{class_serial_manager_ab1b59e460773686f62bf149b44475eab}\index{SerialManager@{SerialManager}!onDataReady@{onDataReady}}
+\index{onDataReady@{onDataReady}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{onDataReady}{onDataReady}}
+{\footnotesize\ttfamily \label{class_serial_manager_ab1b59e460773686f62bf149b44475eab} 
+void Serial\+Manager::\+on\+Data\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot invocado cuando hay datos disponibles en el puerto. 
+
+\Hypertarget{class_serial_manager_a3f3113d08a283e9253bce08074b0962a}\index{SerialManager@{SerialManager}!onFrameReceived@{onFrameReceived}}
+\index{onFrameReceived@{onFrameReceived}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{onFrameReceived}{onFrameReceived}}
+{\footnotesize\ttfamily \label{class_serial_manager_a3f3113d08a283e9253bce08074b0962a} 
+void Serial\+Manager::\+on\+Frame\+Received (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::\+\+Frame}} \&}]{frame}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot invocado por \doxylink{class_uner_protocol}{Uner\+Protocol} cuando llega una trama decodificada. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em frame} & Trama decodificada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a10633a8286337ba6aa78f75f08d0dbee}\index{SerialManager@{SerialManager}!onHeartbeatTimeout@{onHeartbeatTimeout}}
+\index{onHeartbeatTimeout@{onHeartbeatTimeout}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{onHeartbeatTimeout}{onHeartbeatTimeout}}
+{\footnotesize\ttfamily \label{class_serial_manager_a10633a8286337ba6aa78f75f08d0dbee} 
+void Serial\+Manager::\+on\+Heartbeat\+Timeout (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot invocado cuando expira el watchdog de heartbeat. 
+
+\Hypertarget{class_serial_manager_a39ca559f5c27d29c3b45d00f184b7975}\index{SerialManager@{SerialManager}!onSerialError@{onSerialError}}
+\index{onSerialError@{onSerialError}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{onSerialError}{onSerialError}}
+{\footnotesize\ttfamily \label{class_serial_manager_a39ca559f5c27d29c3b45d00f184b7975} 
+void Serial\+Manager::\+on\+Serial\+Error (\begin{DoxyParamCaption}\item[{QSerial\+Port::\+\+Serial\+Port\+Error}]{error}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot invocado ante errores del QSerial\+Port. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em error} & Código de error del puerto. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a1bf39fdb897211849981c9fa6790ccac}\index{SerialManager@{SerialManager}!open@{open}}
+\index{open@{open}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a1bf39fdb897211849981c9fa6790ccac} 
+bool Serial\+Manager::\+open (\begin{DoxyParamCaption}\item[{const QString \&}]{port\+Name}{, }\item[{qint32}]{baud}{ = {\ttfamily \doxymbox{\hyperlink{class_serial_manager_a0ed36f65dd2e04e21e8d886726f96e05}{DEFAULT\+\_\+\+BAUD}}}}\end{DoxyParamCaption})}
+
+
+
+Abre el puerto serie especificado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em port\+Name} & Nombre del puerto (ej. "{}\+COM3"{} o "{}/\+dev/\+tty\+USB0"{}). \\
+\hline
+{\em baud} & Velocidad en baudios (por defecto DEFAULT\+\_\+\+BAUD). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true si el puerto se abrió correctamente, false en caso de error. 
+\end{DoxyReturn}
+\Hypertarget{class_serial_manager_a9bdc52f0e51b29d0d4f5a2585a98cda8}\index{SerialManager@{SerialManager}!sendAnchoCaja@{sendAnchoCaja}}
+\index{sendAnchoCaja@{sendAnchoCaja}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendAnchoCaja()}{sendAnchoCaja()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a9bdc52f0e51b29d0d4f5a2585a98cda8} 
+void Serial\+Manager::\+send\+Ancho\+Caja (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ancho\+Cm}{}\end{DoxyParamCaption})}
+
+
+
+Envía el ancho de la caja de referencia (0x62). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ancho\+Cm} & Ancho en centímetros. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a90c9a1b403d3f61470bf8fc2418183b1}\index{SerialManager@{SerialManager}!sendBlindDist@{sendBlindDist}}
+\index{sendBlindDist@{sendBlindDist}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendBlindDist()}{sendBlindDist()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a90c9a1b403d3f61470bf8fc2418183b1} 
+void Serial\+Manager::\+send\+Blind\+Dist (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{Uner::\+\+Ciego\+Distancias}} \&}]{cfg}{, }\item[{uint8\+\_\+t}]{num\+Bytes}{ = {\ttfamily 4}}\end{DoxyParamCaption})}
+
+
+
+Envía la configuración de modo ciego y distancias (0x60). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Modo ciego y distancias S0→salida. \\
+\hline
+{\em num\+Bytes} & Cantidad de bytes del payload (1–4). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_aab55b5999fd9371a4a9634f190b2943b}\index{SerialManager@{SerialManager}!sendCalibracion@{sendCalibracion}}
+\index{sendCalibracion@{sendCalibracion}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendCalibracion()}{sendCalibracion()}}
+{\footnotesize\ttfamily \label{class_serial_manager_aab55b5999fd9371a4a9634f190b2943b} 
+void Serial\+Manager::\+send\+Calibracion (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})}
+
+
+
+Envía la calibración completa del sensor (0x63). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Alturas de referencia, tolerancia y tiempos de brazo. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_ac025e98df7f822ed79dd84fbfd9ff760}\index{SerialManager@{SerialManager}!sendHcsr04Cfg@{sendHcsr04Cfg}}
+\index{sendHcsr04Cfg@{sendHcsr04Cfg}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendHcsr04Cfg()}{sendHcsr04Cfg()}}
+{\footnotesize\ttfamily \label{class_serial_manager_ac025e98df7f822ed79dd84fbfd9ff760} 
+void Serial\+Manager::\+send\+Hcsr04\+Cfg (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Uner::\+\+Hcsr04\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})}
+
+
+
+Envía la configuración del sensor HC-\/\+SR04 (0x64). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Pulso de trigger y timeout. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_aac64f8999d245cb0232947acb7c17213}\index{SerialManager@{SerialManager}!sendIrDebounce@{sendIrDebounce}}
+\index{sendIrDebounce@{sendIrDebounce}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendIrDebounce()}{sendIrDebounce()}}
+{\footnotesize\ttfamily \label{class_serial_manager_aac64f8999d245cb0232947acb7c17213} 
+void Serial\+Manager::\+send\+Ir\+Debounce (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{debounce}{}\end{DoxyParamCaption})}
+
+
+
+Envía el tiempo de debounce de los sensores IR (0x66). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em debounce} & Número de ticks de debounce. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a977d89604b4159656e8052a05a2a5dd0}\index{SerialManager@{SerialManager}!sendRaw@{sendRaw}}
+\index{sendRaw@{sendRaw}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendRaw()}{sendRaw()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a977d89604b4159656e8052a05a2a5dd0} 
+void Serial\+Manager::\+send\+Raw (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{frame}{}\end{DoxyParamCaption})}
+
+
+
+Envía una trama ya construida directamente al puerto. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em frame} & Trama UNER completa (resultado de \doxylink{class_uner_protocol_a8b626c4f488afaa3c6bc61fd8499deec}{Uner\+Protocol::\+encode()}). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_ae846c1325ee7a5fc429b85c15ced9a4c}\index{SerialManager@{SerialManager}!sendReset@{sendReset}}
+\index{sendReset@{sendReset}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendReset()}{sendReset()}}
+{\footnotesize\ttfamily \label{class_serial_manager_ae846c1325ee7a5fc429b85c15ced9a4c} 
+void Serial\+Manager::\+send\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Envía el comando de reset (0x53). 
+
+\Hypertarget{class_serial_manager_ac83ee453af942d7bea7deb338774f019}\index{SerialManager@{SerialManager}!sendSg90Cfg@{sendSg90Cfg}}
+\index{sendSg90Cfg@{sendSg90Cfg}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendSg90Cfg()}{sendSg90Cfg()}}
+{\footnotesize\ttfamily \label{class_serial_manager_ac83ee453af942d7bea7deb338774f019} 
+void Serial\+Manager::\+send\+Sg90\+Cfg (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Uner::\+\+Sg90\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})}
+
+
+
+Envía la configuración del servo SG90 (0x65). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Período, pulso mínimo, máximo y neutro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a15fd01ddb4c75098fb8de46c5fac7e91}\index{SerialManager@{SerialManager}!sendStart@{sendStart}}
+\index{sendStart@{sendStart}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendStart()}{sendStart()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a15fd01ddb4c75098fb8de46c5fac7e91} 
+void Serial\+Manager::\+send\+Start (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}}}]{s0}{, }\item[{\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}}}]{s1}{, }\item[{\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}}}]{s2}{}\end{DoxyParamCaption})}
+
+
+
+Envía el comando de inicio del clasificador (0x50). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em s0} & Tipo de caja para la salida 0. \\
+\hline
+{\em s1} & Tipo de caja para la salida 1. \\
+\hline
+{\em s2} & Tipo de caja para la salida 2. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_aaba43a056cb5a164c373161afa0c9234}\index{SerialManager@{SerialManager}!sendStop@{sendStop}}
+\index{sendStop@{sendStop}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendStop()}{sendStop()}}
+{\footnotesize\ttfamily \label{class_serial_manager_aaba43a056cb5a164c373161afa0c9234} 
+void Serial\+Manager::\+send\+Stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Envía el comando de detención (0x51). 
+
+\Hypertarget{class_serial_manager_a0cbe9fedcac42e0eaa885e1d871080e6}\index{SerialManager@{SerialManager}!sendTimersCfg@{sendTimersCfg}}
+\index{sendTimersCfg@{sendTimersCfg}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendTimersCfg()}{sendTimersCfg()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a0cbe9fedcac42e0eaa885e1d871080e6} 
+void Serial\+Manager::\+send\+Timers\+Cfg (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Uner::\+\+Timers\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})}
+
+
+
+Envía timers generales y alturas de caja (0x67). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Timers, ángulos de servo y alturas por tipo de caja. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a420e78a97531f6b6ad698c8c016f4b73}\index{SerialManager@{SerialManager}!sendTrigger@{sendTrigger}}
+\index{sendTrigger@{sendTrigger}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendTrigger()}{sendTrigger()}}
+{\footnotesize\ttfamily \label{class_serial_manager_a420e78a97531f6b6ad698c8c016f4b73} 
+void Serial\+Manager::\+send\+Trigger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Envía un disparo de trigger del HC-\/\+SR04 (0x61, sin payload). 
+
+\Hypertarget{class_serial_manager_accfccf549d794bf550a94e190ab6c31c}\index{SerialManager@{SerialManager}!sendVelocidad@{sendVelocidad}}
+\index{sendVelocidad@{sendVelocidad}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sendVelocidad()}{sendVelocidad()}}
+{\footnotesize\ttfamily \label{class_serial_manager_accfccf549d794bf550a94e190ab6c31c} 
+void Serial\+Manager::\+send\+Velocidad (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{vel\+Idx}{}\end{DoxyParamCaption})}
+
+
+
+Envía el índice de velocidad de la cinta (0x54). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em vel\+Idx} & Índice en el rango \+[1, 10]\+. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_serial_manager_a38fa6e820d63dd624c8cd19f5c7c9fb9}\index{SerialManager@{SerialManager}!sensorIrActualizado@{sensorIrActualizado}}
+\index{sensorIrActualizado@{sensorIrActualizado}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{sensorIrActualizado}{sensorIrActualizado}}
+{\footnotesize\ttfamily \label{class_serial_manager_a38fa6e820d63dd624c8cd19f5c7c9fb9} 
+void Serial\+Manager::\+sensor\+Ir\+Actualizado (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{out\+Num}{, }\item[{bool}]{activo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando cambia el estado de un sensor IR (0x5E). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em out\+Num} & Número de sensor (0–3). \\
+\hline
+{\em activo} & true si el sensor está activo (objeto detectado). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_serial_manager_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{class_serial_manager_a0ed36f65dd2e04e21e8d886726f96e05}\index{SerialManager@{SerialManager}!DEFAULT\_BAUD@{DEFAULT\_BAUD}}
+\index{DEFAULT\_BAUD@{DEFAULT\_BAUD}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_BAUD}{DEFAULT\_BAUD}}
+{\footnotesize\ttfamily \label{class_serial_manager_a0ed36f65dd2e04e21e8d886726f96e05} 
+qint32 Serial\+Manager::\+\+DEFAULT\+\_\+\+BAUD = 9600\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Velocidad de baudios por defecto. 
+
+\Hypertarget{class_serial_manager_a927114c12f09c17bee2d2ea0ccc15bb0}\index{SerialManager@{SerialManager}!HEARTBEAT\_TIMEOUT\_MS@{HEARTBEAT\_TIMEOUT\_MS}}
+\index{HEARTBEAT\_TIMEOUT\_MS@{HEARTBEAT\_TIMEOUT\_MS}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{HEARTBEAT\_TIMEOUT\_MS}{HEARTBEAT\_TIMEOUT\_MS}}
+{\footnotesize\ttfamily \label{class_serial_manager_a927114c12f09c17bee2d2ea0ccc15bb0} 
+int Serial\+Manager::\+\+HEARTBEAT\+\_\+\+TIMEOUT\+\_\+\+MS = 7000\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Tiempo máximo sin recibir heartbeat antes de emitir connection\+Lost (ms). 
+
+\Hypertarget{class_serial_manager_afad30fe1617bd4993e1ffe0c94b1e38c}\index{SerialManager@{SerialManager}!m\_heartbeatTimer@{m\_heartbeatTimer}}
+\index{m\_heartbeatTimer@{m\_heartbeatTimer}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{m\_heartbeatTimer}{m\_heartbeatTimer}}
+{\footnotesize\ttfamily \label{class_serial_manager_afad30fe1617bd4993e1ffe0c94b1e38c} 
+QTimer\texorpdfstring{$\ast$}{*} Serial\+Manager::\+m\+\_\+heartbeat\+Timer \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Watchdog de heartbeat. 
+
+\Hypertarget{class_serial_manager_a5d218707ed6b1b1c31b3e55ca11f8079}\index{SerialManager@{SerialManager}!m\_protocol@{m\_protocol}}
+\index{m\_protocol@{m\_protocol}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{m\_protocol}{m\_protocol}}
+{\footnotesize\ttfamily \label{class_serial_manager_a5d218707ed6b1b1c31b3e55ca11f8079} 
+\doxymbox{\hyperlink{class_uner_protocol}{Uner\+Protocol}}\texorpdfstring{$\ast$}{*} Serial\+Manager::\+m\+\_\+protocol \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parser/\+encoder del protocolo UNER. 
+
+\Hypertarget{class_serial_manager_a4c410199582498ad63f7267eca103e2c}\index{SerialManager@{SerialManager}!m\_serial@{m\_serial}}
+\index{m\_serial@{m\_serial}!SerialManager@{SerialManager}}
+\doxysubsubsection{\texorpdfstring{m\_serial}{m\_serial}}
+{\footnotesize\ttfamily \label{class_serial_manager_a4c410199582498ad63f7267eca103e2c} 
+QSerial\+Port\texorpdfstring{$\ast$}{*} Serial\+Manager::\+m\+\_\+serial \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Puerto serie Qt. 
+
+
+
+La documentación de esta clase está generada de los siguientes archivos:\+\begin{DoxyCompactItemize}
+\item 
+comunicacion/\+\doxymbox{\hyperlink{_serial_manager_8h}{Serial\+Manager.\+h}}\item 
+comunicacion/\+\doxymbox{\hyperlink{_serial_manager_8cpp}{Serial\+Manager.\+cpp}}\end{DoxyCompactItemize}

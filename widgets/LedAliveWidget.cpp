@@ -1,3 +1,7 @@
+/**
+ * @file LedAliveWidget.cpp
+ * @brief Implementación del widget indicador de heartbeat (CMD 0xF0).
+ */
 #include "LedAliveWidget.h"
 
 #include <QVBoxLayout>

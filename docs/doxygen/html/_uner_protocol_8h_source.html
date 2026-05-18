@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Archivo de código fuente comunicacion/UnerProtocol.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_uner_protocol_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UnerProtocol.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_uner_protocol_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;QByteArray&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">// ============================================================</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">//  Comandos del protocolo</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// ============================================================</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_uner.html">Uner</a> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespace_uner.html#a0aebedc2fd186a5b6d21a4bfb6d7a7a6">   38</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a0aebedc2fd186a5b6d21a4bfb6d7a7a6">CMD_ALIVE</a>         = 0xF0;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespace_uner.html#afca05993a41dd34585be0d705daa67a3">   41</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#afca05993a41dd34585be0d705daa67a3">CMD_START</a>         = 0x50;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespace_uner.html#a676495b26ba39b493ae36eaa733de8c7">   44</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a676495b26ba39b493ae36eaa733de8c7">CMD_STOP</a>          = 0x51;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespace_uner.html#ab814c2ae649f49d8527a8d3785d614f4">   47</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#ab814c2ae649f49d8527a8d3785d614f4">CMD_BRAZO</a>         = 0x52;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespace_uner.html#a15d208a58c117c92b26f05cb750118e2">   50</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a15d208a58c117c92b26f05cb750118e2">CMD_RESET</a>         = 0x53;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespace_uner.html#ab0cdd5372c8d3aa19cb2d519038c49c4">   53</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#ab0cdd5372c8d3aa19cb2d519038c49c4">CMD_VELOCIDAD</a>     = 0x54;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespace_uner.html#a0988bb6598ead433f995bb8539acedc8">   56</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a0988bb6598ead433f995bb8539acedc8">CMD_IR_STATE</a>      = 0x5E;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespace_uner.html#a413f855cf3558a82001e0325b0417854">   59</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a413f855cf3558a82001e0325b0417854">CMD_CAJA_DETECT</a>   = 0x5F;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespace_uner.html#a1507aabd82f9907634dafec5f6ea91a2">   62</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a1507aabd82f9907634dafec5f6ea91a2">CMD_BLIND_DIST</a>    = 0x60;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="namespace_uner.html#abd858d814c918aa8148613b285fbf1e3">   65</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#abd858d814c918aa8148613b285fbf1e3">CMD_TRIGGER</a>       = 0x61;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="namespace_uner.html#a5cdf753b6b5df75bc7f332d42c799f43">   68</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a5cdf753b6b5df75bc7f332d42c799f43">CMD_ANCHO_CAJA</a>    = 0x62;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="namespace_uner.html#adcc4635278729b1d54f55fd6193b7dd8">   71</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#adcc4635278729b1d54f55fd6193b7dd8">CMD_CALIBRACION</a>   = 0x63;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="namespace_uner.html#af5c34bd30e92c197c7ba38a958c65a7f">   74</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#af5c34bd30e92c197c7ba38a958c65a7f">CMD_HCSR04_CFG</a>    = 0x64;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="namespace_uner.html#a3e79d1598dc157214582591b25e2c06d">   77</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a3e79d1598dc157214582591b25e2c06d">CMD_SG90_CFG</a>      = 0x65;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="namespace_uner.html#a30aa9967810290ef066831b2c40249fa">   80</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a30aa9967810290ef066831b2c40249fa">CMD_IR_DEBOUNCE</a>   = 0x66;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="namespace_uner.html#ae0554b7119295ac2ab1ea48db2a00628">   83</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#ae0554b7119295ac2ab1ea48db2a00628">CMD_TIMERS_CFG</a>    = 0x67;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="namespace_uner.html#a91f24d7b9c68d250cb0417314fdf2979">   86</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a91f24d7b9c68d250cb0417314fdf2979">PARAM_ACK</a>         = 0x0D;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="namespace_uner.html#a3ecd19a554a991e5b7ff25794f410d40">   89</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="namespace_uner.html#a3ecd19a554a991e5b7ff25794f410d40">PARAM_BRAZO_ACK</a>   = 0xFF;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">// ============================================================</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">//  Tipos de caja</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">// ============================================================</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="};">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">  101</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">TipoCaja</a> : uint8_t {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a3c2d02846e5a80e529ffcaa9284521c2">  102</a></span>    <a class="code hl_enumvalue" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a3c2d02846e5a80e529ffcaa9284521c2">Ninguna</a>  = 0,   </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54">  103</a></span>    <a class="code hl_enumvalue" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54">Pequenia</a> = 6,   </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251">  104</a></span>    <a class="code hl_enumvalue" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251">Mediana</a>  = 8,   </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9">  105</a></span>    <a class="code hl_enumvalue" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9">Grande</a>   = 10   </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">// ============================================================</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">//  Trama genérica</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">// ============================================================</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span></div>
+<div class="foldopen" id="foldopen00115" data-start="{" data-end="};">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="struct_uner_1_1_frame.html">  115</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_uner_1_1_frame.html">Frame</a> {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="struct_uner_1_1_frame.html#af5ba03106cd3c9415e6283197c135f32">  116</a></span>    uint8_t    <a class="code hl_variable" href="struct_uner_1_1_frame.html#af5ba03106cd3c9415e6283197c135f32">cmd</a>;      </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="struct_uner_1_1_frame.html#ac00ac055fcd1cfe28fa6c8b5c549827c">  117</a></span>    QByteArray <a class="code hl_variable" href="struct_uner_1_1_frame.html#ac00ac055fcd1cfe28fa6c8b5c549827c">payload</a>;  </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>};</div>
+</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">// ============================================================</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">//  Estructuras de configuración</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">// ============================================================</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span></div>
+<div class="foldopen" id="foldopen00130" data-start="{" data-end="};">
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="struct_uner_1_1_ciego_distancias.html">  130</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_uner_1_1_ciego_distancias.html">CiegoDistancias</a> {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="struct_uner_1_1_ciego_distancias.html#a5d4d3b30a8a0e852a596b870101ab1bb">  131</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_ciego_distancias.html#a5d4d3b30a8a0e852a596b870101ab1bb">modo_ciego</a> {0};       </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="struct_uner_1_1_ciego_distancias.html#a54b0785d544aca346a6e0fee04aa8dbf">  132</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_ciego_distancias.html#a54b0785d544aca346a6e0fee04aa8dbf">dist_s0</a>[3] {30, 60, 90}; </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>};</div>
+</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span></div>
+<div class="foldopen" id="foldopen00141" data-start="{" data-end="};">
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="struct_uner_1_1_calibracion_cfg.html">  141</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_uner_1_1_calibracion_cfg.html">CalibracionCfg</a> {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="struct_uner_1_1_calibracion_cfg.html#a9347ae8bfe7455a3042a6bfbb6370002">  142</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_calibracion_cfg.html#a9347ae8bfe7455a3042a6bfbb6370002">calibracion</a>[4]   {30, 6, 8, 10}; </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="struct_uner_1_1_calibracion_cfg.html#aa17254287ff8691065ea3601c15a0ead">  143</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_calibracion_cfg.html#aa17254287ff8691065ea3601c15a0ead">tolerancia</a>        {1};             </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="struct_uner_1_1_calibracion_cfg.html#a9d45e533d4a9ca86d4a593926a50b047">  144</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_calibracion_cfg.html#a9d45e533d4a9ca86d4a593926a50b047">time_arm_extend</a>   {125};           </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="struct_uner_1_1_calibracion_cfg.html#ab064ef055cbd3201fb5eabfdcb69d41b">  145</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_calibracion_cfg.html#ab064ef055cbd3201fb5eabfdcb69d41b">time_arm_retract</a>  {125};           </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>};</div>
+</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span></div>
+<div class="foldopen" id="foldopen00154" data-start="{" data-end="};">
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="struct_uner_1_1_hcsr04_cfg.html">  154</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_uner_1_1_hcsr04_cfg.html">Hcsr04Cfg</a> {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="struct_uner_1_1_hcsr04_cfg.html#aad58d22050a3a8e412d0d7d32f35fde7">  155</a></span>    uint8_t  <a class="code hl_variable" href="struct_uner_1_1_hcsr04_cfg.html#aad58d22050a3a8e412d0d7d32f35fde7">trig_pulse_us</a> {10};    </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="struct_uner_1_1_hcsr04_cfg.html#a6946da59a52390d4269aefff361963dd">  156</a></span>    uint16_t <a class="code hl_variable" href="struct_uner_1_1_hcsr04_cfg.html#a6946da59a52390d4269aefff361963dd">timeout_us</a>    {25000}; </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>};</div>
+</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span></div>
+<div class="foldopen" id="foldopen00165" data-start="{" data-end="};">
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="struct_uner_1_1_sg90_cfg.html">  165</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_uner_1_1_sg90_cfg.html">Sg90Cfg</a> {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="struct_uner_1_1_sg90_cfg.html#ad44257d83bde2b225fcfcf15abb37ef0">  166</a></span>    uint16_t <a class="code hl_variable" href="struct_uner_1_1_sg90_cfg.html#ad44257d83bde2b225fcfcf15abb37ef0">period_us</a>        {20000}; </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="struct_uner_1_1_sg90_cfg.html#a0b6882dfc915066d6cd50fdabcfb64af">  167</a></span>    uint16_t <a class="code hl_variable" href="struct_uner_1_1_sg90_cfg.html#a0b6882dfc915066d6cd50fdabcfb64af">pulse_min_us</a>     {600};   </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="struct_uner_1_1_sg90_cfg.html#adeeb9ba0ed566065989453bd64c96621">  168</a></span>    uint16_t <a class="code hl_variable" href="struct_uner_1_1_sg90_cfg.html#adeeb9ba0ed566065989453bd64c96621">pulse_max_us</a>     {2400};  </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="struct_uner_1_1_sg90_cfg.html#aa3fe81f00616e786aa4c449813deb17e">  169</a></span>    uint16_t <a class="code hl_variable" href="struct_uner_1_1_sg90_cfg.html#aa3fe81f00616e786aa4c449813deb17e">pulse_neutral_us</a> {1500};  </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>};</div>
+</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span></div>
+<div class="foldopen" id="foldopen00179" data-start="{" data-end="};">
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="struct_uner_1_1_timers_cfg.html">  179</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_uner_1_1_timers_cfg.html">TimersCfg</a> {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="struct_uner_1_1_timers_cfg.html#a14a144a46fa3a414defe4143b7bf182e">  180</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_timers_cfg.html#a14a144a46fa3a414defe4143b7bf182e">retract_timer</a>     {125};     </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="struct_uner_1_1_timers_cfg.html#a69df2fe958020696be2d9bc0db0b1a21">  181</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_timers_cfg.html#a69df2fe958020696be2d9bc0db0b1a21">sg90_angle_detect</a> {90};      </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="struct_uner_1_1_timers_cfg.html#ac7c0e33b91b015677e8e4b7e63dfec1e">  182</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_timers_cfg.html#ac7c0e33b91b015677e8e4b7e63dfec1e">sg90_angle_repose</a> {0};       </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="struct_uner_1_1_timers_cfg.html#ad89311a8845954e5d81240264bfc27a5">  183</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_timers_cfg.html#ad89311a8845954e5d81240264bfc27a5">hcsr_timer</a>        {25};      </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="struct_uner_1_1_timers_cfg.html#a8b03355f9f9d4e75b9fdf82277a8fb2d">  184</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_timers_cfg.html#a8b03355f9f9d4e75b9fdf82277a8fb2d">alive_timer</a>       {250};     </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="struct_uner_1_1_timers_cfg.html#a6181b1416376793f84afbe27bb855f8d">  185</a></span>    uint8_t <a class="code hl_variable" href="struct_uner_1_1_timers_cfg.html#a6181b1416376793f84afbe27bb855f8d">config_cajas</a>[3]   {6, 8, 10}; </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>};</div>
+</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>} <span class="comment">// namespace Uner</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">// ============================================================</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">//  Clase UnerProtocol</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">// ============================================================</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span></div>
+<div class="foldopen" id="foldopen00219" data-start="{" data-end="};">
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="class_uner_protocol.html">  219</a></span><span class="keyword">class </span><a class="code hl_function" href="class_uner_protocol.html#a85a70b0855430811b4e6afd919e3b69a">UnerProtocol</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>{</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    Q_OBJECT</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_uner_protocol.html#a85a70b0855430811b4e6afd919e3b69a">UnerProtocol</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="comment">// ── Encoder genérico ────────────────────────────────────</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a8b626c4f488afaa3c6bc61fd8499deec">encode</a>(uint8_t cmd, <span class="keyword">const</span> QByteArray &amp;payload = {});</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="comment">// ── Encoders de control ─────────────────────────────────</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a7a806329f264ac2f56e3b61855f0cb85">ackAlive</a>();</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a1f7d57639a72fb63aa58e24d177144ee">cmdStart</a>(<a class="code hl_enumeration" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s0, <a class="code hl_enumeration" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s1, <a class="code hl_enumeration" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s2);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#abcc9215e6717dca373d88f70026cdbe5">cmdStop</a>();</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a1129ce91f8cf057a60016fa8cf24b8ca">cmdReset</a>();</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a27c1327e50dffd000ffa8592d65b207a">ackBrazo</a>();</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a5484fdf88f6053a074f436eaec1502d9">cmdVelocidad</a>(uint8_t velIdx);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <span class="comment">// ── Encoders de configuración (0x60–0x67) ──────────────</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a4e78307056aeeb0324aa35ebce351934">cmdBlindDist</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a> &amp;cfg, uint8_t numBytes = 4);</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a7da608c6526da2a0d99ae2056d80a07a">cmdTrigger</a>();</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#acf65414ddffc1fbef089456e5e6509a9">cmdAnchoCaja</a>(uint8_t anchoCm);</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#af5de8dcbbbc670e39f51e1b555fad046">cmdCalibracion</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#acbb40127c728551e553a54bd3d998337">cmdHcsr04Cfg</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a51956427e8b6badffe35f8781f012893">cmdSg90Cfg</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a3d5f19ad70d4c11edb15e9cf4d125bbb">cmdIrDebounce</a>(uint8_t debounce);</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keyword">static</span> QByteArray <a class="code hl_function" href="class_uner_protocol.html#a3505c38a310e1d05f3f7cde3c8cc5b68">cmdTimersCfg</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="comment">// ── Decoder ─────────────────────────────────────────────</span></div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span></div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_uner_protocol.html#a4510e7e9b675aa7c0016856541b181bd">feed</a>(<span class="keyword">const</span> QByteArray &amp;data);</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span></div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_uner_protocol.html#aea18560d903cf5f8a90fe487adfa168d">reset</a>();</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>signals:</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#a270372c4d6fbb290e8af0a5e68dd13fd">  345</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_uner_protocol.html#a270372c4d6fbb290e8af0a5e68dd13fd">frameReceived</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;frame);</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#a73fcef6a15fb59892cc4d07dc4a029da">  351</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_uner_protocol.html#a73fcef6a15fb59892cc4d07dc4a029da">checksumError</a>(<span class="keyword">const</span> QByteArray &amp;raw);</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="keyword">private</span>:</div>
+<div class="foldopen" id="foldopen00357" data-start="{" data-end="};">
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3">  357</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3">ParseState</a> : uint8_t {</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9">  358</a></span>        <a class="code hl_enumvalue" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9">WaitU</a> = 0,     </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872">  359</a></span>        <a class="code hl_enumvalue" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872">WaitN</a>,         </div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b">  360</a></span>        <a class="code hl_enumvalue" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b">WaitE</a>,         </div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd">  361</a></span>        <a class="code hl_enumvalue" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd">WaitR</a>,         </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf">  362</a></span>        <a class="code hl_enumvalue" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf">ReadLen</a>,       </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297">  363</a></span>        <a class="code hl_enumvalue" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297">WaitColon</a>,     </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0">  364</a></span>        <a class="code hl_enumvalue" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0">ReadPayload</a>    </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    };</div>
+</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#a4bbbfb6c459ee5a2688fd9982ab52370">  367</a></span>    <a class="code hl_enumeration" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3">ParseState</a> <a class="code hl_variable" href="class_uner_protocol.html#a4bbbfb6c459ee5a2688fd9982ab52370">m_state</a>     {<a class="code hl_enumvalue" href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9">ParseState::WaitU</a>}; </div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#ab65e73e19f6b3aeeb9cf98725b7a45d4">  368</a></span>    uint8_t    <a class="code hl_variable" href="class_uner_protocol.html#ab65e73e19f6b3aeeb9cf98725b7a45d4">m_len</a>       {0};                 </div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#a212e07b79197184885f8a0b68b8abc50">  369</a></span>    uint8_t    <a class="code hl_variable" href="class_uner_protocol.html#a212e07b79197184885f8a0b68b8abc50">m_remaining</a> {0};                 </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#aabde0d0b200e8b118cfa5e004b563e9e">  370</a></span>    uint8_t    <a class="code hl_variable" href="class_uner_protocol.html#aabde0d0b200e8b118cfa5e004b563e9e">m_cks</a>       {0};                 </div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#aa071478084b208f0b8cdcccbdb96f7c1">  371</a></span>    QByteArray <a class="code hl_variable" href="class_uner_protocol.html#aa071478084b208f0b8cdcccbdb96f7c1">m_payload</a>;                       </div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno"><a class="line" href="class_uner_protocol.html#a2b6c03532804cace4ee670eeab0b7ec9">  372</a></span>    QByteArray <a class="code hl_variable" href="class_uner_protocol.html#a2b6c03532804cace4ee670eeab0b7ec9">m_rawFrame</a>;                      </div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span></div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_uner_protocol.html#ad0d6c8881976494e62723a94263e55c6">processPayload</a>();</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>};</div>
+</div>
+<div class="ttc" id="aclass_uner_protocol_html_a1129ce91f8cf057a60016fa8cf24b8ca"><div class="ttname"><a href="class_uner_protocol.html#a1129ce91f8cf057a60016fa8cf24b8ca">UnerProtocol::cmdReset</a></div><div class="ttdeci">static QByteArray cmdReset()</div><div class="ttdoc">Genera trama de reset del sistema (0x53).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:64</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a1f7d57639a72fb63aa58e24d177144ee"><div class="ttname"><a href="class_uner_protocol.html#a1f7d57639a72fb63aa58e24d177144ee">UnerProtocol::cmdStart</a></div><div class="ttdeci">static QByteArray cmdStart(Uner::TipoCaja s0, Uner::TipoCaja s1, Uner::TipoCaja s2)</div><div class="ttdoc">Genera trama de inicio del clasificador (0x50).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:48</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a212e07b79197184885f8a0b68b8abc50"><div class="ttname"><a href="class_uner_protocol.html#a212e07b79197184885f8a0b68b8abc50">UnerProtocol::m_remaining</a></div><div class="ttdeci">uint8_t m_remaining</div><div class="ttdoc">Bytes restantes por leer.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:369</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a270372c4d6fbb290e8af0a5e68dd13fd"><div class="ttname"><a href="class_uner_protocol.html#a270372c4d6fbb290e8af0a5e68dd13fd">UnerProtocol::frameReceived</a></div><div class="ttdeci">void frameReceived(const Uner::Frame &amp;frame)</div><div class="ttdoc">Se emite cuando se recibe y verifica una trama completa.</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a27c1327e50dffd000ffa8592d65b207a"><div class="ttname"><a href="class_uner_protocol.html#a27c1327e50dffd000ffa8592d65b207a">UnerProtocol::ackBrazo</a></div><div class="ttdeci">static QByteArray ackBrazo()</div><div class="ttdoc">Genera trama de ACK de brazo retractado (0x52 + 0xFF).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:70</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a2b6c03532804cace4ee670eeab0b7ec9"><div class="ttname"><a href="class_uner_protocol.html#a2b6c03532804cace4ee670eeab0b7ec9">UnerProtocol::m_rawFrame</a></div><div class="ttdeci">QByteArray m_rawFrame</div><div class="ttdoc">Buffer de la trama cruda (diagnóstico).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:372</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a3505c38a310e1d05f3f7cde3c8cc5b68"><div class="ttname"><a href="class_uner_protocol.html#a3505c38a310e1d05f3f7cde3c8cc5b68">UnerProtocol::cmdTimersCfg</a></div><div class="ttdeci">static QByteArray cmdTimersCfg(const Uner::TimersCfg &amp;cfg)</div><div class="ttdoc">Genera trama de timers y configuraciones generales (0x67).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:159</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a3d5f19ad70d4c11edb15e9cf4d125bbb"><div class="ttname"><a href="class_uner_protocol.html#a3d5f19ad70d4c11edb15e9cf4d125bbb">UnerProtocol::cmdIrDebounce</a></div><div class="ttdeci">static QByteArray cmdIrDebounce(uint8_t debounce)</div><div class="ttdoc">Genera trama de debounce IR (0x66).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:151</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a4510e7e9b675aa7c0016856541b181bd"><div class="ttname"><a href="class_uner_protocol.html#a4510e7e9b675aa7c0016856541b181bd">UnerProtocol::feed</a></div><div class="ttdeci">void feed(const QByteArray &amp;data)</div><div class="ttdoc">Alimenta el parser con bytes recibidos del puerto serie.</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:179</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a4bbbfb6c459ee5a2688fd9982ab52370"><div class="ttname"><a href="class_uner_protocol.html#a4bbbfb6c459ee5a2688fd9982ab52370">UnerProtocol::m_state</a></div><div class="ttdeci">ParseState m_state</div><div class="ttdoc">Estado actual del parser.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:367</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a4e78307056aeeb0324aa35ebce351934"><div class="ttname"><a href="class_uner_protocol.html#a4e78307056aeeb0324aa35ebce351934">UnerProtocol::cmdBlindDist</a></div><div class="ttdeci">static QByteArray cmdBlindDist(const Uner::CiegoDistancias &amp;cfg, uint8_t numBytes=4)</div><div class="ttdoc">Genera trama de modo ciego y distancias (0x60).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:88</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a51956427e8b6badffe35f8781f012893"><div class="ttname"><a href="class_uner_protocol.html#a51956427e8b6badffe35f8781f012893">UnerProtocol::cmdSg90Cfg</a></div><div class="ttdeci">static QByteArray cmdSg90Cfg(const Uner::Sg90Cfg &amp;cfg)</div><div class="ttdoc">Genera trama de configuración del servo SG90 (0x65).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:136</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a5484fdf88f6053a074f436eaec1502d9"><div class="ttname"><a href="class_uner_protocol.html#a5484fdf88f6053a074f436eaec1502d9">UnerProtocol::cmdVelocidad</a></div><div class="ttdeci">static QByteArray cmdVelocidad(uint8_t velIdx)</div><div class="ttdoc">Genera trama de velocidad de la cinta (0x54).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:76</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a73fcef6a15fb59892cc4d07dc4a029da"><div class="ttname"><a href="class_uner_protocol.html#a73fcef6a15fb59892cc4d07dc4a029da">UnerProtocol::checksumError</a></div><div class="ttdeci">void checksumError(const QByteArray &amp;raw)</div><div class="ttdoc">Se emite cuando el checksum de una trama no coincide.</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a7a806329f264ac2f56e3b61855f0cb85"><div class="ttname"><a href="class_uner_protocol.html#a7a806329f264ac2f56e3b61855f0cb85">UnerProtocol::ackAlive</a></div><div class="ttdeci">static QByteArray ackAlive()</div><div class="ttdoc">Genera trama de ACK de heartbeat (0xF0 + 0x0D).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:42</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a7da608c6526da2a0d99ae2056d80a07a"><div class="ttname"><a href="class_uner_protocol.html#a7da608c6526da2a0d99ae2056d80a07a">UnerProtocol::cmdTrigger</a></div><div class="ttdeci">static QByteArray cmdTrigger()</div><div class="ttdoc">Genera trama de disparo de trigger HC-SR04 (0x61).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:101</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a85a70b0855430811b4e6afd919e3b69a"><div class="ttname"><a href="class_uner_protocol.html#a85a70b0855430811b4e6afd919e3b69a">UnerProtocol::UnerProtocol</a></div><div class="ttdeci">UnerProtocol(QObject *parent=nullptr)</div><div class="ttdoc">Construye el objeto UnerProtocol.</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:19</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a8b626c4f488afaa3c6bc61fd8499deec"><div class="ttname"><a href="class_uner_protocol.html#a8b626c4f488afaa3c6bc61fd8499deec">UnerProtocol::encode</a></div><div class="ttdeci">static QByteArray encode(uint8_t cmd, const QByteArray &amp;payload={})</div><div class="ttdoc">Construye una trama UNER completa con checksum XOR.</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:22</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_aa071478084b208f0b8cdcccbdb96f7c1"><div class="ttname"><a href="class_uner_protocol.html#aa071478084b208f0b8cdcccbdb96f7c1">UnerProtocol::m_payload</a></div><div class="ttdeci">QByteArray m_payload</div><div class="ttdoc">Buffer interno de payload.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:371</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_aabde0d0b200e8b118cfa5e004b563e9e"><div class="ttname"><a href="class_uner_protocol.html#aabde0d0b200e8b118cfa5e004b563e9e">UnerProtocol::m_cks</a></div><div class="ttdeci">uint8_t m_cks</div><div class="ttdoc">Acumulador de checksum XOR.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:370</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_ab65e73e19f6b3aeeb9cf98725b7a45d4"><div class="ttname"><a href="class_uner_protocol.html#ab65e73e19f6b3aeeb9cf98725b7a45d4">UnerProtocol::m_len</a></div><div class="ttdeci">uint8_t m_len</div><div class="ttdoc">Longitud total esperada (cmd + payload + cks).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:368</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_abcc9215e6717dca373d88f70026cdbe5"><div class="ttname"><a href="class_uner_protocol.html#abcc9215e6717dca373d88f70026cdbe5">UnerProtocol::cmdStop</a></div><div class="ttdeci">static QByteArray cmdStop()</div><div class="ttdoc">Genera trama de detención del sistema (0x51).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:58</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_acbb40127c728551e553a54bd3d998337"><div class="ttname"><a href="class_uner_protocol.html#acbb40127c728551e553a54bd3d998337">UnerProtocol::cmdHcsr04Cfg</a></div><div class="ttdeci">static QByteArray cmdHcsr04Cfg(const Uner::Hcsr04Cfg &amp;cfg)</div><div class="ttdoc">Genera trama de configuración del sensor HC-SR04 (0x64).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:125</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_acf65414ddffc1fbef089456e5e6509a9"><div class="ttname"><a href="class_uner_protocol.html#acf65414ddffc1fbef089456e5e6509a9">UnerProtocol::cmdAnchoCaja</a></div><div class="ttdeci">static QByteArray cmdAnchoCaja(uint8_t anchoCm)</div><div class="ttdoc">Genera trama de ancho de caja de referencia (0x62).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:107</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_ad0d6c8881976494e62723a94263e55c6"><div class="ttname"><a href="class_uner_protocol.html#ad0d6c8881976494e62723a94263e55c6">UnerProtocol::processPayload</a></div><div class="ttdeci">void processPayload()</div><div class="ttdoc">Procesa el payload interno cuando la trama está completa.</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:225</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_aea18560d903cf5f8a90fe487adfa168d"><div class="ttname"><a href="class_uner_protocol.html#aea18560d903cf5f8a90fe487adfa168d">UnerProtocol::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reinicia el estado interno del parser.</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:172</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_af5de8dcbbbc670e39f51e1b555fad046"><div class="ttname"><a href="class_uner_protocol.html#af5de8dcbbbc670e39f51e1b555fad046">UnerProtocol::cmdCalibracion</a></div><div class="ttdeci">static QByteArray cmdCalibracion(const Uner::CalibracionCfg &amp;cfg)</div><div class="ttdoc">Genera trama de calibración completa (0x63).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:114</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_afa14f41e5c9180b483ad0f053895ecf3"><div class="ttname"><a href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3">UnerProtocol::ParseState</a></div><div class="ttdeci">ParseState</div><div class="ttdoc">Estados de la máquina de estados del decodificador.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:357</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd"><div class="ttname"><a href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd">UnerProtocol::ParseState::WaitR</a></div><div class="ttdeci">@ WaitR</div><div class="ttdoc">Esperando el byte &#39;R&#39;.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:361</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297"><div class="ttname"><a href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297">UnerProtocol::ParseState::WaitColon</a></div><div class="ttdeci">@ WaitColon</div><div class="ttdoc">Esperando el separador &#39;:&#39;.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:363</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872"><div class="ttname"><a href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872">UnerProtocol::ParseState::WaitN</a></div><div class="ttdeci">@ WaitN</div><div class="ttdoc">Esperando el byte &#39;N&#39;.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:359</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf"><div class="ttname"><a href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf">UnerProtocol::ParseState::ReadLen</a></div><div class="ttdeci">@ ReadLen</div><div class="ttdoc">Leyendo el byte de longitud.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:362</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9"><div class="ttname"><a href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9">UnerProtocol::ParseState::WaitU</a></div><div class="ttdeci">@ WaitU</div><div class="ttdoc">Esperando el byte &#39;U&#39; del encabezado.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:358</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b"><div class="ttname"><a href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b">UnerProtocol::ParseState::WaitE</a></div><div class="ttdeci">@ WaitE</div><div class="ttdoc">Esperando el byte &#39;E&#39;.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:360</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0"><div class="ttname"><a href="class_uner_protocol.html#afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0">UnerProtocol::ParseState::ReadPayload</a></div><div class="ttdeci">@ ReadPayload</div><div class="ttdoc">Leyendo el payload + checksum.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:364</div></div>
+<div class="ttc" id="anamespace_uner_html"><div class="ttname"><a href="namespace_uner.html">Uner</a></div><div class="ttdoc">Espacio de nombres con todas las constantes, tipos y estructuras del protocolo UNER v2....</div></div>
+<div class="ttc" id="anamespace_uner_html_a00367a55e50e11f85f8f665d6d76f1c3"><div class="ttname"><a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a></div><div class="ttdeci">TipoCaja</div><div class="ttdoc">Identificador del tipo de caja según su altura medida en cm.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:101</div></div>
+<div class="ttc" id="anamespace_uner_html_a00367a55e50e11f85f8f665d6d76f1c3a3c2d02846e5a80e529ffcaa9284521c2"><div class="ttname"><a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a3c2d02846e5a80e529ffcaa9284521c2">Uner::TipoCaja::Ninguna</a></div><div class="ttdeci">@ Ninguna</div><div class="ttdoc">Sin tipo asignado (salida no configurada).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:102</div></div>
+<div class="ttc" id="anamespace_uner_html_a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9"><div class="ttname"><a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9">Uner::TipoCaja::Grande</a></div><div class="ttdeci">@ Grande</div><div class="ttdoc">Caja grande – 10 cm.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:105</div></div>
+<div class="ttc" id="anamespace_uner_html_a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54"><div class="ttname"><a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54">Uner::TipoCaja::Pequenia</a></div><div class="ttdeci">@ Pequenia</div><div class="ttdoc">Caja pequeña – 6 cm.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:103</div></div>
+<div class="ttc" id="anamespace_uner_html_a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251"><div class="ttname"><a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251">Uner::TipoCaja::Mediana</a></div><div class="ttdeci">@ Mediana</div><div class="ttdoc">Caja mediana – 8 cm.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:104</div></div>
+<div class="ttc" id="anamespace_uner_html_a0988bb6598ead433f995bb8539acedc8"><div class="ttname"><a href="namespace_uner.html#a0988bb6598ead433f995bb8539acedc8">Uner::CMD_IR_STATE</a></div><div class="ttdeci">constexpr uint8_t CMD_IR_STATE</div><div class="ttdoc">Estado de sensores IR (MCU→PC).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:56</div></div>
+<div class="ttc" id="anamespace_uner_html_a0aebedc2fd186a5b6d21a4bfb6d7a7a6"><div class="ttname"><a href="namespace_uner.html#a0aebedc2fd186a5b6d21a4bfb6d7a7a6">Uner::CMD_ALIVE</a></div><div class="ttdeci">constexpr uint8_t CMD_ALIVE</div><div class="ttdoc">Heartbeat bidireccional (MCU ↔ PC).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:38</div></div>
+<div class="ttc" id="anamespace_uner_html_a1507aabd82f9907634dafec5f6ea91a2"><div class="ttname"><a href="namespace_uner.html#a1507aabd82f9907634dafec5f6ea91a2">Uner::CMD_BLIND_DIST</a></div><div class="ttdeci">constexpr uint8_t CMD_BLIND_DIST</div><div class="ttdoc">Activar/desactivar modo ciego y configurar distancias S0→salida (1–4 bytes).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:62</div></div>
+<div class="ttc" id="anamespace_uner_html_a15d208a58c117c92b26f05cb750118e2"><div class="ttname"><a href="namespace_uner.html#a15d208a58c117c92b26f05cb750118e2">Uner::CMD_RESET</a></div><div class="ttdeci">constexpr uint8_t CMD_RESET</div><div class="ttdoc">Reiniciar el sistema clasificador.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:50</div></div>
+<div class="ttc" id="anamespace_uner_html_a30aa9967810290ef066831b2c40249fa"><div class="ttname"><a href="namespace_uner.html#a30aa9967810290ef066831b2c40249fa">Uner::CMD_IR_DEBOUNCE</a></div><div class="ttdeci">constexpr uint8_t CMD_IR_DEBOUNCE</div><div class="ttdoc">Configurar tiempo de debounce de los sensores IR (1 byte).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:80</div></div>
+<div class="ttc" id="anamespace_uner_html_a3e79d1598dc157214582591b25e2c06d"><div class="ttname"><a href="namespace_uner.html#a3e79d1598dc157214582591b25e2c06d">Uner::CMD_SG90_CFG</a></div><div class="ttdeci">constexpr uint8_t CMD_SG90_CFG</div><div class="ttdoc">Configurar parámetros del servo SG90 (8 bytes, 4×uint16 hi/lo).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:77</div></div>
+<div class="ttc" id="anamespace_uner_html_a3ecd19a554a991e5b7ff25794f410d40"><div class="ttname"><a href="namespace_uner.html#a3ecd19a554a991e5b7ff25794f410d40">Uner::PARAM_BRAZO_ACK</a></div><div class="ttdeci">constexpr uint8_t PARAM_BRAZO_ACK</div><div class="ttdoc">Byte de ACK para confirmación de brazo retractado (0xFF).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:89</div></div>
+<div class="ttc" id="anamespace_uner_html_a413f855cf3558a82001e0325b0417854"><div class="ttname"><a href="namespace_uner.html#a413f855cf3558a82001e0325b0417854">Uner::CMD_CAJA_DETECT</a></div><div class="ttdeci">constexpr uint8_t CMD_CAJA_DETECT</div><div class="ttdoc">Detección de caja por sensor HC-SR04 (MCU→PC).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:59</div></div>
+<div class="ttc" id="anamespace_uner_html_a5cdf753b6b5df75bc7f332d42c799f43"><div class="ttname"><a href="namespace_uner.html#a5cdf753b6b5df75bc7f332d42c799f43">Uner::CMD_ANCHO_CAJA</a></div><div class="ttdeci">constexpr uint8_t CMD_ANCHO_CAJA</div><div class="ttdoc">Informar al MCU el ancho de la caja de referencia para cálculo interno de velocidad.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:68</div></div>
+<div class="ttc" id="anamespace_uner_html_a676495b26ba39b493ae36eaa733de8c7"><div class="ttname"><a href="namespace_uner.html#a676495b26ba39b493ae36eaa733de8c7">Uner::CMD_STOP</a></div><div class="ttdeci">constexpr uint8_t CMD_STOP</div><div class="ttdoc">Detener el sistema clasificador.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:44</div></div>
+<div class="ttc" id="anamespace_uner_html_a91f24d7b9c68d250cb0417314fdf2979"><div class="ttname"><a href="namespace_uner.html#a91f24d7b9c68d250cb0417314fdf2979">Uner::PARAM_ACK</a></div><div class="ttdeci">constexpr uint8_t PARAM_ACK</div><div class="ttdoc">Byte de ACK genérico (0x0D).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:86</div></div>
+<div class="ttc" id="anamespace_uner_html_ab0cdd5372c8d3aa19cb2d519038c49c4"><div class="ttname"><a href="namespace_uner.html#ab0cdd5372c8d3aa19cb2d519038c49c4">Uner::CMD_VELOCIDAD</a></div><div class="ttdeci">constexpr uint8_t CMD_VELOCIDAD</div><div class="ttdoc">Establecer velocidad de la cinta (índice 1–10, payload = idx×10).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:53</div></div>
+<div class="ttc" id="anamespace_uner_html_ab814c2ae649f49d8527a8d3785d614f4"><div class="ttname"><a href="namespace_uner.html#ab814c2ae649f49d8527a8d3785d614f4">Uner::CMD_BRAZO</a></div><div class="ttdeci">constexpr uint8_t CMD_BRAZO</div><div class="ttdoc">Notificación / ACK de actuación de brazo (bidireccional).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:47</div></div>
+<div class="ttc" id="anamespace_uner_html_abd858d814c918aa8148613b285fbf1e3"><div class="ttname"><a href="namespace_uner.html#abd858d814c918aa8148613b285fbf1e3">Uner::CMD_TRIGGER</a></div><div class="ttdeci">constexpr uint8_t CMD_TRIGGER</div><div class="ttdoc">Disparar trigger del sensor HC-SR04 (PC→MCU, sin payload).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:65</div></div>
+<div class="ttc" id="anamespace_uner_html_adcc4635278729b1d54f55fd6193b7dd8"><div class="ttname"><a href="namespace_uner.html#adcc4635278729b1d54f55fd6193b7dd8">Uner::CMD_CALIBRACION</a></div><div class="ttdeci">constexpr uint8_t CMD_CALIBRACION</div><div class="ttdoc">Enviar calibración completa: alturas, tolerancia y tiempos de brazo (7 bytes).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:71</div></div>
+<div class="ttc" id="anamespace_uner_html_ae0554b7119295ac2ab1ea48db2a00628"><div class="ttname"><a href="namespace_uner.html#ae0554b7119295ac2ab1ea48db2a00628">Uner::CMD_TIMERS_CFG</a></div><div class="ttdeci">constexpr uint8_t CMD_TIMERS_CFG</div><div class="ttdoc">Configurar timers y ángulos generales del sistema (8 bytes).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:83</div></div>
+<div class="ttc" id="anamespace_uner_html_af5c34bd30e92c197c7ba38a958c65a7f"><div class="ttname"><a href="namespace_uner.html#af5c34bd30e92c197c7ba38a958c65a7f">Uner::CMD_HCSR04_CFG</a></div><div class="ttdeci">constexpr uint8_t CMD_HCSR04_CFG</div><div class="ttdoc">Configurar parámetros del sensor HC-SR04 (3 bytes).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:74</div></div>
+<div class="ttc" id="anamespace_uner_html_afca05993a41dd34585be0d705daa67a3"><div class="ttname"><a href="namespace_uner.html#afca05993a41dd34585be0d705daa67a3">Uner::CMD_START</a></div><div class="ttdeci">constexpr uint8_t CMD_START</div><div class="ttdoc">Iniciar clasificador con configuración de 3 salidas.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:41</div></div>
+<div class="ttc" id="astruct_uner_1_1_calibracion_cfg_html"><div class="ttname"><a href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a></div><div class="ttdoc">Datos para el comando 0x63 – Calibración.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:141</div></div>
+<div class="ttc" id="astruct_uner_1_1_calibracion_cfg_html_a9347ae8bfe7455a3042a6bfbb6370002"><div class="ttname"><a href="struct_uner_1_1_calibracion_cfg.html#a9347ae8bfe7455a3042a6bfbb6370002">Uner::CalibracionCfg::calibracion</a></div><div class="ttdeci">uint8_t calibracion[4]</div><div class="ttdoc">Distancia al piso, altura pequeña, mediana, grande (cm).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:142</div></div>
+<div class="ttc" id="astruct_uner_1_1_calibracion_cfg_html_a9d45e533d4a9ca86d4a593926a50b047"><div class="ttname"><a href="struct_uner_1_1_calibracion_cfg.html#a9d45e533d4a9ca86d4a593926a50b047">Uner::CalibracionCfg::time_arm_extend</a></div><div class="ttdeci">uint8_t time_arm_extend</div><div class="ttdoc">Tiempo de extensión del brazo (ticks × 2 ms).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:144</div></div>
+<div class="ttc" id="astruct_uner_1_1_calibracion_cfg_html_aa17254287ff8691065ea3601c15a0ead"><div class="ttname"><a href="struct_uner_1_1_calibracion_cfg.html#aa17254287ff8691065ea3601c15a0ead">Uner::CalibracionCfg::tolerancia</a></div><div class="ttdeci">uint8_t tolerancia</div><div class="ttdoc">Margen de error en clasificación (cm).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:143</div></div>
+<div class="ttc" id="astruct_uner_1_1_calibracion_cfg_html_ab064ef055cbd3201fb5eabfdcb69d41b"><div class="ttname"><a href="struct_uner_1_1_calibracion_cfg.html#ab064ef055cbd3201fb5eabfdcb69d41b">Uner::CalibracionCfg::time_arm_retract</a></div><div class="ttdeci">uint8_t time_arm_retract</div><div class="ttdoc">Tiempo de retracción del brazo (ticks × 2 ms).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:145</div></div>
+<div class="ttc" id="astruct_uner_1_1_ciego_distancias_html"><div class="ttname"><a href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a></div><div class="ttdoc">Datos para el comando 0x60 – Modo ciego y distancias.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:130</div></div>
+<div class="ttc" id="astruct_uner_1_1_ciego_distancias_html_a54b0785d544aca346a6e0fee04aa8dbf"><div class="ttname"><a href="struct_uner_1_1_ciego_distancias.html#a54b0785d544aca346a6e0fee04aa8dbf">Uner::CiegoDistancias::dist_s0</a></div><div class="ttdeci">uint8_t dist_s0[3]</div><div class="ttdoc">Distancias en cm desde S0 a cada salida.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:132</div></div>
+<div class="ttc" id="astruct_uner_1_1_ciego_distancias_html_a5d4d3b30a8a0e852a596b870101ab1bb"><div class="ttname"><a href="struct_uner_1_1_ciego_distancias.html#a5d4d3b30a8a0e852a596b870101ab1bb">Uner::CiegoDistancias::modo_ciego</a></div><div class="ttdeci">uint8_t modo_ciego</div><div class="ttdoc">0 = desactivado, 1 = activado.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:131</div></div>
+<div class="ttc" id="astruct_uner_1_1_frame_html"><div class="ttname"><a href="struct_uner_1_1_frame.html">Uner::Frame</a></div><div class="ttdoc">Trama decodificada del protocolo UNER.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:115</div></div>
+<div class="ttc" id="astruct_uner_1_1_frame_html_ac00ac055fcd1cfe28fa6c8b5c549827c"><div class="ttname"><a href="struct_uner_1_1_frame.html#ac00ac055fcd1cfe28fa6c8b5c549827c">Uner::Frame::payload</a></div><div class="ttdeci">QByteArray payload</div><div class="ttdoc">Payload sin cmd ni checksum.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:117</div></div>
+<div class="ttc" id="astruct_uner_1_1_frame_html_af5ba03106cd3c9415e6283197c135f32"><div class="ttname"><a href="struct_uner_1_1_frame.html#af5ba03106cd3c9415e6283197c135f32">Uner::Frame::cmd</a></div><div class="ttdeci">uint8_t cmd</div><div class="ttdoc">Byte de comando (ver constantes CMD_*).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:116</div></div>
+<div class="ttc" id="astruct_uner_1_1_hcsr04_cfg_html"><div class="ttname"><a href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a></div><div class="ttdoc">Datos para el comando 0x64 – Configuración del sensor HC-SR04.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:154</div></div>
+<div class="ttc" id="astruct_uner_1_1_hcsr04_cfg_html_a6946da59a52390d4269aefff361963dd"><div class="ttname"><a href="struct_uner_1_1_hcsr04_cfg.html#a6946da59a52390d4269aefff361963dd">Uner::Hcsr04Cfg::timeout_us</a></div><div class="ttdeci">uint16_t timeout_us</div><div class="ttdoc">Tiempo de espera máximo del eco (µs).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:156</div></div>
+<div class="ttc" id="astruct_uner_1_1_hcsr04_cfg_html_aad58d22050a3a8e412d0d7d32f35fde7"><div class="ttname"><a href="struct_uner_1_1_hcsr04_cfg.html#aad58d22050a3a8e412d0d7d32f35fde7">Uner::Hcsr04Cfg::trig_pulse_us</a></div><div class="ttdeci">uint8_t trig_pulse_us</div><div class="ttdoc">Duración del pulso de trigger (µs).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:155</div></div>
+<div class="ttc" id="astruct_uner_1_1_sg90_cfg_html"><div class="ttname"><a href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a></div><div class="ttdoc">Datos para el comando 0x65 – Configuración del servo SG90.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:165</div></div>
+<div class="ttc" id="astruct_uner_1_1_sg90_cfg_html_a0b6882dfc915066d6cd50fdabcfb64af"><div class="ttname"><a href="struct_uner_1_1_sg90_cfg.html#a0b6882dfc915066d6cd50fdabcfb64af">Uner::Sg90Cfg::pulse_min_us</a></div><div class="ttdeci">uint16_t pulse_min_us</div><div class="ttdoc">Ancho de pulso para 0° (µs).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:167</div></div>
+<div class="ttc" id="astruct_uner_1_1_sg90_cfg_html_aa3fe81f00616e786aa4c449813deb17e"><div class="ttname"><a href="struct_uner_1_1_sg90_cfg.html#aa3fe81f00616e786aa4c449813deb17e">Uner::Sg90Cfg::pulse_neutral_us</a></div><div class="ttdeci">uint16_t pulse_neutral_us</div><div class="ttdoc">Ancho de pulso para posición neutra (µs).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:169</div></div>
+<div class="ttc" id="astruct_uner_1_1_sg90_cfg_html_ad44257d83bde2b225fcfcf15abb37ef0"><div class="ttname"><a href="struct_uner_1_1_sg90_cfg.html#ad44257d83bde2b225fcfcf15abb37ef0">Uner::Sg90Cfg::period_us</a></div><div class="ttdeci">uint16_t period_us</div><div class="ttdoc">Período PWM (µs).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:166</div></div>
+<div class="ttc" id="astruct_uner_1_1_sg90_cfg_html_adeeb9ba0ed566065989453bd64c96621"><div class="ttname"><a href="struct_uner_1_1_sg90_cfg.html#adeeb9ba0ed566065989453bd64c96621">Uner::Sg90Cfg::pulse_max_us</a></div><div class="ttdeci">uint16_t pulse_max_us</div><div class="ttdoc">Ancho de pulso para 180° (µs).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:168</div></div>
+<div class="ttc" id="astruct_uner_1_1_timers_cfg_html"><div class="ttname"><a href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a></div><div class="ttdoc">Datos para el comando 0x67 – Timers y configuraciones generales.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:179</div></div>
+<div class="ttc" id="astruct_uner_1_1_timers_cfg_html_a14a144a46fa3a414defe4143b7bf182e"><div class="ttname"><a href="struct_uner_1_1_timers_cfg.html#a14a144a46fa3a414defe4143b7bf182e">Uner::TimersCfg::retract_timer</a></div><div class="ttdeci">uint8_t retract_timer</div><div class="ttdoc">Timer de retracción del brazo (ticks × 2 ms).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:180</div></div>
+<div class="ttc" id="astruct_uner_1_1_timers_cfg_html_a6181b1416376793f84afbe27bb855f8d"><div class="ttname"><a href="struct_uner_1_1_timers_cfg.html#a6181b1416376793f84afbe27bb855f8d">Uner::TimersCfg::config_cajas</a></div><div class="ttdeci">uint8_t config_cajas[3]</div><div class="ttdoc">Alturas de referencia de cada tipo de caja (cm).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:185</div></div>
+<div class="ttc" id="astruct_uner_1_1_timers_cfg_html_a69df2fe958020696be2d9bc0db0b1a21"><div class="ttname"><a href="struct_uner_1_1_timers_cfg.html#a69df2fe958020696be2d9bc0db0b1a21">Uner::TimersCfg::sg90_angle_detect</a></div><div class="ttdeci">uint8_t sg90_angle_detect</div><div class="ttdoc">Ángulo de detección del servo (grados).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:181</div></div>
+<div class="ttc" id="astruct_uner_1_1_timers_cfg_html_a8b03355f9f9d4e75b9fdf82277a8fb2d"><div class="ttname"><a href="struct_uner_1_1_timers_cfg.html#a8b03355f9f9d4e75b9fdf82277a8fb2d">Uner::TimersCfg::alive_timer</a></div><div class="ttdeci">uint8_t alive_timer</div><div class="ttdoc">Intervalo de heartbeat (ticks × 2 ms).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:184</div></div>
+<div class="ttc" id="astruct_uner_1_1_timers_cfg_html_ac7c0e33b91b015677e8e4b7e63dfec1e"><div class="ttname"><a href="struct_uner_1_1_timers_cfg.html#ac7c0e33b91b015677e8e4b7e63dfec1e">Uner::TimersCfg::sg90_angle_repose</a></div><div class="ttdeci">uint8_t sg90_angle_repose</div><div class="ttdoc">Ángulo de reposo del servo (grados).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:182</div></div>
+<div class="ttc" id="astruct_uner_1_1_timers_cfg_html_ad89311a8845954e5d81240264bfc27a5"><div class="ttname"><a href="struct_uner_1_1_timers_cfg.html#ad89311a8845954e5d81240264bfc27a5">Uner::TimersCfg::hcsr_timer</a></div><div class="ttdeci">uint8_t hcsr_timer</div><div class="ttdoc">Timer de disparo del HC-SR04 (ticks × 2 ms).</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:183</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_f83c429584914f285e07e7f54890e179.html">comunicacion</a></li><li class="navelem"><a href="_uner_protocol_8h.html">UnerProtocol.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

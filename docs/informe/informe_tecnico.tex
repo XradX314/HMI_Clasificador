@@ -1,0 +1,606 @@
+\documentclass[12pt,a4paper]{report}
+
+% ── Codificación y lenguaje ────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+
+% ── Tipografía ────────────────────────────────────────────────
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ── Geometría ─────────────────────────────────────────────────
+\usepackage[top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm]{geometry}
+
+% ── Gráficos y colores ────────────────────────────────────────
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% ── Tablas ────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+
+% ── Código fuente ─────────────────────────────────────────────
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{orange!70!black},
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!20},
+  backgroundcolor=\color{black!3},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  tabsize=4,
+  showstringspaces=false
+}
+
+% ── Hipervínculos ─────────────────────────────────────────────
+\usepackage[hidelinks,colorlinks=true,linkcolor=blue!70!black,urlcolor=blue!70!black]{hyperref}
+
+% ── Encabezados y pies ────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small HMI Clasificador de Paquetes}
+\fancyhead[R]{\small \leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Colores corporativos ──────────────────────────────────────
+\definecolor{unerblue}{RGB}{0,75,135}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{60,60,60}
+
+% ── Comandos utilitarios ──────────────────────────────────────
+\newcommand{\cmd}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{#1}}
+\newcommand{\class}[1]{\texttt{\textbf{#1}}}
+
+% ─────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══════════════════════════════════════════════════════════════
+%  PORTADA
+% ══════════════════════════════════════════════════════════════
+\begin{titlepage}
+  \centering
+  \vspace*{1.5cm}
+
+  {\color{unerblue}\rule{\linewidth}{3pt}}
+  \vspace{0.8cm}
+
+  {\Huge\bfseries\color{unerblue} HMI Clasificador de Paquetes}\\[0.6cm]
+  {\Large Informe Técnico -- Manual de Usuario}\\[0.3cm]
+  {\large Versión 1.1}
+
+  \vspace{0.8cm}
+  {\color{unerblue}\rule{\linewidth}{1pt}}
+
+  \vspace{1.5cm}
+
+  \begin{tabular}{ll}
+    \textbf{Proyecto:}      & HMI\_Clasificador \\[4pt]
+    \textbf{Institución:}   & Universidad Nacional de Entre Ríos (UNER) \\[4pt]
+    \textbf{Materia:}       & Microcontroladores \\[4pt]
+    \textbf{Plataforma:}    & Qt 6 / C++ -- Windows \\[4pt]
+    \textbf{Repositorio:}   & \href{https://github.com/XradX314/HMI_Clasificador}{github.com/XradX314/HMI\_Clasificador} \\[4pt]
+    \textbf{Fecha:}         & Mayo 2026 \\
+  \end{tabular}
+
+  \vfill
+  {\color{unerblue}\rule{\linewidth}{3pt}}
+\end{titlepage}
+
+% ══════════════════════════════════════════════════════════════
+%  TABLA DE CONTENIDOS
+% ══════════════════════════════════════════════════════════════
+\tableofcontents
+\clearpage
+
+% ══════════════════════════════════════════════════════════════
+%  PARTE I – MANUAL DE USUARIO
+% ══════════════════════════════════════════════════════════════
+\part{Manual de Usuario}
+
+% ──────────────────────────────────────────────────────────────
+\chapter{Introducción}
+% ──────────────────────────────────────────────────────────────
+
+\section{Descripción general}
+
+El \textbf{HMI Clasificador de Paquetes} es una aplicación de escritorio
+desarrollada en Qt~6 / C++ que permite controlar y monitorear un sistema
+automático de clasificación de cajas por cinta transportadora.
+
+La comunicación con el microcontrolador (MCU) se realiza a través de un
+puerto serie (UART) utilizando el protocolo binario propio \textbf{UNER}.
+La aplicación ofrece:
+
+\begin{itemize}
+  \item Control de arranque, parada y reinicio del clasificador.
+  \item Configuración de las salidas de clasificación (tipo de caja asignado a
+        cada rama de la cinta).
+  \item Modo ciego: clasificación basada en distancias configurables en lugar de
+        medición activa.
+  \item Calibración de alturas de referencia, tiempos de brazos y parámetros
+        de hardware.
+  \item Visualización en tiempo real de sensores IR, estado de los brazos
+        actuadores y contadores de cajas.
+  \item Indicador de heartbeat (LED animado) con monitoreo de la conexión.
+  \item Temas visual claro y oscuro.
+\end{itemize}
+
+\section{Requisitos del sistema}
+
+\begin{tabular}{ll}
+  \toprule
+  \textbf{Componente} & \textbf{Requisito mínimo} \\
+  \midrule
+  Sistema operativo & Windows 10 / 11 (64-bit) \\
+  Qt Runtime & Qt 6.x (incluido en el instalador) \\
+  Puerto USB & Adaptador USB-UART compatible con el MCU \\
+  MCU firmware & Compatible con protocolo UNER v1.1 \\
+  \bottomrule
+\end{tabular}
+
+% ──────────────────────────────────────────────────────────────
+\chapter{Instalación y arranque}
+% ──────────────────────────────────────────────────────────────
+
+\section{Compilación desde código fuente}
+
+\begin{enumerate}
+  \item Instalar Qt~6 con soporte para \texttt{QSerialPort} y MinGW.
+  \item Abrir \file{HMI\_Clasificador.pro} en Qt Creator.
+  \item Seleccionar el kit de compilación MinGW 64-bit.
+  \item Presionar \textbf{Ejecutar} (\texttt{Ctrl+R}).
+\end{enumerate}
+
+O desde línea de comandos (directorio del proyecto):
+
+\begin{lstlisting}[language=bash,caption={Compilación por consola}]
+qmake HMI_Clasificador.pro -spec win32-g++
+mingw32-make -j4
+\end{lstlisting}
+
+\section{Conexión del hardware}
+
+\begin{enumerate}
+  \item Conectar el MCU al PC mediante el adaptador USB-UART.
+  \item Verificar que el puerto COM aparece en el Administrador de dispositivos.
+  \item Abrir la aplicación \texttt{HMI\_Clasificador.exe}.
+\end{enumerate}
+
+% ──────────────────────────────────────────────────────────────
+\chapter{Interfaz gráfica}
+% ──────────────────────────────────────────────────────────────
+
+\section{Barra de herramientas}
+
+La barra superior contiene los controles de conexión serie:
+
+\begin{itemize}
+  \item \textbf{Puerto COM:} selector del puerto serie disponible.
+  \item \textbf{Baudios:} velocidad de transmisión (115200 recomendado).
+  \item \textbf{Conectar / Desconectar:} establece o cierra la conexión.
+  \item \textbf{Actualizar:} refresca la lista de puertos detectados.
+  \item \textbf{$\circ$ Calibración:} abre el diálogo de calibración (CMD~0x63).
+  \item \textbf{Ancho de caja:} abre el diálogo de ancho de referencia (CMD~0x62).
+  \item \textbf{Config.\ avanzada:} abre el diálogo de parámetros de hardware (CMDs~0x64–0x67).
+  \item \textbf{Modo oscuro:} alterna el tema visual.
+\end{itemize}
+
+\section{Panel Monitor}
+
+\subsection{Heartbeat / Conexión}
+
+Muestra el LED animado \class{LedAliveWidget} con los estados:
+\begin{itemize}
+  \item \textcolor{green!60!black}{\textbf{Verde}}: heartbeat recibido (online).
+  \item \textbf{Gris}: sin actividad (offline).
+  \item \textcolor{orange}{\textbf{Naranja}}: timeout ($> 7$ s sin heartbeat).
+\end{itemize}
+
+\subsection{Panel de control}
+
+\begin{tabular}{lll}
+  \toprule
+  \textbf{Control} & \textbf{CMD} & \textbf{Descripción} \\
+  \midrule
+  Start & 0x50 & Inicia la cinta con los tipos de caja configurados \\
+  Stop  & 0x51 & Detiene la cinta \\
+  Reset & 0x53 & Reinicia el MCU y los contadores \\
+  Velocidad & 0x54 & Índice de velocidad (1–10; enviado al cambiar el SpinBox) \\
+  Modo Ciego & 0x60 & Activa/desactiva modo ciego + envía distancias S0→Sal0/1/2 \\
+  Trigger & 0x61 & Dispara una medición manual inmediata \\
+  \bottomrule
+\end{tabular}
+
+\subsection{Panel de salidas}
+
+Tres \textit{ComboBox} permiten asignar a cada salida el tipo de caja
+(Ninguna / Pequeña / Mediana / Grande).  El botón \textbf{Aplicar} envía
+el CMD~0x50 con la configuración actual.
+
+\subsection{Panel de sensores y brazos}
+
+Muestra en tiempo real el estado de los 4 sensores IR y los 3 brazos
+actuadores.  Los indicadores cambian de color al recibir los CMDs~0x5E
+(IR) y~0x52 (Brazo).
+
+\subsection{Contadores}
+
+Muestra la cantidad de cajas entradas, salidas y en tránsito durante la
+sesión actual.
+
+\subsection{Última caja}
+
+Muestra la altura medida (cm), el tipo inferido y el timestamp de la
+última caja detectada (CMD~0x5F).
+
+% ──────────────────────────────────────────────────────────────
+\chapter{Diálogos de configuración}
+% ──────────────────────────────────────────────────────────────
+
+\section{Calibración (CMD 0x63)}
+
+Permite ajustar las alturas de referencia del sensor HC-SR04:
+
+\begin{itemize}
+  \item \textbf{Distancia piso:} distancia del sensor al piso sin caja (\texttt{calibracion[0]}).
+  \item \textbf{Caja pequeña / mediana / grande:} alturas de cada tipo (\texttt{calibracion[1..3]}).
+  \item \textbf{Tolerancia:} margen de error en cm.
+  \item \textbf{Extensión / Retracción:} tiempos de actuación de los brazos en ticks (1 tick = 2 ms).
+\end{itemize}
+
+Presionar \textbf{Enviar 0x63} transmite los 7 bytes al MCU.
+
+\section{Ancho de caja (CMD 0x62)}
+
+Permite enviar el ancho de la caja de referencia en cm.  El MCU utiliza
+este valor para calcular internamente la velocidad de la cinta.
+
+\section{Configuración avanzada (CMDs 0x64–0x67)}
+
+Diálogo desplazable con cuatro secciones independientes:
+
+\begin{itemize}
+  \item \textbf{HC-SR04 (0x64):} pulso de trigger (µs) y timeout de eco (µs).
+  \item \textbf{Servo SG90 (0x65):} período, pulso mínimo, máximo y neutro (µs).
+  \item \textbf{Debounce IR (0x66):} número de ticks de debounce.
+  \item \textbf{Timers / Cajas (0x67):} retractTimer, ángulos SG90, hcsrTimer,
+        aliveTimer y configCajas[0..2].
+\end{itemize}
+
+Cada sección tiene su propio botón \textbf{Enviar} para transmitir
+únicamente los parámetros de esa sección.
+
+% ══════════════════════════════════════════════════════════════
+%  PARTE II – DOCUMENTACIÓN TÉCNICA
+% ══════════════════════════════════════════════════════════════
+\part{Documentación Técnica}
+
+% ──────────────────────────────────────────────────────────────
+\chapter{Arquitectura del sistema}
+% ──────────────────────────────────────────────────────────────
+
+\section{Vista general}
+
+El sistema se organiza en tres capas:
+
+\begin{enumerate}
+  \item \textbf{Capa de protocolo} (\file{comunicacion/}): codificación/decodificación de tramas UNER.
+  \item \textbf{Capa de comunicación} (\file{comunicacion/}): gestión del puerto serie y despacho de eventos.
+  \item \textbf{Capa de presentación} (\file{MainWindow.cpp}, \file{widgets/}): interfaz gráfica y lógica de usuario.
+\end{enumerate}
+
+\section{Diagrama de clases simplificado}
+
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+\textbf{MainWindow} \\
+\hline
+-- SerialManager* \\
+-- ConfigDialog* \\
+-- VelocidadDialog* \\
+-- AvanzadoDialog* \\
+-- LedAliveWidget* \\
+\hline
+\end{tabular}
+\quad $\rightarrow$ \quad
+\begin{tabular}{|l|}
+\hline
+\textbf{SerialManager} \\
+\hline
+-- QSerialPort* \\
+-- UnerProtocol* \\
+-- QTimer* (heartbeat) \\
+\hline
+\end{tabular}
+\quad $\rightarrow$ \quad
+\begin{tabular}{|l|}
+\hline
+\textbf{UnerProtocol} \\
+\hline
+Encoder estático \\
+Decoder de máquina \\
+de estados \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Flujo de datos}
+
+\begin{enumerate}
+  \item El MCU envía bytes por UART.
+  \item \class{QSerialPort} emite \texttt{readyRead} $\rightarrow$ \class{SerialManager::onDataReady}.
+  \item Los bytes se pasan a \class{UnerProtocol::feed()} (máquina de estados).
+  \item Al completarse una trama válida, \class{UnerProtocol} emite \texttt{frameReceived}.
+  \item \class{SerialManager::dispatchFrame()} interpreta el comando y emite señales específicas
+        (\texttt{cajaMedida}, \texttt{sensorIrActualizado}, \texttt{brazoActuado}, \texttt{aliveReceived}).
+  \item \class{MainWindow} recibe las señales y actualiza la UI.
+\end{enumerate}
+
+% ──────────────────────────────────────────────────────────────
+\chapter{Protocolo UNER}
+% ──────────────────────────────────────────────────────────────
+
+\section{Estructura de trama}
+
+Toda trama sigue el formato:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\texttt{U} & \texttt{N} & \texttt{E} & \texttt{R} & \texttt{len} & \texttt{':'} \\
+\hline
+\texttt{cmd} & \texttt{payload[0]} & \texttt{...} & \texttt{payload[n-1]} & \texttt{XOR} & \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+  \item \textbf{Header:} 4 bytes fijos \texttt{'U','N','E','R'}.
+  \item \textbf{len:} \texttt{1 + n + 1} (cmd + payload + checksum).
+  \item \textbf{':'} (0x3A): token separador.
+  \item \textbf{cmd:} byte de comando.
+  \item \textbf{payload:} 0 a \textit{n} bytes de datos.
+  \item \textbf{XOR:} XOR de todos los bytes anteriores de la trama.
+\end{itemize}
+
+\section{Tabla de comandos}
+
+\begin{longtable}{cllp{6cm}}
+  \toprule
+  \textbf{CMD} & \textbf{Nombre} & \textbf{Dirección} & \textbf{Payload} \\
+  \midrule
+  \endhead
+  0xF0 & CMD\_ALIVE & MCU$\to$HMI / HMI$\to$MCU & [0x06] (ACK bidireccional) \\
+  \midrule
+  0x50 & CMD\_START & HMI$\to$MCU & [0x00, tipoSal0, tipoSal1, tipoSal2] \\
+  0x51 & CMD\_STOP  & HMI$\to$MCU & [0x06] \\
+  0x52 & CMD\_BRAZO & MCU$\to$HMI & [máscara\_servo, estado] \\
+  0x53 & CMD\_RESET & HMI$\to$MCU & [0x06] \\
+  0x54 & CMD\_VELOCIDAD & HMI$\to$MCU & [velIdx × 10] (0–100) \\
+  \midrule
+  0x5E & CMD\_IR\_STATE  & MCU$\to$HMI & pares [outNum, IRState] \\
+  0x5F & CMD\_CAJA\_DETECT & MCU$\to$HMI & [alturaCm] \\
+  \midrule
+  0x60 & CMD\_BLIND\_DIST & HMI$\to$MCU & [modo\_ciego, dist\_s0[0], [1], [2]] (1–4 bytes) \\
+  0x61 & CMD\_TRIGGER & HMI$\to$MCU & (sin payload) \\
+  0x62 & CMD\_ANCHO\_CAJA & HMI$\to$MCU & [anchoCm] \\
+  0x63 & CMD\_CALIBRACION & HMI$\to$MCU & [cal0, cal1, cal2, cal3, tol, ext, ret] \\
+  0x64 & CMD\_HCSR04\_CFG & HMI$\to$MCU & [trig\_pulse\_us, timeout\_hi, timeout\_lo] \\
+  0x65 & CMD\_SG90\_CFG & HMI$\to$MCU & [period\_hi, lo, min\_hi, lo, max\_hi, lo, neutral\_hi, lo] \\
+  0x66 & CMD\_IR\_DEBOUNCE & HMI$\to$MCU & [debounce\_ticks] \\
+  0x67 & CMD\_TIMERS\_CFG & HMI$\to$MCU & [retract, angleDet, angleRep, hcsr, alive, cajas0, cajas1, cajas2] \\
+  \bottomrule
+\end{longtable}
+
+\section{Verificación de checksum}
+
+El checksum es el XOR acumulado de todos los bytes de la trama excepto el
+propio byte de checksum.  El receptor verifica haciendo XOR de todos los
+bytes incluyendo el checksum: si el resultado es \texttt{0x00}, la trama
+es válida.
+
+\section{Máquina de estados del decodificador}
+
+El decodificador implementado en \class{UnerProtocol::feed()} procesa los
+bytes de entrada uno a uno siguiendo los estados:
+
+\begin{center}
+WaitU $\to$ WaitN $\to$ WaitE $\to$ WaitR $\to$ ReadLen $\to$ WaitColon $\to$ ReadPayload
+\end{center}
+
+Al completarse \texttt{ReadPayload} con checksum correcto, se llama a
+\texttt{processPayload()} que emite la señal \texttt{frameReceived}.
+
+% ──────────────────────────────────────────────────────────────
+\chapter{API de clases}
+% ──────────────────────────────────────────────────────────────
+
+\section{UnerProtocol}
+
+Archivo: \file{comunicacion/UnerProtocol.h} / \file{.cpp}
+
+\subsection{Encoder (métodos estáticos)}
+
+\begin{tabular}{lp{8cm}}
+  \toprule
+  \textbf{Método} & \textbf{Descripción} \\
+  \midrule
+  \texttt{encode(cmd, payload)} & Framer genérico; genera la trama completa. \\
+  \texttt{ackAlive()} & Genera ACK de heartbeat (0xF0). \\
+  \texttt{cmdStart(s0,s1,s2)} & Genera trama CMD\_START (0x50). \\
+  \texttt{cmdStop()} & Genera trama CMD\_STOP (0x51). \\
+  \texttt{cmdReset()} & Genera trama CMD\_RESET (0x53). \\
+  \texttt{cmdVelocidad(velIdx)} & Genera trama CMD\_VELOCIDAD (0x54). \\
+  \texttt{cmdBlindDist(cfg,n)} & Genera trama CMD\_BLIND\_DIST (0x60). \\
+  \texttt{cmdTrigger()} & Genera trama CMD\_TRIGGER (0x61). \\
+  \texttt{cmdAnchoCaja(cm)} & Genera trama CMD\_ANCHO\_CAJA (0x62). \\
+  \texttt{cmdCalibracion(cfg)} & Genera trama CMD\_CALIBRACION (0x63). \\
+  \texttt{cmdHcsr04Cfg(cfg)} & Genera trama CMD\_HCSR04\_CFG (0x64). \\
+  \texttt{cmdSg90Cfg(cfg)} & Genera trama CMD\_SG90\_CFG (0x65). \\
+  \texttt{cmdIrDebounce(d)} & Genera trama CMD\_IR\_DEBOUNCE (0x66). \\
+  \texttt{cmdTimersCfg(cfg)} & Genera trama CMD\_TIMERS\_CFG (0x67). \\
+  \bottomrule
+\end{tabular}
+
+\subsection{Decoder}
+
+\begin{tabular}{lp{8cm}}
+  \toprule
+  \textbf{Método / Señal} & \textbf{Descripción} \\
+  \midrule
+  \texttt{feed(data)} & Alimenta bytes al decodificador. \\
+  \texttt{reset()} & Reinicia la máquina de estados. \\
+  \texttt{frameReceived(f)} & Señal emitida al recibir una trama válida. \\
+  \texttt{checksumError(raw)} & Señal emitida ante error de checksum. \\
+  \bottomrule
+\end{tabular}
+
+\section{SerialManager}
+
+Archivo: \file{comunicacion/SerialManager.h} / \file{.cpp}
+
+\subsection{Métodos públicos}
+
+\begin{tabular}{lp{7.5cm}}
+  \toprule
+  \textbf{Método} & \textbf{Descripción} \\
+  \midrule
+  \texttt{open(port, baud)} & Abre el puerto serie e inicia el heartbeat. \\
+  \texttt{close()} & Cierra el puerto y detiene los timers. \\
+  \texttt{isOpen()} & Devuelve si el puerto está abierto. \\
+  \texttt{currentPort()} & Devuelve el nombre del puerto activo. \\
+  \texttt{availablePorts()} & Lista los puertos COM disponibles. \\
+  \texttt{sendStart(s0,s1,s2)} & Envía CMD\_START. \\
+  \texttt{sendStop()} & Envía CMD\_STOP. \\
+  \texttt{sendReset()} & Envía CMD\_RESET. \\
+  \texttt{sendVelocidad(v)} & Envía CMD\_VELOCIDAD. \\
+  \texttt{sendBlindDist(cfg,n)} & Envía CMD\_BLIND\_DIST. \\
+  \texttt{sendTrigger()} & Envía CMD\_TRIGGER. \\
+  \texttt{sendAnchoCaja(cm)} & Envía CMD\_ANCHO\_CAJA. \\
+  \texttt{sendCalibracion(cfg)} & Envía CMD\_CALIBRACION. \\
+  \texttt{sendHcsr04Cfg(cfg)} & Envía CMD\_HCSR04\_CFG. \\
+  \texttt{sendSg90Cfg(cfg)} & Envía CMD\_SG90\_CFG. \\
+  \texttt{sendIrDebounce(d)} & Envía CMD\_IR\_DEBOUNCE. \\
+  \texttt{sendTimersCfg(cfg)} & Envía CMD\_TIMERS\_CFG. \\
+  \bottomrule
+\end{tabular}
+
+\subsection{Señales}
+
+\begin{tabular}{lp{7cm}}
+  \toprule
+  \textbf{Señal} & \textbf{Descripción} \\
+  \midrule
+  \texttt{connected(port)} & Puerto abierto exitosamente. \\
+  \texttt{disconnected()} & Puerto cerrado. \\
+  \texttt{connectionLost()} & Timeout de heartbeat. \\
+  \texttt{errorOccurred(msg)} & Error en el puerto serie. \\
+  \texttt{aliveReceived()} & Heartbeat 0xF0 recibido. \\
+  \texttt{cajaMedida(cm)} & Caja medida (0x5F). \\
+  \texttt{sensorIrActualizado(num,act)} & Estado sensor IR (0x5E). \\
+  \texttt{brazoActuado(idx)} & Brazo actuado (0x52). \\
+  \texttt{frameReady(f)} & Cualquier trama decodificada. \\
+  \bottomrule
+\end{tabular}
+
+\section{Widgets}
+
+\begin{tabular}{lp{9cm}}
+  \toprule
+  \textbf{Clase} & \textbf{Responsabilidad} \\
+  \midrule
+  \class{LedAliveWidget} & LED circular animado de heartbeat con estadísticas. \\
+  \class{ConfigDialog} & Diálogo de calibración del clasificador (CMD 0x63). \\
+  \class{VelocidadDialog} & Diálogo de ancho de caja de referencia (CMD 0x62). \\
+  \class{AvanzadoDialog} & Diálogo de configuración avanzada de hardware (CMDs 0x64–0x67). \\
+  \bottomrule
+\end{tabular}
+
+% ──────────────────────────────────────────────────────────────
+\chapter{Implementación del protocolo -- detalles}
+% ──────────────────────────────────────────────────────────────
+
+\section{Corrección: máscara de bits en CMD\_BRAZO (0x52)}
+
+El MCU envía en el byte \texttt{payload[0]} una \textit{máscara de bits}
+donde el bit~$i$ indica que el servo~$i$ fue actuado:
+
+\begin{lstlisting}[language=C++,caption={Despacho de CMD\_BRAZO en SerialManager}]
+case Uner::CMD_BRAZO:
+    if (frame.payload.size() >= 2) {
+        const uint8_t mask = static_cast<uint8_t>(frame.payload.at(0));
+        for (uint8_t i = 0; i < 3; i++) {
+            if (mask & (1 << i))
+                emit brazoActuado(i);
+        }
+    }
+    break;
+\end{lstlisting}
+
+La versión anterior trataba \texttt{payload[0]} como un índice directo, lo
+que causaba que el servo~2 (máscara = 4) se ignorara por superar el límite.
+
+\section{CMD\_TRIGGER (0x61) -- trama sin payload}
+
+El codificador llama a \texttt{encode(CMD\_TRIGGER)} sin payload.  Esto
+genera \texttt{len = 2} (1 byte de cmd + 1 byte de checksum), que el MCU
+interpreta correctamente como un comando sin datos.
+
+\section{CMD\_BLIND\_DIST (0x60) -- envío parcial}
+
+El parámetro \texttt{numBytes} (1–4) permite enviar solo el byte
+\texttt{modo\_ciego} o también incluir las distancias \texttt{dist\_s0[0..2]},
+facilitando la compatibilidad con versiones de firmware que no soportan
+las distancias.
+
+% ──────────────────────────────────────────────────────────────
+\chapter{Estructura del repositorio}
+% ──────────────────────────────────────────────────────────────
+
+\begin{verbatim}
+HMI_Clasificador/
+  main.cpp                    Punto de entrada
+  MainWindow.h / .cpp         Ventana principal
+  HMI_Clasificador.pro        Archivo de proyecto qmake
+  CLAUDE.md                   Guía de arquitectura para Claude Code
+  Doxyfile                    Configuración de Doxygen
+  comunicacion/
+    UnerProtocol.h / .cpp     Protocolo UNER (encoder + decoder)
+    SerialManager.h / .cpp    Gestor de puerto serie
+  widgets/
+    LedAliveWidget.h / .cpp   LED de heartbeat
+    ConfigDialog.h / .cpp     Diálogo calibración (0x63)
+    VelocidadDialog.h / .cpp  Diálogo ancho de caja (0x62)
+    AvanzadoDialog.h / .cpp   Diálogo config. avanzada (0x64-0x67)
+  docs/
+    doxygen/                  Documentación generada por Doxygen
+    informe/                  Este informe técnico
+  Actividad-N-4-.../          Código fuente del firmware MCU (AVR C)
+\end{verbatim}
+
+% ══════════════════════════════════════════════════════════════
+%  BIBLIOGRAFÍA / REFERENCIAS
+% ══════════════════════════════════════════════════════════════
+\chapter*{Referencias}
+\addcontentsline{toc}{chapter}{Referencias}
+
+\begin{itemize}
+  \item Qt Documentation -- \href{https://doc.qt.io/qt-6/}{doc.qt.io/qt-6/}
+  \item Qt Serial Port Module -- \href{https://doc.qt.io/qt-6/qtserialport-index.html}{QtSerialPort}
+  \item Repositorio del proyecto -- \href{https://github.com/XradX314/HMI_Clasificador}{github.com/XradX314/HMI\_Clasificador}
+  \item Documentación Doxygen -- \href{https://www.doxygen.nl/}{doxygen.nl}
+\end{itemize}
+
+\end{document}

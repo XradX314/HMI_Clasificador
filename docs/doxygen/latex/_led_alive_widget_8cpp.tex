@@ -1,0 +1,72 @@
+\doxysection{Referencia del archivo widgets/\+\+Led\+Alive\+Widget.cpp}
+\hypertarget{_led_alive_widget_8cpp}{}\label{_led_alive_widget_8cpp}\index{widgets/LedAliveWidget.cpp@{widgets/LedAliveWidget.cpp}}
+
+
+Implementación del widget indicador de heartbeat (CMD 0x\+F0).  
+
+
+{\ttfamily \+\#include "{}Led\+Alive\+Widget.\+h"{}}\newline
+{\ttfamily \+\#include $<$QVBox\+Layout$>$}\newline
+{\ttfamily \+\#include $<$QPainter$>$}\newline
+{\ttfamily \+\#include $<$QDate\+Time$>$}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+static const QColor \doxymbox{\hyperlink{_led_alive_widget_8cpp_a1d5cef0b6c7267fdfca9cab13edbaae0}{COLOR\+\_\+\+OFF}} ("{}\+\#9CA3\+AF"{})
+\item 
+static const QColor \doxymbox{\hyperlink{_led_alive_widget_8cpp_ae35c2c3e196431319af33f2d13dea54e}{COLOR\+\_\+\+ON}} ("{}\+\#22C55\+E"{})
+\item 
+static const QColor \doxymbox{\hyperlink{_led_alive_widget_8cpp_ad2f14fc28c8b13d28a4db9bc0b114ec0}{COLOR\+\_\+\+TIMEOUT}} ("{}\+\#F97316"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \doxymbox{\hyperlink{_led_alive_widget_8cpp_a441ecf7d611e141363f38c9937f49f4f}{LED\+\_\+\+ON\+\_\+\+MS}} = 1000
+\item 
+static constexpr int \doxymbox{\hyperlink{_led_alive_widget_8cpp_a947bb577bd44fe1c3918ff18312cf3c7}{WATCHDOG\+\_\+\+TIMEOUT\+\_\+\+MS}} = 7000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Implementación del widget indicador de heartbeat (CMD 0x\+F0). 
+
+
+
+\label{doc-func-members}
+\Hypertarget{_led_alive_widget_8cpp_doc-func-members}
+\doxysubsection{Documentación de funciones}
+\Hypertarget{_led_alive_widget_8cpp_a1d5cef0b6c7267fdfca9cab13edbaae0}\index{LedAliveWidget.cpp@{LedAliveWidget.cpp}!COLOR\_OFF@{COLOR\_OFF}}
+\index{COLOR\_OFF@{COLOR\_OFF}!LedAliveWidget.cpp@{LedAliveWidget.cpp}}
+\doxysubsubsection{\texorpdfstring{COLOR\_OFF()}{COLOR\_OFF()}}
+{\footnotesize\ttfamily \label{_led_alive_widget_8cpp_a1d5cef0b6c7267fdfca9cab13edbaae0} 
+const QColor COLOR\+\_\+\+OFF (\begin{DoxyParamCaption}\item[{"{}\+\#9CA3\+AF"{}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_led_alive_widget_8cpp_ae35c2c3e196431319af33f2d13dea54e}\index{LedAliveWidget.cpp@{LedAliveWidget.cpp}!COLOR\_ON@{COLOR\_ON}}
+\index{COLOR\_ON@{COLOR\_ON}!LedAliveWidget.cpp@{LedAliveWidget.cpp}}
+\doxysubsubsection{\texorpdfstring{COLOR\_ON()}{COLOR\_ON()}}
+{\footnotesize\ttfamily \label{_led_alive_widget_8cpp_ae35c2c3e196431319af33f2d13dea54e} 
+const QColor COLOR\+\_\+\+ON (\begin{DoxyParamCaption}\item[{"{}\+\#22C55\+E"{}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_led_alive_widget_8cpp_ad2f14fc28c8b13d28a4db9bc0b114ec0}\index{LedAliveWidget.cpp@{LedAliveWidget.cpp}!COLOR\_TIMEOUT@{COLOR\_TIMEOUT}}
+\index{COLOR\_TIMEOUT@{COLOR\_TIMEOUT}!LedAliveWidget.cpp@{LedAliveWidget.cpp}}
+\doxysubsubsection{\texorpdfstring{COLOR\_TIMEOUT()}{COLOR\_TIMEOUT()}}
+{\footnotesize\ttfamily \label{_led_alive_widget_8cpp_ad2f14fc28c8b13d28a4db9bc0b114ec0} 
+const QColor COLOR\+\_\+\+TIMEOUT (\begin{DoxyParamCaption}\item[{"{}\+\#F97316"{}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\label{doc-var-members}
+\Hypertarget{_led_alive_widget_8cpp_doc-var-members}
+\doxysubsection{Documentación de variables}
+\Hypertarget{_led_alive_widget_8cpp_a441ecf7d611e141363f38c9937f49f4f}\index{LedAliveWidget.cpp@{LedAliveWidget.cpp}!LED\_ON\_MS@{LED\_ON\_MS}}
+\index{LED\_ON\_MS@{LED\_ON\_MS}!LedAliveWidget.cpp@{LedAliveWidget.cpp}}
+\doxysubsubsection{\texorpdfstring{LED\_ON\_MS}{LED\_ON\_MS}}
+{\footnotesize\ttfamily \label{_led_alive_widget_8cpp_a441ecf7d611e141363f38c9937f49f4f} 
+int LED\+\_\+\+ON\+\_\+\+MS = 1000\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{_led_alive_widget_8cpp_a947bb577bd44fe1c3918ff18312cf3c7}\index{LedAliveWidget.cpp@{LedAliveWidget.cpp}!WATCHDOG\_TIMEOUT\_MS@{WATCHDOG\_TIMEOUT\_MS}}
+\index{WATCHDOG\_TIMEOUT\_MS@{WATCHDOG\_TIMEOUT\_MS}!LedAliveWidget.cpp@{LedAliveWidget.cpp}}
+\doxysubsubsection{\texorpdfstring{WATCHDOG\_TIMEOUT\_MS}{WATCHDOG\_TIMEOUT\_MS}}
+{\footnotesize\ttfamily \label{_led_alive_widget_8cpp_a947bb577bd44fe1c3918ff18312cf3c7} 
+int WATCHDOG\+\_\+\+TIMEOUT\+\_\+\+MS = 7000\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+

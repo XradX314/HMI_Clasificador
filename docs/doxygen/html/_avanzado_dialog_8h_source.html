@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Archivo de código fuente widgets/AvanzadoDialog.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_avanzado_dialog_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AvanzadoDialog.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_avanzado_dialog_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;QDialog&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;QSpinBox&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_uner_protocol_8h.html">comunicacion/UnerProtocol.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span></div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html">   29</a></span><span class="keyword">class </span><a class="code hl_function" href="class_avanzado_dialog.html#a55be61199f73edebc4adb835ac9ecbc6">AvanzadoDialog</a> : <span class="keyword">public</span> QDialog</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    Q_OBJECT</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_avanzado_dialog.html#a55be61199f73edebc4adb835ac9ecbc6">AvanzadoDialog</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_avanzado_dialog.html#a59c57a40a4e06b5fa1ba7cb72041e22a">setDarkMode</a>(<span class="keywordtype">bool</span> dark);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>signals:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a08928e4ca6237830a56cff0815ac6642">   51</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_avanzado_dialog.html#a08928e4ca6237830a56cff0815ac6642">sendHcsr04</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a21888bf213fcbb333ba72431f8efdab3">   57</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_avanzado_dialog.html#a21888bf213fcbb333ba72431f8efdab3">sendSg90</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a9c2b45f14d55619bd1cd71825c9088db">   63</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_avanzado_dialog.html#a9c2b45f14d55619bd1cd71825c9088db">sendIrDebounce</a>(uint8_t debounce);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a3a408184a866a425e300bb5c4d7f7bec">   69</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_avanzado_dialog.html#a3a408184a866a425e300bb5c4d7f7bec">sendTimers</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// ── Sección 0x64 – HC-SR04 ───────────────────────────────</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#ae5c939a7ceb31c756e5e7b60ecf07b40">   73</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#ae5c939a7ceb31c756e5e7b60ecf07b40">m_spinTrigPulse</a>   {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#ad550bc5547966859568bc3aea44540d4">   74</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#ad550bc5547966859568bc3aea44540d4">m_spinTimeout</a>     {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#afe12bf884904d3cb862d71efd1f7be9a">   75</a></span>    QPushButton *<a class="code hl_variable" href="class_avanzado_dialog.html#afe12bf884904d3cb862d71efd1f7be9a">m_btnHcsr04</a>       {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="comment">// ── Sección 0x65 – SG90 ──────────────────────────────────</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a479bbc40c9715f62308027cdf8374243">   78</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#a479bbc40c9715f62308027cdf8374243">m_spinPeriod</a>      {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a4547aede1c6a3769fd2244ffd2fd8047">   79</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#a4547aede1c6a3769fd2244ffd2fd8047">m_spinPulseMin</a>    {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a2e435b5f34546dde090b49ab828ed7bf">   80</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#a2e435b5f34546dde090b49ab828ed7bf">m_spinPulseMax</a>    {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a2c68632adc95e4884c54d0efacaab314">   81</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#a2c68632adc95e4884c54d0efacaab314">m_spinPulseNeutral</a>{<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a8cfbf4d7d3eaf9d842d50e3b2595e796">   82</a></span>    QPushButton *<a class="code hl_variable" href="class_avanzado_dialog.html#a8cfbf4d7d3eaf9d842d50e3b2595e796">m_btnSg90</a>         {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// ── Sección 0x66 – IR Debounce ────────────────────────────</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#aac4bf96b599fdaf9e19a9d4da3431e85">   85</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#aac4bf96b599fdaf9e19a9d4da3431e85">m_spinDebounce</a>    {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a3dbed26dac782d0a79f066f28332c8b0">   86</a></span>    QPushButton *<a class="code hl_variable" href="class_avanzado_dialog.html#a3dbed26dac782d0a79f066f28332c8b0">m_btnDebounce</a>     {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">// ── Sección 0x67 – Timers / Cajas ────────────────────────</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#ad6fc1e7a3a27a8fa2111b8b2338c3630">   89</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#ad6fc1e7a3a27a8fa2111b8b2338c3630">m_spinRetract</a>     {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a1c05e74635a03a24cafa2d1e9f82ff85">   90</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#a1c05e74635a03a24cafa2d1e9f82ff85">m_spinAngleDet</a>    {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a8c293978e000376347eb33e5da9804c5">   91</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#a8c293978e000376347eb33e5da9804c5">m_spinAngleRep</a>    {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a848ddb6e0b69bf3f907cb0b4bd1dfd97">   92</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#a848ddb6e0b69bf3f907cb0b4bd1dfd97">m_spinHcsrTimer</a>   {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#ada63851c302d2212a4a448bb908a72f9">   93</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#ada63851c302d2212a4a448bb908a72f9">m_spinAliveTimer</a>  {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#afcafc8998788314e6295003297933405">   94</a></span>    QSpinBox    *<a class="code hl_variable" href="class_avanzado_dialog.html#afcafc8998788314e6295003297933405">m_spinCajas</a>[3]    {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="class_avanzado_dialog.html#a25832f9e7a93fcdff901ebb50071f8ee">   95</a></span>    QPushButton *<a class="code hl_variable" href="class_avanzado_dialog.html#a25832f9e7a93fcdff901ebb50071f8ee">m_btnTimers</a>       {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_avanzado_dialog.html#af684036c58c1f6b2a038e00bf11d7ef8">buildUi</a>();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_avanzado_dialog.html#afb8919b3e3e8d1006a29740962ea21a9">applyDarkStyle</a>();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_avanzado_dialog.html#a598b36579d630361ffc6d79f97ab6bd9">applyLightStyle</a>();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>};</div>
+</div>
+<div class="ttc" id="a_uner_protocol_8h_html"><div class="ttname"><a href="_uner_protocol_8h.html">UnerProtocol.h</a></div><div class="ttdoc">Definición del protocolo de comunicación serie UNER y el codificador/decodificador de tramas.</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a08928e4ca6237830a56cff0815ac6642"><div class="ttname"><a href="class_avanzado_dialog.html#a08928e4ca6237830a56cff0815ac6642">AvanzadoDialog::sendHcsr04</a></div><div class="ttdeci">void sendHcsr04(const Uner::Hcsr04Cfg &amp;cfg)</div><div class="ttdoc">Se emite al presionar «Enviar 0x64» (HC-SR04).</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a1c05e74635a03a24cafa2d1e9f82ff85"><div class="ttname"><a href="class_avanzado_dialog.html#a1c05e74635a03a24cafa2d1e9f82ff85">AvanzadoDialog::m_spinAngleDet</a></div><div class="ttdeci">QSpinBox * m_spinAngleDet</div><div class="ttdoc">SG90_ANGLE_DETECT.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:90</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a21888bf213fcbb333ba72431f8efdab3"><div class="ttname"><a href="class_avanzado_dialog.html#a21888bf213fcbb333ba72431f8efdab3">AvanzadoDialog::sendSg90</a></div><div class="ttdeci">void sendSg90(const Uner::Sg90Cfg &amp;cfg)</div><div class="ttdoc">Se emite al presionar «Enviar 0x65» (SG90).</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a25832f9e7a93fcdff901ebb50071f8ee"><div class="ttname"><a href="class_avanzado_dialog.html#a25832f9e7a93fcdff901ebb50071f8ee">AvanzadoDialog::m_btnTimers</a></div><div class="ttdeci">QPushButton * m_btnTimers</div><div class="ttdoc">Botón «Enviar 0x67».</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:95</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a2c68632adc95e4884c54d0efacaab314"><div class="ttname"><a href="class_avanzado_dialog.html#a2c68632adc95e4884c54d0efacaab314">AvanzadoDialog::m_spinPulseNeutral</a></div><div class="ttdeci">QSpinBox * m_spinPulseNeutral</div><div class="ttdoc">SG90_PULSE_NEUTRAL_US.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:81</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a2e435b5f34546dde090b49ab828ed7bf"><div class="ttname"><a href="class_avanzado_dialog.html#a2e435b5f34546dde090b49ab828ed7bf">AvanzadoDialog::m_spinPulseMax</a></div><div class="ttdeci">QSpinBox * m_spinPulseMax</div><div class="ttdoc">SG90_PULSE_MAX_US.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:80</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a3a408184a866a425e300bb5c4d7f7bec"><div class="ttname"><a href="class_avanzado_dialog.html#a3a408184a866a425e300bb5c4d7f7bec">AvanzadoDialog::sendTimers</a></div><div class="ttdeci">void sendTimers(const Uner::TimersCfg &amp;cfg)</div><div class="ttdoc">Se emite al presionar «Enviar 0x67» (timers y cajas).</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a3dbed26dac782d0a79f066f28332c8b0"><div class="ttname"><a href="class_avanzado_dialog.html#a3dbed26dac782d0a79f066f28332c8b0">AvanzadoDialog::m_btnDebounce</a></div><div class="ttdeci">QPushButton * m_btnDebounce</div><div class="ttdoc">Botón «Enviar 0x66».</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:86</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a4547aede1c6a3769fd2244ffd2fd8047"><div class="ttname"><a href="class_avanzado_dialog.html#a4547aede1c6a3769fd2244ffd2fd8047">AvanzadoDialog::m_spinPulseMin</a></div><div class="ttdeci">QSpinBox * m_spinPulseMin</div><div class="ttdoc">SG90_PULSE_MIN_US.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:79</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a479bbc40c9715f62308027cdf8374243"><div class="ttname"><a href="class_avanzado_dialog.html#a479bbc40c9715f62308027cdf8374243">AvanzadoDialog::m_spinPeriod</a></div><div class="ttdeci">QSpinBox * m_spinPeriod</div><div class="ttdoc">SG90_PERIOD_US.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:78</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a55be61199f73edebc4adb835ac9ecbc6"><div class="ttname"><a href="class_avanzado_dialog.html#a55be61199f73edebc4adb835ac9ecbc6">AvanzadoDialog::AvanzadoDialog</a></div><div class="ttdeci">AvanzadoDialog(QWidget *parent=nullptr)</div><div class="ttdoc">Construye el diálogo con valores predeterminados.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.cpp:15</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a598b36579d630361ffc6d79f97ab6bd9"><div class="ttname"><a href="class_avanzado_dialog.html#a598b36579d630361ffc6d79f97ab6bd9">AvanzadoDialog::applyLightStyle</a></div><div class="ttdeci">void applyLightStyle()</div><div class="ttdoc">Aplica la hoja de estilo del tema claro.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.cpp:238</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a59c57a40a4e06b5fa1ba7cb72041e22a"><div class="ttname"><a href="class_avanzado_dialog.html#a59c57a40a4e06b5fa1ba7cb72041e22a">AvanzadoDialog::setDarkMode</a></div><div class="ttdeci">void setDarkMode(bool dark)</div><div class="ttdoc">Aplica el tema claro u oscuro al diálogo.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.cpp:228</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a848ddb6e0b69bf3f907cb0b4bd1dfd97"><div class="ttname"><a href="class_avanzado_dialog.html#a848ddb6e0b69bf3f907cb0b4bd1dfd97">AvanzadoDialog::m_spinHcsrTimer</a></div><div class="ttdeci">QSpinBox * m_spinHcsrTimer</div><div class="ttdoc">hcsrTimer.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:92</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a8c293978e000376347eb33e5da9804c5"><div class="ttname"><a href="class_avanzado_dialog.html#a8c293978e000376347eb33e5da9804c5">AvanzadoDialog::m_spinAngleRep</a></div><div class="ttdeci">QSpinBox * m_spinAngleRep</div><div class="ttdoc">SG90_ANGLE_REPOSE.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:91</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a8cfbf4d7d3eaf9d842d50e3b2595e796"><div class="ttname"><a href="class_avanzado_dialog.html#a8cfbf4d7d3eaf9d842d50e3b2595e796">AvanzadoDialog::m_btnSg90</a></div><div class="ttdeci">QPushButton * m_btnSg90</div><div class="ttdoc">Botón «Enviar 0x65».</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:82</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_a9c2b45f14d55619bd1cd71825c9088db"><div class="ttname"><a href="class_avanzado_dialog.html#a9c2b45f14d55619bd1cd71825c9088db">AvanzadoDialog::sendIrDebounce</a></div><div class="ttdeci">void sendIrDebounce(uint8_t debounce)</div><div class="ttdoc">Se emite al presionar «Enviar 0x66» (debounce IR).</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_aac4bf96b599fdaf9e19a9d4da3431e85"><div class="ttname"><a href="class_avanzado_dialog.html#aac4bf96b599fdaf9e19a9d4da3431e85">AvanzadoDialog::m_spinDebounce</a></div><div class="ttdeci">QSpinBox * m_spinDebounce</div><div class="ttdoc">IR_DEBOUNCE_TICKS (uint8).</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:85</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_ad550bc5547966859568bc3aea44540d4"><div class="ttname"><a href="class_avanzado_dialog.html#ad550bc5547966859568bc3aea44540d4">AvanzadoDialog::m_spinTimeout</a></div><div class="ttdeci">QSpinBox * m_spinTimeout</div><div class="ttdoc">Timeout del eco (uint16, µs).</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:74</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_ad6fc1e7a3a27a8fa2111b8b2338c3630"><div class="ttname"><a href="class_avanzado_dialog.html#ad6fc1e7a3a27a8fa2111b8b2338c3630">AvanzadoDialog::m_spinRetract</a></div><div class="ttdeci">QSpinBox * m_spinRetract</div><div class="ttdoc">retractTimer.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:89</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_ada63851c302d2212a4a448bb908a72f9"><div class="ttname"><a href="class_avanzado_dialog.html#ada63851c302d2212a4a448bb908a72f9">AvanzadoDialog::m_spinAliveTimer</a></div><div class="ttdeci">QSpinBox * m_spinAliveTimer</div><div class="ttdoc">aliveTimer.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:93</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_ae5c939a7ceb31c756e5e7b60ecf07b40"><div class="ttname"><a href="class_avanzado_dialog.html#ae5c939a7ceb31c756e5e7b60ecf07b40">AvanzadoDialog::m_spinTrigPulse</a></div><div class="ttdeci">QSpinBox * m_spinTrigPulse</div><div class="ttdoc">HCSR04_TRIG_PULSE_US (uint8).</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:73</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_af684036c58c1f6b2a038e00bf11d7ef8"><div class="ttname"><a href="class_avanzado_dialog.html#af684036c58c1f6b2a038e00bf11d7ef8">AvanzadoDialog::buildUi</a></div><div class="ttdeci">void buildUi()</div><div class="ttdoc">Construye toda la interfaz del diálogo.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.cpp:25</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_afb8919b3e3e8d1006a29740962ea21a9"><div class="ttname"><a href="class_avanzado_dialog.html#afb8919b3e3e8d1006a29740962ea21a9">AvanzadoDialog::applyDarkStyle</a></div><div class="ttdeci">void applyDarkStyle()</div><div class="ttdoc">Aplica la hoja de estilo del tema oscuro.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.cpp:233</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_afcafc8998788314e6295003297933405"><div class="ttname"><a href="class_avanzado_dialog.html#afcafc8998788314e6295003297933405">AvanzadoDialog::m_spinCajas</a></div><div class="ttdeci">QSpinBox * m_spinCajas[3]</div><div class="ttdoc">configCajas[0..2].</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:94</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html_afe12bf884904d3cb862d71efd1f7be9a"><div class="ttname"><a href="class_avanzado_dialog.html#afe12bf884904d3cb862d71efd1f7be9a">AvanzadoDialog::m_btnHcsr04</a></div><div class="ttdeci">QPushButton * m_btnHcsr04</div><div class="ttdoc">Botón «Enviar 0x64».</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:75</div></div>
+<div class="ttc" id="astruct_uner_1_1_hcsr04_cfg_html"><div class="ttname"><a href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a></div><div class="ttdoc">Datos para el comando 0x64 – Configuración del sensor HC-SR04.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:154</div></div>
+<div class="ttc" id="astruct_uner_1_1_sg90_cfg_html"><div class="ttname"><a href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a></div><div class="ttdoc">Datos para el comando 0x65 – Configuración del servo SG90.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:165</div></div>
+<div class="ttc" id="astruct_uner_1_1_timers_cfg_html"><div class="ttname"><a href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a></div><div class="ttdoc">Datos para el comando 0x67 – Timers y configuraciones generales.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:179</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_fc86ce11cfb5284f2928e718eeab9679.html">widgets</a></li><li class="navelem"><a href="_avanzado_dialog_8h.html">AvanzadoDialog.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

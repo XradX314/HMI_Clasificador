@@ -1,3 +1,9 @@
+/**
+ * @file main.cpp
+ * @brief Punto de entrada de la aplicación HMI Clasificador de Paquetes.
+ *
+ * Inicializa la QApplication, crea la MainWindow y arranca el bucle de eventos Qt.
+ */
 #include <QApplication>
 #include "MainWindow.h"
 

@@ -1,0 +1,53 @@
+\doxysection{Referencia de la estructura Uner::\+Ciego\+Distancias}
+\hypertarget{struct_uner_1_1_ciego_distancias}{}\label{struct_uner_1_1_ciego_distancias}\index{Uner::CiegoDistancias@{Uner::CiegoDistancias}}
+
+
+Datos para el comando 0x60 – Modo ciego y distancias.  
+
+
+
+
+{\ttfamily \+\#include $<$Uner\+Protocol.\+h$>$}
+
+\doxysubsubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias_a5d4d3b30a8a0e852a596b870101ab1bb}{modo\+\_\+ciego}} \{0\}
+\begin{DoxyCompactList}\small\item\em 0 = desactivado, 1 = activado. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias_a54b0785d544aca346a6e0fee04aa8dbf}{dist\+\_\+s0}} \+[3]\+ \{30, 60, 90\}
+\begin{DoxyCompactList}\small\item\em Distancias en cm desde S0 a cada salida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Datos para el comando 0x60 – Modo ciego y distancias. 
+
+Puede enviarse con 1 a 4 bytes según cuántos campos se quieran configurar en una sola trama. 
+
+\label{doc-variable-members}
+\Hypertarget{struct_uner_1_1_ciego_distancias_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{struct_uner_1_1_ciego_distancias_a54b0785d544aca346a6e0fee04aa8dbf}\index{Uner::CiegoDistancias@{Uner::CiegoDistancias}!dist\_s0@{dist\_s0}}
+\index{dist\_s0@{dist\_s0}!Uner::CiegoDistancias@{Uner::CiegoDistancias}}
+\doxysubsubsection{\texorpdfstring{dist\_s0}{dist\_s0}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_ciego_distancias_a54b0785d544aca346a6e0fee04aa8dbf} 
+uint8\+\_\+t Uner::\+\+Ciego\+Distancias::\+dist\+\_\+s0\+[3]\+ \{30, 60, 90\}}
+
+
+
+Distancias en cm desde S0 a cada salida. 
+
+\Hypertarget{struct_uner_1_1_ciego_distancias_a5d4d3b30a8a0e852a596b870101ab1bb}\index{Uner::CiegoDistancias@{Uner::CiegoDistancias}!modo\_ciego@{modo\_ciego}}
+\index{modo\_ciego@{modo\_ciego}!Uner::CiegoDistancias@{Uner::CiegoDistancias}}
+\doxysubsubsection{\texorpdfstring{modo\_ciego}{modo\_ciego}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_ciego_distancias_a5d4d3b30a8a0e852a596b870101ab1bb} 
+uint8\+\_\+t Uner::\+\+Ciego\+Distancias::\+modo\+\_\+ciego \{0\}}
+
+
+
+0 = desactivado, 1 = activado. 
+
+
+
+La documentación de esta estructura está generada del siguiente archivo:\+\begin{DoxyCompactItemize}
+\item 
+comunicacion/\+\doxymbox{\hyperlink{_uner_protocol_8h}{Uner\+Protocol.\+h}}\end{DoxyCompactItemize}

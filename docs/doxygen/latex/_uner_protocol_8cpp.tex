@@ -1,0 +1,45 @@
+\doxysection{Referencia del archivo comunicacion/\+\+Uner\+Protocol.cpp}
+\hypertarget{_uner_protocol_8cpp}{}\label{_uner_protocol_8cpp}\index{comunicacion/UnerProtocol.cpp@{comunicacion/UnerProtocol.cpp}}
+
+
+Implementación del codificador y decodificador del protocolo UNER.  
+
+
+{\ttfamily \+\#include "{}Uner\+Protocol.\+h"{}}\newline
+{\ttfamily \+\#include $<$QDebug$>$}\newline
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const QByte\+Array \doxymbox{\hyperlink{_uner_protocol_8cpp_a14761a1a6e21f52c46491d6d75e7fb77}{HEADER}} = QByte\+Array\+Literal("{}UNER"{})
+\item 
+static constexpr char \doxymbox{\hyperlink{_uner_protocol_8cpp_aef748c138e2b768ba1531ed329c614a0}{TOKEN}} = \textquotesingle{}:\+\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Implementación del codificador y decodificador del protocolo UNER. 
+
+Todos los encoders generan tramas con la estructura:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{UNER\ |\ len\ |\ \textcolor{charliteral}{':'}\ |\ cmd\ |\ payload\ |\ checksum\_XOR}
+
+\end{DoxyCode}
+
+
+El decoder implementa una máquina de estados que consume bytes de a uno y emite frame\+Received() cuando verifica la trama completa. 
+
+\label{doc-var-members}
+\Hypertarget{_uner_protocol_8cpp_doc-var-members}
+\doxysubsection{Documentación de variables}
+\Hypertarget{_uner_protocol_8cpp_a14761a1a6e21f52c46491d6d75e7fb77}\index{UnerProtocol.cpp@{UnerProtocol.cpp}!HEADER@{HEADER}}
+\index{HEADER@{HEADER}!UnerProtocol.cpp@{UnerProtocol.cpp}}
+\doxysubsubsection{\texorpdfstring{HEADER}{HEADER}}
+{\footnotesize\ttfamily \label{_uner_protocol_8cpp_a14761a1a6e21f52c46491d6d75e7fb77} 
+const QByte\+Array HEADER = QByte\+Array\+Literal("{}UNER"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_uner_protocol_8cpp_aef748c138e2b768ba1531ed329c614a0}\index{UnerProtocol.cpp@{UnerProtocol.cpp}!TOKEN@{TOKEN}}
+\index{TOKEN@{TOKEN}!UnerProtocol.cpp@{UnerProtocol.cpp}}
+\doxysubsubsection{\texorpdfstring{TOKEN}{TOKEN}}
+{\footnotesize\ttfamily \label{_uner_protocol_8cpp_aef748c138e2b768ba1531ed329c614a0} 
+char TOKEN = \textquotesingle{}:\+\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+

@@ -1,0 +1,607 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Referencia de la clase ConfigDialog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_config_dialog.html','','class_config_dialog-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia de la clase ConfigDialog</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Diálogo flotante para configurar la calibración del sensor y los brazos.  
+ <a href="#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_config_dialog_8h_source.html">ConfigDialog.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de herencia de ConfigDialog</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_config_dialog.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-signals" class="groupheader"><a id="signals" name="signals"></a>
+Señales</h2></td></tr>
+<tr class="memitem:a0e877e11a6fd35cb5ad6cb33dfca5b26" id="r_a0e877e11a6fd35cb5ad6cb33dfca5b26"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0e877e11a6fd35cb5ad6cb33dfca5b26">configApplied</a> (const <a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:a0e877e11a6fd35cb5ad6cb33dfca5b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite cuando el usuario presiona «Enviar 0x63».  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a3a2bc25ec82fd25fe68a89c81b8b9a5a" id="r_a3a2bc25ec82fd25fe68a89c81b8b9a5a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3a2bc25ec82fd25fe68a89c81b8b9a5a">ConfigDialog</a> (const <a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;current, QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:a3a2bc25ec82fd25fe68a89c81b8b9a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construye el diálogo inicializado con los valores actuales.  <br /></td></tr>
+<tr class="memitem:aadd018911602adbbb9457a74378dfa48" id="r_aadd018911602adbbb9457a74378dfa48"><td class="memItemLeft"><a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a>&#160;</td><td class="memItemRight"><a class="el" href="#aadd018911602adbbb9457a74378dfa48">config</a> () const</td></tr>
+<tr class="memdesc:aadd018911602adbbb9457a74378dfa48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve la configuración de calibración con los valores actuales de los SpinBoxes.  <br /></td></tr>
+<tr class="memitem:a841e913418425d1f49c96e1e8a75a44d" id="r_a841e913418425d1f49c96e1e8a75a44d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a841e913418425d1f49c96e1e8a75a44d">setDarkMode</a> (bool dark)</td></tr>
+<tr class="memdesc:a841e913418425d1f49c96e1e8a75a44d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aplica el tema claro u oscuro al diálogo.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:aa75943969d9ee61b729241ff6906d3ba" id="r_aa75943969d9ee61b729241ff6906d3ba"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa75943969d9ee61b729241ff6906d3ba">buildUi</a> (const <a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;c)</td></tr>
+<tr class="memdesc:aa75943969d9ee61b729241ff6906d3ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construye la interfaz del diálogo.  <br /></td></tr>
+<tr class="memitem:ab8d5aa76f3ef7e173d0e9218f33831d1" id="r_ab8d5aa76f3ef7e173d0e9218f33831d1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab8d5aa76f3ef7e173d0e9218f33831d1">applyDarkStyle</a> ()</td></tr>
+<tr class="memdesc:ab8d5aa76f3ef7e173d0e9218f33831d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aplica la hoja de estilo del tema oscuro.  <br /></td></tr>
+<tr class="memitem:a9d9ab6d594430641c632d3bd3be250d2" id="r_a9d9ab6d594430641c632d3bd3be250d2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9d9ab6d594430641c632d3bd3be250d2">applyLightStyle</a> ()</td></tr>
+<tr class="memdesc:a9d9ab6d594430641c632d3bd3be250d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aplica la hoja de estilo del tema claro.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:a666fce5560ddb5bb5658c845cb233c34" id="r_a666fce5560ddb5bb5658c845cb233c34"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a666fce5560ddb5bb5658c845cb233c34">m_spinPiso</a> {nullptr}</td></tr>
+<tr class="memdesc:a666fce5560ddb5bb5658c845cb233c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distancia al piso (calibracion[0]).  <br /></td></tr>
+<tr class="memitem:a45d454e227360da1c720058da78243ab" id="r_a45d454e227360da1c720058da78243ab"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a45d454e227360da1c720058da78243ab">m_spinPequenia</a> {nullptr}</td></tr>
+<tr class="memdesc:a45d454e227360da1c720058da78243ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altura caja pequeña (calibracion[1]).  <br /></td></tr>
+<tr class="memitem:afb6e0bd97aa5866106f8187c4abf6a69" id="r_afb6e0bd97aa5866106f8187c4abf6a69"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#afb6e0bd97aa5866106f8187c4abf6a69">m_spinMediana</a> {nullptr}</td></tr>
+<tr class="memdesc:afb6e0bd97aa5866106f8187c4abf6a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altura caja mediana (calibracion[2]).  <br /></td></tr>
+<tr class="memitem:a3b388a42bc9c769d6bd4566f0b319bf9" id="r_a3b388a42bc9c769d6bd4566f0b319bf9"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a3b388a42bc9c769d6bd4566f0b319bf9">m_spinGrande</a> {nullptr}</td></tr>
+<tr class="memdesc:a3b388a42bc9c769d6bd4566f0b319bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altura caja grande (calibracion[3]).  <br /></td></tr>
+<tr class="memitem:a53564392c66b4820799f64f725c31a26" id="r_a53564392c66b4820799f64f725c31a26"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a53564392c66b4820799f64f725c31a26">m_spinTolerancia</a> {nullptr}</td></tr>
+<tr class="memdesc:a53564392c66b4820799f64f725c31a26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tolerancia de clasificación.  <br /></td></tr>
+<tr class="memitem:a6f4bf7487c43d7ffc630f4c199922f3c" id="r_a6f4bf7487c43d7ffc630f4c199922f3c"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a6f4bf7487c43d7ffc630f4c199922f3c">m_spinArmExtend</a> {nullptr}</td></tr>
+<tr class="memdesc:a6f4bf7487c43d7ffc630f4c199922f3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo de extensión del brazo.  <br /></td></tr>
+<tr class="memitem:a5a6fd2dbb2cc07f3bfc9337fbbef32ec" id="r_a5a6fd2dbb2cc07f3bfc9337fbbef32ec"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a5a6fd2dbb2cc07f3bfc9337fbbef32ec">m_spinArmRetract</a> {nullptr}</td></tr>
+<tr class="memdesc:a5a6fd2dbb2cc07f3bfc9337fbbef32ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo de retracción del brazo.  <br /></td></tr>
+<tr class="memitem:a9157e36c0bbab5b671797efdb92c679b" id="r_a9157e36c0bbab5b671797efdb92c679b"><td class="memItemLeft">QPushButton *&#160;</td><td class="memItemRight"><a class="el" href="#a9157e36c0bbab5b671797efdb92c679b">m_btnAplicar</a> {nullptr}</td></tr>
+<tr class="memdesc:a9157e36c0bbab5b671797efdb92c679b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Botón «Enviar 0x63».  <br /></td></tr>
+<tr class="memitem:a6cf613decbdde2473edfeaa218f98da4" id="r_a6cf613decbdde2473edfeaa218f98da4"><td class="memItemLeft">QPushButton *&#160;</td><td class="memItemRight"><a class="el" href="#a6cf613decbdde2473edfeaa218f98da4">m_btnCerrar</a> {nullptr}</td></tr>
+<tr class="memdesc:a6cf613decbdde2473edfeaa218f98da4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Botón «Cerrar».  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Diálogo flotante para configurar la calibración del sensor y los brazos. </p>
+<p>Genera y envía el comando 0x63 (7 bytes) con los siguientes campos:</p><ul>
+<li>calibracion[0]: distancia del sensor al piso (cm).</li>
+<li>calibracion[1]: altura de la caja pequeña (cm).</li>
+<li>calibracion[2]: altura de la caja mediana (cm).</li>
+<li>calibracion[3]: altura de la caja grande (cm).</li>
+<li>tolerancia: margen de error permitido (cm).</li>
+<li>time_arm_extend: ticks de extensión del brazo (1 tick = 2 ms).</li>
+<li>time_arm_retract: ticks de retracción del brazo (1 tick = 2 ms).</li>
+</ul>
+<p>Cuando el usuario presiona «Enviar 0x63» se emite la señal <a class="el" href="#a0e877e11a6fd35cb5ad6cb33dfca5b26" title="configApplied">configApplied</a> con la estructura <a class="el" href="struct_uner_1_1_calibracion_cfg.html" title="Datos para el comando 0x63 – Calibración.">Uner::CalibracionCfg</a> rellena. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentación de constructores y destructores</h2>
+<a id="a3a2bc25ec82fd25fe68a89c81b8b9a5a" name="a3a2bc25ec82fd25fe68a89c81b8b9a5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a2bc25ec82fd25fe68a89c81b8b9a5a">&#9670;&#160;</a></span>ConfigDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ConfigDialog::ConfigDialog </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>current</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QWidget *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construye el diálogo inicializado con los valores actuales. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current</td><td>Configuración de calibración actual. </td></tr>
+    <tr><td class="paramname">parent</td><td>Objeto padre Qt (o nullptr). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones miembro</h2>
+<a id="ab8d5aa76f3ef7e173d0e9218f33831d1" name="ab8d5aa76f3ef7e173d0e9218f33831d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d5aa76f3ef7e173d0e9218f33831d1">&#9670;&#160;</a></span>applyDarkStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ConfigDialog::applyDarkStyle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Aplica la hoja de estilo del tema oscuro. </p>
+
+</div>
+</div>
+<a id="a9d9ab6d594430641c632d3bd3be250d2" name="a9d9ab6d594430641c632d3bd3be250d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d9ab6d594430641c632d3bd3be250d2">&#9670;&#160;</a></span>applyLightStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ConfigDialog::applyLightStyle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Aplica la hoja de estilo del tema claro. </p>
+
+</div>
+</div>
+<a id="aa75943969d9ee61b729241ff6906d3ba" name="aa75943969d9ee61b729241ff6906d3ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa75943969d9ee61b729241ff6906d3ba">&#9670;&#160;</a></span>buildUi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ConfigDialog::buildUi </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construye la interfaz del diálogo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>Valores iniciales de los SpinBoxes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aadd018911602adbbb9457a74378dfa48" name="aadd018911602adbbb9457a74378dfa48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadd018911602adbbb9457a74378dfa48">&#9670;&#160;</a></span>config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> ConfigDialog::config </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Devuelve la configuración de calibración con los valores actuales de los SpinBoxes. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Estructura <a class="el" href="struct_uner_1_1_calibracion_cfg.html" title="Datos para el comando 0x63 – Calibración.">Uner::CalibracionCfg</a> lista para enviar al MCU. </dd></dl>
+
+</div>
+</div>
+<a id="a0e877e11a6fd35cb5ad6cb33dfca5b26" name="a0e877e11a6fd35cb5ad6cb33dfca5b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e877e11a6fd35cb5ad6cb33dfca5b26">&#9670;&#160;</a></span>configApplied</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ConfigDialog::configApplied </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite cuando el usuario presiona «Enviar 0x63». </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Configuración de calibración a enviar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a841e913418425d1f49c96e1e8a75a44d" name="a841e913418425d1f49c96e1e8a75a44d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841e913418425d1f49c96e1e8a75a44d">&#9670;&#160;</a></span>setDarkMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ConfigDialog::setDarkMode </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>dark</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aplica el tema claro u oscuro al diálogo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dark</td><td>true para tema oscuro. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentación de datos miembro</h2>
+<a id="a9157e36c0bbab5b671797efdb92c679b" name="a9157e36c0bbab5b671797efdb92c679b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9157e36c0bbab5b671797efdb92c679b">&#9670;&#160;</a></span>m_btnAplicar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPushButton* ConfigDialog::m_btnAplicar {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Botón «Enviar 0x63». </p>
+
+</div>
+</div>
+<a id="a6cf613decbdde2473edfeaa218f98da4" name="a6cf613decbdde2473edfeaa218f98da4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cf613decbdde2473edfeaa218f98da4">&#9670;&#160;</a></span>m_btnCerrar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPushButton* ConfigDialog::m_btnCerrar {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Botón «Cerrar». </p>
+
+</div>
+</div>
+<a id="a6f4bf7487c43d7ffc630f4c199922f3c" name="a6f4bf7487c43d7ffc630f4c199922f3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f4bf7487c43d7ffc630f4c199922f3c">&#9670;&#160;</a></span>m_spinArmExtend</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* ConfigDialog::m_spinArmExtend {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tiempo de extensión del brazo. </p>
+
+</div>
+</div>
+<a id="a5a6fd2dbb2cc07f3bfc9337fbbef32ec" name="a5a6fd2dbb2cc07f3bfc9337fbbef32ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a6fd2dbb2cc07f3bfc9337fbbef32ec">&#9670;&#160;</a></span>m_spinArmRetract</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* ConfigDialog::m_spinArmRetract {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tiempo de retracción del brazo. </p>
+
+</div>
+</div>
+<a id="a3b388a42bc9c769d6bd4566f0b319bf9" name="a3b388a42bc9c769d6bd4566f0b319bf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b388a42bc9c769d6bd4566f0b319bf9">&#9670;&#160;</a></span>m_spinGrande</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* ConfigDialog::m_spinGrande {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Altura caja grande (calibracion[3]). </p>
+
+</div>
+</div>
+<a id="afb6e0bd97aa5866106f8187c4abf6a69" name="afb6e0bd97aa5866106f8187c4abf6a69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb6e0bd97aa5866106f8187c4abf6a69">&#9670;&#160;</a></span>m_spinMediana</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* ConfigDialog::m_spinMediana {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Altura caja mediana (calibracion[2]). </p>
+
+</div>
+</div>
+<a id="a45d454e227360da1c720058da78243ab" name="a45d454e227360da1c720058da78243ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45d454e227360da1c720058da78243ab">&#9670;&#160;</a></span>m_spinPequenia</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* ConfigDialog::m_spinPequenia {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Altura caja pequeña (calibracion[1]). </p>
+
+</div>
+</div>
+<a id="a666fce5560ddb5bb5658c845cb233c34" name="a666fce5560ddb5bb5658c845cb233c34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a666fce5560ddb5bb5658c845cb233c34">&#9670;&#160;</a></span>m_spinPiso</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* ConfigDialog::m_spinPiso {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Distancia al piso (calibracion[0]). </p>
+
+</div>
+</div>
+<a id="a53564392c66b4820799f64f725c31a26" name="a53564392c66b4820799f64f725c31a26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53564392c66b4820799f64f725c31a26">&#9670;&#160;</a></span>m_spinTolerancia</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* ConfigDialog::m_spinTolerancia {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tolerancia de clasificación. </p>
+
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li>widgets/<a class="el" href="_config_dialog_8h_source.html">ConfigDialog.h</a></li>
+<li>widgets/<a class="el" href="_config_dialog_8cpp.html">ConfigDialog.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_config_dialog.html">ConfigDialog</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

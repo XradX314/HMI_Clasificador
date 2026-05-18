@@ -1,0 +1,409 @@
+\doxysection{Referencia de la clase Led\+Alive\+Widget}
+\hypertarget{class_led_alive_widget}{}\label{class_led_alive_widget}\index{LedAliveWidget@{LedAliveWidget}}
+
+
+LED circular animado que muestra el estado del heartbeat con el MCU.  
+
+
+
+
+{\ttfamily \+\#include $<$Led\+Alive\+Widget.\+h$>$}
+
+Diagrama de herencia de Led\+Alive\+Widget\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_led_alive_widget}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_led_alive_widget_a656c7e80b167ecbdbec2dd7e50f8df79}{Led\+Alive\+Widget}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Construye el widget e inicializa los timers internos. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_led_alive_widget_a15e20684ac5fcd32621b94db293458de}{on\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Registra un heartbeat recibido y actualiza el estado visual. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_led_alive_widget_ad979710c690508c932646ffbed9b1f18}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reinicia el widget al estado inicial (offline). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_led_alive_widget_a14744b033155c4b3efa253716e8507f1}{set\+Dark\+Mode}} (bool dark)
+\begin{DoxyCompactList}\small\item\em Aplica el tema claro u oscuro al widget. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_led_alive_widget_a3f0f9cbde941dbd04092c1cf2ade325e}{paint\+Event}} (QPaint\+Event \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Dibuja el LED circular en la zona superior del widget. \end{DoxyCompactList}\item 
+QSize \doxymbox{\hyperlink{class_led_alive_widget_a1fbe187ad94d03f511908d575b51b7da}{size\+Hint}} () const override
+\begin{DoxyCompactList}\small\item\em Tamaño preferido del widget. \end{DoxyCompactList}\item 
+QSize \doxymbox{\hyperlink{class_led_alive_widget_af76a1eee1f12cba940721ee8039ee021}{minimum\+Size\+Hint}} () const override
+\begin{DoxyCompactList}\small\item\em Tamaño mínimo del widget. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Tipos privados}
+\begin{DoxyCompactItemize}
+\item 
+enum class \doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979}{Led\+State}} \{ \doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36}{Off}}
+, \doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979a521c36a31c2762741cf0f8890cbe05e3}{On}}
+, \doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ac85a251cc457840f1e032f1b733e9398}{Timeout}}
+ \}
+\begin{DoxyCompactList}\small\item\em Estado interno del LED. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_led_alive_widget_a12880fef531920960fd698fb6df99692}{turn\+Off}} ()
+\begin{DoxyCompactList}\small\item\em Apaga el LED (transición On → Off) al expirar el timer de destello. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_led_alive_widget_ad2c4948e131c686e9b55cd00e8ae086c}{on\+Watchdog\+Timeout}} ()
+\begin{DoxyCompactList}\small\item\em Pone el LED en estado Timeout al expirar el watchdog. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_led_alive_widget_a3f57d71e316062c6dead8323ae065c92}{build\+Layout}} ()
+\begin{DoxyCompactList}\small\item\em Construye el layout interno (LED + etiquetas). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_led_alive_widget_a4d2a6f3c9ad1261438c427b6476c8483}{refresh\+Label\+Styles}} ()
+\begin{DoxyCompactList}\small\item\em Reaplica los estilos CSS de las etiquetas según el tema activo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_led_alive_widget_a008d4408c9d3d3b6bce162225f1e7bae}{update\+Labels}} (qint64 interval\+Ms)
+\begin{DoxyCompactList}\small\item\em Actualiza las etiquetas de texto con estadísticas del heartbeat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979}{Led\+State}} \doxymbox{\hyperlink{class_led_alive_widget_ab89ea56de9e0075e59e54a7403bffb66}{m\+\_\+state}} \{\doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36}{Led\+State::\+\+Off}}\}
+\begin{DoxyCompactList}\small\item\em Estado visual actual. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_led_alive_widget_a4799e1e7e90ef3bcb93bcac09aa4b178}{m\+\_\+dark}} \{false\}
+\begin{DoxyCompactList}\small\item\em true si el tema oscuro está activo. \end{DoxyCompactList}\item 
+QTimer \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_led_alive_widget_a29ead164e85d9b3c8f85a65063aa4735}{m\+\_\+off\+Timer}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Timer de 1 s para apagar el LED. \end{DoxyCompactList}\item 
+QTimer \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_led_alive_widget_a9498bd1532f7f60701c60d709d9175ac}{m\+\_\+watchdog}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Watchdog de 7 s para detectar timeout. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_led_alive_widget_a9e5348fa004d2b4e8362dd04ec425c6c}{m\+\_\+count}} \{0\}
+\begin{DoxyCompactList}\small\item\em Cantidad de heartbeats recibidos en la sesión. \end{DoxyCompactList}\item 
+qint64 \doxymbox{\hyperlink{class_led_alive_widget_a39f140c5081a105521dd4d9697b1130a}{m\+\_\+last\+Ts}} \{0\}
+\begin{DoxyCompactList}\small\item\em Timestamp del último heartbeat (ms desde epoch). \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_led_alive_widget_a156c21b1b4bdbf5c30ff9e1fd37b319e}{m\+\_\+label\+Status}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Etiqueta "{}online /\+ offline /\+ timeout"{}. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_led_alive_widget_af07d3783ed22b5bfe843913ba094ae19}{m\+\_\+label\+Count}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Etiqueta "{}recibidos:\+ N"{}. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_led_alive_widget_a9ddd39d3cee9516a284338839a931a0f}{m\+\_\+label\+Interval}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Etiqueta "{}intervalo:\+ N s"{}. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_led_alive_widget_a20bed749fa348e1c2f7e9118d1867c52}{m\+\_\+label\+Last}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Etiqueta "{}último:\+ HH:\+\+MM:\+\+SS"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos estáticos privados}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \doxymbox{\hyperlink{class_led_alive_widget_a04bab846b89bc17b046d34f9c36a7f6d}{LED\+\_\+D}} = 36
+\begin{DoxyCompactList}\small\item\em Diámetro del LED en píxeles. \end{DoxyCompactList}\item 
+static constexpr int \doxymbox{\hyperlink{class_led_alive_widget_af5d1978263707a6400e5ed5b61bd3799}{LED\+\_\+\+PAD}} = 8
+\begin{DoxyCompactList}\small\item\em Margen vertical del área del LED. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+LED circular animado que muestra el estado del heartbeat con el MCU. 
+
+Recibe eventos de heartbeat mediante \doxylink{class_led_alive_widget_a15e20684ac5fcd32621b94db293458de}{on\+Alive()} y actualiza visualmente:\+
+\begin{DoxyItemize}
+\item {\bfseries{Verde (On):\+}} heartbeat recibido recientemente (1 s de destello).
+\item {\bfseries{Gris (Off):\+}} sin actividad reciente.
+\item {\bfseries{Naranja (Timeout):\+}} sin heartbeat durante más de 7 s.
+\end{DoxyItemize}
+
+El widget también muestra etiquetas de texto con la cantidad de heartbeats recibidos, el intervalo estimado y la hora del último pulso. 
+
+\label{doc-enum-members}
+\Hypertarget{class_led_alive_widget_doc-enum-members}
+\doxysubsection{Documentación de las enumeraciones miembro de la clase}
+\Hypertarget{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979}\index{LedAliveWidget@{LedAliveWidget}!LedState@{LedState}}
+\index{LedState@{LedState}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{LedState}{LedState}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979} 
+enum class \doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979}{Led\+Alive\+Widget::\+\+Led\+State}}\hspace{0.3cm}{\ttfamily [strong]}, {\ttfamily [private]}}
+
+
+
+Estado interno del LED. 
+
+\begin{DoxyEnumFields}[2]{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Off@{Off}!LedAliveWidget@{LedAliveWidget}}
+\index{LedAliveWidget@{LedAliveWidget}!Off@{Off}}
+}\Hypertarget{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36}\label{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36} 
+Off&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{On@{On}!LedAliveWidget@{LedAliveWidget}}
+\index{LedAliveWidget@{LedAliveWidget}!On@{On}}
+}\Hypertarget{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979a521c36a31c2762741cf0f8890cbe05e3}\label{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979a521c36a31c2762741cf0f8890cbe05e3} 
+On&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timeout@{Timeout}!LedAliveWidget@{LedAliveWidget}}
+\index{LedAliveWidget@{LedAliveWidget}!Timeout@{Timeout}}
+}\Hypertarget{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ac85a251cc457840f1e032f1b733e9398}\label{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ac85a251cc457840f1e032f1b733e9398} 
+Timeout&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-constructors}
+\Hypertarget{class_led_alive_widget_doc-constructors}
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_led_alive_widget_a656c7e80b167ecbdbec2dd7e50f8df79}\index{LedAliveWidget@{LedAliveWidget}!LedAliveWidget@{LedAliveWidget}}
+\index{LedAliveWidget@{LedAliveWidget}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{LedAliveWidget()}{LedAliveWidget()}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a656c7e80b167ecbdbec2dd7e50f8df79} 
+Led\+Alive\+Widget::\+\+Led\+Alive\+Widget (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construye el widget e inicializa los timers internos. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_led_alive_widget_doc-func-members}
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_led_alive_widget_a3f57d71e316062c6dead8323ae065c92}\index{LedAliveWidget@{LedAliveWidget}!buildLayout@{buildLayout}}
+\index{buildLayout@{buildLayout}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{buildLayout()}{buildLayout()}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a3f57d71e316062c6dead8323ae065c92} 
+void Led\+Alive\+Widget::\+build\+Layout (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye el layout interno (LED + etiquetas). 
+
+\Hypertarget{class_led_alive_widget_af76a1eee1f12cba940721ee8039ee021}\index{LedAliveWidget@{LedAliveWidget}!minimumSizeHint@{minimumSizeHint}}
+\index{minimumSizeHint@{minimumSizeHint}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{minimumSizeHint()}{minimumSizeHint()}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_af76a1eee1f12cba940721ee8039ee021} 
+QSize Led\+Alive\+Widget::\+minimum\+Size\+Hint (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Tamaño mínimo del widget. 
+
+\Hypertarget{class_led_alive_widget_a15e20684ac5fcd32621b94db293458de}\index{LedAliveWidget@{LedAliveWidget}!onAlive@{onAlive}}
+\index{onAlive@{onAlive}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{onAlive()}{onAlive()}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a15e20684ac5fcd32621b94db293458de} 
+void Led\+Alive\+Widget::\+on\+Alive (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Registra un heartbeat recibido y actualiza el estado visual. 
+
+\Hypertarget{class_led_alive_widget_ad2c4948e131c686e9b55cd00e8ae086c}\index{LedAliveWidget@{LedAliveWidget}!onWatchdogTimeout@{onWatchdogTimeout}}
+\index{onWatchdogTimeout@{onWatchdogTimeout}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{onWatchdogTimeout}{onWatchdogTimeout}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_ad2c4948e131c686e9b55cd00e8ae086c} 
+void Led\+Alive\+Widget::\+on\+Watchdog\+Timeout (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Pone el LED en estado Timeout al expirar el watchdog. 
+
+\Hypertarget{class_led_alive_widget_a3f0f9cbde941dbd04092c1cf2ade325e}\index{LedAliveWidget@{LedAliveWidget}!paintEvent@{paintEvent}}
+\index{paintEvent@{paintEvent}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{paintEvent()}{paintEvent()}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a3f0f9cbde941dbd04092c1cf2ade325e} 
+void Led\+Alive\+Widget::\+paint\+Event (\begin{DoxyParamCaption}\item[{QPaint\+Event \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Dibuja el LED circular en la zona superior del widget. 
+
+\Hypertarget{class_led_alive_widget_a4d2a6f3c9ad1261438c427b6476c8483}\index{LedAliveWidget@{LedAliveWidget}!refreshLabelStyles@{refreshLabelStyles}}
+\index{refreshLabelStyles@{refreshLabelStyles}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{refreshLabelStyles()}{refreshLabelStyles()}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a4d2a6f3c9ad1261438c427b6476c8483} 
+void Led\+Alive\+Widget::\+refresh\+Label\+Styles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reaplica los estilos CSS de las etiquetas según el tema activo. 
+
+\Hypertarget{class_led_alive_widget_ad979710c690508c932646ffbed9b1f18}\index{LedAliveWidget@{LedAliveWidget}!reset@{reset}}
+\index{reset@{reset}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_ad979710c690508c932646ffbed9b1f18} 
+void Led\+Alive\+Widget::\+reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reinicia el widget al estado inicial (offline). 
+
+\Hypertarget{class_led_alive_widget_a14744b033155c4b3efa253716e8507f1}\index{LedAliveWidget@{LedAliveWidget}!setDarkMode@{setDarkMode}}
+\index{setDarkMode@{setDarkMode}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{setDarkMode()}{setDarkMode()}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a14744b033155c4b3efa253716e8507f1} 
+void Led\+Alive\+Widget::\+set\+Dark\+Mode (\begin{DoxyParamCaption}\item[{bool}]{dark}{}\end{DoxyParamCaption})}
+
+
+
+Aplica el tema claro u oscuro al widget. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em dark} & true para tema oscuro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_led_alive_widget_a1fbe187ad94d03f511908d575b51b7da}\index{LedAliveWidget@{LedAliveWidget}!sizeHint@{sizeHint}}
+\index{sizeHint@{sizeHint}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{sizeHint()}{sizeHint()}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a1fbe187ad94d03f511908d575b51b7da} 
+QSize Led\+Alive\+Widget::\+size\+Hint (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Tamaño preferido del widget. 
+
+\Hypertarget{class_led_alive_widget_a12880fef531920960fd698fb6df99692}\index{LedAliveWidget@{LedAliveWidget}!turnOff@{turnOff}}
+\index{turnOff@{turnOff}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{turnOff}{turnOff}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a12880fef531920960fd698fb6df99692} 
+void Led\+Alive\+Widget::\+turn\+Off (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Apaga el LED (transición On → Off) al expirar el timer de destello. 
+
+\Hypertarget{class_led_alive_widget_a008d4408c9d3d3b6bce162225f1e7bae}\index{LedAliveWidget@{LedAliveWidget}!updateLabels@{updateLabels}}
+\index{updateLabels@{updateLabels}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{updateLabels()}{updateLabels()}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a008d4408c9d3d3b6bce162225f1e7bae} 
+void Led\+Alive\+Widget::\+update\+Labels (\begin{DoxyParamCaption}\item[{qint64}]{interval\+Ms}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Actualiza las etiquetas de texto con estadísticas del heartbeat. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em interval\+Ms} & Intervalo desde el último heartbeat (-\/1 si es el primero). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_led_alive_widget_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{class_led_alive_widget_a04bab846b89bc17b046d34f9c36a7f6d}\index{LedAliveWidget@{LedAliveWidget}!LED\_D@{LED\_D}}
+\index{LED\_D@{LED\_D}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{LED\_D}{LED\_D}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a04bab846b89bc17b046d34f9c36a7f6d} 
+int Led\+Alive\+Widget::\+\+LED\+\_\+D = 36\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Diámetro del LED en píxeles. 
+
+\Hypertarget{class_led_alive_widget_af5d1978263707a6400e5ed5b61bd3799}\index{LedAliveWidget@{LedAliveWidget}!LED\_PAD@{LED\_PAD}}
+\index{LED\_PAD@{LED\_PAD}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{LED\_PAD}{LED\_PAD}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_af5d1978263707a6400e5ed5b61bd3799} 
+int Led\+Alive\+Widget::\+\+LED\+\_\+\+PAD = 8\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Margen vertical del área del LED. 
+
+\Hypertarget{class_led_alive_widget_a9e5348fa004d2b4e8362dd04ec425c6c}\index{LedAliveWidget@{LedAliveWidget}!m\_count@{m\_count}}
+\index{m\_count@{m\_count}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{m\_count}{m\_count}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a9e5348fa004d2b4e8362dd04ec425c6c} 
+int Led\+Alive\+Widget::\+m\+\_\+count \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cantidad de heartbeats recibidos en la sesión. 
+
+\Hypertarget{class_led_alive_widget_a4799e1e7e90ef3bcb93bcac09aa4b178}\index{LedAliveWidget@{LedAliveWidget}!m\_dark@{m\_dark}}
+\index{m\_dark@{m\_dark}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{m\_dark}{m\_dark}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a4799e1e7e90ef3bcb93bcac09aa4b178} 
+bool Led\+Alive\+Widget::\+m\+\_\+dark \{false\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true si el tema oscuro está activo. 
+
+\Hypertarget{class_led_alive_widget_af07d3783ed22b5bfe843913ba094ae19}\index{LedAliveWidget@{LedAliveWidget}!m\_labelCount@{m\_labelCount}}
+\index{m\_labelCount@{m\_labelCount}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{m\_labelCount}{m\_labelCount}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_af07d3783ed22b5bfe843913ba094ae19} 
+QLabel\texorpdfstring{$\ast$}{*} Led\+Alive\+Widget::\+m\+\_\+label\+Count \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Etiqueta "{}recibidos:\+ N"{}. 
+
+\Hypertarget{class_led_alive_widget_a9ddd39d3cee9516a284338839a931a0f}\index{LedAliveWidget@{LedAliveWidget}!m\_labelInterval@{m\_labelInterval}}
+\index{m\_labelInterval@{m\_labelInterval}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{m\_labelInterval}{m\_labelInterval}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a9ddd39d3cee9516a284338839a931a0f} 
+QLabel\texorpdfstring{$\ast$}{*} Led\+Alive\+Widget::\+m\+\_\+label\+Interval \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Etiqueta "{}intervalo:\+ N s"{}. 
+
+\Hypertarget{class_led_alive_widget_a20bed749fa348e1c2f7e9118d1867c52}\index{LedAliveWidget@{LedAliveWidget}!m\_labelLast@{m\_labelLast}}
+\index{m\_labelLast@{m\_labelLast}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{m\_labelLast}{m\_labelLast}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a20bed749fa348e1c2f7e9118d1867c52} 
+QLabel\texorpdfstring{$\ast$}{*} Led\+Alive\+Widget::\+m\+\_\+label\+Last \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Etiqueta "{}último:\+ HH:\+\+MM:\+\+SS"{}. 
+
+\Hypertarget{class_led_alive_widget_a156c21b1b4bdbf5c30ff9e1fd37b319e}\index{LedAliveWidget@{LedAliveWidget}!m\_labelStatus@{m\_labelStatus}}
+\index{m\_labelStatus@{m\_labelStatus}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{m\_labelStatus}{m\_labelStatus}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a156c21b1b4bdbf5c30ff9e1fd37b319e} 
+QLabel\texorpdfstring{$\ast$}{*} Led\+Alive\+Widget::\+m\+\_\+label\+Status \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Etiqueta "{}online /\+ offline /\+ timeout"{}. 
+
+\Hypertarget{class_led_alive_widget_a39f140c5081a105521dd4d9697b1130a}\index{LedAliveWidget@{LedAliveWidget}!m\_lastTs@{m\_lastTs}}
+\index{m\_lastTs@{m\_lastTs}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{m\_lastTs}{m\_lastTs}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a39f140c5081a105521dd4d9697b1130a} 
+qint64 Led\+Alive\+Widget::\+m\+\_\+last\+Ts \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Timestamp del último heartbeat (ms desde epoch). 
+
+\Hypertarget{class_led_alive_widget_a29ead164e85d9b3c8f85a65063aa4735}\index{LedAliveWidget@{LedAliveWidget}!m\_offTimer@{m\_offTimer}}
+\index{m\_offTimer@{m\_offTimer}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{m\_offTimer}{m\_offTimer}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a29ead164e85d9b3c8f85a65063aa4735} 
+QTimer\texorpdfstring{$\ast$}{*} Led\+Alive\+Widget::\+m\+\_\+off\+Timer \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Timer de 1 s para apagar el LED. 
+
+\Hypertarget{class_led_alive_widget_ab89ea56de9e0075e59e54a7403bffb66}\index{LedAliveWidget@{LedAliveWidget}!m\_state@{m\_state}}
+\index{m\_state@{m\_state}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{m\_state}{m\_state}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_ab89ea56de9e0075e59e54a7403bffb66} 
+\doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979}{Led\+State}} Led\+Alive\+Widget::\+m\+\_\+state \{\doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36}{Led\+State::\+\+Off}}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Estado visual actual. 
+
+\Hypertarget{class_led_alive_widget_a9498bd1532f7f60701c60d709d9175ac}\index{LedAliveWidget@{LedAliveWidget}!m\_watchdog@{m\_watchdog}}
+\index{m\_watchdog@{m\_watchdog}!LedAliveWidget@{LedAliveWidget}}
+\doxysubsubsection{\texorpdfstring{m\_watchdog}{m\_watchdog}}
+{\footnotesize\ttfamily \label{class_led_alive_widget_a9498bd1532f7f60701c60d709d9175ac} 
+QTimer\texorpdfstring{$\ast$}{*} Led\+Alive\+Widget::\+m\+\_\+watchdog \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Watchdog de 7 s para detectar timeout. 
+
+
+
+La documentación de esta clase está generada de los siguientes archivos:\+\begin{DoxyCompactItemize}
+\item 
+widgets/\+\doxymbox{\hyperlink{_led_alive_widget_8h}{Led\+Alive\+Widget.\+h}}\item 
+widgets/\+\doxymbox{\hyperlink{_led_alive_widget_8cpp}{Led\+Alive\+Widget.\+cpp}}\end{DoxyCompactItemize}

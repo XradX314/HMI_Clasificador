@@ -1,0 +1,53 @@
+\doxysection{Referencia de la estructura Uner::\+Hcsr04\+Cfg}
+\hypertarget{struct_uner_1_1_hcsr04_cfg}{}\label{struct_uner_1_1_hcsr04_cfg}\index{Uner::Hcsr04Cfg@{Uner::Hcsr04Cfg}}
+
+
+Datos para el comando 0x64 – Configuración del sensor HC-\/\+SR04.  
+
+
+
+
+{\ttfamily \+\#include $<$Uner\+Protocol.\+h$>$}
+
+\doxysubsubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg_aad58d22050a3a8e412d0d7d32f35fde7}{trig\+\_\+pulse\+\_\+us}} \{10\}
+\begin{DoxyCompactList}\small\item\em Duración del pulso de trigger (µs). \end{DoxyCompactList}\item 
+uint16\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg_a6946da59a52390d4269aefff361963dd}{timeout\+\_\+us}} \{25000\}
+\begin{DoxyCompactList}\small\item\em Tiempo de espera máximo del eco (µs). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Datos para el comando 0x64 – Configuración del sensor HC-\/\+SR04. 
+
+Payload total:\+ 3 bytes. Orden:\+ trig\+\_\+pulse\+\_\+us, timeout\+\_\+us\+[hi]\+, timeout\+\_\+us\+[lo]\+. 
+
+\label{doc-variable-members}
+\Hypertarget{struct_uner_1_1_hcsr04_cfg_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{struct_uner_1_1_hcsr04_cfg_a6946da59a52390d4269aefff361963dd}\index{Uner::Hcsr04Cfg@{Uner::Hcsr04Cfg}!timeout\_us@{timeout\_us}}
+\index{timeout\_us@{timeout\_us}!Uner::Hcsr04Cfg@{Uner::Hcsr04Cfg}}
+\doxysubsubsection{\texorpdfstring{timeout\_us}{timeout\_us}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_hcsr04_cfg_a6946da59a52390d4269aefff361963dd} 
+uint16\+\_\+t Uner::\+\+Hcsr04\+Cfg::\+timeout\+\_\+us \{25000\}}
+
+
+
+Tiempo de espera máximo del eco (µs). 
+
+\Hypertarget{struct_uner_1_1_hcsr04_cfg_aad58d22050a3a8e412d0d7d32f35fde7}\index{Uner::Hcsr04Cfg@{Uner::Hcsr04Cfg}!trig\_pulse\_us@{trig\_pulse\_us}}
+\index{trig\_pulse\_us@{trig\_pulse\_us}!Uner::Hcsr04Cfg@{Uner::Hcsr04Cfg}}
+\doxysubsubsection{\texorpdfstring{trig\_pulse\_us}{trig\_pulse\_us}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_hcsr04_cfg_aad58d22050a3a8e412d0d7d32f35fde7} 
+uint8\+\_\+t Uner::\+\+Hcsr04\+Cfg::\+trig\+\_\+pulse\+\_\+us \{10\}}
+
+
+
+Duración del pulso de trigger (µs). 
+
+
+
+La documentación de esta estructura está generada del siguiente archivo:\+\begin{DoxyCompactItemize}
+\item 
+comunicacion/\+\doxymbox{\hyperlink{_uner_protocol_8h}{Uner\+Protocol.\+h}}\end{DoxyCompactItemize}

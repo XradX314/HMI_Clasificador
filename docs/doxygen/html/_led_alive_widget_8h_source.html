@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Archivo de código fuente widgets/LedAliveWidget.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_led_alive_widget_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LedAliveWidget.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_led_alive_widget_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;QDateTime&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span></div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html">   25</a></span><span class="keyword">class </span><a class="code hl_function" href="class_led_alive_widget.html#a656c7e80b167ecbdbec2dd7e50f8df79">LedAliveWidget</a> : <span class="keyword">public</span> QWidget</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    Q_OBJECT</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_led_alive_widget.html#a656c7e80b167ecbdbec2dd7e50f8df79">LedAliveWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_led_alive_widget.html#a15e20684ac5fcd32621b94db293458de">onAlive</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_led_alive_widget.html#ad979710c690508c932646ffbed9b1f18">reset</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_led_alive_widget.html#a14744b033155c4b3efa253716e8507f1">setDarkMode</a>(<span class="keywordtype">bool</span> dark);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_led_alive_widget.html#a3f0f9cbde941dbd04092c1cf2ade325e">paintEvent</a>(QPaintEvent *) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    QSize <a class="code hl_function" href="class_led_alive_widget.html#a1fbe187ad94d03f511908d575b51b7da">sizeHint</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    QSize <a class="code hl_function" href="class_led_alive_widget.html#af76a1eee1f12cba940721ee8039ee021">minimumSizeHint</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_led_alive_widget.html#a12880fef531920960fd698fb6df99692">turnOff</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_led_alive_widget.html#ad2c4948e131c686e9b55cd00e8ae086c">onWatchdogTimeout</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979">   64</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979">LedState</a> { <a class="code hl_enumvalue" href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36">Off</a>, <a class="code hl_enumvalue" href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979a521c36a31c2762741cf0f8890cbe05e3">On</a>, <a class="code hl_enumvalue" href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979ac85a251cc457840f1e032f1b733e9398">Timeout</a> };</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#ab89ea56de9e0075e59e54a7403bffb66">   66</a></span>    <a class="code hl_enumeration" href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979">LedState</a>  <a class="code hl_variable" href="class_led_alive_widget.html#ab89ea56de9e0075e59e54a7403bffb66">m_state</a>   {<a class="code hl_enumvalue" href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36">LedState::Off</a>}; </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#a4799e1e7e90ef3bcb93bcac09aa4b178">   67</a></span>    <span class="keywordtype">bool</span>      <a class="code hl_variable" href="class_led_alive_widget.html#a4799e1e7e90ef3bcb93bcac09aa4b178">m_dark</a>    {<span class="keyword">false</span>};          </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#a29ead164e85d9b3c8f85a65063aa4735">   69</a></span>    QTimer   *<a class="code hl_variable" href="class_led_alive_widget.html#a29ead164e85d9b3c8f85a65063aa4735">m_offTimer</a>  {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#a9498bd1532f7f60701c60d709d9175ac">   70</a></span>    QTimer   *<a class="code hl_variable" href="class_led_alive_widget.html#a9498bd1532f7f60701c60d709d9175ac">m_watchdog</a>  {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#a9e5348fa004d2b4e8362dd04ec425c6c">   72</a></span>    <span class="keywordtype">int</span>       <a class="code hl_variable" href="class_led_alive_widget.html#a9e5348fa004d2b4e8362dd04ec425c6c">m_count</a>   {0};   </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#a39f140c5081a105521dd4d9697b1130a">   73</a></span>    qint64    <a class="code hl_variable" href="class_led_alive_widget.html#a39f140c5081a105521dd4d9697b1130a">m_lastTs</a>  {0};   </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#a156c21b1b4bdbf5c30ff9e1fd37b319e">   75</a></span>    QLabel   *<a class="code hl_variable" href="class_led_alive_widget.html#a156c21b1b4bdbf5c30ff9e1fd37b319e">m_labelStatus</a>   {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#af07d3783ed22b5bfe843913ba094ae19">   76</a></span>    QLabel   *<a class="code hl_variable" href="class_led_alive_widget.html#af07d3783ed22b5bfe843913ba094ae19">m_labelCount</a>    {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#a9ddd39d3cee9516a284338839a931a0f">   77</a></span>    QLabel   *<a class="code hl_variable" href="class_led_alive_widget.html#a9ddd39d3cee9516a284338839a931a0f">m_labelInterval</a> {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#a20bed749fa348e1c2f7e9118d1867c52">   78</a></span>    QLabel   *<a class="code hl_variable" href="class_led_alive_widget.html#a20bed749fa348e1c2f7e9118d1867c52">m_labelLast</a>     {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#a04bab846b89bc17b046d34f9c36a7f6d">   80</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_led_alive_widget.html#a04bab846b89bc17b046d34f9c36a7f6d">LED_D</a>   = 36; </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="class_led_alive_widget.html#af5d1978263707a6400e5ed5b61bd3799">   81</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_led_alive_widget.html#af5d1978263707a6400e5ed5b61bd3799">LED_PAD</a> = 8;  </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_led_alive_widget.html#a3f57d71e316062c6dead8323ae065c92">buildLayout</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_led_alive_widget.html#a4d2a6f3c9ad1261438c427b6476c8483">refreshLabelStyles</a>();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_led_alive_widget.html#a008d4408c9d3d3b6bce162225f1e7bae">updateLabels</a>(qint64 intervalMs);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>};</div>
+</div>
+<div class="ttc" id="aclass_led_alive_widget_html_a008d4408c9d3d3b6bce162225f1e7bae"><div class="ttname"><a href="class_led_alive_widget.html#a008d4408c9d3d3b6bce162225f1e7bae">LedAliveWidget::updateLabels</a></div><div class="ttdeci">void updateLabels(qint64 intervalMs)</div><div class="ttdoc">Actualiza las etiquetas de texto con estadísticas del heartbeat.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:181</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a04bab846b89bc17b046d34f9c36a7f6d"><div class="ttname"><a href="class_led_alive_widget.html#a04bab846b89bc17b046d34f9c36a7f6d">LedAliveWidget::LED_D</a></div><div class="ttdeci">static constexpr int LED_D</div><div class="ttdoc">Diámetro del LED en píxeles.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:80</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a12880fef531920960fd698fb6df99692"><div class="ttname"><a href="class_led_alive_widget.html#a12880fef531920960fd698fb6df99692">LedAliveWidget::turnOff</a></div><div class="ttdeci">void turnOff()</div><div class="ttdoc">Apaga el LED (transición On → Off) al expirar el timer de destello.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:153</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a14744b033155c4b3efa253716e8507f1"><div class="ttname"><a href="class_led_alive_widget.html#a14744b033155c4b3efa253716e8507f1">LedAliveWidget::setDarkMode</a></div><div class="ttdeci">void setDarkMode(bool dark)</div><div class="ttdoc">Aplica el tema claro u oscuro al widget.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:143</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a156c21b1b4bdbf5c30ff9e1fd37b319e"><div class="ttname"><a href="class_led_alive_widget.html#a156c21b1b4bdbf5c30ff9e1fd37b319e">LedAliveWidget::m_labelStatus</a></div><div class="ttdeci">QLabel * m_labelStatus</div><div class="ttdoc">Etiqueta &quot;online / offline / timeout&quot;.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:75</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a15e20684ac5fcd32621b94db293458de"><div class="ttname"><a href="class_led_alive_widget.html#a15e20684ac5fcd32621b94db293458de">LedAliveWidget::onAlive</a></div><div class="ttdeci">void onAlive()</div><div class="ttdoc">Registra un heartbeat recibido y actualiza el estado visual.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:115</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a1fbe187ad94d03f511908d575b51b7da"><div class="ttname"><a href="class_led_alive_widget.html#a1fbe187ad94d03f511908d575b51b7da">LedAliveWidget::sizeHint</a></div><div class="ttdeci">QSize sizeHint() const override</div><div class="ttdoc">Tamaño preferido del widget.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:78</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a20bed749fa348e1c2f7e9118d1867c52"><div class="ttname"><a href="class_led_alive_widget.html#a20bed749fa348e1c2f7e9118d1867c52">LedAliveWidget::m_labelLast</a></div><div class="ttdeci">QLabel * m_labelLast</div><div class="ttdoc">Etiqueta &quot;último: HH:MM:SS&quot;.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:78</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a29ead164e85d9b3c8f85a65063aa4735"><div class="ttname"><a href="class_led_alive_widget.html#a29ead164e85d9b3c8f85a65063aa4735">LedAliveWidget::m_offTimer</a></div><div class="ttdeci">QTimer * m_offTimer</div><div class="ttdoc">Timer de 1 s para apagar el LED.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:69</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a39f140c5081a105521dd4d9697b1130a"><div class="ttname"><a href="class_led_alive_widget.html#a39f140c5081a105521dd4d9697b1130a">LedAliveWidget::m_lastTs</a></div><div class="ttdeci">qint64 m_lastTs</div><div class="ttdoc">Timestamp del último heartbeat (ms desde epoch).</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:73</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a3f0f9cbde941dbd04092c1cf2ade325e"><div class="ttname"><a href="class_led_alive_widget.html#a3f0f9cbde941dbd04092c1cf2ade325e">LedAliveWidget::paintEvent</a></div><div class="ttdeci">void paintEvent(QPaintEvent *) override</div><div class="ttdoc">Dibuja el LED circular en la zona superior del widget.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:81</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a3f57d71e316062c6dead8323ae065c92"><div class="ttname"><a href="class_led_alive_widget.html#a3f57d71e316062c6dead8323ae065c92">LedAliveWidget::buildLayout</a></div><div class="ttdeci">void buildLayout()</div><div class="ttdoc">Construye el layout interno (LED + etiquetas).</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:40</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a4799e1e7e90ef3bcb93bcac09aa4b178"><div class="ttname"><a href="class_led_alive_widget.html#a4799e1e7e90ef3bcb93bcac09aa4b178">LedAliveWidget::m_dark</a></div><div class="ttdeci">bool m_dark</div><div class="ttdoc">true si el tema oscuro está activo.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:67</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a4d2a6f3c9ad1261438c427b6476c8483"><div class="ttname"><a href="class_led_alive_widget.html#a4d2a6f3c9ad1261438c427b6476c8483">LedAliveWidget::refreshLabelStyles</a></div><div class="ttdeci">void refreshLabelStyles()</div><div class="ttdoc">Reaplica los estilos CSS de las etiquetas según el tema activo.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:169</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a656c7e80b167ecbdbec2dd7e50f8df79"><div class="ttname"><a href="class_led_alive_widget.html#a656c7e80b167ecbdbec2dd7e50f8df79">LedAliveWidget::LedAliveWidget</a></div><div class="ttdeci">LedAliveWidget(QWidget *parent=nullptr)</div><div class="ttdoc">Construye el widget e inicializa los timers internos.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:21</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a9498bd1532f7f60701c60d709d9175ac"><div class="ttname"><a href="class_led_alive_widget.html#a9498bd1532f7f60701c60d709d9175ac">LedAliveWidget::m_watchdog</a></div><div class="ttdeci">QTimer * m_watchdog</div><div class="ttdoc">Watchdog de 7 s para detectar timeout.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:70</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a9ddd39d3cee9516a284338839a931a0f"><div class="ttname"><a href="class_led_alive_widget.html#a9ddd39d3cee9516a284338839a931a0f">LedAliveWidget::m_labelInterval</a></div><div class="ttdeci">QLabel * m_labelInterval</div><div class="ttdoc">Etiqueta &quot;intervalo: N s&quot;.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:77</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_a9e5348fa004d2b4e8362dd04ec425c6c"><div class="ttname"><a href="class_led_alive_widget.html#a9e5348fa004d2b4e8362dd04ec425c6c">LedAliveWidget::m_count</a></div><div class="ttdeci">int m_count</div><div class="ttdoc">Cantidad de heartbeats recibidos en la sesión.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:72</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_ab1669f3309bf3f7768dd445a66ca1979"><div class="ttname"><a href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979">LedAliveWidget::LedState</a></div><div class="ttdeci">LedState</div><div class="ttdoc">Estado interno del LED.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:64</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_ab1669f3309bf3f7768dd445a66ca1979a521c36a31c2762741cf0f8890cbe05e3"><div class="ttname"><a href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979a521c36a31c2762741cf0f8890cbe05e3">LedAliveWidget::LedState::On</a></div><div class="ttdeci">@ On</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:64</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_ab1669f3309bf3f7768dd445a66ca1979ac85a251cc457840f1e032f1b733e9398"><div class="ttname"><a href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979ac85a251cc457840f1e032f1b733e9398">LedAliveWidget::LedState::Timeout</a></div><div class="ttdeci">@ Timeout</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:64</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36"><div class="ttname"><a href="class_led_alive_widget.html#ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36">LedAliveWidget::LedState::Off</a></div><div class="ttdeci">@ Off</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:64</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_ab89ea56de9e0075e59e54a7403bffb66"><div class="ttname"><a href="class_led_alive_widget.html#ab89ea56de9e0075e59e54a7403bffb66">LedAliveWidget::m_state</a></div><div class="ttdeci">LedState m_state</div><div class="ttdoc">Estado visual actual.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:66</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_ad2c4948e131c686e9b55cd00e8ae086c"><div class="ttname"><a href="class_led_alive_widget.html#ad2c4948e131c686e9b55cd00e8ae086c">LedAliveWidget::onWatchdogTimeout</a></div><div class="ttdeci">void onWatchdogTimeout()</div><div class="ttdoc">Pone el LED en estado Timeout al expirar el watchdog.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:158</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_ad979710c690508c932646ffbed9b1f18"><div class="ttname"><a href="class_led_alive_widget.html#ad979710c690508c932646ffbed9b1f18">LedAliveWidget::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reinicia el widget al estado inicial (offline).</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:130</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_af07d3783ed22b5bfe843913ba094ae19"><div class="ttname"><a href="class_led_alive_widget.html#af07d3783ed22b5bfe843913ba094ae19">LedAliveWidget::m_labelCount</a></div><div class="ttdeci">QLabel * m_labelCount</div><div class="ttdoc">Etiqueta &quot;recibidos: N&quot;.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:76</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_af5d1978263707a6400e5ed5b61bd3799"><div class="ttname"><a href="class_led_alive_widget.html#af5d1978263707a6400e5ed5b61bd3799">LedAliveWidget::LED_PAD</a></div><div class="ttdeci">static constexpr int LED_PAD</div><div class="ttdoc">Margen vertical del área del LED.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:81</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html_af76a1eee1f12cba940721ee8039ee021"><div class="ttname"><a href="class_led_alive_widget.html#af76a1eee1f12cba940721ee8039ee021">LedAliveWidget::minimumSizeHint</a></div><div class="ttdeci">QSize minimumSizeHint() const override</div><div class="ttdoc">Tamaño mínimo del widget.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.cpp:79</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_fc86ce11cfb5284f2928e718eeab9679.html">widgets</a></li><li class="navelem"><a href="_led_alive_widget_8h.html">LedAliveWidget.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

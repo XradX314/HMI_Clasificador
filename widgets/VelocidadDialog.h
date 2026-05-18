@@ -1,59 +1,64 @@
+/**
+ * @file VelocidadDialog.h
+ * @brief Diálogo para enviar el ancho de la caja de referencia (CMD 0x62).
+ */
+
 #pragma once
 
 #include <QDialog>
 #include <QSpinBox>
 #include <QPushButton>
 #include <QLabel>
-#include <QProgressBar>
-#include <QTimer>
 
-// ============================================================
-//  VelocidadDialog  –  Medición de velocidad de cinta
-//
-//  Flujo:
-//   1. Usuario ingresa ancho de caja en cm
-//   2. Presiona "Medir velocidad" → emite requestMedirVelocidad(anchoCm)
-//   3. El programa espera hasta 60 s mostrando un contador regresivo
-//   4. Al llegar el resultado → velocidadRecibida(vel)
-//   5. Si no llega en 60 s → velocidadFallo()
-// ============================================================
-
+/**
+ * @class VelocidadDialog
+ * @brief Diálogo flotante para configurar el ancho de la caja de referencia.
+ *
+ * Envía el comando 0x62 con un único byte (anchoCaja en cm).  El MCU
+ * utiliza ese valor para calcular internamente la velocidad de la cinta;
+ * no se espera respuesta de vuelta.
+ *
+ * Al presionar «Enviar 0x62» se emite la señal @ref requestAnchoCaja.
+ */
 class VelocidadDialog : public QDialog
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Construye el diálogo.
+     * @param parent Objeto padre Qt (o nullptr).
+     */
     explicit VelocidadDialog(QWidget *parent = nullptr);
+
+    /**
+     * @brief Aplica el tema claro u oscuro al diálogo.
+     * @param dark true para tema oscuro.
+     */
     void setDarkMode(bool dark);
 
-    // Llamar cuando llega velocidadMedida(vel) del SerialManager
-    void velocidadRecibida(uint8_t velCmS);
-
-    // Llamar cuando el SerialManager emite velocidadTimeout()
-    void velocidadFallo();
-
 signals:
-    void requestMedirVelocidad(uint8_t anchoCm);
+    /**
+     * @brief Se emite cuando el usuario presiona «Enviar 0x62».
+     * @param anchoCm Ancho de la caja de referencia en centímetros.
+     */
+    void requestAnchoCaja(uint8_t anchoCm);
 
 private slots:
-    void onMedirClicked();
-    void onTick();                 // actualiza la barra de progreso cada 1 s
+    /** @brief Slot del botón «Enviar 0x62»: emite requestAnchoCaja. */
+    void onEnviarClicked();
 
 private:
-    QSpinBox     *m_spinAncho    {nullptr};
-    QPushButton  *m_btnMedir     {nullptr};
-    QPushButton  *m_btnCerrar    {nullptr};
+    QSpinBox    *m_spinAncho  {nullptr}; ///< SpinBox del ancho en cm.
+    QPushButton *m_btnEnviar  {nullptr}; ///< Botón «Enviar 0x62».
+    QPushButton *m_btnCerrar  {nullptr}; ///< Botón «Cerrar».
 
-    QLabel       *m_lblResultado {nullptr};  // muestra el resultado en grande
-    QLabel       *m_lblUnidad    {nullptr};  // "cm/s"
-    QLabel       *m_lblEstado    {nullptr};  // texto de estado
-    QProgressBar *m_progress     {nullptr};  // cuenta regresiva 60→0
-
-    QTimer       *m_tickTimer    {nullptr};  // tick cada 1 s
-    int           m_segundosRestantes {0};
-
-    void setBusyState(bool busy);
+    /** @brief Construye la interfaz del diálogo. */
     void buildUi();
+
+    /** @brief Aplica la hoja de estilo del tema oscuro. */
     void applyDarkStyle();
+
+    /** @brief Aplica la hoja de estilo del tema claro. */
     void applyLightStyle();
 };

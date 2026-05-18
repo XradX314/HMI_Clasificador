@@ -1,0 +1,558 @@
+\doxysection{Referencia de la clase Uner\+Protocol}
+\hypertarget{class_uner_protocol}{}\label{class_uner_protocol}\index{UnerProtocol@{UnerProtocol}}
+
+
+Codificador y decodificador de tramas del protocolo UNER.  
+
+
+
+
+{\ttfamily \+\#include $<$Uner\+Protocol.\+h$>$}
+
+Diagrama de herencia de Uner\+Protocol\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_uner_protocol}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Señales}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_uner_protocol_a270372c4d6fbb290e8af0a5e68dd13fd}{frame\+Received}} (const \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::\+\+Frame}} \&frame)
+\begin{DoxyCompactList}\small\item\em Se emite cuando se recibe y verifica una trama completa. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_uner_protocol_a73fcef6a15fb59892cc4d07dc4a029da}{checksum\+Error}} (const QByte\+Array \&raw)
+\begin{DoxyCompactList}\small\item\em Se emite cuando el checksum de una trama no coincide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_uner_protocol_a85a70b0855430811b4e6afd919e3b69a}{Uner\+Protocol}} (QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Construye el objeto \doxylink{class_uner_protocol}{Uner\+Protocol}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_uner_protocol_a4510e7e9b675aa7c0016856541b181bd}{feed}} (const QByte\+Array \&data)
+\begin{DoxyCompactList}\small\item\em Alimenta el parser con bytes recibidos del puerto serie. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_uner_protocol_aea18560d903cf5f8a90fe487adfa168d}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reinicia el estado interno del parser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a8b626c4f488afaa3c6bc61fd8499deec}{encode}} (uint8\+\_\+t cmd, const QByte\+Array \&payload=\{\})
+\begin{DoxyCompactList}\small\item\em Construye una trama UNER completa con checksum XOR. \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a7a806329f264ac2f56e3b61855f0cb85}{ack\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Genera trama de ACK de heartbeat (0x\+F0 + 0x0D). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a1f7d57639a72fb63aa58e24d177144ee}{cmd\+Start}} (\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}} s0, \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}} s1, \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}} s2)
+\begin{DoxyCompactList}\small\item\em Genera trama de inicio del clasificador (0x50). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_abcc9215e6717dca373d88f70026cdbe5}{cmd\+Stop}} ()
+\begin{DoxyCompactList}\small\item\em Genera trama de detención del sistema (0x51). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a1129ce91f8cf057a60016fa8cf24b8ca}{cmd\+Reset}} ()
+\begin{DoxyCompactList}\small\item\em Genera trama de reset del sistema (0x53). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a27c1327e50dffd000ffa8592d65b207a}{ack\+Brazo}} ()
+\begin{DoxyCompactList}\small\item\em Genera trama de ACK de brazo retractado (0x52 + 0x\+FF). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a5484fdf88f6053a074f436eaec1502d9}{cmd\+Velocidad}} (uint8\+\_\+t vel\+Idx)
+\begin{DoxyCompactList}\small\item\em Genera trama de velocidad de la cinta (0x54). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a4e78307056aeeb0324aa35ebce351934}{cmd\+Blind\+Dist}} (const \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{Uner::\+\+Ciego\+Distancias}} \&cfg, uint8\+\_\+t num\+Bytes=4)
+\begin{DoxyCompactList}\small\item\em Genera trama de modo ciego y distancias (0x60). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a7da608c6526da2a0d99ae2056d80a07a}{cmd\+Trigger}} ()
+\begin{DoxyCompactList}\small\item\em Genera trama de disparo de trigger HC-\/\+SR04 (0x61). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_acf65414ddffc1fbef089456e5e6509a9}{cmd\+Ancho\+Caja}} (uint8\+\_\+t ancho\+Cm)
+\begin{DoxyCompactList}\small\item\em Genera trama de ancho de caja de referencia (0x62). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_af5de8dcbbbc670e39f51e1b555fad046}{cmd\+Calibracion}} (const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Genera trama de calibración completa (0x63). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_acbb40127c728551e553a54bd3d998337}{cmd\+Hcsr04\+Cfg}} (const \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Uner::\+\+Hcsr04\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Genera trama de configuración del sensor HC-\/\+SR04 (0x64). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a51956427e8b6badffe35f8781f012893}{cmd\+Sg90\+Cfg}} (const \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Uner::\+\+Sg90\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Genera trama de configuración del servo SG90 (0x65). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a3d5f19ad70d4c11edb15e9cf4d125bbb}{cmd\+Ir\+Debounce}} (uint8\+\_\+t debounce)
+\begin{DoxyCompactList}\small\item\em Genera trama de debounce IR (0x66). \end{DoxyCompactList}\item 
+static QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a3505c38a310e1d05f3f7cde3c8cc5b68}{cmd\+Timers\+Cfg}} (const \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Uner::\+\+Timers\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Genera trama de timers y configuraciones generales (0x67). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Tipos privados}
+\begin{DoxyCompactItemize}
+\item 
+enum class \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3}{Parse\+State}} :\+ uint8\+\_\+t \{ \newline
+\doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9}{WaitU}} = 0
+, \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872}{WaitN}}
+, \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b}{WaitE}}
+, \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd}{WaitR}}
+, \newline
+\doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf}{Read\+Len}}
+, \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297}{Wait\+Colon}}
+, \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0}{Read\+Payload}}
+ \}
+\begin{DoxyCompactList}\small\item\em Estados de la máquina de estados del decodificador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_uner_protocol_ad0d6c8881976494e62723a94263e55c6}{process\+Payload}} ()
+\begin{DoxyCompactList}\small\item\em Procesa el payload interno cuando la trama está completa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3}{Parse\+State}} \doxymbox{\hyperlink{class_uner_protocol_a4bbbfb6c459ee5a2688fd9982ab52370}{m\+\_\+state}} \{\doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9}{Parse\+State::\+\+WaitU}}\}
+\begin{DoxyCompactList}\small\item\em Estado actual del parser. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{class_uner_protocol_ab65e73e19f6b3aeeb9cf98725b7a45d4}{m\+\_\+len}} \{0\}
+\begin{DoxyCompactList}\small\item\em Longitud total esperada (cmd + payload + cks). \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{class_uner_protocol_a212e07b79197184885f8a0b68b8abc50}{m\+\_\+remaining}} \{0\}
+\begin{DoxyCompactList}\small\item\em Bytes restantes por leer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{class_uner_protocol_aabde0d0b200e8b118cfa5e004b563e9e}{m\+\_\+cks}} \{0\}
+\begin{DoxyCompactList}\small\item\em Acumulador de checksum XOR. \end{DoxyCompactList}\item 
+QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_aa071478084b208f0b8cdcccbdb96f7c1}{m\+\_\+payload}}
+\begin{DoxyCompactList}\small\item\em Buffer interno de payload. \end{DoxyCompactList}\item 
+QByte\+Array \doxymbox{\hyperlink{class_uner_protocol_a2b6c03532804cace4ee670eeab0b7ec9}{m\+\_\+raw\+Frame}}
+\begin{DoxyCompactList}\small\item\em Buffer de la trama cruda (diagnóstico). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Codificador y decodificador de tramas del protocolo UNER. 
+
+Provee métodos estáticos para construir tramas (encoders) y un parser incremental orientado a bytes para decodificar el stream de datos recibido por el puerto serie (decoder).\hypertarget{class_uner_protocol_autotoc_md0}{}\doxysubsubsection{\texorpdfstring{Uso del decoder}{Uso del decoder}}\label{class_uner_protocol_autotoc_md0}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_uner_protocol_a85a70b0855430811b4e6afd919e3b69a}{UnerProtocol}}\ proto(parent);}
+\DoxyCodeLine{connect(\&proto,\ \&\doxymbox{\hyperlink{class_uner_protocol_a270372c4d6fbb290e8af0a5e68dd13fd}{UnerProtocol::frameReceived}},\ \textcolor{keyword}{this},\ \&MiClase::onFrame);}
+\DoxyCodeLine{proto.feed(datosRecibidos);}
+
+\end{DoxyCode}
+\hypertarget{class_uner_protocol_autotoc_md1}{}\doxysubsubsection{\texorpdfstring{Uso de los encoders}{Uso de los encoders}}\label{class_uner_protocol_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{QByteArray\ trama\ =\ \doxymbox{\hyperlink{class_uner_protocol_a1f7d57639a72fb63aa58e24d177144ee}{UnerProtocol::cmdStart}}(}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54}{Uner::TipoCaja::Pequenia}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251}{Uner::TipoCaja::Mediana}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9}{Uner::TipoCaja::Grande}});}
+\DoxyCodeLine{puerto-\/>write(trama);}
+
+\end{DoxyCode}
+ 
+
+\label{doc-enum-members}
+\Hypertarget{class_uner_protocol_doc-enum-members}
+\doxysubsection{Documentación de las enumeraciones miembro de la clase}
+\Hypertarget{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3}\index{UnerProtocol@{UnerProtocol}!ParseState@{ParseState}}
+\index{ParseState@{ParseState}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{ParseState}{ParseState}}
+{\footnotesize\ttfamily \label{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3} 
+enum class \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3}{Uner\+Protocol::\+\+Parse\+State}} :\+ uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}, {\ttfamily [private]}}
+
+
+
+Estados de la máquina de estados del decodificador. 
+
+\begin{DoxyEnumFields}[2]{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WaitU@{WaitU}!UnerProtocol@{UnerProtocol}}
+\index{UnerProtocol@{UnerProtocol}!WaitU@{WaitU}}
+}\Hypertarget{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9}\label{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9} 
+WaitU&Esperando el byte \textquotesingle{}U\textquotesingle{} del encabezado. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WaitN@{WaitN}!UnerProtocol@{UnerProtocol}}
+\index{UnerProtocol@{UnerProtocol}!WaitN@{WaitN}}
+}\Hypertarget{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872}\label{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872} 
+WaitN&Esperando el byte \textquotesingle{}N\textquotesingle{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WaitE@{WaitE}!UnerProtocol@{UnerProtocol}}
+\index{UnerProtocol@{UnerProtocol}!WaitE@{WaitE}}
+}\Hypertarget{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b}\label{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b} 
+WaitE&Esperando el byte \textquotesingle{}E\textquotesingle{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WaitR@{WaitR}!UnerProtocol@{UnerProtocol}}
+\index{UnerProtocol@{UnerProtocol}!WaitR@{WaitR}}
+}\Hypertarget{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd}\label{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd} 
+WaitR&Esperando el byte \textquotesingle{}R\textquotesingle{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ReadLen@{ReadLen}!UnerProtocol@{UnerProtocol}}
+\index{UnerProtocol@{UnerProtocol}!ReadLen@{ReadLen}}
+}\Hypertarget{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf}\label{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf} 
+Read\+Len&Leyendo el byte de longitud. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WaitColon@{WaitColon}!UnerProtocol@{UnerProtocol}}
+\index{UnerProtocol@{UnerProtocol}!WaitColon@{WaitColon}}
+}\Hypertarget{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297}\label{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297} 
+Wait\+Colon&Esperando el separador \textquotesingle{}:\+\textquotesingle{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ReadPayload@{ReadPayload}!UnerProtocol@{UnerProtocol}}
+\index{UnerProtocol@{UnerProtocol}!ReadPayload@{ReadPayload}}
+}\Hypertarget{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0}\label{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0} 
+Read\+Payload&Leyendo el payload + checksum. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-constructors}
+\Hypertarget{class_uner_protocol_doc-constructors}
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_uner_protocol_a85a70b0855430811b4e6afd919e3b69a}\index{UnerProtocol@{UnerProtocol}!UnerProtocol@{UnerProtocol}}
+\index{UnerProtocol@{UnerProtocol}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{UnerProtocol()}{UnerProtocol()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a85a70b0855430811b4e6afd919e3b69a} 
+Uner\+Protocol::\+\+Uner\+Protocol (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construye el objeto \doxylink{class_uner_protocol}{Uner\+Protocol}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em parent} & Objeto padre Qt (o nullptr). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_uner_protocol_doc-func-members}
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_uner_protocol_a7a806329f264ac2f56e3b61855f0cb85}\index{UnerProtocol@{UnerProtocol}!ackAlive@{ackAlive}}
+\index{ackAlive@{ackAlive}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{ackAlive()}{ackAlive()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a7a806329f264ac2f56e3b61855f0cb85} 
+QByte\+Array Uner\+Protocol::\+ack\+Alive (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de ACK de heartbeat (0x\+F0 + 0x0D). 
+
+\Hypertarget{class_uner_protocol_a27c1327e50dffd000ffa8592d65b207a}\index{UnerProtocol@{UnerProtocol}!ackBrazo@{ackBrazo}}
+\index{ackBrazo@{ackBrazo}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{ackBrazo()}{ackBrazo()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a27c1327e50dffd000ffa8592d65b207a} 
+QByte\+Array Uner\+Protocol::\+ack\+Brazo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de ACK de brazo retractado (0x52 + 0x\+FF). 
+
+\Hypertarget{class_uner_protocol_a73fcef6a15fb59892cc4d07dc4a029da}\index{UnerProtocol@{UnerProtocol}!checksumError@{checksumError}}
+\index{checksumError@{checksumError}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{checksumError}{checksumError}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a73fcef6a15fb59892cc4d07dc4a029da} 
+void Uner\+Protocol::\+checksum\+Error (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{raw}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando el checksum de una trama no coincide. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em raw} & Bytes crudos de la trama con error. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_acf65414ddffc1fbef089456e5e6509a9}\index{UnerProtocol@{UnerProtocol}!cmdAnchoCaja@{cmdAnchoCaja}}
+\index{cmdAnchoCaja@{cmdAnchoCaja}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdAnchoCaja()}{cmdAnchoCaja()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_acf65414ddffc1fbef089456e5e6509a9} 
+QByte\+Array Uner\+Protocol::\+cmd\+Ancho\+Caja (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ancho\+Cm}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de ancho de caja de referencia (0x62). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ancho\+Cm} & Ancho de la caja en centímetros. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_a4e78307056aeeb0324aa35ebce351934}\index{UnerProtocol@{UnerProtocol}!cmdBlindDist@{cmdBlindDist}}
+\index{cmdBlindDist@{cmdBlindDist}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdBlindDist()}{cmdBlindDist()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a4e78307056aeeb0324aa35ebce351934} 
+QByte\+Array Uner\+Protocol::\+cmd\+Blind\+Dist (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{Uner::\+\+Ciego\+Distancias}} \&}]{cfg}{, }\item[{uint8\+\_\+t}]{num\+Bytes}{ = {\ttfamily 4}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de modo ciego y distancias (0x60). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Estructura con modo\+\_\+ciego y dist\+\_\+s0\+[3]\+. \\
+\hline
+{\em num\+Bytes} & Cantidad de bytes a incluir (1–4).
+\begin{DoxyItemize}
+\item 1:\+ solo modo\+\_\+ciego.
+\item 2–4:\+ incluye distancias progressivamente. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_af5de8dcbbbc670e39f51e1b555fad046}\index{UnerProtocol@{UnerProtocol}!cmdCalibracion@{cmdCalibracion}}
+\index{cmdCalibracion@{cmdCalibracion}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdCalibracion()}{cmdCalibracion()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_af5de8dcbbbc670e39f51e1b555fad046} 
+QByte\+Array Uner\+Protocol::\+cmd\+Calibracion (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de calibración completa (0x63). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Estructura con 4 alturas, tolerancia y tiempos de brazo. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_acbb40127c728551e553a54bd3d998337}\index{UnerProtocol@{UnerProtocol}!cmdHcsr04Cfg@{cmdHcsr04Cfg}}
+\index{cmdHcsr04Cfg@{cmdHcsr04Cfg}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdHcsr04Cfg()}{cmdHcsr04Cfg()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_acbb40127c728551e553a54bd3d998337} 
+QByte\+Array Uner\+Protocol::\+cmd\+Hcsr04\+Cfg (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Uner::\+\+Hcsr04\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de configuración del sensor HC-\/\+SR04 (0x64). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Estructura con pulso de trigger y timeout. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_a3d5f19ad70d4c11edb15e9cf4d125bbb}\index{UnerProtocol@{UnerProtocol}!cmdIrDebounce@{cmdIrDebounce}}
+\index{cmdIrDebounce@{cmdIrDebounce}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdIrDebounce()}{cmdIrDebounce()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a3d5f19ad70d4c11edb15e9cf4d125bbb} 
+QByte\+Array Uner\+Protocol::\+cmd\+Ir\+Debounce (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{debounce}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de debounce IR (0x66). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em debounce} & Número de ticks de debounce. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_a1129ce91f8cf057a60016fa8cf24b8ca}\index{UnerProtocol@{UnerProtocol}!cmdReset@{cmdReset}}
+\index{cmdReset@{cmdReset}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdReset()}{cmdReset()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a1129ce91f8cf057a60016fa8cf24b8ca} 
+QByte\+Array Uner\+Protocol::\+cmd\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de reset del sistema (0x53). 
+
+\Hypertarget{class_uner_protocol_a51956427e8b6badffe35f8781f012893}\index{UnerProtocol@{UnerProtocol}!cmdSg90Cfg@{cmdSg90Cfg}}
+\index{cmdSg90Cfg@{cmdSg90Cfg}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdSg90Cfg()}{cmdSg90Cfg()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a51956427e8b6badffe35f8781f012893} 
+QByte\+Array Uner\+Protocol::\+cmd\+Sg90\+Cfg (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Uner::\+\+Sg90\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de configuración del servo SG90 (0x65). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Estructura con período, pulso mínimo, máximo y neutro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_a1f7d57639a72fb63aa58e24d177144ee}\index{UnerProtocol@{UnerProtocol}!cmdStart@{cmdStart}}
+\index{cmdStart@{cmdStart}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdStart()}{cmdStart()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a1f7d57639a72fb63aa58e24d177144ee} 
+QByte\+Array Uner\+Protocol::\+cmd\+Start (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}}}]{s0}{, }\item[{\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}}}]{s1}{, }\item[{\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}}}]{s2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de inicio del clasificador (0x50). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em s0} & Tipo de caja asignado a la salida 0. \\
+\hline
+{\em s1} & Tipo de caja asignado a la salida 1. \\
+\hline
+{\em s2} & Tipo de caja asignado a la salida 2. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_abcc9215e6717dca373d88f70026cdbe5}\index{UnerProtocol@{UnerProtocol}!cmdStop@{cmdStop}}
+\index{cmdStop@{cmdStop}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdStop()}{cmdStop()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_abcc9215e6717dca373d88f70026cdbe5} 
+QByte\+Array Uner\+Protocol::\+cmd\+Stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de detención del sistema (0x51). 
+
+\Hypertarget{class_uner_protocol_a3505c38a310e1d05f3f7cde3c8cc5b68}\index{UnerProtocol@{UnerProtocol}!cmdTimersCfg@{cmdTimersCfg}}
+\index{cmdTimersCfg@{cmdTimersCfg}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdTimersCfg()}{cmdTimersCfg()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a3505c38a310e1d05f3f7cde3c8cc5b68} 
+QByte\+Array Uner\+Protocol::\+cmd\+Timers\+Cfg (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Uner::\+\+Timers\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de timers y configuraciones generales (0x67). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Estructura con timers, ángulos de servo y alturas de caja. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_a7da608c6526da2a0d99ae2056d80a07a}\index{UnerProtocol@{UnerProtocol}!cmdTrigger@{cmdTrigger}}
+\index{cmdTrigger@{cmdTrigger}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdTrigger()}{cmdTrigger()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a7da608c6526da2a0d99ae2056d80a07a} 
+QByte\+Array Uner\+Protocol::\+cmd\+Trigger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de disparo de trigger HC-\/\+SR04 (0x61). 
+
+Sin payload. \Hypertarget{class_uner_protocol_a5484fdf88f6053a074f436eaec1502d9}\index{UnerProtocol@{UnerProtocol}!cmdVelocidad@{cmdVelocidad}}
+\index{cmdVelocidad@{cmdVelocidad}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{cmdVelocidad()}{cmdVelocidad()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a5484fdf88f6053a074f436eaec1502d9} 
+QByte\+Array Uner\+Protocol::\+cmd\+Velocidad (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{vel\+Idx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera trama de velocidad de la cinta (0x54). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em vel\+Idx} & Índice de velocidad en el rango \+[1, 10]\+. El MCU recibe vel\+Idx×10. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_a8b626c4f488afaa3c6bc61fd8499deec}\index{UnerProtocol@{UnerProtocol}!encode@{encode}}
+\index{encode@{encode}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a8b626c4f488afaa3c6bc61fd8499deec} 
+QByte\+Array Uner\+Protocol::\+encode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd}{, }\item[{const QByte\+Array \&}]{payload}{ = {\ttfamily \{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Construye una trama UNER completa con checksum XOR. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cmd} & Byte de comando. \\
+\hline
+{\em payload} & Payload (puede estar vacío). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Trama lista para escribir al puerto serie. 
+\end{DoxyReturn}
+\Hypertarget{class_uner_protocol_a4510e7e9b675aa7c0016856541b181bd}\index{UnerProtocol@{UnerProtocol}!feed@{feed}}
+\index{feed@{feed}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{feed()}{feed()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a4510e7e9b675aa7c0016856541b181bd} 
+void Uner\+Protocol::\+feed (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Alimenta el parser con bytes recibidos del puerto serie. 
+
+Se puede llamar con cualquier cantidad de bytes. Cuando se completa y verifica una trama emite la señal \doxylink{class_uner_protocol_a270372c4d6fbb290e8af0a5e68dd13fd}{frame\+Received}. 
+\begin{DoxyParams}{Parámetros}
+{\em data} & Bytes recibidos (puede ser parcial o múltiples tramas). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_a270372c4d6fbb290e8af0a5e68dd13fd}\index{UnerProtocol@{UnerProtocol}!frameReceived@{frameReceived}}
+\index{frameReceived@{frameReceived}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{frameReceived}{frameReceived}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a270372c4d6fbb290e8af0a5e68dd13fd} 
+void Uner\+Protocol::\+frame\+Received (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::\+\+Frame}} \&}]{frame}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando se recibe y verifica una trama completa. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em frame} & Trama decodificada con cmd y payload. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_uner_protocol_ad0d6c8881976494e62723a94263e55c6}\index{UnerProtocol@{UnerProtocol}!processPayload@{processPayload}}
+\index{processPayload@{processPayload}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{processPayload()}{processPayload()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_ad0d6c8881976494e62723a94263e55c6} 
+void Uner\+Protocol::\+process\+Payload (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Procesa el payload interno cuando la trama está completa. 
+
+Extrae cmd y payload, luego emite \doxylink{class_uner_protocol_a270372c4d6fbb290e8af0a5e68dd13fd}{frame\+Received}. \Hypertarget{class_uner_protocol_aea18560d903cf5f8a90fe487adfa168d}\index{UnerProtocol@{UnerProtocol}!reset@{reset}}
+\index{reset@{reset}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{class_uner_protocol_aea18560d903cf5f8a90fe487adfa168d} 
+void Uner\+Protocol::\+reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reinicia el estado interno del parser. 
+
+Útil después de abrir el puerto o ante errores de comunicación. 
+
+\label{doc-variable-members}
+\Hypertarget{class_uner_protocol_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{class_uner_protocol_aabde0d0b200e8b118cfa5e004b563e9e}\index{UnerProtocol@{UnerProtocol}!m\_cks@{m\_cks}}
+\index{m\_cks@{m\_cks}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{m\_cks}{m\_cks}}
+{\footnotesize\ttfamily \label{class_uner_protocol_aabde0d0b200e8b118cfa5e004b563e9e} 
+uint8\+\_\+t Uner\+Protocol::\+m\+\_\+cks \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Acumulador de checksum XOR. 
+
+\Hypertarget{class_uner_protocol_ab65e73e19f6b3aeeb9cf98725b7a45d4}\index{UnerProtocol@{UnerProtocol}!m\_len@{m\_len}}
+\index{m\_len@{m\_len}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{m\_len}{m\_len}}
+{\footnotesize\ttfamily \label{class_uner_protocol_ab65e73e19f6b3aeeb9cf98725b7a45d4} 
+uint8\+\_\+t Uner\+Protocol::\+m\+\_\+len \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Longitud total esperada (cmd + payload + cks). 
+
+\Hypertarget{class_uner_protocol_aa071478084b208f0b8cdcccbdb96f7c1}\index{UnerProtocol@{UnerProtocol}!m\_payload@{m\_payload}}
+\index{m\_payload@{m\_payload}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{m\_payload}{m\_payload}}
+{\footnotesize\ttfamily \label{class_uner_protocol_aa071478084b208f0b8cdcccbdb96f7c1} 
+QByte\+Array Uner\+Protocol::\+m\+\_\+payload\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Buffer interno de payload. 
+
+\Hypertarget{class_uner_protocol_a2b6c03532804cace4ee670eeab0b7ec9}\index{UnerProtocol@{UnerProtocol}!m\_rawFrame@{m\_rawFrame}}
+\index{m\_rawFrame@{m\_rawFrame}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{m\_rawFrame}{m\_rawFrame}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a2b6c03532804cace4ee670eeab0b7ec9} 
+QByte\+Array Uner\+Protocol::\+m\+\_\+raw\+Frame\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Buffer de la trama cruda (diagnóstico). 
+
+\Hypertarget{class_uner_protocol_a212e07b79197184885f8a0b68b8abc50}\index{UnerProtocol@{UnerProtocol}!m\_remaining@{m\_remaining}}
+\index{m\_remaining@{m\_remaining}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{m\_remaining}{m\_remaining}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a212e07b79197184885f8a0b68b8abc50} 
+uint8\+\_\+t Uner\+Protocol::\+m\+\_\+remaining \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Bytes restantes por leer. 
+
+\Hypertarget{class_uner_protocol_a4bbbfb6c459ee5a2688fd9982ab52370}\index{UnerProtocol@{UnerProtocol}!m\_state@{m\_state}}
+\index{m\_state@{m\_state}!UnerProtocol@{UnerProtocol}}
+\doxysubsubsection{\texorpdfstring{m\_state}{m\_state}}
+{\footnotesize\ttfamily \label{class_uner_protocol_a4bbbfb6c459ee5a2688fd9982ab52370} 
+\doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3}{Parse\+State}} Uner\+Protocol::\+m\+\_\+state \{\doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9}{Parse\+State::\+\+WaitU}}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Estado actual del parser. 
+
+
+
+La documentación de esta clase está generada de los siguientes archivos:\+\begin{DoxyCompactItemize}
+\item 
+comunicacion/\+\doxymbox{\hyperlink{_uner_protocol_8h}{Uner\+Protocol.\+h}}\item 
+comunicacion/\+\doxymbox{\hyperlink{_uner_protocol_8cpp}{Uner\+Protocol.\+cpp}}\end{DoxyCompactItemize}

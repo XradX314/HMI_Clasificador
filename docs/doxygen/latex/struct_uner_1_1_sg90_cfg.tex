@@ -1,0 +1,77 @@
+\doxysection{Referencia de la estructura Uner::\+Sg90\+Cfg}
+\hypertarget{struct_uner_1_1_sg90_cfg}{}\label{struct_uner_1_1_sg90_cfg}\index{Uner::Sg90Cfg@{Uner::Sg90Cfg}}
+
+
+Datos para el comando 0x65 – Configuración del servo SG90.  
+
+
+
+
+{\ttfamily \+\#include $<$Uner\+Protocol.\+h$>$}
+
+\doxysubsubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg_ad44257d83bde2b225fcfcf15abb37ef0}{period\+\_\+us}} \{20000\}
+\begin{DoxyCompactList}\small\item\em Período PWM (µs). \end{DoxyCompactList}\item 
+uint16\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg_a0b6882dfc915066d6cd50fdabcfb64af}{pulse\+\_\+min\+\_\+us}} \{600\}
+\begin{DoxyCompactList}\small\item\em Ancho de pulso para 0° (µs). \end{DoxyCompactList}\item 
+uint16\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg_adeeb9ba0ed566065989453bd64c96621}{pulse\+\_\+max\+\_\+us}} \{2400\}
+\begin{DoxyCompactList}\small\item\em Ancho de pulso para 180° (µs). \end{DoxyCompactList}\item 
+uint16\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg_aa3fe81f00616e786aa4c449813deb17e}{pulse\+\_\+neutral\+\_\+us}} \{1500\}
+\begin{DoxyCompactList}\small\item\em Ancho de pulso para posición neutra (µs). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Datos para el comando 0x65 – Configuración del servo SG90. 
+
+Payload total:\+ 8 bytes (4 × uint16, byte alto primero). Orden:\+ period\+\_\+us, pulse\+\_\+min\+\_\+us, pulse\+\_\+max\+\_\+us, pulse\+\_\+neutral\+\_\+us. 
+
+\label{doc-variable-members}
+\Hypertarget{struct_uner_1_1_sg90_cfg_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{struct_uner_1_1_sg90_cfg_ad44257d83bde2b225fcfcf15abb37ef0}\index{Uner::Sg90Cfg@{Uner::Sg90Cfg}!period\_us@{period\_us}}
+\index{period\_us@{period\_us}!Uner::Sg90Cfg@{Uner::Sg90Cfg}}
+\doxysubsubsection{\texorpdfstring{period\_us}{period\_us}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_sg90_cfg_ad44257d83bde2b225fcfcf15abb37ef0} 
+uint16\+\_\+t Uner::\+\+Sg90\+Cfg::\+period\+\_\+us \{20000\}}
+
+
+
+Período PWM (µs). 
+
+\Hypertarget{struct_uner_1_1_sg90_cfg_adeeb9ba0ed566065989453bd64c96621}\index{Uner::Sg90Cfg@{Uner::Sg90Cfg}!pulse\_max\_us@{pulse\_max\_us}}
+\index{pulse\_max\_us@{pulse\_max\_us}!Uner::Sg90Cfg@{Uner::Sg90Cfg}}
+\doxysubsubsection{\texorpdfstring{pulse\_max\_us}{pulse\_max\_us}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_sg90_cfg_adeeb9ba0ed566065989453bd64c96621} 
+uint16\+\_\+t Uner::\+\+Sg90\+Cfg::\+pulse\+\_\+max\+\_\+us \{2400\}}
+
+
+
+Ancho de pulso para 180° (µs). 
+
+\Hypertarget{struct_uner_1_1_sg90_cfg_a0b6882dfc915066d6cd50fdabcfb64af}\index{Uner::Sg90Cfg@{Uner::Sg90Cfg}!pulse\_min\_us@{pulse\_min\_us}}
+\index{pulse\_min\_us@{pulse\_min\_us}!Uner::Sg90Cfg@{Uner::Sg90Cfg}}
+\doxysubsubsection{\texorpdfstring{pulse\_min\_us}{pulse\_min\_us}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_sg90_cfg_a0b6882dfc915066d6cd50fdabcfb64af} 
+uint16\+\_\+t Uner::\+\+Sg90\+Cfg::\+pulse\+\_\+min\+\_\+us \{600\}}
+
+
+
+Ancho de pulso para 0° (µs). 
+
+\Hypertarget{struct_uner_1_1_sg90_cfg_aa3fe81f00616e786aa4c449813deb17e}\index{Uner::Sg90Cfg@{Uner::Sg90Cfg}!pulse\_neutral\_us@{pulse\_neutral\_us}}
+\index{pulse\_neutral\_us@{pulse\_neutral\_us}!Uner::Sg90Cfg@{Uner::Sg90Cfg}}
+\doxysubsubsection{\texorpdfstring{pulse\_neutral\_us}{pulse\_neutral\_us}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_sg90_cfg_aa3fe81f00616e786aa4c449813deb17e} 
+uint16\+\_\+t Uner::\+\+Sg90\+Cfg::\+pulse\+\_\+neutral\+\_\+us \{1500\}}
+
+
+
+Ancho de pulso para posición neutra (µs). 
+
+
+
+La documentación de esta estructura está generada del siguiente archivo:\+\begin{DoxyCompactItemize}
+\item 
+comunicacion/\+\doxymbox{\hyperlink{_uner_protocol_8h}{Uner\+Protocol.\+h}}\end{DoxyCompactItemize}

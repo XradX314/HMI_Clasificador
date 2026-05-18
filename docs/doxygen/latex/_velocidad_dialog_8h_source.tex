@@ -1,0 +1,41 @@
+\doxysection{Velocidad\+Dialog.\+h}
+\hypertarget{_velocidad_dialog_8h_source}{}\label{_velocidad_dialog_8h_source}\index{widgets/VelocidadDialog.h@{widgets/VelocidadDialog.h}}
+\doxymbox{\hyperlink{_velocidad_dialog_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QSpinBox>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_velocidad_dialog_af33132eff4cd619f040c6bd73a51d91f}{VelocidadDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_velocidad_dialog_af33132eff4cd619f040c6bd73a51d91f}{VelocidadDialog}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_velocidad_dialog_ababe865e03065b2d6e41f9f335165da9}{setDarkMode}}(\textcolor{keywordtype}{bool}\ dark);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ signals:}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_velocidad_dialog_ae048d0d9c6320609821ba1441552ecfc}{requestAnchoCaja}}(uint8\_t\ anchoCm);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_velocidad_dialog_a44f9015eda2801f67b2872ab1046981c}{onEnviarClicked}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_velocidad_dialog_a075ffadb09515ea355e37350ed0f0fec}{m\_spinAncho}}\ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00053\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{class_velocidad_dialog_a9e056323c8ec0076f2f613e79b0f85a2}{m\_btnEnviar}}\ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00054\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{class_velocidad_dialog_ae085634ff1f6225a652a19c2ff84c2e1}{m\_btnCerrar}}\ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_velocidad_dialog_a00147ea8c6c7c7c78e89a4b4c8e4b4db}{buildUi}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_velocidad_dialog_a1716a98df2d1b31a388ec584981bef59}{applyDarkStyle}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_velocidad_dialog_a878e26bdcfa8a30f7ce0300eb197f1fb}{applyLightStyle}}();}
+\DoxyCodeLine{00064\ \};}
+
+\end{DoxyCode}

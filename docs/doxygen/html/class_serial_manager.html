@@ -1,0 +1,1298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Referencia de la clase SerialManager</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_serial_manager.html','','class_serial_manager-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia de la clase SerialManager</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Gestiona la conexión serie y el ciclo de vida del protocolo UNER.  
+ <a href="#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_serial_manager_8h_source.html">SerialManager.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de herencia de SerialManager</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_serial_manager.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-signals" class="groupheader"><a id="signals" name="signals"></a>
+Señales</h2></td></tr>
+<tr class="memitem:aa8f14189331d7d377e1c8955e0fc5a92" id="r_aa8f14189331d7d377e1c8955e0fc5a92"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa8f14189331d7d377e1c8955e0fc5a92">connected</a> (const QString &amp;port)</td></tr>
+<tr class="memdesc:aa8f14189331d7d377e1c8955e0fc5a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite cuando el puerto serie se conecta exitosamente.  <br /></td></tr>
+<tr class="memitem:a35c3260cdd251e6628824ff41fb1deee" id="r_a35c3260cdd251e6628824ff41fb1deee"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a35c3260cdd251e6628824ff41fb1deee">disconnected</a> ()</td></tr>
+<tr class="memdesc:a35c3260cdd251e6628824ff41fb1deee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite cuando el puerto serie se cierra correctamente.  <br /></td></tr>
+<tr class="memitem:ad464ee521bbe5507d7a51ea85ed1b71c" id="r_ad464ee521bbe5507d7a51ea85ed1b71c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad464ee521bbe5507d7a51ea85ed1b71c">connectionLost</a> ()</td></tr>
+<tr class="memdesc:ad464ee521bbe5507d7a51ea85ed1b71c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite cuando el watchdog de heartbeat expira (7 s sin 0xF0).  <br /></td></tr>
+<tr class="memitem:a9b3cd79603c051d48e2c88ad4f29225f" id="r_a9b3cd79603c051d48e2c88ad4f29225f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9b3cd79603c051d48e2c88ad4f29225f">errorOccurred</a> (const QString &amp;msg)</td></tr>
+<tr class="memdesc:a9b3cd79603c051d48e2c88ad4f29225f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite ante un error del QSerialPort.  <br /></td></tr>
+<tr class="memitem:a8b899ebe90cce007f3eba9916930f3b0" id="r_a8b899ebe90cce007f3eba9916930f3b0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8b899ebe90cce007f3eba9916930f3b0">frameReady</a> (const <a class="el" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;frame)</td></tr>
+<tr class="memdesc:a8b899ebe90cce007f3eba9916930f3b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite para cada trama decodificada (señal de bajo nivel).  <br /></td></tr>
+<tr class="memitem:af373e7864feb43dbb301013f18da400f" id="r_af373e7864feb43dbb301013f18da400f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af373e7864feb43dbb301013f18da400f">aliveReceived</a> ()</td></tr>
+<tr class="memdesc:af373e7864feb43dbb301013f18da400f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite cuando se recibe un heartbeat 0xF0 del MCU.  <br /></td></tr>
+<tr class="memitem:abdb8b9d0efc962b0c203bdcd380c9d0b" id="r_abdb8b9d0efc962b0c203bdcd380c9d0b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abdb8b9d0efc962b0c203bdcd380c9d0b">cajaMedida</a> (uint8_t alturaCm)</td></tr>
+<tr class="memdesc:abdb8b9d0efc962b0c203bdcd380c9d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite cuando el MCU detecta una caja (0x5F).  <br /></td></tr>
+<tr class="memitem:a38fa6e820d63dd624c8cd19f5c7c9fb9" id="r_a38fa6e820d63dd624c8cd19f5c7c9fb9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a38fa6e820d63dd624c8cd19f5c7c9fb9">sensorIrActualizado</a> (uint8_t outNum, bool activo)</td></tr>
+<tr class="memdesc:a38fa6e820d63dd624c8cd19f5c7c9fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite cuando cambia el estado de un sensor IR (0x5E).  <br /></td></tr>
+<tr class="memitem:a5971d65e88f270812b9c4f39185c8f12" id="r_a5971d65e88f270812b9c4f39185c8f12"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5971d65e88f270812b9c4f39185c8f12">brazoActuado</a> (uint8_t servoIdx)</td></tr>
+<tr class="memdesc:a5971d65e88f270812b9c4f39185c8f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite cuando el MCU activa un brazo actuador (0x52).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:aa2d090c2f7dc822a3fb1f3ac432abd0d" id="r_aa2d090c2f7dc822a3fb1f3ac432abd0d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa2d090c2f7dc822a3fb1f3ac432abd0d">SerialManager</a> (QObject *parent=nullptr)</td></tr>
+<tr class="memdesc:aa2d090c2f7dc822a3fb1f3ac432abd0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construye el <a class="el" href="class_serial_manager.html" title="Gestiona la conexión serie y el ciclo de vida del protocolo UNER.">SerialManager</a>.  <br /></td></tr>
+<tr class="memitem:a2b96975d8838b2f3a83ddc00fe9dc2bd" id="r_a2b96975d8838b2f3a83ddc00fe9dc2bd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2b96975d8838b2f3a83ddc00fe9dc2bd">~SerialManager</a> () override</td></tr>
+<tr class="memdesc:a2b96975d8838b2f3a83ddc00fe9dc2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor – cierra el puerto si está abierto.  <br /></td></tr>
+<tr class="memitem:a1bf39fdb897211849981c9fa6790ccac" id="r_a1bf39fdb897211849981c9fa6790ccac"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1bf39fdb897211849981c9fa6790ccac">open</a> (const QString &amp;portName, qint32 baud=<a class="el" href="#a0ed36f65dd2e04e21e8d886726f96e05">DEFAULT_BAUD</a>)</td></tr>
+<tr class="memdesc:a1bf39fdb897211849981c9fa6790ccac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abre el puerto serie especificado.  <br /></td></tr>
+<tr class="memitem:a281981027f9aa6ab540c19586041232c" id="r_a281981027f9aa6ab540c19586041232c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a281981027f9aa6ab540c19586041232c">close</a> ()</td></tr>
+<tr class="memdesc:a281981027f9aa6ab540c19586041232c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cierra el puerto serie y detiene el watchdog.  <br /></td></tr>
+<tr class="memitem:a4c37e46fdace2987034668b81e9cee19" id="r_a4c37e46fdace2987034668b81e9cee19"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4c37e46fdace2987034668b81e9cee19">isOpen</a> () const</td></tr>
+<tr class="memdesc:a4c37e46fdace2987034668b81e9cee19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica si el puerto está actualmente abierto.  <br /></td></tr>
+<tr class="memitem:aae090ab68f6d5b3d213f7e1d53140217" id="r_aae090ab68f6d5b3d213f7e1d53140217"><td class="memItemLeft">QString&#160;</td><td class="memItemRight"><a class="el" href="#aae090ab68f6d5b3d213f7e1d53140217">currentPort</a> () const</td></tr>
+<tr class="memdesc:aae090ab68f6d5b3d213f7e1d53140217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre del puerto actualmente abierto.  <br /></td></tr>
+<tr class="memitem:a15fd01ddb4c75098fb8de46c5fac7e91" id="r_a15fd01ddb4c75098fb8de46c5fac7e91"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a15fd01ddb4c75098fb8de46c5fac7e91">sendStart</a> (<a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s0, <a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s1, <a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s2)</td></tr>
+<tr class="memdesc:a15fd01ddb4c75098fb8de46c5fac7e91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía el comando de inicio del clasificador (0x50).  <br /></td></tr>
+<tr class="memitem:aaba43a056cb5a164c373161afa0c9234" id="r_aaba43a056cb5a164c373161afa0c9234"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaba43a056cb5a164c373161afa0c9234">sendStop</a> ()</td></tr>
+<tr class="memdesc:aaba43a056cb5a164c373161afa0c9234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía el comando de detención (0x51).  <br /></td></tr>
+<tr class="memitem:ae846c1325ee7a5fc429b85c15ced9a4c" id="r_ae846c1325ee7a5fc429b85c15ced9a4c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae846c1325ee7a5fc429b85c15ced9a4c">sendReset</a> ()</td></tr>
+<tr class="memdesc:ae846c1325ee7a5fc429b85c15ced9a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía el comando de reset (0x53).  <br /></td></tr>
+<tr class="memitem:accfccf549d794bf550a94e190ab6c31c" id="r_accfccf549d794bf550a94e190ab6c31c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#accfccf549d794bf550a94e190ab6c31c">sendVelocidad</a> (uint8_t velIdx)</td></tr>
+<tr class="memdesc:accfccf549d794bf550a94e190ab6c31c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía el índice de velocidad de la cinta (0x54).  <br /></td></tr>
+<tr class="memitem:a90c9a1b403d3f61470bf8fc2418183b1" id="r_a90c9a1b403d3f61470bf8fc2418183b1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a90c9a1b403d3f61470bf8fc2418183b1">sendBlindDist</a> (const <a class="el" href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a> &amp;cfg, uint8_t numBytes=4)</td></tr>
+<tr class="memdesc:a90c9a1b403d3f61470bf8fc2418183b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía la configuración de modo ciego y distancias (0x60).  <br /></td></tr>
+<tr class="memitem:a420e78a97531f6b6ad698c8c016f4b73" id="r_a420e78a97531f6b6ad698c8c016f4b73"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a420e78a97531f6b6ad698c8c016f4b73">sendTrigger</a> ()</td></tr>
+<tr class="memdesc:a420e78a97531f6b6ad698c8c016f4b73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía un disparo de trigger del HC-SR04 (0x61, sin payload).  <br /></td></tr>
+<tr class="memitem:a9bdc52f0e51b29d0d4f5a2585a98cda8" id="r_a9bdc52f0e51b29d0d4f5a2585a98cda8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9bdc52f0e51b29d0d4f5a2585a98cda8">sendAnchoCaja</a> (uint8_t anchoCm)</td></tr>
+<tr class="memdesc:a9bdc52f0e51b29d0d4f5a2585a98cda8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía el ancho de la caja de referencia (0x62).  <br /></td></tr>
+<tr class="memitem:aab55b5999fd9371a4a9634f190b2943b" id="r_aab55b5999fd9371a4a9634f190b2943b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aab55b5999fd9371a4a9634f190b2943b">sendCalibracion</a> (const <a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:aab55b5999fd9371a4a9634f190b2943b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía la calibración completa del sensor (0x63).  <br /></td></tr>
+<tr class="memitem:ac025e98df7f822ed79dd84fbfd9ff760" id="r_ac025e98df7f822ed79dd84fbfd9ff760"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac025e98df7f822ed79dd84fbfd9ff760">sendHcsr04Cfg</a> (const <a class="el" href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:ac025e98df7f822ed79dd84fbfd9ff760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía la configuración del sensor HC-SR04 (0x64).  <br /></td></tr>
+<tr class="memitem:ac83ee453af942d7bea7deb338774f019" id="r_ac83ee453af942d7bea7deb338774f019"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac83ee453af942d7bea7deb338774f019">sendSg90Cfg</a> (const <a class="el" href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:ac83ee453af942d7bea7deb338774f019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía la configuración del servo SG90 (0x65).  <br /></td></tr>
+<tr class="memitem:aac64f8999d245cb0232947acb7c17213" id="r_aac64f8999d245cb0232947acb7c17213"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aac64f8999d245cb0232947acb7c17213">sendIrDebounce</a> (uint8_t debounce)</td></tr>
+<tr class="memdesc:aac64f8999d245cb0232947acb7c17213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía el tiempo de debounce de los sensores IR (0x66).  <br /></td></tr>
+<tr class="memitem:a0cbe9fedcac42e0eaa885e1d871080e6" id="r_a0cbe9fedcac42e0eaa885e1d871080e6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0cbe9fedcac42e0eaa885e1d871080e6">sendTimersCfg</a> (const <a class="el" href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:a0cbe9fedcac42e0eaa885e1d871080e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía timers generales y alturas de caja (0x67).  <br /></td></tr>
+<tr class="memitem:a977d89604b4159656e8052a05a2a5dd0" id="r_a977d89604b4159656e8052a05a2a5dd0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a977d89604b4159656e8052a05a2a5dd0">sendRaw</a> (const QByteArray &amp;frame)</td></tr>
+<tr class="memdesc:a977d89604b4159656e8052a05a2a5dd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía una trama ya construida directamente al puerto.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Métodos públicos estáticos</h2></td></tr>
+<tr class="memitem:a7c134a1ca1df92b64e2b14c4dfbfc70d" id="r_a7c134a1ca1df92b64e2b14c4dfbfc70d"><td class="memItemLeft">static QStringList&#160;</td><td class="memItemRight"><a class="el" href="#a7c134a1ca1df92b64e2b14c4dfbfc70d">availablePorts</a> ()</td></tr>
+<tr class="memdesc:a7c134a1ca1df92b64e2b14c4dfbfc70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista los puertos serie disponibles en el sistema.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Atributos públicos estáticos</h2></td></tr>
+<tr class="memitem:a0ed36f65dd2e04e21e8d886726f96e05" id="r_a0ed36f65dd2e04e21e8d886726f96e05"><td class="memItemLeft">static constexpr qint32&#160;</td><td class="memItemRight"><a class="el" href="#a0ed36f65dd2e04e21e8d886726f96e05">DEFAULT_BAUD</a> = 9600</td></tr>
+<tr class="memdesc:a0ed36f65dd2e04e21e8d886726f96e05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocidad de baudios por defecto.  <br /></td></tr>
+<tr class="memitem:a927114c12f09c17bee2d2ea0ccc15bb0" id="r_a927114c12f09c17bee2d2ea0ccc15bb0"><td class="memItemLeft">static constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#a927114c12f09c17bee2d2ea0ccc15bb0">HEARTBEAT_TIMEOUT_MS</a> = 7000</td></tr>
+<tr class="memdesc:a927114c12f09c17bee2d2ea0ccc15bb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo máximo sin recibir heartbeat antes de emitir connectionLost (ms).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-slots" class="groupheader"><a id="pri-slots" name="pri-slots"></a>
+Slots privados</h2></td></tr>
+<tr class="memitem:ab1b59e460773686f62bf149b44475eab" id="r_ab1b59e460773686f62bf149b44475eab"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab1b59e460773686f62bf149b44475eab">onDataReady</a> ()</td></tr>
+<tr class="memdesc:ab1b59e460773686f62bf149b44475eab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot invocado cuando hay datos disponibles en el puerto.  <br /></td></tr>
+<tr class="memitem:a39ca559f5c27d29c3b45d00f184b7975" id="r_a39ca559f5c27d29c3b45d00f184b7975"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a39ca559f5c27d29c3b45d00f184b7975">onSerialError</a> (QSerialPort::SerialPortError error)</td></tr>
+<tr class="memdesc:a39ca559f5c27d29c3b45d00f184b7975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot invocado ante errores del QSerialPort.  <br /></td></tr>
+<tr class="memitem:a10633a8286337ba6aa78f75f08d0dbee" id="r_a10633a8286337ba6aa78f75f08d0dbee"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a10633a8286337ba6aa78f75f08d0dbee">onHeartbeatTimeout</a> ()</td></tr>
+<tr class="memdesc:a10633a8286337ba6aa78f75f08d0dbee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot invocado cuando expira el watchdog de heartbeat.  <br /></td></tr>
+<tr class="memitem:a3f3113d08a283e9253bce08074b0962a" id="r_a3f3113d08a283e9253bce08074b0962a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3f3113d08a283e9253bce08074b0962a">onFrameReceived</a> (const <a class="el" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;frame)</td></tr>
+<tr class="memdesc:a3f3113d08a283e9253bce08074b0962a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot invocado por <a class="el" href="class_uner_protocol.html" title="Codificador y decodificador de tramas del protocolo UNER.">UnerProtocol</a> cuando llega una trama decodificada.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:a48012723aff97c1cd60eb5dd0f4d1f4c" id="r_a48012723aff97c1cd60eb5dd0f4d1f4c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a48012723aff97c1cd60eb5dd0f4d1f4c">dispatchFrame</a> (const <a class="el" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;frame)</td></tr>
+<tr class="memdesc:a48012723aff97c1cd60eb5dd0f4d1f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Despacha una trama decodificada a la señal apropiada.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:a4c410199582498ad63f7267eca103e2c" id="r_a4c410199582498ad63f7267eca103e2c"><td class="memItemLeft">QSerialPort *&#160;</td><td class="memItemRight"><a class="el" href="#a4c410199582498ad63f7267eca103e2c">m_serial</a> {nullptr}</td></tr>
+<tr class="memdesc:a4c410199582498ad63f7267eca103e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puerto serie Qt.  <br /></td></tr>
+<tr class="memitem:a5d218707ed6b1b1c31b3e55ca11f8079" id="r_a5d218707ed6b1b1c31b3e55ca11f8079"><td class="memItemLeft"><a class="el" href="class_uner_protocol.html">UnerProtocol</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a5d218707ed6b1b1c31b3e55ca11f8079">m_protocol</a> {nullptr}</td></tr>
+<tr class="memdesc:a5d218707ed6b1b1c31b3e55ca11f8079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parser/encoder del protocolo UNER.  <br /></td></tr>
+<tr class="memitem:afad30fe1617bd4993e1ffe0c94b1e38c" id="r_afad30fe1617bd4993e1ffe0c94b1e38c"><td class="memItemLeft">QTimer *&#160;</td><td class="memItemRight"><a class="el" href="#afad30fe1617bd4993e1ffe0c94b1e38c">m_heartbeatTimer</a> {nullptr}</td></tr>
+<tr class="memdesc:afad30fe1617bd4993e1ffe0c94b1e38c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Watchdog de heartbeat.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Gestiona la conexión serie y el ciclo de vida del protocolo UNER. </p>
+<p>Responsabilidades:</p><ul>
+<li>Abrir y cerrar el QSerialPort con los parámetros correctos (8N1).</li>
+<li>Reenviar bytes recibidos al <a class="el" href="class_uner_protocol.html" title="UnerProtocol">UnerProtocol</a> para su decodificación.</li>
+<li>Mantener el watchdog de heartbeat (timeout 7 s).</li>
+<li>Exponer métodos de envío tipados para cada comando del protocolo.</li>
+<li>Emitir señales de alto nivel cuando llegan tramas del MCU. </li>
+</ul>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentación de constructores y destructores</h2>
+<a id="aa2d090c2f7dc822a3fb1f3ac432abd0d" name="aa2d090c2f7dc822a3fb1f3ac432abd0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2d090c2f7dc822a3fb1f3ac432abd0d">&#9670;&#160;</a></span>SerialManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SerialManager::SerialManager </td>
+          <td>(</td>
+          <td class="paramtype">QObject *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construye el <a class="el" href="class_serial_manager.html" title="Gestiona la conexión serie y el ciclo de vida del protocolo UNER.">SerialManager</a>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Objeto padre Qt (o nullptr). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2b96975d8838b2f3a83ddc00fe9dc2bd" name="a2b96975d8838b2f3a83ddc00fe9dc2bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b96975d8838b2f3a83ddc00fe9dc2bd">&#9670;&#160;</a></span>~SerialManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SerialManager::~SerialManager </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor – cierra el puerto si está abierto. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones miembro</h2>
+<a id="af373e7864feb43dbb301013f18da400f" name="af373e7864feb43dbb301013f18da400f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af373e7864feb43dbb301013f18da400f">&#9670;&#160;</a></span>aliveReceived</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::aliveReceived </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite cuando se recibe un heartbeat 0xF0 del MCU. </p>
+
+</div>
+</div>
+<a id="a7c134a1ca1df92b64e2b14c4dfbfc70d" name="a7c134a1ca1df92b64e2b14c4dfbfc70d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c134a1ca1df92b64e2b14c4dfbfc70d">&#9670;&#160;</a></span>availablePorts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QStringList SerialManager::availablePorts </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista los puertos serie disponibles en el sistema. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Lista de nombres de puertos (ej. ["COM1", "COM3"]). </dd></dl>
+
+</div>
+</div>
+<a id="a5971d65e88f270812b9c4f39185c8f12" name="a5971d65e88f270812b9c4f39185c8f12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5971d65e88f270812b9c4f39185c8f12">&#9670;&#160;</a></span>brazoActuado</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::brazoActuado </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>servoIdx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite cuando el MCU activa un brazo actuador (0x52). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">servoIdx</td><td>Índice del servo actuado (0–2). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abdb8b9d0efc962b0c203bdcd380c9d0b" name="abdb8b9d0efc962b0c203bdcd380c9d0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdb8b9d0efc962b0c203bdcd380c9d0b">&#9670;&#160;</a></span>cajaMedida</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::cajaMedida </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>alturaCm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite cuando el MCU detecta una caja (0x5F). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alturaCm</td><td>Altura medida en centímetros. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a281981027f9aa6ab540c19586041232c" name="a281981027f9aa6ab540c19586041232c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a281981027f9aa6ab540c19586041232c">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cierra el puerto serie y detiene el watchdog. </p>
+
+</div>
+</div>
+<a id="aa8f14189331d7d377e1c8955e0fc5a92" name="aa8f14189331d7d377e1c8955e0fc5a92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8f14189331d7d377e1c8955e0fc5a92">&#9670;&#160;</a></span>connected</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::connected </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;</td>          <td class="paramname"><span class="paramname"><em>port</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite cuando el puerto serie se conecta exitosamente. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Nombre del puerto abierto. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad464ee521bbe5507d7a51ea85ed1b71c" name="ad464ee521bbe5507d7a51ea85ed1b71c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad464ee521bbe5507d7a51ea85ed1b71c">&#9670;&#160;</a></span>connectionLost</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::connectionLost </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite cuando el watchdog de heartbeat expira (7 s sin 0xF0). </p>
+
+</div>
+</div>
+<a id="aae090ab68f6d5b3d213f7e1d53140217" name="aae090ab68f6d5b3d213f7e1d53140217"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae090ab68f6d5b3d213f7e1d53140217">&#9670;&#160;</a></span>currentPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString SerialManager::currentPort </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nombre del puerto actualmente abierto. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Nombre del puerto, o cadena vacía si no está conectado. </dd></dl>
+
+</div>
+</div>
+<a id="a35c3260cdd251e6628824ff41fb1deee" name="a35c3260cdd251e6628824ff41fb1deee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c3260cdd251e6628824ff41fb1deee">&#9670;&#160;</a></span>disconnected</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::disconnected </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite cuando el puerto serie se cierra correctamente. </p>
+
+</div>
+</div>
+<a id="a48012723aff97c1cd60eb5dd0f4d1f4c" name="a48012723aff97c1cd60eb5dd0f4d1f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48012723aff97c1cd60eb5dd0f4d1f4c">&#9670;&#160;</a></span>dispatchFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::dispatchFrame </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Despacha una trama decodificada a la señal apropiada. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td>Trama a despachar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b3cd79603c051d48e2c88ad4f29225f" name="a9b3cd79603c051d48e2c88ad4f29225f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b3cd79603c051d48e2c88ad4f29225f">&#9670;&#160;</a></span>errorOccurred</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::errorOccurred </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;</td>          <td class="paramname"><span class="paramname"><em>msg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite ante un error del QSerialPort. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Descripción del error. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8b899ebe90cce007f3eba9916930f3b0" name="a8b899ebe90cce007f3eba9916930f3b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b899ebe90cce007f3eba9916930f3b0">&#9670;&#160;</a></span>frameReady</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::frameReady </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite para cada trama decodificada (señal de bajo nivel). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td>Trama recibida. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4c37e46fdace2987034668b81e9cee19" name="a4c37e46fdace2987034668b81e9cee19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c37e46fdace2987034668b81e9cee19">&#9670;&#160;</a></span>isOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SerialManager::isOpen </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indica si el puerto está actualmente abierto. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>true si el puerto está abierto. </dd></dl>
+
+</div>
+</div>
+<a id="ab1b59e460773686f62bf149b44475eab" name="ab1b59e460773686f62bf149b44475eab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1b59e460773686f62bf149b44475eab">&#9670;&#160;</a></span>onDataReady</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::onDataReady </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Slot invocado cuando hay datos disponibles en el puerto. </p>
+
+</div>
+</div>
+<a id="a3f3113d08a283e9253bce08074b0962a" name="a3f3113d08a283e9253bce08074b0962a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f3113d08a283e9253bce08074b0962a">&#9670;&#160;</a></span>onFrameReceived</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::onFrameReceived </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Slot invocado por <a class="el" href="class_uner_protocol.html" title="Codificador y decodificador de tramas del protocolo UNER.">UnerProtocol</a> cuando llega una trama decodificada. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td>Trama decodificada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a10633a8286337ba6aa78f75f08d0dbee" name="a10633a8286337ba6aa78f75f08d0dbee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10633a8286337ba6aa78f75f08d0dbee">&#9670;&#160;</a></span>onHeartbeatTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::onHeartbeatTimeout </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Slot invocado cuando expira el watchdog de heartbeat. </p>
+
+</div>
+</div>
+<a id="a39ca559f5c27d29c3b45d00f184b7975" name="a39ca559f5c27d29c3b45d00f184b7975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39ca559f5c27d29c3b45d00f184b7975">&#9670;&#160;</a></span>onSerialError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::onSerialError </td>
+          <td>(</td>
+          <td class="paramtype">QSerialPort::SerialPortError</td>          <td class="paramname"><span class="paramname"><em>error</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Slot invocado ante errores del QSerialPort. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>Código de error del puerto. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1bf39fdb897211849981c9fa6790ccac" name="a1bf39fdb897211849981c9fa6790ccac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bf39fdb897211849981c9fa6790ccac">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SerialManager::open </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;</td>          <td class="paramname"><span class="paramname"><em>portName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qint32</td>          <td class="paramname"><span class="paramname"><em>baud</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a0ed36f65dd2e04e21e8d886726f96e05">DEFAULT_BAUD</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Abre el puerto serie especificado. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portName</td><td>Nombre del puerto (ej. "COM3" o "/dev/ttyUSB0"). </td></tr>
+    <tr><td class="paramname">baud</td><td>Velocidad en baudios (por defecto DEFAULT_BAUD). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true si el puerto se abrió correctamente, false en caso de error. </dd></dl>
+
+</div>
+</div>
+<a id="a9bdc52f0e51b29d0d4f5a2585a98cda8" name="a9bdc52f0e51b29d0d4f5a2585a98cda8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bdc52f0e51b29d0d4f5a2585a98cda8">&#9670;&#160;</a></span>sendAnchoCaja()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendAnchoCaja </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>anchoCm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía el ancho de la caja de referencia (0x62). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anchoCm</td><td>Ancho en centímetros. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a90c9a1b403d3f61470bf8fc2418183b1" name="a90c9a1b403d3f61470bf8fc2418183b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c9a1b403d3f61470bf8fc2418183b1">&#9670;&#160;</a></span>sendBlindDist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendBlindDist </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>numBytes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">4</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía la configuración de modo ciego y distancias (0x60). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Modo ciego y distancias S0→salida. </td></tr>
+    <tr><td class="paramname">numBytes</td><td>Cantidad de bytes del payload (1–4). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aab55b5999fd9371a4a9634f190b2943b" name="aab55b5999fd9371a4a9634f190b2943b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab55b5999fd9371a4a9634f190b2943b">&#9670;&#160;</a></span>sendCalibracion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendCalibracion </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía la calibración completa del sensor (0x63). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Alturas de referencia, tolerancia y tiempos de brazo. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac025e98df7f822ed79dd84fbfd9ff760" name="ac025e98df7f822ed79dd84fbfd9ff760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac025e98df7f822ed79dd84fbfd9ff760">&#9670;&#160;</a></span>sendHcsr04Cfg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendHcsr04Cfg </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía la configuración del sensor HC-SR04 (0x64). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Pulso de trigger y timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aac64f8999d245cb0232947acb7c17213" name="aac64f8999d245cb0232947acb7c17213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac64f8999d245cb0232947acb7c17213">&#9670;&#160;</a></span>sendIrDebounce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendIrDebounce </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>debounce</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía el tiempo de debounce de los sensores IR (0x66). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">debounce</td><td>Número de ticks de debounce. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a977d89604b4159656e8052a05a2a5dd0" name="a977d89604b4159656e8052a05a2a5dd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a977d89604b4159656e8052a05a2a5dd0">&#9670;&#160;</a></span>sendRaw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendRaw </td>
+          <td>(</td>
+          <td class="paramtype">const QByteArray &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía una trama ya construida directamente al puerto. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td>Trama UNER completa (resultado de <a class="el" href="class_uner_protocol.html#a8b626c4f488afaa3c6bc61fd8499deec" title="Construye una trama UNER completa con checksum XOR.">UnerProtocol::encode()</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae846c1325ee7a5fc429b85c15ced9a4c" name="ae846c1325ee7a5fc429b85c15ced9a4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae846c1325ee7a5fc429b85c15ced9a4c">&#9670;&#160;</a></span>sendReset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendReset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía el comando de reset (0x53). </p>
+
+</div>
+</div>
+<a id="ac83ee453af942d7bea7deb338774f019" name="ac83ee453af942d7bea7deb338774f019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac83ee453af942d7bea7deb338774f019">&#9670;&#160;</a></span>sendSg90Cfg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendSg90Cfg </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía la configuración del servo SG90 (0x65). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Período, pulso mínimo, máximo y neutro. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a15fd01ddb4c75098fb8de46c5fac7e91" name="a15fd01ddb4c75098fb8de46c5fac7e91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15fd01ddb4c75098fb8de46c5fac7e91">&#9670;&#160;</a></span>sendStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a></td>          <td class="paramname"><span class="paramname"><em>s0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a></td>          <td class="paramname"><span class="paramname"><em>s1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a></td>          <td class="paramname"><span class="paramname"><em>s2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía el comando de inicio del clasificador (0x50). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s0</td><td>Tipo de caja para la salida 0. </td></tr>
+    <tr><td class="paramname">s1</td><td>Tipo de caja para la salida 1. </td></tr>
+    <tr><td class="paramname">s2</td><td>Tipo de caja para la salida 2. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaba43a056cb5a164c373161afa0c9234" name="aaba43a056cb5a164c373161afa0c9234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaba43a056cb5a164c373161afa0c9234">&#9670;&#160;</a></span>sendStop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendStop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía el comando de detención (0x51). </p>
+
+</div>
+</div>
+<a id="a0cbe9fedcac42e0eaa885e1d871080e6" name="a0cbe9fedcac42e0eaa885e1d871080e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cbe9fedcac42e0eaa885e1d871080e6">&#9670;&#160;</a></span>sendTimersCfg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendTimersCfg </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía timers generales y alturas de caja (0x67). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Timers, ángulos de servo y alturas por tipo de caja. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a420e78a97531f6b6ad698c8c016f4b73" name="a420e78a97531f6b6ad698c8c016f4b73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a420e78a97531f6b6ad698c8c016f4b73">&#9670;&#160;</a></span>sendTrigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendTrigger </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía un disparo de trigger del HC-SR04 (0x61, sin payload). </p>
+
+</div>
+</div>
+<a id="accfccf549d794bf550a94e190ab6c31c" name="accfccf549d794bf550a94e190ab6c31c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accfccf549d794bf550a94e190ab6c31c">&#9670;&#160;</a></span>sendVelocidad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendVelocidad </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>velIdx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía el índice de velocidad de la cinta (0x54). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">velIdx</td><td>Índice en el rango [1, 10]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a38fa6e820d63dd624c8cd19f5c7c9fb9" name="a38fa6e820d63dd624c8cd19f5c7c9fb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38fa6e820d63dd624c8cd19f5c7c9fb9">&#9670;&#160;</a></span>sensorIrActualizado</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sensorIrActualizado </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>outNum</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>activo</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite cuando cambia el estado de un sensor IR (0x5E). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outNum</td><td>Número de sensor (0–3). </td></tr>
+    <tr><td class="paramname">activo</td><td>true si el sensor está activo (objeto detectado). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentación de datos miembro</h2>
+<a id="a0ed36f65dd2e04e21e8d886726f96e05" name="a0ed36f65dd2e04e21e8d886726f96e05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ed36f65dd2e04e21e8d886726f96e05">&#9670;&#160;</a></span>DEFAULT_BAUD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">qint32 SerialManager::DEFAULT_BAUD = 9600</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Velocidad de baudios por defecto. </p>
+
+</div>
+</div>
+<a id="a927114c12f09c17bee2d2ea0ccc15bb0" name="a927114c12f09c17bee2d2ea0ccc15bb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a927114c12f09c17bee2d2ea0ccc15bb0">&#9670;&#160;</a></span>HEARTBEAT_TIMEOUT_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SerialManager::HEARTBEAT_TIMEOUT_MS = 7000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tiempo máximo sin recibir heartbeat antes de emitir connectionLost (ms). </p>
+
+</div>
+</div>
+<a id="afad30fe1617bd4993e1ffe0c94b1e38c" name="afad30fe1617bd4993e1ffe0c94b1e38c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afad30fe1617bd4993e1ffe0c94b1e38c">&#9670;&#160;</a></span>m_heartbeatTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTimer* SerialManager::m_heartbeatTimer {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Watchdog de heartbeat. </p>
+
+</div>
+</div>
+<a id="a5d218707ed6b1b1c31b3e55ca11f8079" name="a5d218707ed6b1b1c31b3e55ca11f8079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d218707ed6b1b1c31b3e55ca11f8079">&#9670;&#160;</a></span>m_protocol</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_uner_protocol.html">UnerProtocol</a>* SerialManager::m_protocol {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parser/encoder del protocolo UNER. </p>
+
+</div>
+</div>
+<a id="a4c410199582498ad63f7267eca103e2c" name="a4c410199582498ad63f7267eca103e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c410199582498ad63f7267eca103e2c">&#9670;&#160;</a></span>m_serial</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSerialPort* SerialManager::m_serial {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Puerto serie Qt. </p>
+
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li>comunicacion/<a class="el" href="_serial_manager_8h_source.html">SerialManager.h</a></li>
+<li>comunicacion/<a class="el" href="_serial_manager_8cpp.html">SerialManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_serial_manager.html">SerialManager</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

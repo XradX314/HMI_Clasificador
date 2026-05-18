@@ -1,0 +1,49 @@
+# Doxyfile – HMI Clasificador de Paquetes
+# Generado para documentación en español con salida HTML + LaTeX
+
+PROJECT_NAME           = "HMI Clasificador de Paquetes"
+PROJECT_NUMBER         = "v1.1"
+PROJECT_BRIEF          = "Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora"
+OUTPUT_DIRECTORY       = docs/doxygen
+OUTPUT_LANGUAGE        = Spanish
+CREATE_SUBDIRS         = NO
+
+INPUT                  = . comunicacion widgets
+FILE_PATTERNS          = *.h *.cpp
+RECURSIVE              = NO
+EXCLUDE                = build \
+                         Actividad-N-4-Microcontroladores-2026-main \
+                         .claude \
+                         .qtcreator \
+                         docs
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+
+JAVADOC_AUTOBRIEF      = YES
+QT_AUTOBRIEF           = YES
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_COLORSTYLE        = LIGHT
+GENERATE_TREEVIEW      = YES
+
+GENERATE_LATEX         = YES
+LATEX_OUTPUT           = latex
+LATEX_CMD_NAME         = pdflatex
+COMPACT_LATEX          = NO
+PAPER_TYPE             = a4
+PDF_HYPERLINKS         = YES
+USE_PDFLATEX           = YES
+LATEX_BATCHMODE        = YES
+
+GENERATE_XML           = NO
+GENERATE_MAN           = NO
+
+HAVE_DOT               = NO
+
+WARN_IF_UNDOCUMENTED   = NO
+QUIET                  = NO
+WARNINGS               = YES

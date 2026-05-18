@@ -1,0 +1,101 @@
+\doxysection{Referencia de la estructura Uner::\+Timers\+Cfg}
+\hypertarget{struct_uner_1_1_timers_cfg}{}\label{struct_uner_1_1_timers_cfg}\index{Uner::TimersCfg@{Uner::TimersCfg}}
+
+
+Datos para el comando 0x67 – Timers y configuraciones generales.  
+
+
+
+
+{\ttfamily \+\#include $<$Uner\+Protocol.\+h$>$}
+
+\doxysubsubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_a14a144a46fa3a414defe4143b7bf182e}{retract\+\_\+timer}} \{125\}
+\begin{DoxyCompactList}\small\item\em Timer de retracción del brazo (ticks × 2 ms). \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_a69df2fe958020696be2d9bc0db0b1a21}{sg90\+\_\+angle\+\_\+detect}} \{90\}
+\begin{DoxyCompactList}\small\item\em Ángulo de detección del servo (grados). \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_ac7c0e33b91b015677e8e4b7e63dfec1e}{sg90\+\_\+angle\+\_\+repose}} \{0\}
+\begin{DoxyCompactList}\small\item\em Ángulo de reposo del servo (grados). \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_ad89311a8845954e5d81240264bfc27a5}{hcsr\+\_\+timer}} \{25\}
+\begin{DoxyCompactList}\small\item\em Timer de disparo del HC-\/\+SR04 (ticks × 2 ms). \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_a8b03355f9f9d4e75b9fdf82277a8fb2d}{alive\+\_\+timer}} \{250\}
+\begin{DoxyCompactList}\small\item\em Intervalo de heartbeat (ticks × 2 ms). \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_a6181b1416376793f84afbe27bb855f8d}{config\+\_\+cajas}} \+[3]\+ \{6, 8, 10\}
+\begin{DoxyCompactList}\small\item\em Alturas de referencia de cada tipo de caja (cm). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Datos para el comando 0x67 – Timers y configuraciones generales. 
+
+Payload total:\+ 8 bytes. Orden:\+ retract\+\_\+timer, sg90\+\_\+angle\+\_\+detect, sg90\+\_\+angle\+\_\+repose, hcsr\+\_\+timer, alive\+\_\+timer, config\+\_\+cajas\+[0..2]\+. 
+
+\label{doc-variable-members}
+\Hypertarget{struct_uner_1_1_timers_cfg_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{struct_uner_1_1_timers_cfg_a8b03355f9f9d4e75b9fdf82277a8fb2d}\index{Uner::TimersCfg@{Uner::TimersCfg}!alive\_timer@{alive\_timer}}
+\index{alive\_timer@{alive\_timer}!Uner::TimersCfg@{Uner::TimersCfg}}
+\doxysubsubsection{\texorpdfstring{alive\_timer}{alive\_timer}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_timers_cfg_a8b03355f9f9d4e75b9fdf82277a8fb2d} 
+uint8\+\_\+t Uner::\+\+Timers\+Cfg::\+alive\+\_\+timer \{250\}}
+
+
+
+Intervalo de heartbeat (ticks × 2 ms). 
+
+\Hypertarget{struct_uner_1_1_timers_cfg_a6181b1416376793f84afbe27bb855f8d}\index{Uner::TimersCfg@{Uner::TimersCfg}!config\_cajas@{config\_cajas}}
+\index{config\_cajas@{config\_cajas}!Uner::TimersCfg@{Uner::TimersCfg}}
+\doxysubsubsection{\texorpdfstring{config\_cajas}{config\_cajas}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_timers_cfg_a6181b1416376793f84afbe27bb855f8d} 
+uint8\+\_\+t Uner::\+\+Timers\+Cfg::\+config\+\_\+cajas\+[3]\+ \{6, 8, 10\}}
+
+
+
+Alturas de referencia de cada tipo de caja (cm). 
+
+\Hypertarget{struct_uner_1_1_timers_cfg_ad89311a8845954e5d81240264bfc27a5}\index{Uner::TimersCfg@{Uner::TimersCfg}!hcsr\_timer@{hcsr\_timer}}
+\index{hcsr\_timer@{hcsr\_timer}!Uner::TimersCfg@{Uner::TimersCfg}}
+\doxysubsubsection{\texorpdfstring{hcsr\_timer}{hcsr\_timer}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_timers_cfg_ad89311a8845954e5d81240264bfc27a5} 
+uint8\+\_\+t Uner::\+\+Timers\+Cfg::\+hcsr\+\_\+timer \{25\}}
+
+
+
+Timer de disparo del HC-\/\+SR04 (ticks × 2 ms). 
+
+\Hypertarget{struct_uner_1_1_timers_cfg_a14a144a46fa3a414defe4143b7bf182e}\index{Uner::TimersCfg@{Uner::TimersCfg}!retract\_timer@{retract\_timer}}
+\index{retract\_timer@{retract\_timer}!Uner::TimersCfg@{Uner::TimersCfg}}
+\doxysubsubsection{\texorpdfstring{retract\_timer}{retract\_timer}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_timers_cfg_a14a144a46fa3a414defe4143b7bf182e} 
+uint8\+\_\+t Uner::\+\+Timers\+Cfg::\+retract\+\_\+timer \{125\}}
+
+
+
+Timer de retracción del brazo (ticks × 2 ms). 
+
+\Hypertarget{struct_uner_1_1_timers_cfg_a69df2fe958020696be2d9bc0db0b1a21}\index{Uner::TimersCfg@{Uner::TimersCfg}!sg90\_angle\_detect@{sg90\_angle\_detect}}
+\index{sg90\_angle\_detect@{sg90\_angle\_detect}!Uner::TimersCfg@{Uner::TimersCfg}}
+\doxysubsubsection{\texorpdfstring{sg90\_angle\_detect}{sg90\_angle\_detect}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_timers_cfg_a69df2fe958020696be2d9bc0db0b1a21} 
+uint8\+\_\+t Uner::\+\+Timers\+Cfg::\+sg90\+\_\+angle\+\_\+detect \{90\}}
+
+
+
+Ángulo de detección del servo (grados). 
+
+\Hypertarget{struct_uner_1_1_timers_cfg_ac7c0e33b91b015677e8e4b7e63dfec1e}\index{Uner::TimersCfg@{Uner::TimersCfg}!sg90\_angle\_repose@{sg90\_angle\_repose}}
+\index{sg90\_angle\_repose@{sg90\_angle\_repose}!Uner::TimersCfg@{Uner::TimersCfg}}
+\doxysubsubsection{\texorpdfstring{sg90\_angle\_repose}{sg90\_angle\_repose}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_timers_cfg_ac7c0e33b91b015677e8e4b7e63dfec1e} 
+uint8\+\_\+t Uner::\+\+Timers\+Cfg::\+sg90\+\_\+angle\+\_\+repose \{0\}}
+
+
+
+Ángulo de reposo del servo (grados). 
+
+
+
+La documentación de esta estructura está generada del siguiente archivo:\+\begin{DoxyCompactItemize}
+\item 
+comunicacion/\+\doxymbox{\hyperlink{_uner_protocol_8h}{Uner\+Protocol.\+h}}\end{DoxyCompactItemize}

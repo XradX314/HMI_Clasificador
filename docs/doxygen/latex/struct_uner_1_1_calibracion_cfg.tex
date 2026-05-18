@@ -1,0 +1,77 @@
+\doxysection{Referencia de la estructura Uner::\+Calibracion\+Cfg}
+\hypertarget{struct_uner_1_1_calibracion_cfg}{}\label{struct_uner_1_1_calibracion_cfg}\index{Uner::CalibracionCfg@{Uner::CalibracionCfg}}
+
+
+Datos para el comando 0x63 – Calibración.  
+
+
+
+
+{\ttfamily \+\#include $<$Uner\+Protocol.\+h$>$}
+
+\doxysubsubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg_a9347ae8bfe7455a3042a6bfbb6370002}{calibracion}} \+[4]\+ \{30, 6, 8, 10\}
+\begin{DoxyCompactList}\small\item\em Distancia al piso, altura pequeña, mediana, grande (cm). \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg_aa17254287ff8691065ea3601c15a0ead}{tolerancia}} \{1\}
+\begin{DoxyCompactList}\small\item\em Margen de error en clasificación (cm). \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg_a9d45e533d4a9ca86d4a593926a50b047}{time\+\_\+arm\+\_\+extend}} \{125\}
+\begin{DoxyCompactList}\small\item\em Tiempo de extensión del brazo (ticks × 2 ms). \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg_ab064ef055cbd3201fb5eabfdcb69d41b}{time\+\_\+arm\+\_\+retract}} \{125\}
+\begin{DoxyCompactList}\small\item\em Tiempo de retracción del brazo (ticks × 2 ms). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Datos para el comando 0x63 – Calibración. 
+
+Payload total:\+ 7 bytes. Orden:\+ calibracion\+[0..3]\+, tolerancia, time\+\_\+arm\+\_\+extend, time\+\_\+arm\+\_\+retract. 
+
+\label{doc-variable-members}
+\Hypertarget{struct_uner_1_1_calibracion_cfg_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{struct_uner_1_1_calibracion_cfg_a9347ae8bfe7455a3042a6bfbb6370002}\index{Uner::CalibracionCfg@{Uner::CalibracionCfg}!calibracion@{calibracion}}
+\index{calibracion@{calibracion}!Uner::CalibracionCfg@{Uner::CalibracionCfg}}
+\doxysubsubsection{\texorpdfstring{calibracion}{calibracion}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_calibracion_cfg_a9347ae8bfe7455a3042a6bfbb6370002} 
+uint8\+\_\+t Uner::\+\+Calibracion\+Cfg::\+calibracion\+[4]\+ \{30, 6, 8, 10\}}
+
+
+
+Distancia al piso, altura pequeña, mediana, grande (cm). 
+
+\Hypertarget{struct_uner_1_1_calibracion_cfg_a9d45e533d4a9ca86d4a593926a50b047}\index{Uner::CalibracionCfg@{Uner::CalibracionCfg}!time\_arm\_extend@{time\_arm\_extend}}
+\index{time\_arm\_extend@{time\_arm\_extend}!Uner::CalibracionCfg@{Uner::CalibracionCfg}}
+\doxysubsubsection{\texorpdfstring{time\_arm\_extend}{time\_arm\_extend}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_calibracion_cfg_a9d45e533d4a9ca86d4a593926a50b047} 
+uint8\+\_\+t Uner::\+\+Calibracion\+Cfg::\+time\+\_\+arm\+\_\+extend \{125\}}
+
+
+
+Tiempo de extensión del brazo (ticks × 2 ms). 
+
+\Hypertarget{struct_uner_1_1_calibracion_cfg_ab064ef055cbd3201fb5eabfdcb69d41b}\index{Uner::CalibracionCfg@{Uner::CalibracionCfg}!time\_arm\_retract@{time\_arm\_retract}}
+\index{time\_arm\_retract@{time\_arm\_retract}!Uner::CalibracionCfg@{Uner::CalibracionCfg}}
+\doxysubsubsection{\texorpdfstring{time\_arm\_retract}{time\_arm\_retract}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_calibracion_cfg_ab064ef055cbd3201fb5eabfdcb69d41b} 
+uint8\+\_\+t Uner::\+\+Calibracion\+Cfg::\+time\+\_\+arm\+\_\+retract \{125\}}
+
+
+
+Tiempo de retracción del brazo (ticks × 2 ms). 
+
+\Hypertarget{struct_uner_1_1_calibracion_cfg_aa17254287ff8691065ea3601c15a0ead}\index{Uner::CalibracionCfg@{Uner::CalibracionCfg}!tolerancia@{tolerancia}}
+\index{tolerancia@{tolerancia}!Uner::CalibracionCfg@{Uner::CalibracionCfg}}
+\doxysubsubsection{\texorpdfstring{tolerancia}{tolerancia}}
+{\footnotesize\ttfamily \label{struct_uner_1_1_calibracion_cfg_aa17254287ff8691065ea3601c15a0ead} 
+uint8\+\_\+t Uner::\+\+Calibracion\+Cfg::\+tolerancia \{1\}}
+
+
+
+Margen de error en clasificación (cm). 
+
+
+
+La documentación de esta estructura está generada del siguiente archivo:\+\begin{DoxyCompactItemize}
+\item 
+comunicacion/\+\doxymbox{\hyperlink{_uner_protocol_8h}{Uner\+Protocol.\+h}}\end{DoxyCompactItemize}

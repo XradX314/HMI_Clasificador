@@ -1,0 +1,1106 @@
+\doxysection{Referencia de la clase Main\+Window}
+\hypertarget{class_main_window}{}\label{class_main_window}\index{MainWindow@{MainWindow}}
+
+
+Ventana principal del sistema HMI Clasificador de Paquetes.  
+
+
+
+
+{\ttfamily \+\#include $<$Main\+Window.\+h$>$}
+
+Diagrama de herencia de Main\+Window\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Construye la ventana principal. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_main_window_a4fb3de67ebec6c1920c8296bda45c993}{\texorpdfstring{$\sim$}{\string~}\+Main\+Window}} () override=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_main_window_ab191d4445d7faca3b2d48e2374d1d35a}{on\+Connect\+Clicked}} ()
+\begin{DoxyCompactList}\small\item\em Alterna entre conectar y desconectar el puerto serie. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_af8c244a4c358dadec9897025e52e7bb9}{on\+Connected}} (const QString \&port)
+\begin{DoxyCompactList}\small\item\em Actualiza la UI al establecerse la conexión. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_aa34b96b03c221e201ff14b278c59517a}{on\+Disconnected}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza la UI al cerrarse el puerto serie. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a9847d9cba2e09160cf87e76b51d6d5ce}{on\+Connection\+Lost}} ()
+\begin{DoxyCompactList}\small\item\em Muestra alerta cuando el watchdog de heartbeat expira. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_ad677f75546d43f056bd7b2f546a358af}{on\+Serial\+Error}} (const QString \&msg)
+\begin{DoxyCompactList}\small\item\em Muestra el error en la barra de estado. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a9cc4b9352cc8f0fb336fb4791e1f1ea0}{on\+Refresh\+Ports}} ()
+\begin{DoxyCompactList}\small\item\em Refresca la lista de puertos disponibles en el Combo\+Box. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_ae34c3a1c138b30f9946f14dc5554937f}{on\+Caja\+Medida}} (uint8\+\_\+t altura\+Cm)
+\begin{DoxyCompactList}\small\item\em Actualiza contadores y panel de última caja al recibir 0x5F. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_af35e02fd8f818e3ea696f1e0d6d916fc}{on\+Sensor\+Ir\+Actualizado}} (uint8\+\_\+t out\+Num, bool activo)
+\begin{DoxyCompactList}\small\item\em Actualiza el indicador LED del sensor IR al recibir 0x5E. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_ade5ef2e777735c4c3e2ede2f75a69233}{on\+Brazo\+Actuado}} (uint8\+\_\+t servo\+Idx)
+\begin{DoxyCompactList}\small\item\em Actualiza el indicador del brazo y los contadores al recibir 0x52. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_ab84830888a3150e023334c3660a2b12e}{on\+Start\+Clicked}} ()
+\begin{DoxyCompactList}\small\item\em Envía CMD\+\_\+\+START (0x50) con la configuración de salidas actual. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a0f2d4f7be0977337a8b7a9b084a60220}{on\+Stop\+Clicked}} ()
+\begin{DoxyCompactList}\small\item\em Envía CMD\+\_\+\+STOP (0x51). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a937ab9c2f59d6527e93069e9d8179e4e}{on\+Reset\+Clicked}} ()
+\begin{DoxyCompactList}\small\item\em Envía CMD\+\_\+\+RESET (0x53) y reinicia los contadores. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a075cc1fee960d45e90b2e406250ad1d2}{on\+Velocidad\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Envía la velocidad de la cinta (0x54) al cambiar el Spin\+Box. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_ad4dfed923fda5e525fb047838d5e5ab4}{on\+Trigger\+Clicked}} ()
+\begin{DoxyCompactList}\small\item\em Envía CMD\+\_\+\+TRIGGER (0x61) al MCU. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a601b2491b736d892f05143c63e465f14}{on\+Blind\+Mode\+Toggled}} (bool checked)
+\begin{DoxyCompactList}\small\item\em Envía CMD\+\_\+\+BLIND\+\_\+\+DIST (0x60) al alternar el botón Modo Ciego. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a902c208786fea110d01f19115df4c78c}{on\+Open\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Abre o trae al frente el diálogo de calibración (0x63). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a1ae548115e844eea5a797a48d74eb703}{on\+Open\+Velocidad}} ()
+\begin{DoxyCompactList}\small\item\em Abre o trae al frente el diálogo de ancho de caja (0x62). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a9503d8437b601a3c8b99f82f16568594}{on\+Open\+Avanzado}} ()
+\begin{DoxyCompactList}\small\item\em Abre o trae al frente el diálogo de configuración avanzada (0x64–0x67). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a8543e63c870cc6a4f74e659cafb14b7f}{on\+Config\+Applied}} (const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Envía la calibración al MCU cuando el usuario presiona Enviar 0x63. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a5913c40f5de1c503b8aa17e9b17d779d}{on\+Ancho\+Caja\+Requested}} (uint8\+\_\+t ancho\+Cm)
+\begin{DoxyCompactList}\small\item\em Envía el ancho de caja al MCU (0x62). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a557bc5c672739014a0dd0e6f9cff003f}{toggle\+Dark\+Mode}} (bool dark)
+\begin{DoxyCompactList}\small\item\em Alterna el tema claro/\+oscuro de toda la aplicación. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_ac901352cf165f353fac5b6b5ec401a70}{check\+Config\+Lock}} ()
+\begin{DoxyCompactList}\small\item\em Bloquea/\+desbloquea los combos de salida durante el funcionamiento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_main_window_afe1bceaad866b6fed583ba83245ae195}{build\+Ui}} ()
+\begin{DoxyCompactList}\small\item\em Construye toda la UI (toolbar + tabs). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_aaa74fb1075aadb2ab29cf19effc02b22}{build\+Toolbar}} ()
+\begin{DoxyCompactList}\small\item\em Construye la barra de herramientas de conexión. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_ab0f33e3ed5aafe88d32b6189a362fa3c}{build\+Tab\+Monitor}} ()
+\begin{DoxyCompactList}\small\item\em Construye el tab Monitor. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a23e9bbce9462e1606677e9b2a17399b1}{build\+Panel\+Conexion}} ()
+\begin{DoxyCompactList}\small\item\em Construye el panel de heartbeat/\+conexión. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a2e401d227ab6481ffb71d3475d6da2c6}{build\+Panel\+Control}} ()
+\begin{DoxyCompactList}\small\item\em Construye el panel de control (Start/\+\+Stop/\+\+Reset/\+\+Ciego/\+\+Trigger/\+\+Vel). \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_aea91700a38bf0800e9ef0d8cd990f4a6}{build\+Panel\+Salidas}} ()
+\begin{DoxyCompactList}\small\item\em Construye el panel de configuración de salidas. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a1ce058d9c0ae3931ff1b75bbb0987f3f}{build\+Panel\+Sensores}} ()
+\begin{DoxyCompactList}\small\item\em Construye el panel de sensores IR. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a504d03f3a041f096b29da6764607137b}{build\+Panel\+Brazos}} ()
+\begin{DoxyCompactList}\small\item\em Construye el panel de brazos actuadores. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a6da370ded8bb00a2c3019a10ebe0f38b}{build\+Panel\+Contadores}} ()
+\begin{DoxyCompactList}\small\item\em Construye el panel de contadores de sesión. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_af396286e06c18a757aa32b6c592fe82c}{build\+Panel\+Ultima\+Caja}} ()
+\begin{DoxyCompactList}\small\item\em Construye el panel de última caja medida. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a47049db3e783e63a325ab2a998a93efc}{apply\+Theme}} ()
+\begin{DoxyCompactList}\small\item\em Aplica el tema QSS activo (claro u oscuro). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_add7f5b4a7097aa5171422df87e460611}{set\+Connected\+State}} (bool connected)
+\begin{DoxyCompactList}\small\item\em Habilita/\+deshabilita controles según el estado de conexión. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_ac6bca9f4de5d4facabdd6641dbeb2334}{set\+Running\+State}} (bool running)
+\begin{DoxyCompactList}\small\item\em Habilita/\+deshabilita controles según el estado de marcha. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a8f399adb16eabd50d9c6b3fab842504a}{update\+Ir\+Label}} (int idx)
+\begin{DoxyCompactList}\small\item\em Actualiza el color del indicador LED de un sensor IR. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a87e234de8ccf51be533307a6972f4c0b}{update\+Brazo\+Label}} (int idx)
+\begin{DoxyCompactList}\small\item\em Actualiza el color y texto del indicador de un brazo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_a5a0b5711659826fed9b9b1699358ed4c}{update\+Contadores}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza los tres labels de contadores con los valores actuales. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_main_window_afbff4a71b6c607066f64f557c3bc2c28}{status\+Msg}} (const QString \&msg, int ms=4000)
+\begin{DoxyCompactList}\small\item\em Muestra un mensaje en la barra de estado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static QString \doxymbox{\hyperlink{class_main_window_ab388b3ed2120e1a2218ae347074c3a5d}{tipo\+Caja\+Str}} (uint8\+\_\+t cm)
+\begin{DoxyCompactList}\small\item\em Convierte una altura en cm al nombre del tipo de caja. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}} \doxymbox{\hyperlink{class_main_window_a2128259177bb00b145f1420ad4c4713f}{combo\+To\+Tipo}} (int index)
+\begin{DoxyCompactList}\small\item\em Convierte el índice del Combo\+Box de salida al tipo de caja. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_serial_manager}{Serial\+Manager}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a0c1b196dcc6c92933433ba11783262b8}{m\+\_\+serial}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Gestor del puerto serie. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_config_dialog}{Config\+Dialog}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a98a07c7bf12f35e8d16ae74c6a93b535}{m\+\_\+config\+Dialog}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Diálogo de calibración (0x63). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_velocidad_dialog}{Velocidad\+Dialog}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a01b5fe24b8a841d99702f21657fb4807}{m\+\_\+velocidad\+Dialog}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Diálogo de ancho de caja (0x62). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_avanzado_dialog}{Avanzado\+Dialog}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_ac3f965097a463049036b3ccb0bd21ac9}{m\+\_\+avanzado\+Dialog}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Diálogo de config. avanzada (0x64–0x67). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_main_window_a2dc78344ad37cb35ef6d8dfc756f5809}{m\+\_\+running}} \{false\}
+\begin{DoxyCompactList}\small\item\em true mientras el sistema está en marcha. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_main_window_a21950ceb977e2c56556482cfdf572dd0}{m\+\_\+dark\+Mode}} \{false\}
+\begin{DoxyCompactList}\small\item\em true si el tema oscuro está activo. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_main_window_a477dff5363c4a2f8c331ebfb268a71b8}{m\+\_\+cajas\+Entrada}} \{0\}
+\begin{DoxyCompactList}\small\item\em Contador de cajas que entraron en sesión. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_main_window_ac9d0116d48832208f63ab511f43b8273}{m\+\_\+cajas\+Salida}} \{0\}
+\begin{DoxyCompactList}\small\item\em Contador de cajas que salieron en sesión. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_main_window_aa8528ac272933250f9617f039016d5c6}{m\+\_\+cajas\+Transito}} \{0\}
+\begin{DoxyCompactList}\small\item\em Cajas actualmente en la cinta. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_main_window_a66a34fbf04ccc88dedcc888aaa0c0880}{m\+\_\+ir\+State}} \+[4]\+ \{false, false, false, false\}
+\begin{DoxyCompactList}\small\item\em Estado de los 4 sensores IR. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_main_window_a4bffac996a3ce7b702fbe50fe9ea2c9a}{m\+\_\+brazo\+State}} \+[3]\+ \{false, false, false\}
+\begin{DoxyCompactList}\small\item\em Estado de los 3 brazos. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{Uner::\+\+Ciego\+Distancias}} \doxymbox{\hyperlink{class_main_window_ac999a2a186254dd3790fe590db58aab3}{m\+\_\+ciego\+Cfg}}
+\begin{DoxyCompactList}\small\item\em Configuración actual de modo ciego y distancias (0x60). \end{DoxyCompactList}\item 
+QCombo\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a95a25f47c40729700e50f287e57a860a}{m\+\_\+combo\+Puerto}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Selector de puerto COM. \end{DoxyCompactList}\item 
+QCombo\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_ab894e2bcd5c1a5be872c82823f2d75ff}{m\+\_\+combo\+Baud}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Selector de velocidad en baudios. \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a810545aafa47ab0734b39fe37c8427fd}{m\+\_\+btn\+Conectar}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón Conectar/\+\+Desconectar. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_led_alive_widget}{Led\+Alive\+Widget}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_ae2fab5f6b64b5a7709237dfcca24057f}{m\+\_\+led\+Alive}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em LED animado de heartbeat. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a7a51de923de06eb06698fee5bdcd67fc}{m\+\_\+lbl\+Conexion}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Label con el puerto o "{}\+Desconectado"{}. \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a2e6a37639e9a445ea92b7cbe43d912fd}{m\+\_\+btn\+Start}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón Start (0x50). \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_ae001822fd679939850ab0757afba2f45}{m\+\_\+btn\+Stop}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón Stop (0x51). \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a5d04e8f3ec83f531623a72a02bafc1dc}{m\+\_\+btn\+Reset}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón Reset (0x53). \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a3c42e98d2f5887c06f5ce959de44ba68}{m\+\_\+btn\+Blind\+Mode}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón checkable Modo Ciego (0x60). \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a93ca5f34965b9f94b2a390d48f6aadf2}{m\+\_\+btn\+Trigger}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón Trigger (0x61). \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a3f36cca718ee8f0e63a07d21aa2b45c2}{m\+\_\+spin\+Vel}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Spin\+Box de velocidad (0x54). \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a83361a46f00014a12e64664b6ee3187b}{m\+\_\+spin\+Dist}} \+[3]\+ \{nullptr, nullptr, nullptr\}
+\begin{DoxyCompactList}\small\item\em Spin\+Boxes de distancias S0→salida. \end{DoxyCompactList}\item 
+QCombo\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a4ccf258a9dd35ed93e3df74a12370098}{m\+\_\+combo\+Salida}} \+[3]\+ \{nullptr, nullptr, nullptr\}
+\begin{DoxyCompactList}\small\item\em Combo de tipo de caja por salida. \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_ad876d155bd1d6c58ff2f0196c6d7f39a}{m\+\_\+btn\+Aplicar}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón Aplicar/\+\+Start del panel de salidas. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a503bd70c0575ca6c78f7e9c05673f518}{m\+\_\+lbl\+IR}} \+[4]\+ \{nullptr, nullptr, nullptr, nullptr\}
+\begin{DoxyCompactList}\small\item\em LED textual de sensores IR. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_aa31ba25de5eb2ead31990d785246180e}{m\+\_\+lbl\+Brazo}} \+[3]\+ \{nullptr, nullptr, nullptr\}
+\begin{DoxyCompactList}\small\item\em LED textual de brazos. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a912c077293ad374462e3059783668715}{m\+\_\+lbl\+Brazo\+Estado}} \+[3]\+ \{nullptr, nullptr, nullptr\}
+\begin{DoxyCompactList}\small\item\em Texto "{}extendido/\+retraído"{}. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_ae8dc7adb83340756838ff303de825110}{m\+\_\+lbl\+Entradas}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Número de cajas entradas. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_aaa358d3d7e6b3ec50fed93415d8c3be7}{m\+\_\+lbl\+Salidas}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Número de cajas salidas. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_aac9163e684188327c99807d5d4ce44bf}{m\+\_\+lbl\+Transito}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Número de cajas en tránsito. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_ac889fa671f2277d1ebf06d97e86523ce}{m\+\_\+lbl\+Ultima\+Caja\+Cm}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Altura en cm de la última caja. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_aeb554c9d40c3e816f0ccd9a5c2cb10b0}{m\+\_\+lbl\+Ultima\+Caja\+Tipo}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Tipo inferido ("{}\+Pequeña"{}, etc.). \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_main_window_a941f57ded846f5cfea0058faea930caf}{m\+\_\+lbl\+Ultima\+Caja\+Ts}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Timestamp de la última detección. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Ventana principal del sistema HMI Clasificador de Paquetes. 
+
+Implementa la capa de presentación completa del HMI. Gestiona:\+
+\begin{DoxyItemize}
+\item La barra de herramientas de conexión serie.
+\item El panel de control (Start/\+\+Stop/\+\+Reset/\+\+Modo ciego/\+\+Trigger).
+\item Los paneles de visualización (sensores IR, brazos, contadores, última caja medida).
+\item La apertura de diálogos de configuración (calibración, ancho de caja, configuración avanzada de hardware).
+\item La propagación de eventos del \doxylink{class_serial_manager}{Serial\+Manager} a la interfaz.
+\end{DoxyItemize}
+
+Los temas claro/\+oscuro se aplican mediante hojas de estilo QSS definidas como constantes estáticas al inicio del archivo .cpp. 
+
+\label{doc-constructors}
+\Hypertarget{class_main_window_doc-constructors}
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_main_window_a996c5a2b6f77944776856f08ec30858d}\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily \label{class_main_window_a996c5a2b6f77944776856f08ec30858d} 
+Main\+Window::\+\+Main\+Window (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construye la ventana principal. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em parent} & Objeto padre Qt (o nullptr). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_a4fb3de67ebec6c1920c8296bda45c993}\index{MainWindow@{MainWindow}!````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}}
+\index{````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MainWindow()}{\string~MainWindow()}}
+{\footnotesize\ttfamily \label{class_main_window_a4fb3de67ebec6c1920c8296bda45c993} 
+Main\+Window::\+\texorpdfstring{$\sim$}{\string~}\+Main\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destructor por defecto. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_main_window_doc-func-members}
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_main_window_a47049db3e783e63a325ab2a998a93efc}\index{MainWindow@{MainWindow}!applyTheme@{applyTheme}}
+\index{applyTheme@{applyTheme}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{applyTheme()}{applyTheme()}}
+{\footnotesize\ttfamily \label{class_main_window_a47049db3e783e63a325ab2a998a93efc} 
+void Main\+Window::\+apply\+Theme (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aplica el tema QSS activo (claro u oscuro). 
+
+\Hypertarget{class_main_window_a504d03f3a041f096b29da6764607137b}\index{MainWindow@{MainWindow}!buildPanelBrazos@{buildPanelBrazos}}
+\index{buildPanelBrazos@{buildPanelBrazos}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{buildPanelBrazos()}{buildPanelBrazos()}}
+{\footnotesize\ttfamily \label{class_main_window_a504d03f3a041f096b29da6764607137b} 
+QWidget \texorpdfstring{$\ast$}{*} Main\+Window::\+build\+Panel\+Brazos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye el panel de brazos actuadores. 
+
+\Hypertarget{class_main_window_a23e9bbce9462e1606677e9b2a17399b1}\index{MainWindow@{MainWindow}!buildPanelConexion@{buildPanelConexion}}
+\index{buildPanelConexion@{buildPanelConexion}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{buildPanelConexion()}{buildPanelConexion()}}
+{\footnotesize\ttfamily \label{class_main_window_a23e9bbce9462e1606677e9b2a17399b1} 
+QWidget \texorpdfstring{$\ast$}{*} Main\+Window::\+build\+Panel\+Conexion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye el panel de heartbeat/\+conexión. 
+
+\Hypertarget{class_main_window_a6da370ded8bb00a2c3019a10ebe0f38b}\index{MainWindow@{MainWindow}!buildPanelContadores@{buildPanelContadores}}
+\index{buildPanelContadores@{buildPanelContadores}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{buildPanelContadores()}{buildPanelContadores()}}
+{\footnotesize\ttfamily \label{class_main_window_a6da370ded8bb00a2c3019a10ebe0f38b} 
+QWidget \texorpdfstring{$\ast$}{*} Main\+Window::\+build\+Panel\+Contadores (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye el panel de contadores de sesión. 
+
+\Hypertarget{class_main_window_a2e401d227ab6481ffb71d3475d6da2c6}\index{MainWindow@{MainWindow}!buildPanelControl@{buildPanelControl}}
+\index{buildPanelControl@{buildPanelControl}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{buildPanelControl()}{buildPanelControl()}}
+{\footnotesize\ttfamily \label{class_main_window_a2e401d227ab6481ffb71d3475d6da2c6} 
+QWidget \texorpdfstring{$\ast$}{*} Main\+Window::\+build\+Panel\+Control (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye el panel de control (Start/\+\+Stop/\+\+Reset/\+\+Ciego/\+\+Trigger/\+\+Vel). 
+
+\Hypertarget{class_main_window_aea91700a38bf0800e9ef0d8cd990f4a6}\index{MainWindow@{MainWindow}!buildPanelSalidas@{buildPanelSalidas}}
+\index{buildPanelSalidas@{buildPanelSalidas}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{buildPanelSalidas()}{buildPanelSalidas()}}
+{\footnotesize\ttfamily \label{class_main_window_aea91700a38bf0800e9ef0d8cd990f4a6} 
+QWidget \texorpdfstring{$\ast$}{*} Main\+Window::\+build\+Panel\+Salidas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye el panel de configuración de salidas. 
+
+\Hypertarget{class_main_window_a1ce058d9c0ae3931ff1b75bbb0987f3f}\index{MainWindow@{MainWindow}!buildPanelSensores@{buildPanelSensores}}
+\index{buildPanelSensores@{buildPanelSensores}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{buildPanelSensores()}{buildPanelSensores()}}
+{\footnotesize\ttfamily \label{class_main_window_a1ce058d9c0ae3931ff1b75bbb0987f3f} 
+QWidget \texorpdfstring{$\ast$}{*} Main\+Window::\+build\+Panel\+Sensores (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye el panel de sensores IR. 
+
+\Hypertarget{class_main_window_af396286e06c18a757aa32b6c592fe82c}\index{MainWindow@{MainWindow}!buildPanelUltimaCaja@{buildPanelUltimaCaja}}
+\index{buildPanelUltimaCaja@{buildPanelUltimaCaja}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{buildPanelUltimaCaja()}{buildPanelUltimaCaja()}}
+{\footnotesize\ttfamily \label{class_main_window_af396286e06c18a757aa32b6c592fe82c} 
+QWidget \texorpdfstring{$\ast$}{*} Main\+Window::\+build\+Panel\+Ultima\+Caja (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye el panel de última caja medida. 
+
+\Hypertarget{class_main_window_ab0f33e3ed5aafe88d32b6189a362fa3c}\index{MainWindow@{MainWindow}!buildTabMonitor@{buildTabMonitor}}
+\index{buildTabMonitor@{buildTabMonitor}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{buildTabMonitor()}{buildTabMonitor()}}
+{\footnotesize\ttfamily \label{class_main_window_ab0f33e3ed5aafe88d32b6189a362fa3c} 
+QWidget \texorpdfstring{$\ast$}{*} Main\+Window::\+build\+Tab\+Monitor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye el tab Monitor. 
+
+\begin{DoxyReturn}{Devuelve}
+Widget del tab. 
+\end{DoxyReturn}
+\Hypertarget{class_main_window_aaa74fb1075aadb2ab29cf19effc02b22}\index{MainWindow@{MainWindow}!buildToolbar@{buildToolbar}}
+\index{buildToolbar@{buildToolbar}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{buildToolbar()}{buildToolbar()}}
+{\footnotesize\ttfamily \label{class_main_window_aaa74fb1075aadb2ab29cf19effc02b22} 
+void Main\+Window::\+build\+Toolbar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye la barra de herramientas de conexión. 
+
+\Hypertarget{class_main_window_afe1bceaad866b6fed583ba83245ae195}\index{MainWindow@{MainWindow}!buildUi@{buildUi}}
+\index{buildUi@{buildUi}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{buildUi()}{buildUi()}}
+{\footnotesize\ttfamily \label{class_main_window_afe1bceaad866b6fed583ba83245ae195} 
+void Main\+Window::\+build\+Ui (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye toda la UI (toolbar + tabs). 
+
+\Hypertarget{class_main_window_ac901352cf165f353fac5b6b5ec401a70}\index{MainWindow@{MainWindow}!checkConfigLock@{checkConfigLock}}
+\index{checkConfigLock@{checkConfigLock}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{checkConfigLock}{checkConfigLock}}
+{\footnotesize\ttfamily \label{class_main_window_ac901352cf165f353fac5b6b5ec401a70} 
+void Main\+Window::\+check\+Config\+Lock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Bloquea/\+desbloquea los combos de salida durante el funcionamiento. 
+
+Impide reconfigurar las salidas mientras la cinta está en marcha. \Hypertarget{class_main_window_a2128259177bb00b145f1420ad4c4713f}\index{MainWindow@{MainWindow}!comboToTipo@{comboToTipo}}
+\index{comboToTipo@{comboToTipo}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{comboToTipo()}{comboToTipo()}}
+{\footnotesize\ttfamily \label{class_main_window_a2128259177bb00b145f1420ad4c4713f} 
+\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}} Main\+Window::\+combo\+To\+Tipo (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Convierte el índice del Combo\+Box de salida al tipo de caja. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em index} & Índice del combo (0=ninguna, 1=pequeña, 2=mediana, 3=grande). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Valor de \doxylink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja} correspondiente. 
+\end{DoxyReturn}
+\Hypertarget{class_main_window_a5913c40f5de1c503b8aa17e9b17d779d}\index{MainWindow@{MainWindow}!onAnchoCajaRequested@{onAnchoCajaRequested}}
+\index{onAnchoCajaRequested@{onAnchoCajaRequested}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onAnchoCajaRequested}{onAnchoCajaRequested}}
+{\footnotesize\ttfamily \label{class_main_window_a5913c40f5de1c503b8aa17e9b17d779d} 
+void Main\+Window::\+on\+Ancho\+Caja\+Requested (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ancho\+Cm}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Envía el ancho de caja al MCU (0x62). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ancho\+Cm} & Ancho de la caja de referencia en cm. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_a601b2491b736d892f05143c63e465f14}\index{MainWindow@{MainWindow}!onBlindModeToggled@{onBlindModeToggled}}
+\index{onBlindModeToggled@{onBlindModeToggled}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onBlindModeToggled}{onBlindModeToggled}}
+{\footnotesize\ttfamily \label{class_main_window_a601b2491b736d892f05143c63e465f14} 
+void Main\+Window::\+on\+Blind\+Mode\+Toggled (\begin{DoxyParamCaption}\item[{bool}]{checked}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Envía CMD\+\_\+\+BLIND\+\_\+\+DIST (0x60) al alternar el botón Modo Ciego. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em checked} & true si el modo ciego queda activado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_ade5ef2e777735c4c3e2ede2f75a69233}\index{MainWindow@{MainWindow}!onBrazoActuado@{onBrazoActuado}}
+\index{onBrazoActuado@{onBrazoActuado}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onBrazoActuado}{onBrazoActuado}}
+{\footnotesize\ttfamily \label{class_main_window_ade5ef2e777735c4c3e2ede2f75a69233} 
+void Main\+Window::\+on\+Brazo\+Actuado (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{servo\+Idx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Actualiza el indicador del brazo y los contadores al recibir 0x52. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em servo\+Idx} & Índice del servo actuado (0–2). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_ae34c3a1c138b30f9946f14dc5554937f}\index{MainWindow@{MainWindow}!onCajaMedida@{onCajaMedida}}
+\index{onCajaMedida@{onCajaMedida}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onCajaMedida}{onCajaMedida}}
+{\footnotesize\ttfamily \label{class_main_window_ae34c3a1c138b30f9946f14dc5554937f} 
+void Main\+Window::\+on\+Caja\+Medida (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{altura\+Cm}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Actualiza contadores y panel de última caja al recibir 0x5F. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em altura\+Cm} & Altura de la caja medida en cm. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_a8543e63c870cc6a4f74e659cafb14b7f}\index{MainWindow@{MainWindow}!onConfigApplied@{onConfigApplied}}
+\index{onConfigApplied@{onConfigApplied}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onConfigApplied}{onConfigApplied}}
+{\footnotesize\ttfamily \label{class_main_window_a8543e63c870cc6a4f74e659cafb14b7f} 
+void Main\+Window::\+on\+Config\+Applied (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Envía la calibración al MCU cuando el usuario presiona Enviar 0x63. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Estructura con alturas, tolerancia y tiempos de brazo. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_ab191d4445d7faca3b2d48e2374d1d35a}\index{MainWindow@{MainWindow}!onConnectClicked@{onConnectClicked}}
+\index{onConnectClicked@{onConnectClicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onConnectClicked}{onConnectClicked}}
+{\footnotesize\ttfamily \label{class_main_window_ab191d4445d7faca3b2d48e2374d1d35a} 
+void Main\+Window::\+on\+Connect\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Alterna entre conectar y desconectar el puerto serie. 
+
+\Hypertarget{class_main_window_af8c244a4c358dadec9897025e52e7bb9}\index{MainWindow@{MainWindow}!onConnected@{onConnected}}
+\index{onConnected@{onConnected}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onConnected}{onConnected}}
+{\footnotesize\ttfamily \label{class_main_window_af8c244a4c358dadec9897025e52e7bb9} 
+void Main\+Window::\+on\+Connected (\begin{DoxyParamCaption}\item[{const QString \&}]{port}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Actualiza la UI al establecerse la conexión. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em port} & Nombre del puerto abierto. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_a9847d9cba2e09160cf87e76b51d6d5ce}\index{MainWindow@{MainWindow}!onConnectionLost@{onConnectionLost}}
+\index{onConnectionLost@{onConnectionLost}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onConnectionLost}{onConnectionLost}}
+{\footnotesize\ttfamily \label{class_main_window_a9847d9cba2e09160cf87e76b51d6d5ce} 
+void Main\+Window::\+on\+Connection\+Lost (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Muestra alerta cuando el watchdog de heartbeat expira. 
+
+\Hypertarget{class_main_window_aa34b96b03c221e201ff14b278c59517a}\index{MainWindow@{MainWindow}!onDisconnected@{onDisconnected}}
+\index{onDisconnected@{onDisconnected}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onDisconnected}{onDisconnected}}
+{\footnotesize\ttfamily \label{class_main_window_aa34b96b03c221e201ff14b278c59517a} 
+void Main\+Window::\+on\+Disconnected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Actualiza la UI al cerrarse el puerto serie. 
+
+\Hypertarget{class_main_window_a9503d8437b601a3c8b99f82f16568594}\index{MainWindow@{MainWindow}!onOpenAvanzado@{onOpenAvanzado}}
+\index{onOpenAvanzado@{onOpenAvanzado}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onOpenAvanzado}{onOpenAvanzado}}
+{\footnotesize\ttfamily \label{class_main_window_a9503d8437b601a3c8b99f82f16568594} 
+void Main\+Window::\+on\+Open\+Avanzado (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Abre o trae al frente el diálogo de configuración avanzada (0x64–0x67). 
+
+\Hypertarget{class_main_window_a902c208786fea110d01f19115df4c78c}\index{MainWindow@{MainWindow}!onOpenConfig@{onOpenConfig}}
+\index{onOpenConfig@{onOpenConfig}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onOpenConfig}{onOpenConfig}}
+{\footnotesize\ttfamily \label{class_main_window_a902c208786fea110d01f19115df4c78c} 
+void Main\+Window::\+on\+Open\+Config (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Abre o trae al frente el diálogo de calibración (0x63). 
+
+\Hypertarget{class_main_window_a1ae548115e844eea5a797a48d74eb703}\index{MainWindow@{MainWindow}!onOpenVelocidad@{onOpenVelocidad}}
+\index{onOpenVelocidad@{onOpenVelocidad}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onOpenVelocidad}{onOpenVelocidad}}
+{\footnotesize\ttfamily \label{class_main_window_a1ae548115e844eea5a797a48d74eb703} 
+void Main\+Window::\+on\+Open\+Velocidad (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Abre o trae al frente el diálogo de ancho de caja (0x62). 
+
+\Hypertarget{class_main_window_a9cc4b9352cc8f0fb336fb4791e1f1ea0}\index{MainWindow@{MainWindow}!onRefreshPorts@{onRefreshPorts}}
+\index{onRefreshPorts@{onRefreshPorts}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onRefreshPorts}{onRefreshPorts}}
+{\footnotesize\ttfamily \label{class_main_window_a9cc4b9352cc8f0fb336fb4791e1f1ea0} 
+void Main\+Window::\+on\+Refresh\+Ports (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Refresca la lista de puertos disponibles en el Combo\+Box. 
+
+\Hypertarget{class_main_window_a937ab9c2f59d6527e93069e9d8179e4e}\index{MainWindow@{MainWindow}!onResetClicked@{onResetClicked}}
+\index{onResetClicked@{onResetClicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onResetClicked}{onResetClicked}}
+{\footnotesize\ttfamily \label{class_main_window_a937ab9c2f59d6527e93069e9d8179e4e} 
+void Main\+Window::\+on\+Reset\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Envía CMD\+\_\+\+RESET (0x53) y reinicia los contadores. 
+
+\Hypertarget{class_main_window_af35e02fd8f818e3ea696f1e0d6d916fc}\index{MainWindow@{MainWindow}!onSensorIrActualizado@{onSensorIrActualizado}}
+\index{onSensorIrActualizado@{onSensorIrActualizado}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onSensorIrActualizado}{onSensorIrActualizado}}
+{\footnotesize\ttfamily \label{class_main_window_af35e02fd8f818e3ea696f1e0d6d916fc} 
+void Main\+Window::\+on\+Sensor\+Ir\+Actualizado (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{out\+Num}{, }\item[{bool}]{activo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Actualiza el indicador LED del sensor IR al recibir 0x5E. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em out\+Num} & Número de sensor IR (0–3). \\
+\hline
+{\em activo} & Estado del sensor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_ad677f75546d43f056bd7b2f546a358af}\index{MainWindow@{MainWindow}!onSerialError@{onSerialError}}
+\index{onSerialError@{onSerialError}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onSerialError}{onSerialError}}
+{\footnotesize\ttfamily \label{class_main_window_ad677f75546d43f056bd7b2f546a358af} 
+void Main\+Window::\+on\+Serial\+Error (\begin{DoxyParamCaption}\item[{const QString \&}]{msg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Muestra el error en la barra de estado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em msg} & Mensaje de error del puerto serie. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_ab84830888a3150e023334c3660a2b12e}\index{MainWindow@{MainWindow}!onStartClicked@{onStartClicked}}
+\index{onStartClicked@{onStartClicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onStartClicked}{onStartClicked}}
+{\footnotesize\ttfamily \label{class_main_window_ab84830888a3150e023334c3660a2b12e} 
+void Main\+Window::\+on\+Start\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Envía CMD\+\_\+\+START (0x50) con la configuración de salidas actual. 
+
+\Hypertarget{class_main_window_a0f2d4f7be0977337a8b7a9b084a60220}\index{MainWindow@{MainWindow}!onStopClicked@{onStopClicked}}
+\index{onStopClicked@{onStopClicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onStopClicked}{onStopClicked}}
+{\footnotesize\ttfamily \label{class_main_window_a0f2d4f7be0977337a8b7a9b084a60220} 
+void Main\+Window::\+on\+Stop\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Envía CMD\+\_\+\+STOP (0x51). 
+
+\Hypertarget{class_main_window_ad4dfed923fda5e525fb047838d5e5ab4}\index{MainWindow@{MainWindow}!onTriggerClicked@{onTriggerClicked}}
+\index{onTriggerClicked@{onTriggerClicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onTriggerClicked}{onTriggerClicked}}
+{\footnotesize\ttfamily \label{class_main_window_ad4dfed923fda5e525fb047838d5e5ab4} 
+void Main\+Window::\+on\+Trigger\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Envía CMD\+\_\+\+TRIGGER (0x61) al MCU. 
+
+\Hypertarget{class_main_window_a075cc1fee960d45e90b2e406250ad1d2}\index{MainWindow@{MainWindow}!onVelocidadChanged@{onVelocidadChanged}}
+\index{onVelocidadChanged@{onVelocidadChanged}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onVelocidadChanged}{onVelocidadChanged}}
+{\footnotesize\ttfamily \label{class_main_window_a075cc1fee960d45e90b2e406250ad1d2} 
+void Main\+Window::\+on\+Velocidad\+Changed (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Envía la velocidad de la cinta (0x54) al cambiar el Spin\+Box. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em value} & Valor del Spin\+Box (índice 1–10). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_add7f5b4a7097aa5171422df87e460611}\index{MainWindow@{MainWindow}!setConnectedState@{setConnectedState}}
+\index{setConnectedState@{setConnectedState}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setConnectedState()}{setConnectedState()}}
+{\footnotesize\ttfamily \label{class_main_window_add7f5b4a7097aa5171422df87e460611} 
+void Main\+Window::\+set\+Connected\+State (\begin{DoxyParamCaption}\item[{bool}]{connected}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Habilita/\+deshabilita controles según el estado de conexión. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em connected} & true si el puerto está abierto. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_ac6bca9f4de5d4facabdd6641dbeb2334}\index{MainWindow@{MainWindow}!setRunningState@{setRunningState}}
+\index{setRunningState@{setRunningState}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setRunningState()}{setRunningState()}}
+{\footnotesize\ttfamily \label{class_main_window_ac6bca9f4de5d4facabdd6641dbeb2334} 
+void Main\+Window::\+set\+Running\+State (\begin{DoxyParamCaption}\item[{bool}]{running}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Habilita/\+deshabilita controles según el estado de marcha. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em running} & true si el sistema está en marcha. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_afbff4a71b6c607066f64f557c3bc2c28}\index{MainWindow@{MainWindow}!statusMsg@{statusMsg}}
+\index{statusMsg@{statusMsg}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{statusMsg()}{statusMsg()}}
+{\footnotesize\ttfamily \label{class_main_window_afbff4a71b6c607066f64f557c3bc2c28} 
+void Main\+Window::\+status\+Msg (\begin{DoxyParamCaption}\item[{const QString \&}]{msg}{, }\item[{int}]{ms}{ = {\ttfamily 4000}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Muestra un mensaje en la barra de estado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em msg} & Texto del mensaje. \\
+\hline
+{\em ms} & Duración en ms (0 = permanente). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_ab388b3ed2120e1a2218ae347074c3a5d}\index{MainWindow@{MainWindow}!tipoCajaStr@{tipoCajaStr}}
+\index{tipoCajaStr@{tipoCajaStr}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{tipoCajaStr()}{tipoCajaStr()}}
+{\footnotesize\ttfamily \label{class_main_window_ab388b3ed2120e1a2218ae347074c3a5d} 
+QString Main\+Window::\+tipo\+Caja\+Str (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cm}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Convierte una altura en cm al nombre del tipo de caja. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cm} & Altura medida. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Cadena con el tipo ("{}\+Pequeña"{}, "{}\+Mediana"{}, "{}\+Grande"{} o descripción). 
+\end{DoxyReturn}
+\Hypertarget{class_main_window_a557bc5c672739014a0dd0e6f9cff003f}\index{MainWindow@{MainWindow}!toggleDarkMode@{toggleDarkMode}}
+\index{toggleDarkMode@{toggleDarkMode}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{toggleDarkMode}{toggleDarkMode}}
+{\footnotesize\ttfamily \label{class_main_window_a557bc5c672739014a0dd0e6f9cff003f} 
+void Main\+Window::\+toggle\+Dark\+Mode (\begin{DoxyParamCaption}\item[{bool}]{dark}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Alterna el tema claro/\+oscuro de toda la aplicación. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em dark} & true activa el tema oscuro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_a87e234de8ccf51be533307a6972f4c0b}\index{MainWindow@{MainWindow}!updateBrazoLabel@{updateBrazoLabel}}
+\index{updateBrazoLabel@{updateBrazoLabel}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{updateBrazoLabel()}{updateBrazoLabel()}}
+{\footnotesize\ttfamily \label{class_main_window_a87e234de8ccf51be533307a6972f4c0b} 
+void Main\+Window::\+update\+Brazo\+Label (\begin{DoxyParamCaption}\item[{int}]{idx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Actualiza el color y texto del indicador de un brazo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em idx} & Índice del brazo (0–2). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_a5a0b5711659826fed9b9b1699358ed4c}\index{MainWindow@{MainWindow}!updateContadores@{updateContadores}}
+\index{updateContadores@{updateContadores}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{updateContadores()}{updateContadores()}}
+{\footnotesize\ttfamily \label{class_main_window_a5a0b5711659826fed9b9b1699358ed4c} 
+void Main\+Window::\+update\+Contadores (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Actualiza los tres labels de contadores con los valores actuales. 
+
+\Hypertarget{class_main_window_a8f399adb16eabd50d9c6b3fab842504a}\index{MainWindow@{MainWindow}!updateIrLabel@{updateIrLabel}}
+\index{updateIrLabel@{updateIrLabel}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{updateIrLabel()}{updateIrLabel()}}
+{\footnotesize\ttfamily \label{class_main_window_a8f399adb16eabd50d9c6b3fab842504a} 
+void Main\+Window::\+update\+Ir\+Label (\begin{DoxyParamCaption}\item[{int}]{idx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Actualiza el color del indicador LED de un sensor IR. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em idx} & Índice del sensor (0–3). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_main_window_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{class_main_window_ac3f965097a463049036b3ccb0bd21ac9}\index{MainWindow@{MainWindow}!m\_avanzadoDialog@{m\_avanzadoDialog}}
+\index{m\_avanzadoDialog@{m\_avanzadoDialog}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_avanzadoDialog}{m\_avanzadoDialog}}
+{\footnotesize\ttfamily \label{class_main_window_ac3f965097a463049036b3ccb0bd21ac9} 
+\doxymbox{\hyperlink{class_avanzado_dialog}{Avanzado\+Dialog}}\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+avanzado\+Dialog \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Diálogo de config. avanzada (0x64–0x67). 
+
+\Hypertarget{class_main_window_a4bffac996a3ce7b702fbe50fe9ea2c9a}\index{MainWindow@{MainWindow}!m\_brazoState@{m\_brazoState}}
+\index{m\_brazoState@{m\_brazoState}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_brazoState}{m\_brazoState}}
+{\footnotesize\ttfamily \label{class_main_window_a4bffac996a3ce7b702fbe50fe9ea2c9a} 
+bool Main\+Window::\+m\+\_\+brazo\+State\+[3]\+ \{false, false, false\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Estado de los 3 brazos. 
+
+\Hypertarget{class_main_window_ad876d155bd1d6c58ff2f0196c6d7f39a}\index{MainWindow@{MainWindow}!m\_btnAplicar@{m\_btnAplicar}}
+\index{m\_btnAplicar@{m\_btnAplicar}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_btnAplicar}{m\_btnAplicar}}
+{\footnotesize\ttfamily \label{class_main_window_ad876d155bd1d6c58ff2f0196c6d7f39a} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+btn\+Aplicar \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón Aplicar/\+\+Start del panel de salidas. 
+
+\Hypertarget{class_main_window_a3c42e98d2f5887c06f5ce959de44ba68}\index{MainWindow@{MainWindow}!m\_btnBlindMode@{m\_btnBlindMode}}
+\index{m\_btnBlindMode@{m\_btnBlindMode}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_btnBlindMode}{m\_btnBlindMode}}
+{\footnotesize\ttfamily \label{class_main_window_a3c42e98d2f5887c06f5ce959de44ba68} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+btn\+Blind\+Mode \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón checkable Modo Ciego (0x60). 
+
+\Hypertarget{class_main_window_a810545aafa47ab0734b39fe37c8427fd}\index{MainWindow@{MainWindow}!m\_btnConectar@{m\_btnConectar}}
+\index{m\_btnConectar@{m\_btnConectar}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_btnConectar}{m\_btnConectar}}
+{\footnotesize\ttfamily \label{class_main_window_a810545aafa47ab0734b39fe37c8427fd} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+btn\+Conectar \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón Conectar/\+\+Desconectar. 
+
+\Hypertarget{class_main_window_a5d04e8f3ec83f531623a72a02bafc1dc}\index{MainWindow@{MainWindow}!m\_btnReset@{m\_btnReset}}
+\index{m\_btnReset@{m\_btnReset}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_btnReset}{m\_btnReset}}
+{\footnotesize\ttfamily \label{class_main_window_a5d04e8f3ec83f531623a72a02bafc1dc} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+btn\+Reset \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón Reset (0x53). 
+
+\Hypertarget{class_main_window_a2e6a37639e9a445ea92b7cbe43d912fd}\index{MainWindow@{MainWindow}!m\_btnStart@{m\_btnStart}}
+\index{m\_btnStart@{m\_btnStart}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_btnStart}{m\_btnStart}}
+{\footnotesize\ttfamily \label{class_main_window_a2e6a37639e9a445ea92b7cbe43d912fd} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+btn\+Start \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón Start (0x50). 
+
+\Hypertarget{class_main_window_ae001822fd679939850ab0757afba2f45}\index{MainWindow@{MainWindow}!m\_btnStop@{m\_btnStop}}
+\index{m\_btnStop@{m\_btnStop}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_btnStop}{m\_btnStop}}
+{\footnotesize\ttfamily \label{class_main_window_ae001822fd679939850ab0757afba2f45} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+btn\+Stop \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón Stop (0x51). 
+
+\Hypertarget{class_main_window_a93ca5f34965b9f94b2a390d48f6aadf2}\index{MainWindow@{MainWindow}!m\_btnTrigger@{m\_btnTrigger}}
+\index{m\_btnTrigger@{m\_btnTrigger}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_btnTrigger}{m\_btnTrigger}}
+{\footnotesize\ttfamily \label{class_main_window_a93ca5f34965b9f94b2a390d48f6aadf2} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+btn\+Trigger \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón Trigger (0x61). 
+
+\Hypertarget{class_main_window_a477dff5363c4a2f8c331ebfb268a71b8}\index{MainWindow@{MainWindow}!m\_cajasEntrada@{m\_cajasEntrada}}
+\index{m\_cajasEntrada@{m\_cajasEntrada}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_cajasEntrada}{m\_cajasEntrada}}
+{\footnotesize\ttfamily \label{class_main_window_a477dff5363c4a2f8c331ebfb268a71b8} 
+int Main\+Window::\+m\+\_\+cajas\+Entrada \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Contador de cajas que entraron en sesión. 
+
+\Hypertarget{class_main_window_ac9d0116d48832208f63ab511f43b8273}\index{MainWindow@{MainWindow}!m\_cajasSalida@{m\_cajasSalida}}
+\index{m\_cajasSalida@{m\_cajasSalida}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_cajasSalida}{m\_cajasSalida}}
+{\footnotesize\ttfamily \label{class_main_window_ac9d0116d48832208f63ab511f43b8273} 
+int Main\+Window::\+m\+\_\+cajas\+Salida \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Contador de cajas que salieron en sesión. 
+
+\Hypertarget{class_main_window_aa8528ac272933250f9617f039016d5c6}\index{MainWindow@{MainWindow}!m\_cajasTransito@{m\_cajasTransito}}
+\index{m\_cajasTransito@{m\_cajasTransito}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_cajasTransito}{m\_cajasTransito}}
+{\footnotesize\ttfamily \label{class_main_window_aa8528ac272933250f9617f039016d5c6} 
+int Main\+Window::\+m\+\_\+cajas\+Transito \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cajas actualmente en la cinta. 
+
+\Hypertarget{class_main_window_ac999a2a186254dd3790fe590db58aab3}\index{MainWindow@{MainWindow}!m\_ciegoCfg@{m\_ciegoCfg}}
+\index{m\_ciegoCfg@{m\_ciegoCfg}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_ciegoCfg}{m\_ciegoCfg}}
+{\footnotesize\ttfamily \label{class_main_window_ac999a2a186254dd3790fe590db58aab3} 
+\doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{Uner::\+\+Ciego\+Distancias}} Main\+Window::\+m\+\_\+ciego\+Cfg\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Configuración actual de modo ciego y distancias (0x60). 
+
+\Hypertarget{class_main_window_ab894e2bcd5c1a5be872c82823f2d75ff}\index{MainWindow@{MainWindow}!m\_comboBaud@{m\_comboBaud}}
+\index{m\_comboBaud@{m\_comboBaud}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_comboBaud}{m\_comboBaud}}
+{\footnotesize\ttfamily \label{class_main_window_ab894e2bcd5c1a5be872c82823f2d75ff} 
+QCombo\+Box\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+combo\+Baud \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Selector de velocidad en baudios. 
+
+\Hypertarget{class_main_window_a95a25f47c40729700e50f287e57a860a}\index{MainWindow@{MainWindow}!m\_comboPuerto@{m\_comboPuerto}}
+\index{m\_comboPuerto@{m\_comboPuerto}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_comboPuerto}{m\_comboPuerto}}
+{\footnotesize\ttfamily \label{class_main_window_a95a25f47c40729700e50f287e57a860a} 
+QCombo\+Box\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+combo\+Puerto \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Selector de puerto COM. 
+
+\Hypertarget{class_main_window_a4ccf258a9dd35ed93e3df74a12370098}\index{MainWindow@{MainWindow}!m\_comboSalida@{m\_comboSalida}}
+\index{m\_comboSalida@{m\_comboSalida}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_comboSalida}{m\_comboSalida}}
+{\footnotesize\ttfamily \label{class_main_window_a4ccf258a9dd35ed93e3df74a12370098} 
+QCombo\+Box\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+combo\+Salida\+[3]\+ \{nullptr, nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Combo de tipo de caja por salida. 
+
+\Hypertarget{class_main_window_a98a07c7bf12f35e8d16ae74c6a93b535}\index{MainWindow@{MainWindow}!m\_configDialog@{m\_configDialog}}
+\index{m\_configDialog@{m\_configDialog}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_configDialog}{m\_configDialog}}
+{\footnotesize\ttfamily \label{class_main_window_a98a07c7bf12f35e8d16ae74c6a93b535} 
+\doxymbox{\hyperlink{class_config_dialog}{Config\+Dialog}}\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+config\+Dialog \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Diálogo de calibración (0x63). 
+
+\Hypertarget{class_main_window_a21950ceb977e2c56556482cfdf572dd0}\index{MainWindow@{MainWindow}!m\_darkMode@{m\_darkMode}}
+\index{m\_darkMode@{m\_darkMode}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_darkMode}{m\_darkMode}}
+{\footnotesize\ttfamily \label{class_main_window_a21950ceb977e2c56556482cfdf572dd0} 
+bool Main\+Window::\+m\+\_\+dark\+Mode \{false\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true si el tema oscuro está activo. 
+
+\Hypertarget{class_main_window_a66a34fbf04ccc88dedcc888aaa0c0880}\index{MainWindow@{MainWindow}!m\_irState@{m\_irState}}
+\index{m\_irState@{m\_irState}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_irState}{m\_irState}}
+{\footnotesize\ttfamily \label{class_main_window_a66a34fbf04ccc88dedcc888aaa0c0880} 
+bool Main\+Window::\+m\+\_\+ir\+State\+[4]\+ \{false, false, false, false\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Estado de los 4 sensores IR. 
+
+\Hypertarget{class_main_window_aa31ba25de5eb2ead31990d785246180e}\index{MainWindow@{MainWindow}!m\_lblBrazo@{m\_lblBrazo}}
+\index{m\_lblBrazo@{m\_lblBrazo}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_lblBrazo}{m\_lblBrazo}}
+{\footnotesize\ttfamily \label{class_main_window_aa31ba25de5eb2ead31990d785246180e} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+lbl\+Brazo\+[3]\+ \{nullptr, nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+LED textual de brazos. 
+
+\Hypertarget{class_main_window_a912c077293ad374462e3059783668715}\index{MainWindow@{MainWindow}!m\_lblBrazoEstado@{m\_lblBrazoEstado}}
+\index{m\_lblBrazoEstado@{m\_lblBrazoEstado}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_lblBrazoEstado}{m\_lblBrazoEstado}}
+{\footnotesize\ttfamily \label{class_main_window_a912c077293ad374462e3059783668715} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+lbl\+Brazo\+Estado\+[3]\+ \{nullptr, nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Texto "{}extendido/\+retraído"{}. 
+
+\Hypertarget{class_main_window_a7a51de923de06eb06698fee5bdcd67fc}\index{MainWindow@{MainWindow}!m\_lblConexion@{m\_lblConexion}}
+\index{m\_lblConexion@{m\_lblConexion}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_lblConexion}{m\_lblConexion}}
+{\footnotesize\ttfamily \label{class_main_window_a7a51de923de06eb06698fee5bdcd67fc} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+lbl\+Conexion \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Label con el puerto o "{}\+Desconectado"{}. 
+
+\Hypertarget{class_main_window_ae8dc7adb83340756838ff303de825110}\index{MainWindow@{MainWindow}!m\_lblEntradas@{m\_lblEntradas}}
+\index{m\_lblEntradas@{m\_lblEntradas}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_lblEntradas}{m\_lblEntradas}}
+{\footnotesize\ttfamily \label{class_main_window_ae8dc7adb83340756838ff303de825110} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+lbl\+Entradas \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Número de cajas entradas. 
+
+\Hypertarget{class_main_window_a503bd70c0575ca6c78f7e9c05673f518}\index{MainWindow@{MainWindow}!m\_lblIR@{m\_lblIR}}
+\index{m\_lblIR@{m\_lblIR}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_lblIR}{m\_lblIR}}
+{\footnotesize\ttfamily \label{class_main_window_a503bd70c0575ca6c78f7e9c05673f518} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+lbl\+IR\+[4]\+ \{nullptr, nullptr, nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+LED textual de sensores IR. 
+
+\Hypertarget{class_main_window_aaa358d3d7e6b3ec50fed93415d8c3be7}\index{MainWindow@{MainWindow}!m\_lblSalidas@{m\_lblSalidas}}
+\index{m\_lblSalidas@{m\_lblSalidas}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_lblSalidas}{m\_lblSalidas}}
+{\footnotesize\ttfamily \label{class_main_window_aaa358d3d7e6b3ec50fed93415d8c3be7} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+lbl\+Salidas \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Número de cajas salidas. 
+
+\Hypertarget{class_main_window_aac9163e684188327c99807d5d4ce44bf}\index{MainWindow@{MainWindow}!m\_lblTransito@{m\_lblTransito}}
+\index{m\_lblTransito@{m\_lblTransito}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_lblTransito}{m\_lblTransito}}
+{\footnotesize\ttfamily \label{class_main_window_aac9163e684188327c99807d5d4ce44bf} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+lbl\+Transito \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Número de cajas en tránsito. 
+
+\Hypertarget{class_main_window_ac889fa671f2277d1ebf06d97e86523ce}\index{MainWindow@{MainWindow}!m\_lblUltimaCajaCm@{m\_lblUltimaCajaCm}}
+\index{m\_lblUltimaCajaCm@{m\_lblUltimaCajaCm}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_lblUltimaCajaCm}{m\_lblUltimaCajaCm}}
+{\footnotesize\ttfamily \label{class_main_window_ac889fa671f2277d1ebf06d97e86523ce} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+lbl\+Ultima\+Caja\+Cm \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Altura en cm de la última caja. 
+
+\Hypertarget{class_main_window_aeb554c9d40c3e816f0ccd9a5c2cb10b0}\index{MainWindow@{MainWindow}!m\_lblUltimaCajaTipo@{m\_lblUltimaCajaTipo}}
+\index{m\_lblUltimaCajaTipo@{m\_lblUltimaCajaTipo}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_lblUltimaCajaTipo}{m\_lblUltimaCajaTipo}}
+{\footnotesize\ttfamily \label{class_main_window_aeb554c9d40c3e816f0ccd9a5c2cb10b0} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+lbl\+Ultima\+Caja\+Tipo \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tipo inferido ("{}\+Pequeña"{}, etc.). 
+
+\Hypertarget{class_main_window_a941f57ded846f5cfea0058faea930caf}\index{MainWindow@{MainWindow}!m\_lblUltimaCajaTs@{m\_lblUltimaCajaTs}}
+\index{m\_lblUltimaCajaTs@{m\_lblUltimaCajaTs}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_lblUltimaCajaTs}{m\_lblUltimaCajaTs}}
+{\footnotesize\ttfamily \label{class_main_window_a941f57ded846f5cfea0058faea930caf} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+lbl\+Ultima\+Caja\+Ts \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Timestamp de la última detección. 
+
+\Hypertarget{class_main_window_ae2fab5f6b64b5a7709237dfcca24057f}\index{MainWindow@{MainWindow}!m\_ledAlive@{m\_ledAlive}}
+\index{m\_ledAlive@{m\_ledAlive}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_ledAlive}{m\_ledAlive}}
+{\footnotesize\ttfamily \label{class_main_window_ae2fab5f6b64b5a7709237dfcca24057f} 
+\doxymbox{\hyperlink{class_led_alive_widget}{Led\+Alive\+Widget}}\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+led\+Alive \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+LED animado de heartbeat. 
+
+\Hypertarget{class_main_window_a2dc78344ad37cb35ef6d8dfc756f5809}\index{MainWindow@{MainWindow}!m\_running@{m\_running}}
+\index{m\_running@{m\_running}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_running}{m\_running}}
+{\footnotesize\ttfamily \label{class_main_window_a2dc78344ad37cb35ef6d8dfc756f5809} 
+bool Main\+Window::\+m\+\_\+running \{false\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true mientras el sistema está en marcha. 
+
+\Hypertarget{class_main_window_a0c1b196dcc6c92933433ba11783262b8}\index{MainWindow@{MainWindow}!m\_serial@{m\_serial}}
+\index{m\_serial@{m\_serial}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_serial}{m\_serial}}
+{\footnotesize\ttfamily \label{class_main_window_a0c1b196dcc6c92933433ba11783262b8} 
+\doxymbox{\hyperlink{class_serial_manager}{Serial\+Manager}}\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+serial \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gestor del puerto serie. 
+
+\Hypertarget{class_main_window_a83361a46f00014a12e64664b6ee3187b}\index{MainWindow@{MainWindow}!m\_spinDist@{m\_spinDist}}
+\index{m\_spinDist@{m\_spinDist}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_spinDist}{m\_spinDist}}
+{\footnotesize\ttfamily \label{class_main_window_a83361a46f00014a12e64664b6ee3187b} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+spin\+Dist\+[3]\+ \{nullptr, nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Spin\+Boxes de distancias S0→salida. 
+
+\Hypertarget{class_main_window_a3f36cca718ee8f0e63a07d21aa2b45c2}\index{MainWindow@{MainWindow}!m\_spinVel@{m\_spinVel}}
+\index{m\_spinVel@{m\_spinVel}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_spinVel}{m\_spinVel}}
+{\footnotesize\ttfamily \label{class_main_window_a3f36cca718ee8f0e63a07d21aa2b45c2} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+spin\+Vel \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Spin\+Box de velocidad (0x54). 
+
+\Hypertarget{class_main_window_a01b5fe24b8a841d99702f21657fb4807}\index{MainWindow@{MainWindow}!m\_velocidadDialog@{m\_velocidadDialog}}
+\index{m\_velocidadDialog@{m\_velocidadDialog}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_velocidadDialog}{m\_velocidadDialog}}
+{\footnotesize\ttfamily \label{class_main_window_a01b5fe24b8a841d99702f21657fb4807} 
+\doxymbox{\hyperlink{class_velocidad_dialog}{Velocidad\+Dialog}}\texorpdfstring{$\ast$}{*} Main\+Window::\+m\+\_\+velocidad\+Dialog \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Diálogo de ancho de caja (0x62). 
+
+
+
+La documentación de esta clase está generada de los siguientes archivos:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_main_window_8h}{Main\+Window.\+h}}\item 
+\doxymbox{\hyperlink{_main_window_8cpp}{Main\+Window.\+cpp}}\end{DoxyCompactItemize}

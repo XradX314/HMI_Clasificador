@@ -1,0 +1,65 @@
+\doxysection{Avanzado\+Dialog.\+h}
+\hypertarget{_avanzado_dialog_8h_source}{}\label{_avanzado_dialog_8h_source}\index{widgets/AvanzadoDialog.h@{widgets/AvanzadoDialog.h}}
+\doxymbox{\hyperlink{_avanzado_dialog_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QSpinBox>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_uner_protocol_8h}{comunicacion/UnerProtocol.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_avanzado_dialog_a55be61199f73edebc4adb835ac9ecbc6}{AvanzadoDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_avanzado_dialog_a55be61199f73edebc4adb835ac9ecbc6}{AvanzadoDialog}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_avanzado_dialog_a59c57a40a4e06b5fa1ba7cb72041e22a}{setDarkMode}}(\textcolor{keywordtype}{bool}\ dark);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ signals:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_avanzado_dialog_a08928e4ca6237830a56cff0815ac6642}{sendHcsr04}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Uner::Hcsr04Cfg}}\ \&cfg);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_avanzado_dialog_a21888bf213fcbb333ba72431f8efdab3}{sendSg90}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Uner::Sg90Cfg}}\ \&cfg);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_avanzado_dialog_a9c2b45f14d55619bd1cd71825c9088db}{sendIrDebounce}}(uint8\_t\ debounce);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_avanzado_dialog_a3a408184a866a425e300bb5c4d7f7bec}{sendTimers}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Uner::TimersCfg}}\ \&cfg);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ ──\ Sección\ 0x64\ –\ HC-\/SR04\ ───────────────────────────────}}
+\DoxyCodeLine{00073\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_ae5c939a7ceb31c756e5e7b60ecf07b40}{m\_spinTrigPulse}}\ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00074\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_ad550bc5547966859568bc3aea44540d4}{m\_spinTimeout}}\ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00075\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{class_avanzado_dialog_afe12bf884904d3cb862d71efd1f7be9a}{m\_btnHcsr04}}\ \ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ ──\ Sección\ 0x65\ –\ SG90\ ──────────────────────────────────}}
+\DoxyCodeLine{00078\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_a479bbc40c9715f62308027cdf8374243}{m\_spinPeriod}}\ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00079\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_a4547aede1c6a3769fd2244ffd2fd8047}{m\_spinPulseMin}}\ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00080\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_a2e435b5f34546dde090b49ab828ed7bf}{m\_spinPulseMax}}\ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00081\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_a2c68632adc95e4884c54d0efacaab314}{m\_spinPulseNeutral}}\{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00082\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{class_avanzado_dialog_a8cfbf4d7d3eaf9d842d50e3b2595e796}{m\_btnSg90}}\ \ \ \ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ ──\ Sección\ 0x66\ –\ IR\ Debounce\ ────────────────────────────}}
+\DoxyCodeLine{00085\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_aac4bf96b599fdaf9e19a9d4da3431e85}{m\_spinDebounce}}\ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00086\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{class_avanzado_dialog_a3dbed26dac782d0a79f066f28332c8b0}{m\_btnDebounce}}\ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ ──\ Sección\ 0x67\ –\ Timers\ /\ Cajas\ ────────────────────────}}
+\DoxyCodeLine{00089\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_ad6fc1e7a3a27a8fa2111b8b2338c3630}{m\_spinRetract}}\ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00090\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_a1c05e74635a03a24cafa2d1e9f82ff85}{m\_spinAngleDet}}\ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00091\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_a8c293978e000376347eb33e5da9804c5}{m\_spinAngleRep}}\ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00092\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_a848ddb6e0b69bf3f907cb0b4bd1dfd97}{m\_spinHcsrTimer}}\ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00093\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_ada63851c302d2212a4a448bb908a72f9}{m\_spinAliveTimer}}\ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00094\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_avanzado_dialog_afcafc8998788314e6295003297933405}{m\_spinCajas}}[3]\ \ \ \ \{\textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00095\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{class_avanzado_dialog_a25832f9e7a93fcdff901ebb50071f8ee}{m\_btnTimers}}\ \ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_avanzado_dialog_af684036c58c1f6b2a038e00bf11d7ef8}{buildUi}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_avanzado_dialog_afb8919b3e3e8d1006a29740962ea21a9}{applyDarkStyle}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_avanzado_dialog_a598b36579d630361ffc6d79f97ab6bd9}{applyLightStyle}}();}
+\DoxyCodeLine{00105\ \};}
+
+\end{DoxyCode}

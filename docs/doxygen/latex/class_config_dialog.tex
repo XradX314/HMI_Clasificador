@@ -1,0 +1,283 @@
+\doxysection{Referencia de la clase Config\+Dialog}
+\hypertarget{class_config_dialog}{}\label{class_config_dialog}\index{ConfigDialog@{ConfigDialog}}
+
+
+Diálogo flotante para configurar la calibración del sensor y los brazos.  
+
+
+
+
+{\ttfamily \+\#include $<$Config\+Dialog.\+h$>$}
+
+Diagrama de herencia de Config\+Dialog\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_config_dialog}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Señales}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_config_dialog_a0e877e11a6fd35cb5ad6cb33dfca5b26}{config\+Applied}} (const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Se emite cuando el usuario presiona «\+Enviar 0x63». \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_config_dialog_a3a2bc25ec82fd25fe68a89c81b8b9a5a}{Config\+Dialog}} (const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&current, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Construye el diálogo inicializado con los valores actuales. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \doxymbox{\hyperlink{class_config_dialog_aadd018911602adbbb9457a74378dfa48}{config}} () const
+\begin{DoxyCompactList}\small\item\em Devuelve la configuración de calibración con los valores actuales de los Spin\+Boxes. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_config_dialog_a841e913418425d1f49c96e1e8a75a44d}{set\+Dark\+Mode}} (bool dark)
+\begin{DoxyCompactList}\small\item\em Aplica el tema claro u oscuro al diálogo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_config_dialog_aa75943969d9ee61b729241ff6906d3ba}{build\+Ui}} (const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&c)
+\begin{DoxyCompactList}\small\item\em Construye la interfaz del diálogo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_config_dialog_ab8d5aa76f3ef7e173d0e9218f33831d1}{apply\+Dark\+Style}} ()
+\begin{DoxyCompactList}\small\item\em Aplica la hoja de estilo del tema oscuro. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_config_dialog_a9d9ab6d594430641c632d3bd3be250d2}{apply\+Light\+Style}} ()
+\begin{DoxyCompactList}\small\item\em Aplica la hoja de estilo del tema claro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_config_dialog_a666fce5560ddb5bb5658c845cb233c34}{m\+\_\+spin\+Piso}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Distancia al piso (calibracion\+[0]\+). \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_config_dialog_a45d454e227360da1c720058da78243ab}{m\+\_\+spin\+Pequenia}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Altura caja pequeña (calibracion\+[1]\+). \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_config_dialog_afb6e0bd97aa5866106f8187c4abf6a69}{m\+\_\+spin\+Mediana}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Altura caja mediana (calibracion\+[2]\+). \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_config_dialog_a3b388a42bc9c769d6bd4566f0b319bf9}{m\+\_\+spin\+Grande}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Altura caja grande (calibracion\+[3]\+). \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_config_dialog_a53564392c66b4820799f64f725c31a26}{m\+\_\+spin\+Tolerancia}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Tolerancia de clasificación. \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_config_dialog_a6f4bf7487c43d7ffc630f4c199922f3c}{m\+\_\+spin\+Arm\+Extend}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Tiempo de extensión del brazo. \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_config_dialog_a5a6fd2dbb2cc07f3bfc9337fbbef32ec}{m\+\_\+spin\+Arm\+Retract}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Tiempo de retracción del brazo. \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_config_dialog_a9157e36c0bbab5b671797efdb92c679b}{m\+\_\+btn\+Aplicar}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón «\+Enviar 0x63». \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_config_dialog_a6cf613decbdde2473edfeaa218f98da4}{m\+\_\+btn\+Cerrar}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón «\+Cerrar». \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Diálogo flotante para configurar la calibración del sensor y los brazos. 
+
+Genera y envía el comando 0x63 (7 bytes) con los siguientes campos:\+
+\begin{DoxyItemize}
+\item calibracion\+[0]\+:\+ distancia del sensor al piso (cm).
+\item calibracion\+[1]\+:\+ altura de la caja pequeña (cm).
+\item calibracion\+[2]\+:\+ altura de la caja mediana (cm).
+\item calibracion\+[3]\+:\+ altura de la caja grande (cm).
+\item tolerancia:\+ margen de error permitido (cm).
+\item time\+\_\+arm\+\_\+extend:\+ ticks de extensión del brazo (1 tick = 2 ms).
+\item time\+\_\+arm\+\_\+retract:\+ ticks de retracción del brazo (1 tick = 2 ms).
+\end{DoxyItemize}
+
+Cuando el usuario presiona «\+Enviar 0x63» se emite la señal \doxylink{class_config_dialog_a0e877e11a6fd35cb5ad6cb33dfca5b26}{config\+Applied} con la estructura \doxylink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg} rellena. 
+
+\label{doc-constructors}
+\Hypertarget{class_config_dialog_doc-constructors}
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_config_dialog_a3a2bc25ec82fd25fe68a89c81b8b9a5a}\index{ConfigDialog@{ConfigDialog}!ConfigDialog@{ConfigDialog}}
+\index{ConfigDialog@{ConfigDialog}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{ConfigDialog()}{ConfigDialog()}}
+{\footnotesize\ttfamily \label{class_config_dialog_a3a2bc25ec82fd25fe68a89c81b8b9a5a} 
+Config\+Dialog::\+\+Config\+Dialog (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&}]{current}{, }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construye el diálogo inicializado con los valores actuales. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em current} & Configuración de calibración actual. \\
+\hline
+{\em parent} & Objeto padre Qt (o nullptr). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_config_dialog_doc-func-members}
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_config_dialog_ab8d5aa76f3ef7e173d0e9218f33831d1}\index{ConfigDialog@{ConfigDialog}!applyDarkStyle@{applyDarkStyle}}
+\index{applyDarkStyle@{applyDarkStyle}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{applyDarkStyle()}{applyDarkStyle()}}
+{\footnotesize\ttfamily \label{class_config_dialog_ab8d5aa76f3ef7e173d0e9218f33831d1} 
+void Config\+Dialog::\+apply\+Dark\+Style (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aplica la hoja de estilo del tema oscuro. 
+
+\Hypertarget{class_config_dialog_a9d9ab6d594430641c632d3bd3be250d2}\index{ConfigDialog@{ConfigDialog}!applyLightStyle@{applyLightStyle}}
+\index{applyLightStyle@{applyLightStyle}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{applyLightStyle()}{applyLightStyle()}}
+{\footnotesize\ttfamily \label{class_config_dialog_a9d9ab6d594430641c632d3bd3be250d2} 
+void Config\+Dialog::\+apply\+Light\+Style (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aplica la hoja de estilo del tema claro. 
+
+\Hypertarget{class_config_dialog_aa75943969d9ee61b729241ff6906d3ba}\index{ConfigDialog@{ConfigDialog}!buildUi@{buildUi}}
+\index{buildUi@{buildUi}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{buildUi()}{buildUi()}}
+{\footnotesize\ttfamily \label{class_config_dialog_aa75943969d9ee61b729241ff6906d3ba} 
+void Config\+Dialog::\+build\+Ui (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye la interfaz del diálogo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em c} & Valores iniciales de los Spin\+Boxes. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_config_dialog_aadd018911602adbbb9457a74378dfa48}\index{ConfigDialog@{ConfigDialog}!config@{config}}
+\index{config@{config}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{config()}{config()}}
+{\footnotesize\ttfamily \label{class_config_dialog_aadd018911602adbbb9457a74378dfa48} 
+\doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} Config\+Dialog::\+config (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Devuelve la configuración de calibración con los valores actuales de los Spin\+Boxes. 
+
+\begin{DoxyReturn}{Devuelve}
+Estructura \doxylink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg} lista para enviar al MCU. 
+\end{DoxyReturn}
+\Hypertarget{class_config_dialog_a0e877e11a6fd35cb5ad6cb33dfca5b26}\index{ConfigDialog@{ConfigDialog}!configApplied@{configApplied}}
+\index{configApplied@{configApplied}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{configApplied}{configApplied}}
+{\footnotesize\ttfamily \label{class_config_dialog_a0e877e11a6fd35cb5ad6cb33dfca5b26} 
+void Config\+Dialog::\+config\+Applied (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando el usuario presiona «\+Enviar 0x63». 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Configuración de calibración a enviar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_config_dialog_a841e913418425d1f49c96e1e8a75a44d}\index{ConfigDialog@{ConfigDialog}!setDarkMode@{setDarkMode}}
+\index{setDarkMode@{setDarkMode}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{setDarkMode()}{setDarkMode()}}
+{\footnotesize\ttfamily \label{class_config_dialog_a841e913418425d1f49c96e1e8a75a44d} 
+void Config\+Dialog::\+set\+Dark\+Mode (\begin{DoxyParamCaption}\item[{bool}]{dark}{}\end{DoxyParamCaption})}
+
+
+
+Aplica el tema claro u oscuro al diálogo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em dark} & true para tema oscuro. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_config_dialog_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{class_config_dialog_a9157e36c0bbab5b671797efdb92c679b}\index{ConfigDialog@{ConfigDialog}!m\_btnAplicar@{m\_btnAplicar}}
+\index{m\_btnAplicar@{m\_btnAplicar}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{m\_btnAplicar}{m\_btnAplicar}}
+{\footnotesize\ttfamily \label{class_config_dialog_a9157e36c0bbab5b671797efdb92c679b} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Config\+Dialog::\+m\+\_\+btn\+Aplicar \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón «\+Enviar 0x63». 
+
+\Hypertarget{class_config_dialog_a6cf613decbdde2473edfeaa218f98da4}\index{ConfigDialog@{ConfigDialog}!m\_btnCerrar@{m\_btnCerrar}}
+\index{m\_btnCerrar@{m\_btnCerrar}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{m\_btnCerrar}{m\_btnCerrar}}
+{\footnotesize\ttfamily \label{class_config_dialog_a6cf613decbdde2473edfeaa218f98da4} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Config\+Dialog::\+m\+\_\+btn\+Cerrar \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón «\+Cerrar». 
+
+\Hypertarget{class_config_dialog_a6f4bf7487c43d7ffc630f4c199922f3c}\index{ConfigDialog@{ConfigDialog}!m\_spinArmExtend@{m\_spinArmExtend}}
+\index{m\_spinArmExtend@{m\_spinArmExtend}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinArmExtend}{m\_spinArmExtend}}
+{\footnotesize\ttfamily \label{class_config_dialog_a6f4bf7487c43d7ffc630f4c199922f3c} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Config\+Dialog::\+m\+\_\+spin\+Arm\+Extend \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tiempo de extensión del brazo. 
+
+\Hypertarget{class_config_dialog_a5a6fd2dbb2cc07f3bfc9337fbbef32ec}\index{ConfigDialog@{ConfigDialog}!m\_spinArmRetract@{m\_spinArmRetract}}
+\index{m\_spinArmRetract@{m\_spinArmRetract}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinArmRetract}{m\_spinArmRetract}}
+{\footnotesize\ttfamily \label{class_config_dialog_a5a6fd2dbb2cc07f3bfc9337fbbef32ec} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Config\+Dialog::\+m\+\_\+spin\+Arm\+Retract \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tiempo de retracción del brazo. 
+
+\Hypertarget{class_config_dialog_a3b388a42bc9c769d6bd4566f0b319bf9}\index{ConfigDialog@{ConfigDialog}!m\_spinGrande@{m\_spinGrande}}
+\index{m\_spinGrande@{m\_spinGrande}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinGrande}{m\_spinGrande}}
+{\footnotesize\ttfamily \label{class_config_dialog_a3b388a42bc9c769d6bd4566f0b319bf9} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Config\+Dialog::\+m\+\_\+spin\+Grande \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Altura caja grande (calibracion\+[3]\+). 
+
+\Hypertarget{class_config_dialog_afb6e0bd97aa5866106f8187c4abf6a69}\index{ConfigDialog@{ConfigDialog}!m\_spinMediana@{m\_spinMediana}}
+\index{m\_spinMediana@{m\_spinMediana}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinMediana}{m\_spinMediana}}
+{\footnotesize\ttfamily \label{class_config_dialog_afb6e0bd97aa5866106f8187c4abf6a69} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Config\+Dialog::\+m\+\_\+spin\+Mediana \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Altura caja mediana (calibracion\+[2]\+). 
+
+\Hypertarget{class_config_dialog_a45d454e227360da1c720058da78243ab}\index{ConfigDialog@{ConfigDialog}!m\_spinPequenia@{m\_spinPequenia}}
+\index{m\_spinPequenia@{m\_spinPequenia}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinPequenia}{m\_spinPequenia}}
+{\footnotesize\ttfamily \label{class_config_dialog_a45d454e227360da1c720058da78243ab} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Config\+Dialog::\+m\+\_\+spin\+Pequenia \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Altura caja pequeña (calibracion\+[1]\+). 
+
+\Hypertarget{class_config_dialog_a666fce5560ddb5bb5658c845cb233c34}\index{ConfigDialog@{ConfigDialog}!m\_spinPiso@{m\_spinPiso}}
+\index{m\_spinPiso@{m\_spinPiso}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinPiso}{m\_spinPiso}}
+{\footnotesize\ttfamily \label{class_config_dialog_a666fce5560ddb5bb5658c845cb233c34} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Config\+Dialog::\+m\+\_\+spin\+Piso \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Distancia al piso (calibracion\+[0]\+). 
+
+\Hypertarget{class_config_dialog_a53564392c66b4820799f64f725c31a26}\index{ConfigDialog@{ConfigDialog}!m\_spinTolerancia@{m\_spinTolerancia}}
+\index{m\_spinTolerancia@{m\_spinTolerancia}!ConfigDialog@{ConfigDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinTolerancia}{m\_spinTolerancia}}
+{\footnotesize\ttfamily \label{class_config_dialog_a53564392c66b4820799f64f725c31a26} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Config\+Dialog::\+m\+\_\+spin\+Tolerancia \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tolerancia de clasificación. 
+
+
+
+La documentación de esta clase está generada de los siguientes archivos:\+\begin{DoxyCompactItemize}
+\item 
+widgets/\+\doxymbox{\hyperlink{_config_dialog_8h}{Config\+Dialog.\+h}}\item 
+widgets/\+\doxymbox{\hyperlink{_config_dialog_8cpp}{Config\+Dialog.\+cpp}}\end{DoxyCompactItemize}

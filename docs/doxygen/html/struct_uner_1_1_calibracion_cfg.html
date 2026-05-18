@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Referencia de la estructura Uner::CalibracionCfg</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('struct_uner_1_1_calibracion_cfg.html','','struct_uner_1_1_calibracion_cfg-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia de la estructura Uner::CalibracionCfg</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Datos para el comando 0x63 – Calibración.  
+ <a href="#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_uner_protocol_8h_source.html">UnerProtocol.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Atributos públicos</h2></td></tr>
+<tr class="memitem:a9347ae8bfe7455a3042a6bfbb6370002" id="r_a9347ae8bfe7455a3042a6bfbb6370002"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a9347ae8bfe7455a3042a6bfbb6370002">calibracion</a> [4] {30, 6, 8, 10}</td></tr>
+<tr class="memdesc:a9347ae8bfe7455a3042a6bfbb6370002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distancia al piso, altura pequeña, mediana, grande (cm).  <br /></td></tr>
+<tr class="memitem:aa17254287ff8691065ea3601c15a0ead" id="r_aa17254287ff8691065ea3601c15a0ead"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aa17254287ff8691065ea3601c15a0ead">tolerancia</a> {1}</td></tr>
+<tr class="memdesc:aa17254287ff8691065ea3601c15a0ead"><td class="mdescLeft">&#160;</td><td class="mdescRight">Margen de error en clasificación (cm).  <br /></td></tr>
+<tr class="memitem:a9d45e533d4a9ca86d4a593926a50b047" id="r_a9d45e533d4a9ca86d4a593926a50b047"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a9d45e533d4a9ca86d4a593926a50b047">time_arm_extend</a> {125}</td></tr>
+<tr class="memdesc:a9d45e533d4a9ca86d4a593926a50b047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo de extensión del brazo (ticks × 2 ms).  <br /></td></tr>
+<tr class="memitem:ab064ef055cbd3201fb5eabfdcb69d41b" id="r_ab064ef055cbd3201fb5eabfdcb69d41b"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ab064ef055cbd3201fb5eabfdcb69d41b">time_arm_retract</a> {125}</td></tr>
+<tr class="memdesc:ab064ef055cbd3201fb5eabfdcb69d41b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo de retracción del brazo (ticks × 2 ms).  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Datos para el comando 0x63 – Calibración. </p>
+<p>Payload total: 7 bytes. Orden: calibracion[0..3], tolerancia, time_arm_extend, time_arm_retract. </p>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentación de datos miembro</h2>
+<a id="a9347ae8bfe7455a3042a6bfbb6370002" name="a9347ae8bfe7455a3042a6bfbb6370002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9347ae8bfe7455a3042a6bfbb6370002">&#9670;&#160;</a></span>calibracion</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Uner::CalibracionCfg::calibracion[4] {30, 6, 8, 10}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Distancia al piso, altura pequeña, mediana, grande (cm). </p>
+
+</div>
+</div>
+<a id="a9d45e533d4a9ca86d4a593926a50b047" name="a9d45e533d4a9ca86d4a593926a50b047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d45e533d4a9ca86d4a593926a50b047">&#9670;&#160;</a></span>time_arm_extend</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Uner::CalibracionCfg::time_arm_extend {125}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tiempo de extensión del brazo (ticks × 2 ms). </p>
+
+</div>
+</div>
+<a id="ab064ef055cbd3201fb5eabfdcb69d41b" name="ab064ef055cbd3201fb5eabfdcb69d41b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab064ef055cbd3201fb5eabfdcb69d41b">&#9670;&#160;</a></span>time_arm_retract</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Uner::CalibracionCfg::time_arm_retract {125}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tiempo de retracción del brazo (ticks × 2 ms). </p>
+
+</div>
+</div>
+<a id="aa17254287ff8691065ea3601c15a0ead" name="aa17254287ff8691065ea3601c15a0ead"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa17254287ff8691065ea3601c15a0ead">&#9670;&#160;</a></span>tolerancia</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Uner::CalibracionCfg::tolerancia {1}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Margen de error en clasificación (cm). </p>
+
+</div>
+</div>
+<hr/>La documentación de esta estructura está generada del siguiente archivo:<ul>
+<li>comunicacion/<a class="el" href="_uner_protocol_8h_source.html">UnerProtocol.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_uner.html">Uner</a></li><li class="navelem"><a href="struct_uner_1_1_calibracion_cfg.html">CalibracionCfg</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

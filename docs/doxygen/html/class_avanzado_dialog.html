@@ -1,0 +1,891 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Referencia de la clase AvanzadoDialog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_avanzado_dialog.html','','class_avanzado_dialog-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia de la clase AvanzadoDialog</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Diálogo flotante con cuatro secciones de configuración de bajo nivel.  
+ <a href="#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_avanzado_dialog_8h_source.html">AvanzadoDialog.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de herencia de AvanzadoDialog</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_avanzado_dialog.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-signals" class="groupheader"><a id="signals" name="signals"></a>
+Señales</h2></td></tr>
+<tr class="memitem:a08928e4ca6237830a56cff0815ac6642" id="r_a08928e4ca6237830a56cff0815ac6642"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a08928e4ca6237830a56cff0815ac6642">sendHcsr04</a> (const <a class="el" href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:a08928e4ca6237830a56cff0815ac6642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite al presionar «Enviar 0x64» (HC-SR04).  <br /></td></tr>
+<tr class="memitem:a21888bf213fcbb333ba72431f8efdab3" id="r_a21888bf213fcbb333ba72431f8efdab3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a21888bf213fcbb333ba72431f8efdab3">sendSg90</a> (const <a class="el" href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:a21888bf213fcbb333ba72431f8efdab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite al presionar «Enviar 0x65» (SG90).  <br /></td></tr>
+<tr class="memitem:a9c2b45f14d55619bd1cd71825c9088db" id="r_a9c2b45f14d55619bd1cd71825c9088db"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9c2b45f14d55619bd1cd71825c9088db">sendIrDebounce</a> (uint8_t debounce)</td></tr>
+<tr class="memdesc:a9c2b45f14d55619bd1cd71825c9088db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite al presionar «Enviar 0x66» (debounce IR).  <br /></td></tr>
+<tr class="memitem:a3a408184a866a425e300bb5c4d7f7bec" id="r_a3a408184a866a425e300bb5c4d7f7bec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3a408184a866a425e300bb5c4d7f7bec">sendTimers</a> (const <a class="el" href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:a3a408184a866a425e300bb5c4d7f7bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite al presionar «Enviar 0x67» (timers y cajas).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a55be61199f73edebc4adb835ac9ecbc6" id="r_a55be61199f73edebc4adb835ac9ecbc6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a55be61199f73edebc4adb835ac9ecbc6">AvanzadoDialog</a> (QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:a55be61199f73edebc4adb835ac9ecbc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construye el diálogo con valores predeterminados.  <br /></td></tr>
+<tr class="memitem:a59c57a40a4e06b5fa1ba7cb72041e22a" id="r_a59c57a40a4e06b5fa1ba7cb72041e22a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a59c57a40a4e06b5fa1ba7cb72041e22a">setDarkMode</a> (bool dark)</td></tr>
+<tr class="memdesc:a59c57a40a4e06b5fa1ba7cb72041e22a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aplica el tema claro u oscuro al diálogo.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:af684036c58c1f6b2a038e00bf11d7ef8" id="r_af684036c58c1f6b2a038e00bf11d7ef8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af684036c58c1f6b2a038e00bf11d7ef8">buildUi</a> ()</td></tr>
+<tr class="memdesc:af684036c58c1f6b2a038e00bf11d7ef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construye toda la interfaz del diálogo.  <br /></td></tr>
+<tr class="memitem:afb8919b3e3e8d1006a29740962ea21a9" id="r_afb8919b3e3e8d1006a29740962ea21a9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afb8919b3e3e8d1006a29740962ea21a9">applyDarkStyle</a> ()</td></tr>
+<tr class="memdesc:afb8919b3e3e8d1006a29740962ea21a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aplica la hoja de estilo del tema oscuro.  <br /></td></tr>
+<tr class="memitem:a598b36579d630361ffc6d79f97ab6bd9" id="r_a598b36579d630361ffc6d79f97ab6bd9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a598b36579d630361ffc6d79f97ab6bd9">applyLightStyle</a> ()</td></tr>
+<tr class="memdesc:a598b36579d630361ffc6d79f97ab6bd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aplica la hoja de estilo del tema claro.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:ae5c939a7ceb31c756e5e7b60ecf07b40" id="r_ae5c939a7ceb31c756e5e7b60ecf07b40"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#ae5c939a7ceb31c756e5e7b60ecf07b40">m_spinTrigPulse</a> {nullptr}</td></tr>
+<tr class="memdesc:ae5c939a7ceb31c756e5e7b60ecf07b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">HCSR04_TRIG_PULSE_US (uint8).  <br /></td></tr>
+<tr class="memitem:ad550bc5547966859568bc3aea44540d4" id="r_ad550bc5547966859568bc3aea44540d4"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#ad550bc5547966859568bc3aea44540d4">m_spinTimeout</a> {nullptr}</td></tr>
+<tr class="memdesc:ad550bc5547966859568bc3aea44540d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout del eco (uint16, µs).  <br /></td></tr>
+<tr class="memitem:afe12bf884904d3cb862d71efd1f7be9a" id="r_afe12bf884904d3cb862d71efd1f7be9a"><td class="memItemLeft">QPushButton *&#160;</td><td class="memItemRight"><a class="el" href="#afe12bf884904d3cb862d71efd1f7be9a">m_btnHcsr04</a> {nullptr}</td></tr>
+<tr class="memdesc:afe12bf884904d3cb862d71efd1f7be9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Botón «Enviar 0x64».  <br /></td></tr>
+<tr class="memitem:a479bbc40c9715f62308027cdf8374243" id="r_a479bbc40c9715f62308027cdf8374243"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a479bbc40c9715f62308027cdf8374243">m_spinPeriod</a> {nullptr}</td></tr>
+<tr class="memdesc:a479bbc40c9715f62308027cdf8374243"><td class="mdescLeft">&#160;</td><td class="mdescRight">SG90_PERIOD_US.  <br /></td></tr>
+<tr class="memitem:a4547aede1c6a3769fd2244ffd2fd8047" id="r_a4547aede1c6a3769fd2244ffd2fd8047"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a4547aede1c6a3769fd2244ffd2fd8047">m_spinPulseMin</a> {nullptr}</td></tr>
+<tr class="memdesc:a4547aede1c6a3769fd2244ffd2fd8047"><td class="mdescLeft">&#160;</td><td class="mdescRight">SG90_PULSE_MIN_US.  <br /></td></tr>
+<tr class="memitem:a2e435b5f34546dde090b49ab828ed7bf" id="r_a2e435b5f34546dde090b49ab828ed7bf"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a2e435b5f34546dde090b49ab828ed7bf">m_spinPulseMax</a> {nullptr}</td></tr>
+<tr class="memdesc:a2e435b5f34546dde090b49ab828ed7bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">SG90_PULSE_MAX_US.  <br /></td></tr>
+<tr class="memitem:a2c68632adc95e4884c54d0efacaab314" id="r_a2c68632adc95e4884c54d0efacaab314"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a2c68632adc95e4884c54d0efacaab314">m_spinPulseNeutral</a> {nullptr}</td></tr>
+<tr class="memdesc:a2c68632adc95e4884c54d0efacaab314"><td class="mdescLeft">&#160;</td><td class="mdescRight">SG90_PULSE_NEUTRAL_US.  <br /></td></tr>
+<tr class="memitem:a8cfbf4d7d3eaf9d842d50e3b2595e796" id="r_a8cfbf4d7d3eaf9d842d50e3b2595e796"><td class="memItemLeft">QPushButton *&#160;</td><td class="memItemRight"><a class="el" href="#a8cfbf4d7d3eaf9d842d50e3b2595e796">m_btnSg90</a> {nullptr}</td></tr>
+<tr class="memdesc:a8cfbf4d7d3eaf9d842d50e3b2595e796"><td class="mdescLeft">&#160;</td><td class="mdescRight">Botón «Enviar 0x65».  <br /></td></tr>
+<tr class="memitem:aac4bf96b599fdaf9e19a9d4da3431e85" id="r_aac4bf96b599fdaf9e19a9d4da3431e85"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#aac4bf96b599fdaf9e19a9d4da3431e85">m_spinDebounce</a> {nullptr}</td></tr>
+<tr class="memdesc:aac4bf96b599fdaf9e19a9d4da3431e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">IR_DEBOUNCE_TICKS (uint8).  <br /></td></tr>
+<tr class="memitem:a3dbed26dac782d0a79f066f28332c8b0" id="r_a3dbed26dac782d0a79f066f28332c8b0"><td class="memItemLeft">QPushButton *&#160;</td><td class="memItemRight"><a class="el" href="#a3dbed26dac782d0a79f066f28332c8b0">m_btnDebounce</a> {nullptr}</td></tr>
+<tr class="memdesc:a3dbed26dac782d0a79f066f28332c8b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Botón «Enviar 0x66».  <br /></td></tr>
+<tr class="memitem:ad6fc1e7a3a27a8fa2111b8b2338c3630" id="r_ad6fc1e7a3a27a8fa2111b8b2338c3630"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#ad6fc1e7a3a27a8fa2111b8b2338c3630">m_spinRetract</a> {nullptr}</td></tr>
+<tr class="memdesc:ad6fc1e7a3a27a8fa2111b8b2338c3630"><td class="mdescLeft">&#160;</td><td class="mdescRight">retractTimer.  <br /></td></tr>
+<tr class="memitem:a1c05e74635a03a24cafa2d1e9f82ff85" id="r_a1c05e74635a03a24cafa2d1e9f82ff85"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a1c05e74635a03a24cafa2d1e9f82ff85">m_spinAngleDet</a> {nullptr}</td></tr>
+<tr class="memdesc:a1c05e74635a03a24cafa2d1e9f82ff85"><td class="mdescLeft">&#160;</td><td class="mdescRight">SG90_ANGLE_DETECT.  <br /></td></tr>
+<tr class="memitem:a8c293978e000376347eb33e5da9804c5" id="r_a8c293978e000376347eb33e5da9804c5"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a8c293978e000376347eb33e5da9804c5">m_spinAngleRep</a> {nullptr}</td></tr>
+<tr class="memdesc:a8c293978e000376347eb33e5da9804c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">SG90_ANGLE_REPOSE.  <br /></td></tr>
+<tr class="memitem:a848ddb6e0b69bf3f907cb0b4bd1dfd97" id="r_a848ddb6e0b69bf3f907cb0b4bd1dfd97"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#a848ddb6e0b69bf3f907cb0b4bd1dfd97">m_spinHcsrTimer</a> {nullptr}</td></tr>
+<tr class="memdesc:a848ddb6e0b69bf3f907cb0b4bd1dfd97"><td class="mdescLeft">&#160;</td><td class="mdescRight">hcsrTimer.  <br /></td></tr>
+<tr class="memitem:ada63851c302d2212a4a448bb908a72f9" id="r_ada63851c302d2212a4a448bb908a72f9"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#ada63851c302d2212a4a448bb908a72f9">m_spinAliveTimer</a> {nullptr}</td></tr>
+<tr class="memdesc:ada63851c302d2212a4a448bb908a72f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">aliveTimer.  <br /></td></tr>
+<tr class="memitem:afcafc8998788314e6295003297933405" id="r_afcafc8998788314e6295003297933405"><td class="memItemLeft">QSpinBox *&#160;</td><td class="memItemRight"><a class="el" href="#afcafc8998788314e6295003297933405">m_spinCajas</a> [3] {nullptr, nullptr, nullptr}</td></tr>
+<tr class="memdesc:afcafc8998788314e6295003297933405"><td class="mdescLeft">&#160;</td><td class="mdescRight">configCajas[0..2].  <br /></td></tr>
+<tr class="memitem:a25832f9e7a93fcdff901ebb50071f8ee" id="r_a25832f9e7a93fcdff901ebb50071f8ee"><td class="memItemLeft">QPushButton *&#160;</td><td class="memItemRight"><a class="el" href="#a25832f9e7a93fcdff901ebb50071f8ee">m_btnTimers</a> {nullptr}</td></tr>
+<tr class="memdesc:a25832f9e7a93fcdff901ebb50071f8ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Botón «Enviar 0x67».  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Diálogo flotante con cuatro secciones de configuración de bajo nivel. </p>
+<p>Cada sección tiene su propio botón «Enviar» y emite una señal independiente para que <a class="el" href="class_main_window.html" title="Ventana principal del sistema HMI Clasificador de Paquetes.">MainWindow</a> pueda reenviar el comando al MCU:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Sección  </th><th class="markdownTableHeadNone">CMD  </th><th class="markdownTableHeadNone">Señal emitida  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">HC-SR04  </td><td class="markdownTableBodyNone">0x64  </td><td class="markdownTableBodyNone"><a class="el" href="#a08928e4ca6237830a56cff0815ac6642" title="Se emite al presionar «Enviar 0x64» (HC-SR04).">sendHcsr04()</a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Servo SG90  </td><td class="markdownTableBodyNone">0x65  </td><td class="markdownTableBodyNone"><a class="el" href="#a21888bf213fcbb333ba72431f8efdab3" title="Se emite al presionar «Enviar 0x65» (SG90).">sendSg90()</a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Debounce IR  </td><td class="markdownTableBodyNone">0x66  </td><td class="markdownTableBodyNone"><a class="el" href="#a9c2b45f14d55619bd1cd71825c9088db" title="Se emite al presionar «Enviar 0x66» (debounce IR).">sendIrDebounce()</a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Timers/Cajas  </td><td class="markdownTableBodyNone">0x67  </td><td class="markdownTableBodyNone"><a class="el" href="#a3a408184a866a425e300bb5c4d7f7bec" title="Se emite al presionar «Enviar 0x67» (timers y cajas).">sendTimers()</a>  </td></tr>
+</table>
+<p>El diálogo es desplazable verticalmente para acomodar todos los campos. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentación de constructores y destructores</h2>
+<a id="a55be61199f73edebc4adb835ac9ecbc6" name="a55be61199f73edebc4adb835ac9ecbc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55be61199f73edebc4adb835ac9ecbc6">&#9670;&#160;</a></span>AvanzadoDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AvanzadoDialog::AvanzadoDialog </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construye el diálogo con valores predeterminados. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Objeto padre Qt (o nullptr). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones miembro</h2>
+<a id="afb8919b3e3e8d1006a29740962ea21a9" name="afb8919b3e3e8d1006a29740962ea21a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8919b3e3e8d1006a29740962ea21a9">&#9670;&#160;</a></span>applyDarkStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AvanzadoDialog::applyDarkStyle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Aplica la hoja de estilo del tema oscuro. </p>
+
+</div>
+</div>
+<a id="a598b36579d630361ffc6d79f97ab6bd9" name="a598b36579d630361ffc6d79f97ab6bd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a598b36579d630361ffc6d79f97ab6bd9">&#9670;&#160;</a></span>applyLightStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AvanzadoDialog::applyLightStyle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Aplica la hoja de estilo del tema claro. </p>
+
+</div>
+</div>
+<a id="af684036c58c1f6b2a038e00bf11d7ef8" name="af684036c58c1f6b2a038e00bf11d7ef8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af684036c58c1f6b2a038e00bf11d7ef8">&#9670;&#160;</a></span>buildUi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AvanzadoDialog::buildUi </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construye toda la interfaz del diálogo. </p>
+
+</div>
+</div>
+<a id="a08928e4ca6237830a56cff0815ac6642" name="a08928e4ca6237830a56cff0815ac6642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08928e4ca6237830a56cff0815ac6642">&#9670;&#160;</a></span>sendHcsr04</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AvanzadoDialog::sendHcsr04 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite al presionar «Enviar 0x64» (HC-SR04). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Configuración del sensor ultrasónico. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9c2b45f14d55619bd1cd71825c9088db" name="a9c2b45f14d55619bd1cd71825c9088db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c2b45f14d55619bd1cd71825c9088db">&#9670;&#160;</a></span>sendIrDebounce</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AvanzadoDialog::sendIrDebounce </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>debounce</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite al presionar «Enviar 0x66» (debounce IR). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">debounce</td><td>Número de ticks de debounce. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a21888bf213fcbb333ba72431f8efdab3" name="a21888bf213fcbb333ba72431f8efdab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21888bf213fcbb333ba72431f8efdab3">&#9670;&#160;</a></span>sendSg90</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AvanzadoDialog::sendSg90 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite al presionar «Enviar 0x65» (SG90). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Configuración del servo. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3a408184a866a425e300bb5c4d7f7bec" name="a3a408184a866a425e300bb5c4d7f7bec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a408184a866a425e300bb5c4d7f7bec">&#9670;&#160;</a></span>sendTimers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AvanzadoDialog::sendTimers </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite al presionar «Enviar 0x67» (timers y cajas). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Configuración de timers y alturas de caja. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a59c57a40a4e06b5fa1ba7cb72041e22a" name="a59c57a40a4e06b5fa1ba7cb72041e22a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59c57a40a4e06b5fa1ba7cb72041e22a">&#9670;&#160;</a></span>setDarkMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AvanzadoDialog::setDarkMode </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>dark</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aplica el tema claro u oscuro al diálogo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dark</td><td>true para tema oscuro. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentación de datos miembro</h2>
+<a id="a3dbed26dac782d0a79f066f28332c8b0" name="a3dbed26dac782d0a79f066f28332c8b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dbed26dac782d0a79f066f28332c8b0">&#9670;&#160;</a></span>m_btnDebounce</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPushButton* AvanzadoDialog::m_btnDebounce {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Botón «Enviar 0x66». </p>
+
+</div>
+</div>
+<a id="afe12bf884904d3cb862d71efd1f7be9a" name="afe12bf884904d3cb862d71efd1f7be9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe12bf884904d3cb862d71efd1f7be9a">&#9670;&#160;</a></span>m_btnHcsr04</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPushButton* AvanzadoDialog::m_btnHcsr04 {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Botón «Enviar 0x64». </p>
+
+</div>
+</div>
+<a id="a8cfbf4d7d3eaf9d842d50e3b2595e796" name="a8cfbf4d7d3eaf9d842d50e3b2595e796"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cfbf4d7d3eaf9d842d50e3b2595e796">&#9670;&#160;</a></span>m_btnSg90</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPushButton* AvanzadoDialog::m_btnSg90 {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Botón «Enviar 0x65». </p>
+
+</div>
+</div>
+<a id="a25832f9e7a93fcdff901ebb50071f8ee" name="a25832f9e7a93fcdff901ebb50071f8ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25832f9e7a93fcdff901ebb50071f8ee">&#9670;&#160;</a></span>m_btnTimers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPushButton* AvanzadoDialog::m_btnTimers {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Botón «Enviar 0x67». </p>
+
+</div>
+</div>
+<a id="ada63851c302d2212a4a448bb908a72f9" name="ada63851c302d2212a4a448bb908a72f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada63851c302d2212a4a448bb908a72f9">&#9670;&#160;</a></span>m_spinAliveTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinAliveTimer {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>aliveTimer. </p>
+
+</div>
+</div>
+<a id="a1c05e74635a03a24cafa2d1e9f82ff85" name="a1c05e74635a03a24cafa2d1e9f82ff85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c05e74635a03a24cafa2d1e9f82ff85">&#9670;&#160;</a></span>m_spinAngleDet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinAngleDet {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>SG90_ANGLE_DETECT. </p>
+
+</div>
+</div>
+<a id="a8c293978e000376347eb33e5da9804c5" name="a8c293978e000376347eb33e5da9804c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c293978e000376347eb33e5da9804c5">&#9670;&#160;</a></span>m_spinAngleRep</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinAngleRep {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>SG90_ANGLE_REPOSE. </p>
+
+</div>
+</div>
+<a id="afcafc8998788314e6295003297933405" name="afcafc8998788314e6295003297933405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcafc8998788314e6295003297933405">&#9670;&#160;</a></span>m_spinCajas</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinCajas[3] {nullptr, nullptr, nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>configCajas[0..2]. </p>
+
+</div>
+</div>
+<a id="aac4bf96b599fdaf9e19a9d4da3431e85" name="aac4bf96b599fdaf9e19a9d4da3431e85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac4bf96b599fdaf9e19a9d4da3431e85">&#9670;&#160;</a></span>m_spinDebounce</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinDebounce {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>IR_DEBOUNCE_TICKS (uint8). </p>
+
+</div>
+</div>
+<a id="a848ddb6e0b69bf3f907cb0b4bd1dfd97" name="a848ddb6e0b69bf3f907cb0b4bd1dfd97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a848ddb6e0b69bf3f907cb0b4bd1dfd97">&#9670;&#160;</a></span>m_spinHcsrTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinHcsrTimer {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>hcsrTimer. </p>
+
+</div>
+</div>
+<a id="a479bbc40c9715f62308027cdf8374243" name="a479bbc40c9715f62308027cdf8374243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a479bbc40c9715f62308027cdf8374243">&#9670;&#160;</a></span>m_spinPeriod</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinPeriod {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>SG90_PERIOD_US. </p>
+
+</div>
+</div>
+<a id="a2e435b5f34546dde090b49ab828ed7bf" name="a2e435b5f34546dde090b49ab828ed7bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e435b5f34546dde090b49ab828ed7bf">&#9670;&#160;</a></span>m_spinPulseMax</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinPulseMax {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>SG90_PULSE_MAX_US. </p>
+
+</div>
+</div>
+<a id="a4547aede1c6a3769fd2244ffd2fd8047" name="a4547aede1c6a3769fd2244ffd2fd8047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4547aede1c6a3769fd2244ffd2fd8047">&#9670;&#160;</a></span>m_spinPulseMin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinPulseMin {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>SG90_PULSE_MIN_US. </p>
+
+</div>
+</div>
+<a id="a2c68632adc95e4884c54d0efacaab314" name="a2c68632adc95e4884c54d0efacaab314"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c68632adc95e4884c54d0efacaab314">&#9670;&#160;</a></span>m_spinPulseNeutral</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinPulseNeutral {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>SG90_PULSE_NEUTRAL_US. </p>
+
+</div>
+</div>
+<a id="ad6fc1e7a3a27a8fa2111b8b2338c3630" name="ad6fc1e7a3a27a8fa2111b8b2338c3630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6fc1e7a3a27a8fa2111b8b2338c3630">&#9670;&#160;</a></span>m_spinRetract</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinRetract {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>retractTimer. </p>
+
+</div>
+</div>
+<a id="ad550bc5547966859568bc3aea44540d4" name="ad550bc5547966859568bc3aea44540d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad550bc5547966859568bc3aea44540d4">&#9670;&#160;</a></span>m_spinTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinTimeout {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Timeout del eco (uint16, µs). </p>
+
+</div>
+</div>
+<a id="ae5c939a7ceb31c756e5e7b60ecf07b40" name="ae5c939a7ceb31c756e5e7b60ecf07b40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5c939a7ceb31c756e5e7b60ecf07b40">&#9670;&#160;</a></span>m_spinTrigPulse</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* AvanzadoDialog::m_spinTrigPulse {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>HCSR04_TRIG_PULSE_US (uint8). </p>
+
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li>widgets/<a class="el" href="_avanzado_dialog_8h_source.html">AvanzadoDialog.h</a></li>
+<li>widgets/<a class="el" href="_avanzado_dialog_8cpp.html">AvanzadoDialog.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_avanzado_dialog.html">AvanzadoDialog</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

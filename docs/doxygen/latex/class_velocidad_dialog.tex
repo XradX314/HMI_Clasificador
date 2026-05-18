@@ -1,0 +1,195 @@
+\doxysection{Referencia de la clase Velocidad\+Dialog}
+\hypertarget{class_velocidad_dialog}{}\label{class_velocidad_dialog}\index{VelocidadDialog@{VelocidadDialog}}
+
+
+Diálogo flotante para configurar el ancho de la caja de referencia.  
+
+
+
+
+{\ttfamily \+\#include $<$Velocidad\+Dialog.\+h$>$}
+
+Diagrama de herencia de Velocidad\+Dialog\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_velocidad_dialog}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Señales}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_velocidad_dialog_ae048d0d9c6320609821ba1441552ecfc}{request\+Ancho\+Caja}} (uint8\+\_\+t ancho\+Cm)
+\begin{DoxyCompactList}\small\item\em Se emite cuando el usuario presiona «\+Enviar 0x62». \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_velocidad_dialog_af33132eff4cd619f040c6bd73a51d91f}{Velocidad\+Dialog}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Construye el diálogo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_velocidad_dialog_ababe865e03065b2d6e41f9f335165da9}{set\+Dark\+Mode}} (bool dark)
+\begin{DoxyCompactList}\small\item\em Aplica el tema claro u oscuro al diálogo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_velocidad_dialog_a44f9015eda2801f67b2872ab1046981c}{on\+Enviar\+Clicked}} ()
+\begin{DoxyCompactList}\small\item\em Slot del botón «\+Enviar 0x62»:\+ emite request\+Ancho\+Caja. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_velocidad_dialog_a00147ea8c6c7c7c78e89a4b4c8e4b4db}{build\+Ui}} ()
+\begin{DoxyCompactList}\small\item\em Construye la interfaz del diálogo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_velocidad_dialog_a1716a98df2d1b31a388ec584981bef59}{apply\+Dark\+Style}} ()
+\begin{DoxyCompactList}\small\item\em Aplica la hoja de estilo del tema oscuro. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_velocidad_dialog_a878e26bdcfa8a30f7ce0300eb197f1fb}{apply\+Light\+Style}} ()
+\begin{DoxyCompactList}\small\item\em Aplica la hoja de estilo del tema claro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_velocidad_dialog_a075ffadb09515ea355e37350ed0f0fec}{m\+\_\+spin\+Ancho}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Spin\+Box del ancho en cm. \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_velocidad_dialog_a9e056323c8ec0076f2f613e79b0f85a2}{m\+\_\+btn\+Enviar}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón «\+Enviar 0x62». \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_velocidad_dialog_ae085634ff1f6225a652a19c2ff84c2e1}{m\+\_\+btn\+Cerrar}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón «\+Cerrar». \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Diálogo flotante para configurar el ancho de la caja de referencia. 
+
+Envía el comando 0x62 con un único byte (ancho\+Caja en cm). El MCU utiliza ese valor para calcular internamente la velocidad de la cinta; no se espera respuesta de vuelta.
+
+Al presionar «\+Enviar 0x62» se emite la señal \doxylink{class_velocidad_dialog_ae048d0d9c6320609821ba1441552ecfc}{request\+Ancho\+Caja}. 
+
+\label{doc-constructors}
+\Hypertarget{class_velocidad_dialog_doc-constructors}
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_velocidad_dialog_af33132eff4cd619f040c6bd73a51d91f}\index{VelocidadDialog@{VelocidadDialog}!VelocidadDialog@{VelocidadDialog}}
+\index{VelocidadDialog@{VelocidadDialog}!VelocidadDialog@{VelocidadDialog}}
+\doxysubsubsection{\texorpdfstring{VelocidadDialog()}{VelocidadDialog()}}
+{\footnotesize\ttfamily \label{class_velocidad_dialog_af33132eff4cd619f040c6bd73a51d91f} 
+Velocidad\+Dialog::\+\+Velocidad\+Dialog (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construye el diálogo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em parent} & Objeto padre Qt (o nullptr). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_velocidad_dialog_doc-func-members}
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_velocidad_dialog_a1716a98df2d1b31a388ec584981bef59}\index{VelocidadDialog@{VelocidadDialog}!applyDarkStyle@{applyDarkStyle}}
+\index{applyDarkStyle@{applyDarkStyle}!VelocidadDialog@{VelocidadDialog}}
+\doxysubsubsection{\texorpdfstring{applyDarkStyle()}{applyDarkStyle()}}
+{\footnotesize\ttfamily \label{class_velocidad_dialog_a1716a98df2d1b31a388ec584981bef59} 
+void Velocidad\+Dialog::\+apply\+Dark\+Style (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aplica la hoja de estilo del tema oscuro. 
+
+\Hypertarget{class_velocidad_dialog_a878e26bdcfa8a30f7ce0300eb197f1fb}\index{VelocidadDialog@{VelocidadDialog}!applyLightStyle@{applyLightStyle}}
+\index{applyLightStyle@{applyLightStyle}!VelocidadDialog@{VelocidadDialog}}
+\doxysubsubsection{\texorpdfstring{applyLightStyle()}{applyLightStyle()}}
+{\footnotesize\ttfamily \label{class_velocidad_dialog_a878e26bdcfa8a30f7ce0300eb197f1fb} 
+void Velocidad\+Dialog::\+apply\+Light\+Style (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aplica la hoja de estilo del tema claro. 
+
+\Hypertarget{class_velocidad_dialog_a00147ea8c6c7c7c78e89a4b4c8e4b4db}\index{VelocidadDialog@{VelocidadDialog}!buildUi@{buildUi}}
+\index{buildUi@{buildUi}!VelocidadDialog@{VelocidadDialog}}
+\doxysubsubsection{\texorpdfstring{buildUi()}{buildUi()}}
+{\footnotesize\ttfamily \label{class_velocidad_dialog_a00147ea8c6c7c7c78e89a4b4c8e4b4db} 
+void Velocidad\+Dialog::\+build\+Ui (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye la interfaz del diálogo. 
+
+\Hypertarget{class_velocidad_dialog_a44f9015eda2801f67b2872ab1046981c}\index{VelocidadDialog@{VelocidadDialog}!onEnviarClicked@{onEnviarClicked}}
+\index{onEnviarClicked@{onEnviarClicked}!VelocidadDialog@{VelocidadDialog}}
+\doxysubsubsection{\texorpdfstring{onEnviarClicked}{onEnviarClicked}}
+{\footnotesize\ttfamily \label{class_velocidad_dialog_a44f9015eda2801f67b2872ab1046981c} 
+void Velocidad\+Dialog::\+on\+Enviar\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot del botón «\+Enviar 0x62»:\+ emite request\+Ancho\+Caja. 
+
+\Hypertarget{class_velocidad_dialog_ae048d0d9c6320609821ba1441552ecfc}\index{VelocidadDialog@{VelocidadDialog}!requestAnchoCaja@{requestAnchoCaja}}
+\index{requestAnchoCaja@{requestAnchoCaja}!VelocidadDialog@{VelocidadDialog}}
+\doxysubsubsection{\texorpdfstring{requestAnchoCaja}{requestAnchoCaja}}
+{\footnotesize\ttfamily \label{class_velocidad_dialog_ae048d0d9c6320609821ba1441552ecfc} 
+void Velocidad\+Dialog::\+request\+Ancho\+Caja (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ancho\+Cm}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite cuando el usuario presiona «\+Enviar 0x62». 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ancho\+Cm} & Ancho de la caja de referencia en centímetros. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_velocidad_dialog_ababe865e03065b2d6e41f9f335165da9}\index{VelocidadDialog@{VelocidadDialog}!setDarkMode@{setDarkMode}}
+\index{setDarkMode@{setDarkMode}!VelocidadDialog@{VelocidadDialog}}
+\doxysubsubsection{\texorpdfstring{setDarkMode()}{setDarkMode()}}
+{\footnotesize\ttfamily \label{class_velocidad_dialog_ababe865e03065b2d6e41f9f335165da9} 
+void Velocidad\+Dialog::\+set\+Dark\+Mode (\begin{DoxyParamCaption}\item[{bool}]{dark}{}\end{DoxyParamCaption})}
+
+
+
+Aplica el tema claro u oscuro al diálogo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em dark} & true para tema oscuro. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_velocidad_dialog_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{class_velocidad_dialog_ae085634ff1f6225a652a19c2ff84c2e1}\index{VelocidadDialog@{VelocidadDialog}!m\_btnCerrar@{m\_btnCerrar}}
+\index{m\_btnCerrar@{m\_btnCerrar}!VelocidadDialog@{VelocidadDialog}}
+\doxysubsubsection{\texorpdfstring{m\_btnCerrar}{m\_btnCerrar}}
+{\footnotesize\ttfamily \label{class_velocidad_dialog_ae085634ff1f6225a652a19c2ff84c2e1} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Velocidad\+Dialog::\+m\+\_\+btn\+Cerrar \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón «\+Cerrar». 
+
+\Hypertarget{class_velocidad_dialog_a9e056323c8ec0076f2f613e79b0f85a2}\index{VelocidadDialog@{VelocidadDialog}!m\_btnEnviar@{m\_btnEnviar}}
+\index{m\_btnEnviar@{m\_btnEnviar}!VelocidadDialog@{VelocidadDialog}}
+\doxysubsubsection{\texorpdfstring{m\_btnEnviar}{m\_btnEnviar}}
+{\footnotesize\ttfamily \label{class_velocidad_dialog_a9e056323c8ec0076f2f613e79b0f85a2} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Velocidad\+Dialog::\+m\+\_\+btn\+Enviar \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón «\+Enviar 0x62». 
+
+\Hypertarget{class_velocidad_dialog_a075ffadb09515ea355e37350ed0f0fec}\index{VelocidadDialog@{VelocidadDialog}!m\_spinAncho@{m\_spinAncho}}
+\index{m\_spinAncho@{m\_spinAncho}!VelocidadDialog@{VelocidadDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinAncho}{m\_spinAncho}}
+{\footnotesize\ttfamily \label{class_velocidad_dialog_a075ffadb09515ea355e37350ed0f0fec} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Velocidad\+Dialog::\+m\+\_\+spin\+Ancho \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Spin\+Box del ancho en cm. 
+
+
+
+La documentación de esta clase está generada de los siguientes archivos:\+\begin{DoxyCompactItemize}
+\item 
+widgets/\+\doxymbox{\hyperlink{_velocidad_dialog_8h}{Velocidad\+Dialog.\+h}}\item 
+widgets/\+\doxymbox{\hyperlink{_velocidad_dialog_8cpp}{Velocidad\+Dialog.\+cpp}}\end{DoxyCompactItemize}

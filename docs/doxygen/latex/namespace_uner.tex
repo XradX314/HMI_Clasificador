@@ -1,0 +1,299 @@
+\doxysection{Referencia del espacio de nombres Uner}
+\hypertarget{namespace_uner}{}\label{namespace_uner}\index{Uner@{Uner}}
+
+
+Espacio de nombres con todas las constantes, tipos y estructuras del protocolo UNER v2.\+0.  
+
+
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_frame}{Frame}}
+\begin{DoxyCompactList}\small\item\em Trama decodificada del protocolo UNER. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{Ciego\+Distancias}}
+\begin{DoxyCompactList}\small\item\em Datos para el comando 0x60 – Modo ciego y distancias. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Calibracion\+Cfg}}
+\begin{DoxyCompactList}\small\item\em Datos para el comando 0x63 – Calibración. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Hcsr04\+Cfg}}
+\begin{DoxyCompactList}\small\item\em Datos para el comando 0x64 – Configuración del sensor HC-\/\+SR04. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Sg90\+Cfg}}
+\begin{DoxyCompactList}\small\item\em Datos para el comando 0x65 – Configuración del servo SG90. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Timers\+Cfg}}
+\begin{DoxyCompactList}\small\item\em Datos para el comando 0x67 – Timers y configuraciones generales. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum class \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Tipo\+Caja}} :\+ uint8\+\_\+t \{ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a3c2d02846e5a80e529ffcaa9284521c2}{Ninguna}} = 0
+, \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54}{Pequenia}} = 6
+, \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251}{Mediana}} = 8
+, \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9}{Grande}} = 10
+ \}
+\begin{DoxyCompactList}\small\item\em Identificador del tipo de caja según su altura medida en cm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a0aebedc2fd186a5b6d21a4bfb6d7a7a6}{CMD\+\_\+\+ALIVE}} = 0x\+F0
+\begin{DoxyCompactList}\small\item\em Heartbeat bidireccional (MCU ↔ PC). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_afca05993a41dd34585be0d705daa67a3}{CMD\+\_\+\+START}} = 0x50
+\begin{DoxyCompactList}\small\item\em Iniciar clasificador con configuración de 3 salidas. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a676495b26ba39b493ae36eaa733de8c7}{CMD\+\_\+\+STOP}} = 0x51
+\begin{DoxyCompactList}\small\item\em Detener el sistema clasificador. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_ab814c2ae649f49d8527a8d3785d614f4}{CMD\+\_\+\+BRAZO}} = 0x52
+\begin{DoxyCompactList}\small\item\em Notificación /\+ ACK de actuación de brazo (bidireccional). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a15d208a58c117c92b26f05cb750118e2}{CMD\+\_\+\+RESET}} = 0x53
+\begin{DoxyCompactList}\small\item\em Reiniciar el sistema clasificador. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_ab0cdd5372c8d3aa19cb2d519038c49c4}{CMD\+\_\+\+VELOCIDAD}} = 0x54
+\begin{DoxyCompactList}\small\item\em Establecer velocidad de la cinta (índice 1–10, payload = idx×10). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a0988bb6598ead433f995bb8539acedc8}{CMD\+\_\+\+IR\+\_\+\+STATE}} = 0x5E
+\begin{DoxyCompactList}\small\item\em Estado de sensores IR (MCU→\+PC). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a413f855cf3558a82001e0325b0417854}{CMD\+\_\+\+CAJA\+\_\+\+DETECT}} = 0x5F
+\begin{DoxyCompactList}\small\item\em Detección de caja por sensor HC-\/\+SR04 (MCU→\+PC). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a1507aabd82f9907634dafec5f6ea91a2}{CMD\+\_\+\+BLIND\+\_\+\+DIST}} = 0x60
+\begin{DoxyCompactList}\small\item\em Activar/\+desactivar modo ciego y configurar distancias S0→salida (1–4 bytes). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_abd858d814c918aa8148613b285fbf1e3}{CMD\+\_\+\+TRIGGER}} = 0x61
+\begin{DoxyCompactList}\small\item\em Disparar trigger del sensor HC-\/\+SR04 (PC→\+MCU, sin payload). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a5cdf753b6b5df75bc7f332d42c799f43}{CMD\+\_\+\+ANCHO\+\_\+\+CAJA}} = 0x62
+\begin{DoxyCompactList}\small\item\em Informar al MCU el ancho de la caja de referencia para cálculo interno de velocidad. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_adcc4635278729b1d54f55fd6193b7dd8}{CMD\+\_\+\+CALIBRACION}} = 0x63
+\begin{DoxyCompactList}\small\item\em Enviar calibración completa:\+ alturas, tolerancia y tiempos de brazo (7 bytes). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_af5c34bd30e92c197c7ba38a958c65a7f}{CMD\+\_\+\+HCSR04\+\_\+\+CFG}} = 0x64
+\begin{DoxyCompactList}\small\item\em Configurar parámetros del sensor HC-\/\+SR04 (3 bytes). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a3e79d1598dc157214582591b25e2c06d}{CMD\+\_\+\+SG90\+\_\+\+CFG}} = 0x65
+\begin{DoxyCompactList}\small\item\em Configurar parámetros del servo SG90 (8 bytes, 4×uint16 hi/\+lo). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a30aa9967810290ef066831b2c40249fa}{CMD\+\_\+\+IR\+\_\+\+DEBOUNCE}} = 0x66
+\begin{DoxyCompactList}\small\item\em Configurar tiempo de debounce de los sensores IR (1 byte). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_ae0554b7119295ac2ab1ea48db2a00628}{CMD\+\_\+\+TIMERS\+\_\+\+CFG}} = 0x67
+\begin{DoxyCompactList}\small\item\em Configurar timers y ángulos generales del sistema (8 bytes). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a91f24d7b9c68d250cb0417314fdf2979}{PARAM\+\_\+\+ACK}} = 0x0D
+\begin{DoxyCompactList}\small\item\em Byte de ACK genérico (0x0D). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a3ecd19a554a991e5b7ff25794f410d40}{PARAM\+\_\+\+BRAZO\+\_\+\+ACK}} = 0x\+FF
+\begin{DoxyCompactList}\small\item\em Byte de ACK para confirmación de brazo retractado (0x\+FF). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Espacio de nombres con todas las constantes, tipos y estructuras del protocolo UNER v2.\+0. 
+
+\label{doc-enum-members}
+\Hypertarget{namespace_uner_doc-enum-members}
+\doxysubsection{Documentación de enumeraciones}
+\Hypertarget{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}\index{Uner@{Uner}!TipoCaja@{TipoCaja}}
+\index{TipoCaja@{TipoCaja}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{TipoCaja}{TipoCaja}}
+{\footnotesize\ttfamily \label{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3} 
+enum class \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}} :\+ uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Identificador del tipo de caja según su altura medida en cm. 
+
+Los valores corresponden directamente a la altura real de la caja, por lo que también se usan como payload en CMD\+\_\+\+START (salidas\+[i]\+). \begin{DoxyEnumFields}[2]{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ninguna@{Ninguna}!Uner@{Uner}}
+\index{Uner@{Uner}!Ninguna@{Ninguna}}
+}\Hypertarget{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a3c2d02846e5a80e529ffcaa9284521c2}\label{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a3c2d02846e5a80e529ffcaa9284521c2} 
+Ninguna&Sin tipo asignado (salida no configurada). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pequenia@{Pequenia}!Uner@{Uner}}
+\index{Uner@{Uner}!Pequenia@{Pequenia}}
+}\Hypertarget{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54}\label{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54} 
+Pequenia&Caja pequeña – 6 cm. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Mediana@{Mediana}!Uner@{Uner}}
+\index{Uner@{Uner}!Mediana@{Mediana}}
+}\Hypertarget{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251}\label{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251} 
+Mediana&Caja mediana – 8 cm. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Grande@{Grande}!Uner@{Uner}}
+\index{Uner@{Uner}!Grande@{Grande}}
+}\Hypertarget{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9}\label{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9} 
+Grande&Caja grande – 10 cm. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-var-members}
+\Hypertarget{namespace_uner_doc-var-members}
+\doxysubsection{Documentación de variables}
+\Hypertarget{namespace_uner_a0aebedc2fd186a5b6d21a4bfb6d7a7a6}\index{Uner@{Uner}!CMD\_ALIVE@{CMD\_ALIVE}}
+\index{CMD\_ALIVE@{CMD\_ALIVE}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_ALIVE}{CMD\_ALIVE}}
+{\footnotesize\ttfamily \label{namespace_uner_a0aebedc2fd186a5b6d21a4bfb6d7a7a6} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+ALIVE = 0x\+F0\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Heartbeat bidireccional (MCU ↔ PC). 
+
+\Hypertarget{namespace_uner_a5cdf753b6b5df75bc7f332d42c799f43}\index{Uner@{Uner}!CMD\_ANCHO\_CAJA@{CMD\_ANCHO\_CAJA}}
+\index{CMD\_ANCHO\_CAJA@{CMD\_ANCHO\_CAJA}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_ANCHO\_CAJA}{CMD\_ANCHO\_CAJA}}
+{\footnotesize\ttfamily \label{namespace_uner_a5cdf753b6b5df75bc7f332d42c799f43} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+ANCHO\+\_\+\+CAJA = 0x62\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Informar al MCU el ancho de la caja de referencia para cálculo interno de velocidad. 
+
+\Hypertarget{namespace_uner_a1507aabd82f9907634dafec5f6ea91a2}\index{Uner@{Uner}!CMD\_BLIND\_DIST@{CMD\_BLIND\_DIST}}
+\index{CMD\_BLIND\_DIST@{CMD\_BLIND\_DIST}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_BLIND\_DIST}{CMD\_BLIND\_DIST}}
+{\footnotesize\ttfamily \label{namespace_uner_a1507aabd82f9907634dafec5f6ea91a2} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+BLIND\+\_\+\+DIST = 0x60\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Activar/\+desactivar modo ciego y configurar distancias S0→salida (1–4 bytes). 
+
+\Hypertarget{namespace_uner_ab814c2ae649f49d8527a8d3785d614f4}\index{Uner@{Uner}!CMD\_BRAZO@{CMD\_BRAZO}}
+\index{CMD\_BRAZO@{CMD\_BRAZO}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_BRAZO}{CMD\_BRAZO}}
+{\footnotesize\ttfamily \label{namespace_uner_ab814c2ae649f49d8527a8d3785d614f4} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+BRAZO = 0x52\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Notificación /\+ ACK de actuación de brazo (bidireccional). 
+
+\Hypertarget{namespace_uner_a413f855cf3558a82001e0325b0417854}\index{Uner@{Uner}!CMD\_CAJA\_DETECT@{CMD\_CAJA\_DETECT}}
+\index{CMD\_CAJA\_DETECT@{CMD\_CAJA\_DETECT}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_CAJA\_DETECT}{CMD\_CAJA\_DETECT}}
+{\footnotesize\ttfamily \label{namespace_uner_a413f855cf3558a82001e0325b0417854} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+CAJA\+\_\+\+DETECT = 0x5F\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Detección de caja por sensor HC-\/\+SR04 (MCU→\+PC). 
+
+Payload:\+ altura\+\_\+cm. \Hypertarget{namespace_uner_adcc4635278729b1d54f55fd6193b7dd8}\index{Uner@{Uner}!CMD\_CALIBRACION@{CMD\_CALIBRACION}}
+\index{CMD\_CALIBRACION@{CMD\_CALIBRACION}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_CALIBRACION}{CMD\_CALIBRACION}}
+{\footnotesize\ttfamily \label{namespace_uner_adcc4635278729b1d54f55fd6193b7dd8} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+CALIBRACION = 0x63\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Enviar calibración completa:\+ alturas, tolerancia y tiempos de brazo (7 bytes). 
+
+\Hypertarget{namespace_uner_af5c34bd30e92c197c7ba38a958c65a7f}\index{Uner@{Uner}!CMD\_HCSR04\_CFG@{CMD\_HCSR04\_CFG}}
+\index{CMD\_HCSR04\_CFG@{CMD\_HCSR04\_CFG}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_HCSR04\_CFG}{CMD\_HCSR04\_CFG}}
+{\footnotesize\ttfamily \label{namespace_uner_af5c34bd30e92c197c7ba38a958c65a7f} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+HCSR04\+\_\+\+CFG = 0x64\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Configurar parámetros del sensor HC-\/\+SR04 (3 bytes). 
+
+\Hypertarget{namespace_uner_a30aa9967810290ef066831b2c40249fa}\index{Uner@{Uner}!CMD\_IR\_DEBOUNCE@{CMD\_IR\_DEBOUNCE}}
+\index{CMD\_IR\_DEBOUNCE@{CMD\_IR\_DEBOUNCE}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_IR\_DEBOUNCE}{CMD\_IR\_DEBOUNCE}}
+{\footnotesize\ttfamily \label{namespace_uner_a30aa9967810290ef066831b2c40249fa} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+IR\+\_\+\+DEBOUNCE = 0x66\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Configurar tiempo de debounce de los sensores IR (1 byte). 
+
+\Hypertarget{namespace_uner_a0988bb6598ead433f995bb8539acedc8}\index{Uner@{Uner}!CMD\_IR\_STATE@{CMD\_IR\_STATE}}
+\index{CMD\_IR\_STATE@{CMD\_IR\_STATE}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_IR\_STATE}{CMD\_IR\_STATE}}
+{\footnotesize\ttfamily \label{namespace_uner_a0988bb6598ead433f995bb8539acedc8} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+IR\+\_\+\+STATE = 0x5E\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Estado de sensores IR (MCU→\+PC). 
+
+Pares (out\+Num, IRState). \Hypertarget{namespace_uner_a15d208a58c117c92b26f05cb750118e2}\index{Uner@{Uner}!CMD\_RESET@{CMD\_RESET}}
+\index{CMD\_RESET@{CMD\_RESET}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_RESET}{CMD\_RESET}}
+{\footnotesize\ttfamily \label{namespace_uner_a15d208a58c117c92b26f05cb750118e2} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+RESET = 0x53\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Reiniciar el sistema clasificador. 
+
+\Hypertarget{namespace_uner_a3e79d1598dc157214582591b25e2c06d}\index{Uner@{Uner}!CMD\_SG90\_CFG@{CMD\_SG90\_CFG}}
+\index{CMD\_SG90\_CFG@{CMD\_SG90\_CFG}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_SG90\_CFG}{CMD\_SG90\_CFG}}
+{\footnotesize\ttfamily \label{namespace_uner_a3e79d1598dc157214582591b25e2c06d} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+SG90\+\_\+\+CFG = 0x65\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Configurar parámetros del servo SG90 (8 bytes, 4×uint16 hi/\+lo). 
+
+\Hypertarget{namespace_uner_afca05993a41dd34585be0d705daa67a3}\index{Uner@{Uner}!CMD\_START@{CMD\_START}}
+\index{CMD\_START@{CMD\_START}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_START}{CMD\_START}}
+{\footnotesize\ttfamily \label{namespace_uner_afca05993a41dd34585be0d705daa67a3} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+START = 0x50\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Iniciar clasificador con configuración de 3 salidas. 
+
+\Hypertarget{namespace_uner_a676495b26ba39b493ae36eaa733de8c7}\index{Uner@{Uner}!CMD\_STOP@{CMD\_STOP}}
+\index{CMD\_STOP@{CMD\_STOP}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_STOP}{CMD\_STOP}}
+{\footnotesize\ttfamily \label{namespace_uner_a676495b26ba39b493ae36eaa733de8c7} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+STOP = 0x51\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Detener el sistema clasificador. 
+
+\Hypertarget{namespace_uner_ae0554b7119295ac2ab1ea48db2a00628}\index{Uner@{Uner}!CMD\_TIMERS\_CFG@{CMD\_TIMERS\_CFG}}
+\index{CMD\_TIMERS\_CFG@{CMD\_TIMERS\_CFG}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_TIMERS\_CFG}{CMD\_TIMERS\_CFG}}
+{\footnotesize\ttfamily \label{namespace_uner_ae0554b7119295ac2ab1ea48db2a00628} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+TIMERS\+\_\+\+CFG = 0x67\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Configurar timers y ángulos generales del sistema (8 bytes). 
+
+\Hypertarget{namespace_uner_abd858d814c918aa8148613b285fbf1e3}\index{Uner@{Uner}!CMD\_TRIGGER@{CMD\_TRIGGER}}
+\index{CMD\_TRIGGER@{CMD\_TRIGGER}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_TRIGGER}{CMD\_TRIGGER}}
+{\footnotesize\ttfamily \label{namespace_uner_abd858d814c918aa8148613b285fbf1e3} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+TRIGGER = 0x61\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Disparar trigger del sensor HC-\/\+SR04 (PC→\+MCU, sin payload). 
+
+\Hypertarget{namespace_uner_ab0cdd5372c8d3aa19cb2d519038c49c4}\index{Uner@{Uner}!CMD\_VELOCIDAD@{CMD\_VELOCIDAD}}
+\index{CMD\_VELOCIDAD@{CMD\_VELOCIDAD}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{CMD\_VELOCIDAD}{CMD\_VELOCIDAD}}
+{\footnotesize\ttfamily \label{namespace_uner_ab0cdd5372c8d3aa19cb2d519038c49c4} 
+uint8\+\_\+t Uner::\+\+CMD\+\_\+\+VELOCIDAD = 0x54\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Establecer velocidad de la cinta (índice 1–10, payload = idx×10). 
+
+\Hypertarget{namespace_uner_a91f24d7b9c68d250cb0417314fdf2979}\index{Uner@{Uner}!PARAM\_ACK@{PARAM\_ACK}}
+\index{PARAM\_ACK@{PARAM\_ACK}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{PARAM\_ACK}{PARAM\_ACK}}
+{\footnotesize\ttfamily \label{namespace_uner_a91f24d7b9c68d250cb0417314fdf2979} 
+uint8\+\_\+t Uner::\+\+PARAM\+\_\+\+ACK = 0x0D\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Byte de ACK genérico (0x0D). 
+
+\Hypertarget{namespace_uner_a3ecd19a554a991e5b7ff25794f410d40}\index{Uner@{Uner}!PARAM\_BRAZO\_ACK@{PARAM\_BRAZO\_ACK}}
+\index{PARAM\_BRAZO\_ACK@{PARAM\_BRAZO\_ACK}!Uner@{Uner}}
+\doxysubsubsection{\texorpdfstring{PARAM\_BRAZO\_ACK}{PARAM\_BRAZO\_ACK}}
+{\footnotesize\ttfamily \label{namespace_uner_a3ecd19a554a991e5b7ff25794f410d40} 
+uint8\+\_\+t Uner::\+\+PARAM\+\_\+\+BRAZO\+\_\+\+ACK = 0x\+FF\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Byte de ACK para confirmación de brazo retractado (0x\+FF). 
+

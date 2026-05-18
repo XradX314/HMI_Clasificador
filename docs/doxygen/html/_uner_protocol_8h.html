@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Referencia del archivo comunicacion/UnerProtocol.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_uner_protocol_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia del archivo UnerProtocol.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Definición del protocolo de comunicación serie UNER y el codificador/decodificador de tramas.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;QObject&gt;</code><br />
+<code>#include &lt;QByteArray&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+</div>
+<p><a href="_uner_protocol_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Clases</h2></td></tr>
+<tr class="memitem:Uner_3A_3AFrame" id="r_Uner_3A_3AFrame"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_uner_1_1_frame.html">Uner::Frame</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trama decodificada del protocolo UNER.  <a href="struct_uner_1_1_frame.html#details">Más...</a><br /></td></tr>
+<tr class="memitem:Uner_3A_3ACiegoDistancias" id="r_Uner_3A_3ACiegoDistancias"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Datos para el comando 0x60 – Modo ciego y distancias.  <a href="struct_uner_1_1_ciego_distancias.html#details">Más...</a><br /></td></tr>
+<tr class="memitem:Uner_3A_3ACalibracionCfg" id="r_Uner_3A_3ACalibracionCfg"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Datos para el comando 0x63 – Calibración.  <a href="struct_uner_1_1_calibracion_cfg.html#details">Más...</a><br /></td></tr>
+<tr class="memitem:Uner_3A_3AHcsr04Cfg" id="r_Uner_3A_3AHcsr04Cfg"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Datos para el comando 0x64 – Configuración del sensor HC-SR04.  <a href="struct_uner_1_1_hcsr04_cfg.html#details">Más...</a><br /></td></tr>
+<tr class="memitem:Uner_3A_3ASg90Cfg" id="r_Uner_3A_3ASg90Cfg"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Datos para el comando 0x65 – Configuración del servo SG90.  <a href="struct_uner_1_1_sg90_cfg.html#details">Más...</a><br /></td></tr>
+<tr class="memitem:Uner_3A_3ATimersCfg" id="r_Uner_3A_3ATimersCfg"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Datos para el comando 0x67 – Timers y configuraciones generales.  <a href="struct_uner_1_1_timers_cfg.html#details">Más...</a><br /></td></tr>
+<tr class="memitem:UnerProtocol" id="r_UnerProtocol"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_uner_protocol.html">UnerProtocol</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Codificador y decodificador de tramas del protocolo UNER.  <a href="class_uner_protocol.html#details">Más...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Espacios de nombres</h2></td></tr>
+<tr class="memitem:Uner" id="r_Uner"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html">Uner</a></td></tr>
+<tr class="memdesc:namespace_uner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Espacio de nombres con todas las constantes, tipos y estructuras del protocolo UNER v2.0. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:a00367a55e50e11f85f8f665d6d76f1c3" id="r_a00367a55e50e11f85f8f665d6d76f1c3"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> : uint8_t { <a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a3c2d02846e5a80e529ffcaa9284521c2">Uner::Ninguna</a> = 0
+, <a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54">Uner::Pequenia</a> = 6
+, <a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251">Uner::Mediana</a> = 8
+, <a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9">Uner::Grande</a> = 10
+ }</td></tr>
+<tr class="memdesc:a00367a55e50e11f85f8f665d6d76f1c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identificador del tipo de caja según su altura medida en cm.  <a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Más...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a0aebedc2fd186a5b6d21a4bfb6d7a7a6" id="r_a0aebedc2fd186a5b6d21a4bfb6d7a7a6"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a0aebedc2fd186a5b6d21a4bfb6d7a7a6">Uner::CMD_ALIVE</a> = 0xF0</td></tr>
+<tr class="memdesc:a0aebedc2fd186a5b6d21a4bfb6d7a7a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heartbeat bidireccional (MCU ↔ PC).  <br /></td></tr>
+<tr class="memitem:afca05993a41dd34585be0d705daa67a3" id="r_afca05993a41dd34585be0d705daa67a3"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#afca05993a41dd34585be0d705daa67a3">Uner::CMD_START</a> = 0x50</td></tr>
+<tr class="memdesc:afca05993a41dd34585be0d705daa67a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iniciar clasificador con configuración de 3 salidas.  <br /></td></tr>
+<tr class="memitem:a676495b26ba39b493ae36eaa733de8c7" id="r_a676495b26ba39b493ae36eaa733de8c7"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a676495b26ba39b493ae36eaa733de8c7">Uner::CMD_STOP</a> = 0x51</td></tr>
+<tr class="memdesc:a676495b26ba39b493ae36eaa733de8c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detener el sistema clasificador.  <br /></td></tr>
+<tr class="memitem:ab814c2ae649f49d8527a8d3785d614f4" id="r_ab814c2ae649f49d8527a8d3785d614f4"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#ab814c2ae649f49d8527a8d3785d614f4">Uner::CMD_BRAZO</a> = 0x52</td></tr>
+<tr class="memdesc:ab814c2ae649f49d8527a8d3785d614f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notificación / ACK de actuación de brazo (bidireccional).  <br /></td></tr>
+<tr class="memitem:a15d208a58c117c92b26f05cb750118e2" id="r_a15d208a58c117c92b26f05cb750118e2"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a15d208a58c117c92b26f05cb750118e2">Uner::CMD_RESET</a> = 0x53</td></tr>
+<tr class="memdesc:a15d208a58c117c92b26f05cb750118e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reiniciar el sistema clasificador.  <br /></td></tr>
+<tr class="memitem:ab0cdd5372c8d3aa19cb2d519038c49c4" id="r_ab0cdd5372c8d3aa19cb2d519038c49c4"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#ab0cdd5372c8d3aa19cb2d519038c49c4">Uner::CMD_VELOCIDAD</a> = 0x54</td></tr>
+<tr class="memdesc:ab0cdd5372c8d3aa19cb2d519038c49c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establecer velocidad de la cinta (índice 1–10, payload = idx×10).  <br /></td></tr>
+<tr class="memitem:a0988bb6598ead433f995bb8539acedc8" id="r_a0988bb6598ead433f995bb8539acedc8"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a0988bb6598ead433f995bb8539acedc8">Uner::CMD_IR_STATE</a> = 0x5E</td></tr>
+<tr class="memdesc:a0988bb6598ead433f995bb8539acedc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estado de sensores IR (MCU→PC).  <br /></td></tr>
+<tr class="memitem:a413f855cf3558a82001e0325b0417854" id="r_a413f855cf3558a82001e0325b0417854"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a413f855cf3558a82001e0325b0417854">Uner::CMD_CAJA_DETECT</a> = 0x5F</td></tr>
+<tr class="memdesc:a413f855cf3558a82001e0325b0417854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detección de caja por sensor HC-SR04 (MCU→PC).  <br /></td></tr>
+<tr class="memitem:a1507aabd82f9907634dafec5f6ea91a2" id="r_a1507aabd82f9907634dafec5f6ea91a2"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a1507aabd82f9907634dafec5f6ea91a2">Uner::CMD_BLIND_DIST</a> = 0x60</td></tr>
+<tr class="memdesc:a1507aabd82f9907634dafec5f6ea91a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activar/desactivar modo ciego y configurar distancias S0→salida (1–4 bytes).  <br /></td></tr>
+<tr class="memitem:abd858d814c918aa8148613b285fbf1e3" id="r_abd858d814c918aa8148613b285fbf1e3"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#abd858d814c918aa8148613b285fbf1e3">Uner::CMD_TRIGGER</a> = 0x61</td></tr>
+<tr class="memdesc:abd858d814c918aa8148613b285fbf1e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disparar trigger del sensor HC-SR04 (PC→MCU, sin payload).  <br /></td></tr>
+<tr class="memitem:a5cdf753b6b5df75bc7f332d42c799f43" id="r_a5cdf753b6b5df75bc7f332d42c799f43"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a5cdf753b6b5df75bc7f332d42c799f43">Uner::CMD_ANCHO_CAJA</a> = 0x62</td></tr>
+<tr class="memdesc:a5cdf753b6b5df75bc7f332d42c799f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informar al MCU el ancho de la caja de referencia para cálculo interno de velocidad.  <br /></td></tr>
+<tr class="memitem:adcc4635278729b1d54f55fd6193b7dd8" id="r_adcc4635278729b1d54f55fd6193b7dd8"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#adcc4635278729b1d54f55fd6193b7dd8">Uner::CMD_CALIBRACION</a> = 0x63</td></tr>
+<tr class="memdesc:adcc4635278729b1d54f55fd6193b7dd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enviar calibración completa: alturas, tolerancia y tiempos de brazo (7 bytes).  <br /></td></tr>
+<tr class="memitem:af5c34bd30e92c197c7ba38a958c65a7f" id="r_af5c34bd30e92c197c7ba38a958c65a7f"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#af5c34bd30e92c197c7ba38a958c65a7f">Uner::CMD_HCSR04_CFG</a> = 0x64</td></tr>
+<tr class="memdesc:af5c34bd30e92c197c7ba38a958c65a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configurar parámetros del sensor HC-SR04 (3 bytes).  <br /></td></tr>
+<tr class="memitem:a3e79d1598dc157214582591b25e2c06d" id="r_a3e79d1598dc157214582591b25e2c06d"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a3e79d1598dc157214582591b25e2c06d">Uner::CMD_SG90_CFG</a> = 0x65</td></tr>
+<tr class="memdesc:a3e79d1598dc157214582591b25e2c06d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configurar parámetros del servo SG90 (8 bytes, 4×uint16 hi/lo).  <br /></td></tr>
+<tr class="memitem:a30aa9967810290ef066831b2c40249fa" id="r_a30aa9967810290ef066831b2c40249fa"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a30aa9967810290ef066831b2c40249fa">Uner::CMD_IR_DEBOUNCE</a> = 0x66</td></tr>
+<tr class="memdesc:a30aa9967810290ef066831b2c40249fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configurar tiempo de debounce de los sensores IR (1 byte).  <br /></td></tr>
+<tr class="memitem:ae0554b7119295ac2ab1ea48db2a00628" id="r_ae0554b7119295ac2ab1ea48db2a00628"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#ae0554b7119295ac2ab1ea48db2a00628">Uner::CMD_TIMERS_CFG</a> = 0x67</td></tr>
+<tr class="memdesc:ae0554b7119295ac2ab1ea48db2a00628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configurar timers y ángulos generales del sistema (8 bytes).  <br /></td></tr>
+<tr class="memitem:a91f24d7b9c68d250cb0417314fdf2979" id="r_a91f24d7b9c68d250cb0417314fdf2979"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a91f24d7b9c68d250cb0417314fdf2979">Uner::PARAM_ACK</a> = 0x0D</td></tr>
+<tr class="memdesc:a91f24d7b9c68d250cb0417314fdf2979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte de ACK genérico (0x0D).  <br /></td></tr>
+<tr class="memitem:a3ecd19a554a991e5b7ff25794f410d40" id="r_a3ecd19a554a991e5b7ff25794f410d40"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="namespace_uner.html#a3ecd19a554a991e5b7ff25794f410d40">Uner::PARAM_BRAZO_ACK</a> = 0xFF</td></tr>
+<tr class="memdesc:a3ecd19a554a991e5b7ff25794f410d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte de ACK para confirmación de brazo retractado (0xFF).  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Definición del protocolo de comunicación serie UNER y el codificador/decodificador de tramas. </p>
+<p>El protocolo UNER es un protocolo binario orientado a tramas que opera sobre UART. Cada trama tiene la estructura:</p>
+<div class="fragment"><div class="line">[ <span class="charliteral">&#39;U&#39;</span> <span class="charliteral">&#39;N&#39;</span> <span class="charliteral">&#39;E&#39;</span> <span class="charliteral">&#39;R&#39;</span> | len | <span class="charliteral">&#39;:&#39;</span> | cmd | payload (n bytes) | checksum ]</div>
+</div><!-- fragment --><p>donde <code class="param">len</code> = 1 + n + 1 y <code class="param">checksum</code> es el XOR de todos los bytes anteriores al propio checksum.</p>
+<dl class="section version"><dt>Versión</dt><dd>2.0 </dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Proyecto UNER – UNER </dd></dl>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_f83c429584914f285e07e7f54890e179.html">comunicacion</a></li><li class="navelem"><a href="_uner_protocol_8h.html">UnerProtocol.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

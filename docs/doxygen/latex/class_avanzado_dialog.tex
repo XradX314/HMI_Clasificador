@@ -1,0 +1,409 @@
+\doxysection{Referencia de la clase Avanzado\+Dialog}
+\hypertarget{class_avanzado_dialog}{}\label{class_avanzado_dialog}\index{AvanzadoDialog@{AvanzadoDialog}}
+
+
+Diálogo flotante con cuatro secciones de configuración de bajo nivel.  
+
+
+
+
+{\ttfamily \+\#include $<$Avanzado\+Dialog.\+h$>$}
+
+Diagrama de herencia de Avanzado\+Dialog\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_avanzado_dialog}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Señales}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_avanzado_dialog_a08928e4ca6237830a56cff0815ac6642}{send\+Hcsr04}} (const \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Uner::\+\+Hcsr04\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Se emite al presionar «\+Enviar 0x64» (HC-\/\+SR04). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_avanzado_dialog_a21888bf213fcbb333ba72431f8efdab3}{send\+Sg90}} (const \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Uner::\+\+Sg90\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Se emite al presionar «\+Enviar 0x65» (SG90). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_avanzado_dialog_a9c2b45f14d55619bd1cd71825c9088db}{send\+Ir\+Debounce}} (uint8\+\_\+t debounce)
+\begin{DoxyCompactList}\small\item\em Se emite al presionar «\+Enviar 0x66» (debounce IR). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_avanzado_dialog_a3a408184a866a425e300bb5c4d7f7bec}{send\+Timers}} (const \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Uner::\+\+Timers\+Cfg}} \&cfg)
+\begin{DoxyCompactList}\small\item\em Se emite al presionar «\+Enviar 0x67» (timers y cajas). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_avanzado_dialog_a55be61199f73edebc4adb835ac9ecbc6}{Avanzado\+Dialog}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Construye el diálogo con valores predeterminados. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_avanzado_dialog_a59c57a40a4e06b5fa1ba7cb72041e22a}{set\+Dark\+Mode}} (bool dark)
+\begin{DoxyCompactList}\small\item\em Aplica el tema claro u oscuro al diálogo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_avanzado_dialog_af684036c58c1f6b2a038e00bf11d7ef8}{build\+Ui}} ()
+\begin{DoxyCompactList}\small\item\em Construye toda la interfaz del diálogo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_avanzado_dialog_afb8919b3e3e8d1006a29740962ea21a9}{apply\+Dark\+Style}} ()
+\begin{DoxyCompactList}\small\item\em Aplica la hoja de estilo del tema oscuro. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_avanzado_dialog_a598b36579d630361ffc6d79f97ab6bd9}{apply\+Light\+Style}} ()
+\begin{DoxyCompactList}\small\item\em Aplica la hoja de estilo del tema claro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_ae5c939a7ceb31c756e5e7b60ecf07b40}{m\+\_\+spin\+Trig\+Pulse}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em HCSR04\+\_\+\+TRIG\+\_\+\+PULSE\+\_\+\+US (uint8). \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_ad550bc5547966859568bc3aea44540d4}{m\+\_\+spin\+Timeout}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Timeout del eco (uint16, µs). \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_afe12bf884904d3cb862d71efd1f7be9a}{m\+\_\+btn\+Hcsr04}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón «\+Enviar 0x64». \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_a479bbc40c9715f62308027cdf8374243}{m\+\_\+spin\+Period}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em SG90\+\_\+\+PERIOD\+\_\+\+US. \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_a4547aede1c6a3769fd2244ffd2fd8047}{m\+\_\+spin\+Pulse\+Min}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em SG90\+\_\+\+PULSE\+\_\+\+MIN\+\_\+\+US. \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_a2e435b5f34546dde090b49ab828ed7bf}{m\+\_\+spin\+Pulse\+Max}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em SG90\+\_\+\+PULSE\+\_\+\+MAX\+\_\+\+US. \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_a2c68632adc95e4884c54d0efacaab314}{m\+\_\+spin\+Pulse\+Neutral}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em SG90\+\_\+\+PULSE\+\_\+\+NEUTRAL\+\_\+\+US. \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_a8cfbf4d7d3eaf9d842d50e3b2595e796}{m\+\_\+btn\+Sg90}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón «\+Enviar 0x65». \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_aac4bf96b599fdaf9e19a9d4da3431e85}{m\+\_\+spin\+Debounce}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em IR\+\_\+\+DEBOUNCE\+\_\+\+TICKS (uint8). \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_a3dbed26dac782d0a79f066f28332c8b0}{m\+\_\+btn\+Debounce}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón «\+Enviar 0x66». \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_ad6fc1e7a3a27a8fa2111b8b2338c3630}{m\+\_\+spin\+Retract}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em retract\+Timer. \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_a1c05e74635a03a24cafa2d1e9f82ff85}{m\+\_\+spin\+Angle\+Det}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em SG90\+\_\+\+ANGLE\+\_\+\+DETECT. \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_a8c293978e000376347eb33e5da9804c5}{m\+\_\+spin\+Angle\+Rep}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em SG90\+\_\+\+ANGLE\+\_\+\+REPOSE. \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_a848ddb6e0b69bf3f907cb0b4bd1dfd97}{m\+\_\+spin\+Hcsr\+Timer}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em hcsr\+Timer. \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_ada63851c302d2212a4a448bb908a72f9}{m\+\_\+spin\+Alive\+Timer}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em alive\+Timer. \end{DoxyCompactList}\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_afcafc8998788314e6295003297933405}{m\+\_\+spin\+Cajas}} \+[3]\+ \{nullptr, nullptr, nullptr\}
+\begin{DoxyCompactList}\small\item\em config\+Cajas\+[0..2]\+. \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_avanzado_dialog_a25832f9e7a93fcdff901ebb50071f8ee}{m\+\_\+btn\+Timers}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em Botón «\+Enviar 0x67». \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Diálogo flotante con cuatro secciones de configuración de bajo nivel. 
+
+Cada sección tiene su propio botón «\+Enviar» y emite una señal independiente para que \doxylink{class_main_window}{Main\+Window} pueda reenviar el comando al MCU:\+
+
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Sección  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}CMD  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Señal emitida  \\
+HC-\/\+SR04  &0x64  &\doxylink{class_avanzado_dialog_a08928e4ca6237830a56cff0815ac6642}{send\+Hcsr04()}  \\
+Servo SG90  &0x65  &\doxylink{class_avanzado_dialog_a21888bf213fcbb333ba72431f8efdab3}{send\+Sg90()}  \\
+Debounce IR  &0x66  &\doxylink{class_avanzado_dialog_a9c2b45f14d55619bd1cd71825c9088db}{send\+Ir\+Debounce()}  \\
+Timers/\+\+Cajas  &0x67  &\doxylink{class_avanzado_dialog_a3a408184a866a425e300bb5c4d7f7bec}{send\+Timers()}  \\
+\end{DoxyTable}
+
+
+El diálogo es desplazable verticalmente para acomodar todos los campos. 
+
+\label{doc-constructors}
+\Hypertarget{class_avanzado_dialog_doc-constructors}
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_avanzado_dialog_a55be61199f73edebc4adb835ac9ecbc6}\index{AvanzadoDialog@{AvanzadoDialog}!AvanzadoDialog@{AvanzadoDialog}}
+\index{AvanzadoDialog@{AvanzadoDialog}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{AvanzadoDialog()}{AvanzadoDialog()}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a55be61199f73edebc4adb835ac9ecbc6} 
+Avanzado\+Dialog::\+\+Avanzado\+Dialog (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construye el diálogo con valores predeterminados. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em parent} & Objeto padre Qt (o nullptr). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_avanzado_dialog_doc-func-members}
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_avanzado_dialog_afb8919b3e3e8d1006a29740962ea21a9}\index{AvanzadoDialog@{AvanzadoDialog}!applyDarkStyle@{applyDarkStyle}}
+\index{applyDarkStyle@{applyDarkStyle}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{applyDarkStyle()}{applyDarkStyle()}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_afb8919b3e3e8d1006a29740962ea21a9} 
+void Avanzado\+Dialog::\+apply\+Dark\+Style (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aplica la hoja de estilo del tema oscuro. 
+
+\Hypertarget{class_avanzado_dialog_a598b36579d630361ffc6d79f97ab6bd9}\index{AvanzadoDialog@{AvanzadoDialog}!applyLightStyle@{applyLightStyle}}
+\index{applyLightStyle@{applyLightStyle}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{applyLightStyle()}{applyLightStyle()}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a598b36579d630361ffc6d79f97ab6bd9} 
+void Avanzado\+Dialog::\+apply\+Light\+Style (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aplica la hoja de estilo del tema claro. 
+
+\Hypertarget{class_avanzado_dialog_af684036c58c1f6b2a038e00bf11d7ef8}\index{AvanzadoDialog@{AvanzadoDialog}!buildUi@{buildUi}}
+\index{buildUi@{buildUi}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{buildUi()}{buildUi()}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_af684036c58c1f6b2a038e00bf11d7ef8} 
+void Avanzado\+Dialog::\+build\+Ui (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Construye toda la interfaz del diálogo. 
+
+\Hypertarget{class_avanzado_dialog_a08928e4ca6237830a56cff0815ac6642}\index{AvanzadoDialog@{AvanzadoDialog}!sendHcsr04@{sendHcsr04}}
+\index{sendHcsr04@{sendHcsr04}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{sendHcsr04}{sendHcsr04}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a08928e4ca6237830a56cff0815ac6642} 
+void Avanzado\+Dialog::\+send\+Hcsr04 (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Uner::\+\+Hcsr04\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite al presionar «\+Enviar 0x64» (HC-\/\+SR04). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Configuración del sensor ultrasónico. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_avanzado_dialog_a9c2b45f14d55619bd1cd71825c9088db}\index{AvanzadoDialog@{AvanzadoDialog}!sendIrDebounce@{sendIrDebounce}}
+\index{sendIrDebounce@{sendIrDebounce}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{sendIrDebounce}{sendIrDebounce}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a9c2b45f14d55619bd1cd71825c9088db} 
+void Avanzado\+Dialog::\+send\+Ir\+Debounce (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{debounce}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite al presionar «\+Enviar 0x66» (debounce IR). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em debounce} & Número de ticks de debounce. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_avanzado_dialog_a21888bf213fcbb333ba72431f8efdab3}\index{AvanzadoDialog@{AvanzadoDialog}!sendSg90@{sendSg90}}
+\index{sendSg90@{sendSg90}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{sendSg90}{sendSg90}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a21888bf213fcbb333ba72431f8efdab3} 
+void Avanzado\+Dialog::\+send\+Sg90 (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Uner::\+\+Sg90\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite al presionar «\+Enviar 0x65» (SG90). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Configuración del servo. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_avanzado_dialog_a3a408184a866a425e300bb5c4d7f7bec}\index{AvanzadoDialog@{AvanzadoDialog}!sendTimers@{sendTimers}}
+\index{sendTimers@{sendTimers}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{sendTimers}{sendTimers}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a3a408184a866a425e300bb5c4d7f7bec} 
+void Avanzado\+Dialog::\+send\+Timers (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Uner::\+\+Timers\+Cfg}} \&}]{cfg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Se emite al presionar «\+Enviar 0x67» (timers y cajas). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cfg} & Configuración de timers y alturas de caja. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_avanzado_dialog_a59c57a40a4e06b5fa1ba7cb72041e22a}\index{AvanzadoDialog@{AvanzadoDialog}!setDarkMode@{setDarkMode}}
+\index{setDarkMode@{setDarkMode}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{setDarkMode()}{setDarkMode()}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a59c57a40a4e06b5fa1ba7cb72041e22a} 
+void Avanzado\+Dialog::\+set\+Dark\+Mode (\begin{DoxyParamCaption}\item[{bool}]{dark}{}\end{DoxyParamCaption})}
+
+
+
+Aplica el tema claro u oscuro al diálogo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em dark} & true para tema oscuro. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_avanzado_dialog_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{class_avanzado_dialog_a3dbed26dac782d0a79f066f28332c8b0}\index{AvanzadoDialog@{AvanzadoDialog}!m\_btnDebounce@{m\_btnDebounce}}
+\index{m\_btnDebounce@{m\_btnDebounce}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_btnDebounce}{m\_btnDebounce}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a3dbed26dac782d0a79f066f28332c8b0} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+btn\+Debounce \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón «\+Enviar 0x66». 
+
+\Hypertarget{class_avanzado_dialog_afe12bf884904d3cb862d71efd1f7be9a}\index{AvanzadoDialog@{AvanzadoDialog}!m\_btnHcsr04@{m\_btnHcsr04}}
+\index{m\_btnHcsr04@{m\_btnHcsr04}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_btnHcsr04}{m\_btnHcsr04}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_afe12bf884904d3cb862d71efd1f7be9a} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+btn\+Hcsr04 \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón «\+Enviar 0x64». 
+
+\Hypertarget{class_avanzado_dialog_a8cfbf4d7d3eaf9d842d50e3b2595e796}\index{AvanzadoDialog@{AvanzadoDialog}!m\_btnSg90@{m\_btnSg90}}
+\index{m\_btnSg90@{m\_btnSg90}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_btnSg90}{m\_btnSg90}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a8cfbf4d7d3eaf9d842d50e3b2595e796} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+btn\+Sg90 \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón «\+Enviar 0x65». 
+
+\Hypertarget{class_avanzado_dialog_a25832f9e7a93fcdff901ebb50071f8ee}\index{AvanzadoDialog@{AvanzadoDialog}!m\_btnTimers@{m\_btnTimers}}
+\index{m\_btnTimers@{m\_btnTimers}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_btnTimers}{m\_btnTimers}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a25832f9e7a93fcdff901ebb50071f8ee} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+btn\+Timers \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Botón «\+Enviar 0x67». 
+
+\Hypertarget{class_avanzado_dialog_ada63851c302d2212a4a448bb908a72f9}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinAliveTimer@{m\_spinAliveTimer}}
+\index{m\_spinAliveTimer@{m\_spinAliveTimer}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinAliveTimer}{m\_spinAliveTimer}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_ada63851c302d2212a4a448bb908a72f9} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Alive\+Timer \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+alive\+Timer. 
+
+\Hypertarget{class_avanzado_dialog_a1c05e74635a03a24cafa2d1e9f82ff85}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinAngleDet@{m\_spinAngleDet}}
+\index{m\_spinAngleDet@{m\_spinAngleDet}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinAngleDet}{m\_spinAngleDet}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a1c05e74635a03a24cafa2d1e9f82ff85} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Angle\+Det \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+SG90\+\_\+\+ANGLE\+\_\+\+DETECT. 
+
+\Hypertarget{class_avanzado_dialog_a8c293978e000376347eb33e5da9804c5}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinAngleRep@{m\_spinAngleRep}}
+\index{m\_spinAngleRep@{m\_spinAngleRep}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinAngleRep}{m\_spinAngleRep}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a8c293978e000376347eb33e5da9804c5} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Angle\+Rep \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+SG90\+\_\+\+ANGLE\+\_\+\+REPOSE. 
+
+\Hypertarget{class_avanzado_dialog_afcafc8998788314e6295003297933405}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinCajas@{m\_spinCajas}}
+\index{m\_spinCajas@{m\_spinCajas}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinCajas}{m\_spinCajas}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_afcafc8998788314e6295003297933405} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Cajas\+[3]\+ \{nullptr, nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+config\+Cajas\+[0..2]\+. 
+
+\Hypertarget{class_avanzado_dialog_aac4bf96b599fdaf9e19a9d4da3431e85}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinDebounce@{m\_spinDebounce}}
+\index{m\_spinDebounce@{m\_spinDebounce}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinDebounce}{m\_spinDebounce}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_aac4bf96b599fdaf9e19a9d4da3431e85} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Debounce \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+IR\+\_\+\+DEBOUNCE\+\_\+\+TICKS (uint8). 
+
+\Hypertarget{class_avanzado_dialog_a848ddb6e0b69bf3f907cb0b4bd1dfd97}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinHcsrTimer@{m\_spinHcsrTimer}}
+\index{m\_spinHcsrTimer@{m\_spinHcsrTimer}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinHcsrTimer}{m\_spinHcsrTimer}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a848ddb6e0b69bf3f907cb0b4bd1dfd97} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Hcsr\+Timer \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+hcsr\+Timer. 
+
+\Hypertarget{class_avanzado_dialog_a479bbc40c9715f62308027cdf8374243}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinPeriod@{m\_spinPeriod}}
+\index{m\_spinPeriod@{m\_spinPeriod}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinPeriod}{m\_spinPeriod}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a479bbc40c9715f62308027cdf8374243} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Period \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+SG90\+\_\+\+PERIOD\+\_\+\+US. 
+
+\Hypertarget{class_avanzado_dialog_a2e435b5f34546dde090b49ab828ed7bf}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinPulseMax@{m\_spinPulseMax}}
+\index{m\_spinPulseMax@{m\_spinPulseMax}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinPulseMax}{m\_spinPulseMax}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a2e435b5f34546dde090b49ab828ed7bf} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Pulse\+Max \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+SG90\+\_\+\+PULSE\+\_\+\+MAX\+\_\+\+US. 
+
+\Hypertarget{class_avanzado_dialog_a4547aede1c6a3769fd2244ffd2fd8047}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinPulseMin@{m\_spinPulseMin}}
+\index{m\_spinPulseMin@{m\_spinPulseMin}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinPulseMin}{m\_spinPulseMin}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a4547aede1c6a3769fd2244ffd2fd8047} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Pulse\+Min \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+SG90\+\_\+\+PULSE\+\_\+\+MIN\+\_\+\+US. 
+
+\Hypertarget{class_avanzado_dialog_a2c68632adc95e4884c54d0efacaab314}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinPulseNeutral@{m\_spinPulseNeutral}}
+\index{m\_spinPulseNeutral@{m\_spinPulseNeutral}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinPulseNeutral}{m\_spinPulseNeutral}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_a2c68632adc95e4884c54d0efacaab314} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Pulse\+Neutral \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+SG90\+\_\+\+PULSE\+\_\+\+NEUTRAL\+\_\+\+US. 
+
+\Hypertarget{class_avanzado_dialog_ad6fc1e7a3a27a8fa2111b8b2338c3630}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinRetract@{m\_spinRetract}}
+\index{m\_spinRetract@{m\_spinRetract}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinRetract}{m\_spinRetract}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_ad6fc1e7a3a27a8fa2111b8b2338c3630} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Retract \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+retract\+Timer. 
+
+\Hypertarget{class_avanzado_dialog_ad550bc5547966859568bc3aea44540d4}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinTimeout@{m\_spinTimeout}}
+\index{m\_spinTimeout@{m\_spinTimeout}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinTimeout}{m\_spinTimeout}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_ad550bc5547966859568bc3aea44540d4} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Timeout \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Timeout del eco (uint16, µs). 
+
+\Hypertarget{class_avanzado_dialog_ae5c939a7ceb31c756e5e7b60ecf07b40}\index{AvanzadoDialog@{AvanzadoDialog}!m\_spinTrigPulse@{m\_spinTrigPulse}}
+\index{m\_spinTrigPulse@{m\_spinTrigPulse}!AvanzadoDialog@{AvanzadoDialog}}
+\doxysubsubsection{\texorpdfstring{m\_spinTrigPulse}{m\_spinTrigPulse}}
+{\footnotesize\ttfamily \label{class_avanzado_dialog_ae5c939a7ceb31c756e5e7b60ecf07b40} 
+QSpin\+Box\texorpdfstring{$\ast$}{*} Avanzado\+Dialog::\+m\+\_\+spin\+Trig\+Pulse \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+HCSR04\+\_\+\+TRIG\+\_\+\+PULSE\+\_\+\+US (uint8). 
+
+
+
+La documentación de esta clase está generada de los siguientes archivos:\+\begin{DoxyCompactItemize}
+\item 
+widgets/\+\doxymbox{\hyperlink{_avanzado_dialog_8h}{Avanzado\+Dialog.\+h}}\item 
+widgets/\+\doxymbox{\hyperlink{_avanzado_dialog_8cpp}{Avanzado\+Dialog.\+cpp}}\end{DoxyCompactItemize}

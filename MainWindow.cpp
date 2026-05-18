@@ -1,3 +1,10 @@
+/**
+ * @file MainWindow.cpp
+ * @brief Implementación de la ventana principal del HMI Clasificador de Paquetes.
+ *
+ * Contiene la construcción de toda la interfaz gráfica, los slots de control
+ * y la lógica de presentación que conecta el SerialManager con la UI.
+ */
 #include "MainWindow.h"
 
 #include <QWidget>
@@ -59,6 +66,9 @@ QPushButton#btnBlindMode:hover { background: #EDE9FE; }
 QPushButton#btnBlindMode:checked { background: #7C3AED; border-color: #6D28D9; color: #FFFFFF; }
 QPushButton#btnBlindMode:checked:hover { background: #6D28D9; }
 QPushButton#btnBlindMode:disabled { background: #F9FAFB; color: #D1D5DB; border-color: #F3F4F6; }
+QPushButton#btnTrigger { background: #FFF7ED; border-color: #FED7AA; color: #C2410C; }
+QPushButton#btnTrigger:hover { background: #FFEDD5; }
+QPushButton#btnTrigger:disabled { background: #F9FAFB; color: #D1D5DB; border-color: #F3F4F6; }
 
 QComboBox, QSpinBox { background: #FFFFFF; border: 1px solid #D1D5DB; border-radius: 6px;
                       padding: 4px 8px; font-size: 13px; color: #111827; min-height: 28px; }
@@ -114,6 +124,9 @@ QPushButton#btnBlindMode:hover { background: #3B0764; }
 QPushButton#btnBlindMode:checked { background: #7C3AED; border-color: #6D28D9; color: #FFFFFF; }
 QPushButton#btnBlindMode:checked:hover { background: #6D28D9; }
 QPushButton#btnBlindMode:disabled { background: #1F2937; color: #4B5563; border-color: #374151; }
+QPushButton#btnTrigger { background: #431407; border-color: #C2410C; color: #FED7AA; }
+QPushButton#btnTrigger:hover { background: #7C2D12; }
+QPushButton#btnTrigger:disabled { background: #1F2937; color: #4B5563; border-color: #374151; }
 
 QComboBox, QSpinBox { background: #374151; border: 1px solid #4B5563; border-radius: 6px;
                       padding: 4px 8px; font-size: 13px; color: #F9FAFB; min-height: 28px; }
@@ -138,24 +151,20 @@ MainWindow::MainWindow(QWidget *parent)
     , m_serial(new SerialManager(this))
 {
     setWindowTitle("Clasificador de Paquetes — HMI");
-    setMinimumSize(860, 580);
-    resize(980, 680);
+    setMinimumSize(920, 600);
+    resize(1040, 700);
 
     buildUi();
     applyTheme();
 
-    connect(m_serial, &SerialManager::connected,       this, &MainWindow::onConnected);
-    connect(m_serial, &SerialManager::disconnected,    this, &MainWindow::onDisconnected);
-    connect(m_serial, &SerialManager::connectionLost,  this, &MainWindow::onConnectionLost);
-    connect(m_serial, &SerialManager::errorOccurred,   this, &MainWindow::onSerialError);
-    connect(m_serial, &SerialManager::aliveReceived,   m_ledAlive, &LedAliveWidget::onAlive);
-    connect(m_serial, &SerialManager::cajaMedida,      this, &MainWindow::onCajaMedida);
+    connect(m_serial, &SerialManager::connected,           this, &MainWindow::onConnected);
+    connect(m_serial, &SerialManager::disconnected,        this, &MainWindow::onDisconnected);
+    connect(m_serial, &SerialManager::connectionLost,      this, &MainWindow::onConnectionLost);
+    connect(m_serial, &SerialManager::errorOccurred,       this, &MainWindow::onSerialError);
+    connect(m_serial, &SerialManager::aliveReceived,       m_ledAlive, &LedAliveWidget::onAlive);
+    connect(m_serial, &SerialManager::cajaMedida,          this, &MainWindow::onCajaMedida);
     connect(m_serial, &SerialManager::sensorIrActualizado, this, &MainWindow::onSensorIrActualizado);
-    connect(m_serial, &SerialManager::brazoActuado,    this, &MainWindow::onBrazoActuado);
-    connect(m_serial, &SerialManager::medicionLista,   this, &MainWindow::onMedicionLista);
-    connect(m_serial, &SerialManager::medicionTimeout, this, &MainWindow::onMedicionTimeout);
-    connect(m_serial, &SerialManager::velocidadMedida, this, &MainWindow::onVelocidadMedida);
-    connect(m_serial, &SerialManager::velocidadTimeout,this, &MainWindow::onVelocidadTimeout);
+    connect(m_serial, &SerialManager::brazoActuado,        this, &MainWindow::onBrazoActuado);
 
     setConnectedState(false);
     setRunningState(false);
@@ -218,23 +227,26 @@ void MainWindow::buildToolbar()
 
     tb->addSeparator();
 
-    // Botón modo oscuro
     auto *btnDark = new QPushButton("☾  Modo oscuro");
     btnDark->setCheckable(true);
     btnDark->setToolTip("Alternar modo oscuro");
     connect(btnDark, &QPushButton::toggled, this, &MainWindow::toggleDarkMode);
     tb->addWidget(btnDark);
 
-    // Botón configuración
-    auto *btnCfg = new QPushButton("⚙  Configuración");
-    btnCfg->setToolTip("Umbrales de clasificación (0x60)");
+    auto *btnCfg = new QPushButton("⚙  Calibración");
+    btnCfg->setToolTip("Calibración del clasificador (CMD 0x63)");
     connect(btnCfg, &QPushButton::clicked, this, &MainWindow::onOpenConfig);
     tb->addWidget(btnCfg);
 
-    auto *btnVel = new QPushButton("⚡  Velocidad cinta");
-    btnVel->setToolTip("Medir velocidad de la cinta (0x62)");
+    auto *btnVel = new QPushButton("📦  Ancho de caja");
+    btnVel->setToolTip("Enviar ancho de caja de referencia (CMD 0x62)");
     connect(btnVel, &QPushButton::clicked, this, &MainWindow::onOpenVelocidad);
     tb->addWidget(btnVel);
+
+    auto *btnAvanz = new QPushButton("🔧  Config. avanzada");
+    btnAvanz->setToolTip("HC-SR04, SG90, debounce IR, timers (0x64–0x67)");
+    connect(btnAvanz, &QPushButton::clicked, this, &MainWindow::onOpenAvanzado);
+    tb->addWidget(btnAvanz);
 
     addToolBar(tb);
 }
@@ -250,7 +262,6 @@ QWidget *MainWindow::buildTabMonitor()
     root->setContentsMargins(10, 10, 10, 10);
     root->setSpacing(8);
 
-    // Fila superior: conexión | control | salidas | última caja
     auto *rowTop = new QHBoxLayout;
     rowTop->setSpacing(8);
     rowTop->addWidget(buildPanelConexion(),   0);
@@ -259,20 +270,16 @@ QWidget *MainWindow::buildTabMonitor()
     rowTop->addWidget(buildPanelUltimaCaja(), 0);
     root->addLayout(rowTop);
 
-    // Fila media: sensores IR | brazos
     auto *rowMid = new QHBoxLayout;
     rowMid->setSpacing(8);
     rowMid->addWidget(buildPanelSensores(), 1);
     rowMid->addWidget(buildPanelBrazos(),   1);
     root->addLayout(rowMid);
 
-    // Fila inferior: contadores
     root->addWidget(buildPanelContadores());
 
     return page;
 }
-
-// ── Panel Conexión ────────────────────────────────────────────
 
 QWidget *MainWindow::buildPanelConexion()
 {
@@ -292,13 +299,11 @@ QWidget *MainWindow::buildPanelConexion()
     return gb;
 }
 
-// ── Panel Control ─────────────────────────────────────────────
-
 QWidget *MainWindow::buildPanelControl()
 {
     auto *gb = new QGroupBox("Control");
     auto *vl = new QVBoxLayout(gb);
-    vl->setSpacing(6);
+    vl->setSpacing(4);
     vl->setContentsMargins(10, 14, 10, 10);
 
     m_btnStart = new QPushButton("▶  Start");
@@ -316,14 +321,48 @@ QWidget *MainWindow::buildPanelControl()
     connect(m_btnReset, &QPushButton::clicked, this, &MainWindow::onResetClicked);
     vl->addWidget(m_btnReset);
 
+    vl->addSpacing(4);
+
+    // Modo ciego (0x60)
     m_btnBlindMode = new QPushButton("Modo Ciego");
     m_btnBlindMode->setObjectName("btnBlindMode");
     m_btnBlindMode->setCheckable(true);
     m_btnBlindMode->setEnabled(false);
+    m_btnBlindMode->setToolTip("Activar/desactivar modo ciego (CMD 0x60)");
     connect(m_btnBlindMode, &QPushButton::toggled, this, &MainWindow::onBlindModeToggled);
     vl->addWidget(m_btnBlindMode);
 
-    vl->addSpacing(6);
+    // Spinboxes de distancias S0→salida[0,1,2]
+    const char *distLabels[3] = {"S0→Sal0:", "S0→Sal1:", "S0→Sal2:"};
+    const int   distDefaults[3] = {30, 60, 90};
+    for (int i = 0; i < 3; i++) {
+        auto *hl = new QHBoxLayout;
+        hl->setSpacing(4);
+        auto *lbl = new QLabel(distLabels[i]);
+        lbl->setStyleSheet("font-size: 11px; color: #9CA3AF;");
+        hl->addWidget(lbl);
+        m_spinDist[i] = new QSpinBox;
+        m_spinDist[i]->setRange(0, 255);
+        m_spinDist[i]->setValue(distDefaults[i]);
+        m_spinDist[i]->setSuffix(" cm");
+        m_spinDist[i]->setToolTip(
+            QString("Distancia desde S0 a salida %1 (dist_s0_a_salida[%1])").arg(i));
+        m_spinDist[i]->setMaximumWidth(90);
+        hl->addWidget(m_spinDist[i]);
+        vl->addLayout(hl);
+    }
+
+    vl->addSpacing(4);
+
+    // Trigger (0x61)
+    m_btnTrigger = new QPushButton("▶ Trigger");
+    m_btnTrigger->setObjectName("btnTrigger");
+    m_btnTrigger->setEnabled(false);
+    m_btnTrigger->setToolTip("Disparar sensor HC-SR04 (CMD 0x61, sin datos)");
+    connect(m_btnTrigger, &QPushButton::clicked, this, &MainWindow::onTriggerClicked);
+    vl->addWidget(m_btnTrigger);
+
+    vl->addSpacing(4);
 
     auto *hl = new QHBoxLayout;
     hl->addWidget(new QLabel("Vel:"));
@@ -338,8 +377,6 @@ QWidget *MainWindow::buildPanelControl()
     vl->addStretch();
     return gb;
 }
-
-// ── Panel Salidas ─────────────────────────────────────────────
 
 QWidget *MainWindow::buildPanelSalidas()
 {
@@ -372,8 +409,6 @@ QWidget *MainWindow::buildPanelSalidas()
     return gb;
 }
 
-// ── Panel Última caja medida ──────────────────────────────────
-
 QWidget *MainWindow::buildPanelUltimaCaja()
 {
     auto *gb = new QGroupBox("Última caja medida");
@@ -381,21 +416,18 @@ QWidget *MainWindow::buildPanelUltimaCaja()
     vl->setSpacing(6);
     vl->setContentsMargins(14, 16, 14, 12);
 
-    // Valor grande de altura
     m_lblUltimaCajaCm = new QLabel("– cm");
     m_lblUltimaCajaCm->setAlignment(Qt::AlignCenter);
     m_lblUltimaCajaCm->setStyleSheet(
         "font-size: 36px; font-weight: 600; color: #1D4ED8;");
     vl->addWidget(m_lblUltimaCajaCm);
 
-    // Tipo inferido
     m_lblUltimaCajaTipo = new QLabel("–");
     m_lblUltimaCajaTipo->setAlignment(Qt::AlignCenter);
     m_lblUltimaCajaTipo->setStyleSheet(
         "font-size: 14px; font-weight: 500; color: #6B7280;");
     vl->addWidget(m_lblUltimaCajaTipo);
 
-    // Timestamp
     m_lblUltimaCajaTs = new QLabel("–");
     m_lblUltimaCajaTs->setAlignment(Qt::AlignCenter);
     m_lblUltimaCajaTs->setStyleSheet("font-size: 11px; color: #9CA3AF;");
@@ -404,8 +436,6 @@ QWidget *MainWindow::buildPanelUltimaCaja()
     vl->addStretch();
     return gb;
 }
-
-// ── Panel Sensores IR ─────────────────────────────────────────
 
 QWidget *MainWindow::buildPanelSensores()
 {
@@ -437,8 +467,6 @@ QWidget *MainWindow::buildPanelSensores()
     }
     return gb;
 }
-
-// ── Panel Brazos ──────────────────────────────────────────────
 
 QWidget *MainWindow::buildPanelBrazos()
 {
@@ -473,8 +501,6 @@ QWidget *MainWindow::buildPanelBrazos()
     }
     return gb;
 }
-
-// ── Panel Contadores ──────────────────────────────────────────
 
 QWidget *MainWindow::buildPanelContadores()
 {
@@ -530,7 +556,6 @@ void MainWindow::onConnected(const QString &port)
 
 void MainWindow::onDisconnected()
 {
-    m_pendingBlindMode = false;
     m_btnBlindMode->setChecked(false);
     setConnectedState(false);
     setRunningState(false);
@@ -570,16 +595,14 @@ void MainWindow::onCajaMedida(uint8_t alturaCm)
     m_cajasTransito++;
     updateContadores();
 
-    // Recuadro "Última caja medida"
     m_lblUltimaCajaCm->setText(QString("%1 cm").arg(alturaCm));
     m_lblUltimaCajaTipo->setText(tipoCajaStr(alturaCm));
     m_lblUltimaCajaTs->setText(QDateTime::currentDateTime().toString("hh:mm:ss"));
 
-    // Color del valor según tipo
     QString col = "#1D4ED8";
-    if      (alturaCm == 6)  col = "#16A34A";   // pequeña → verde
-    else if (alturaCm == 8)  col = "#D97706";   // mediana → ámbar
-    else if (alturaCm == 10) col = "#DC2626";   // grande  → rojo
+    if      (alturaCm == 6)  col = "#16A34A";
+    else if (alturaCm == 8)  col = "#D97706";
+    else if (alturaCm == 10) col = "#DC2626";
 
     m_lblUltimaCajaCm->setStyleSheet(
         QString("font-size: 36px; font-weight: 600; color: %1;").arg(col));
@@ -659,62 +682,11 @@ void MainWindow::onVelocidadChanged(int value)
         m_serial->sendVelocidad(static_cast<uint8_t>(value));
 }
 
-void MainWindow::onConfigApplied(const Uner::ConfigUmbrales &cfg)
+void MainWindow::onTriggerClicked()
 {
-    m_config = cfg;
-    if (m_serial->isOpen()) {
-        m_serial->sendConfig(cfg);
-        statusMsg(QString("Config enviada 0x60: peq=%1cm med=%2cm gde=%3cm tol=±%4cm")
-                  .arg(cfg.pequenia_cm).arg(cfg.mediana_cm)
-                  .arg(cfg.grande_cm).arg(cfg.tolerancia_cm));
-    } else {
-        statusMsg("Config guardada (sin conexión serial).", 3000);
-    }
-}
-
-void MainWindow::onOpenVelocidad()
-{
-    if (!m_velocidadDialog) {
-        m_velocidadDialog = new VelocidadDialog(this);
-        m_velocidadDialog->setDarkMode(m_darkMode);
-        connect(m_velocidadDialog, &VelocidadDialog::requestMedirVelocidad,
-                this,              &MainWindow::onRequestMedirVelocidad);
-    }
-    m_velocidadDialog->show();
-    m_velocidadDialog->raise();
-    m_velocidadDialog->activateWindow();
-}
-
-void MainWindow::onRequestMedirVelocidad(uint8_t anchoCm)
-{
-    if (!m_serial->isOpen()) {
-        statusMsg("Sin conexión serial — no se puede medir.", 3000);
-        if (m_velocidadDialog) m_velocidadDialog->velocidadFallo();
-        return;
-    }
-    m_serial->sendMedirVelocidad(anchoCm);
-    statusMsg(QString("Midiendo velocidad… ancho=%1 cm. Esperando CMD 0x62 (máx 60 s).")
-              .arg(anchoCm));
-}
-
-void MainWindow::onVelocidadMedida(uint8_t velCmS)
-{
-    m_ultimaVelocidad = velCmS;
-    if (m_velocidadDialog) m_velocidadDialog->velocidadRecibida(velCmS);
-    statusMsg(QString("Velocidad de cinta: %1 cm/s").arg(velCmS));
-
-    if (m_pendingBlindMode) {
-        m_pendingBlindMode = false;
-        m_serial->sendBlindMode(velCmS);
-        m_btnBlindMode->setChecked(true);
-        statusMsg(QString("Modo ciego activado — velocidad: %1 cm/s").arg(velCmS));
-    }
-}
-
-void MainWindow::onVelocidadTimeout()
-{
-    if (m_velocidadDialog) m_velocidadDialog->velocidadFallo();
-    statusMsg("⚠ Timeout: el MCU no respondió al CMD 0x62 en 60 s.", 6000);
+    if (!m_serial->isOpen()) return;
+    m_serial->sendTrigger();
+    statusMsg("Trigger enviado (CMD 0x61).");
 }
 
 void MainWindow::onBlindModeToggled(bool checked)
@@ -723,70 +695,110 @@ void MainWindow::onBlindModeToggled(bool checked)
         m_btnBlindMode->setChecked(false);
         return;
     }
+    // Leer las distancias de los spinboxes
+    m_ciegoCfg.modo_ciego = checked ? 1 : 0;
+    for (int i = 0; i < 3; i++)
+        m_ciegoCfg.dist_s0[i] = static_cast<uint8_t>(m_spinDist[i]->value());
 
-    if (!checked) {
-        m_serial->sendBlindMode(m_ultimaVelocidad);
-        statusMsg("Modo ciego desactivado.");
-        return;
-    }
-
-    if (m_ultimaVelocidad > 0) {
-        m_serial->sendBlindMode(m_ultimaVelocidad);
-        statusMsg(QString("Modo ciego activado — velocidad: %1 cm/s").arg(m_ultimaVelocidad));
-    } else {
-        if (m_pendingBlindMode) return;
-        m_pendingBlindMode = true;
-        m_btnBlindMode->setChecked(false);
-        onOpenVelocidad();
-        connect(m_velocidadDialog, &QDialog::finished, this, [this](int) {
-            if (m_pendingBlindMode) {
-                m_pendingBlindMode = false;
-                m_btnBlindMode->setChecked(false);
-            }
-        }, Qt::SingleShotConnection);
-        statusMsg("Medí la velocidad de cinta para activar el modo ciego.", 5000);
-    }
+    m_serial->sendBlindDist(m_ciegoCfg, 4);
+    statusMsg(QString("Modo ciego %1 — dist: %2/%3/%4 cm")
+              .arg(checked ? "activado" : "desactivado")
+              .arg(m_ciegoCfg.dist_s0[0])
+              .arg(m_ciegoCfg.dist_s0[1])
+              .arg(m_ciegoCfg.dist_s0[2]));
 }
+
+// =============================================================
+//  Slots – Diálogos de configuración
+// =============================================================
 
 void MainWindow::onOpenConfig()
 {
     if (!m_configDialog) {
-        m_configDialog = new ConfigDialog(m_config, this);
+        Uner::CalibracionCfg defaultCfg;
+        m_configDialog = new ConfigDialog(defaultCfg, this);
         m_configDialog->setDarkMode(m_darkMode);
         connect(m_configDialog, &ConfigDialog::configApplied,
                 this,           &MainWindow::onConfigApplied);
-        connect(m_configDialog, &ConfigDialog::requestMedir,
-                this,           &MainWindow::onRequestMedir);
     }
     m_configDialog->show();
     m_configDialog->raise();
     m_configDialog->activateWindow();
 }
 
-void MainWindow::onRequestMedir(ConfigDialog::Field field)
+void MainWindow::onConfigApplied(const Uner::CalibracionCfg &cfg)
+{
+    if (m_serial->isOpen()) {
+        m_serial->sendCalibracion(cfg);
+        statusMsg(QString("Calibración enviada 0x63: piso=%1 peq=%2 med=%3 gde=%4 tol=±%5 ext=%6 ret=%7")
+                  .arg(cfg.calibracion[0]).arg(cfg.calibracion[1])
+                  .arg(cfg.calibracion[2]).arg(cfg.calibracion[3])
+                  .arg(cfg.tolerancia)
+                  .arg(cfg.time_arm_extend).arg(cfg.time_arm_retract));
+    } else {
+        statusMsg("Calibración guardada (sin conexión serial).", 3000);
+    }
+}
+
+void MainWindow::onOpenVelocidad()
+{
+    if (!m_velocidadDialog) {
+        m_velocidadDialog = new VelocidadDialog(this);
+        m_velocidadDialog->setDarkMode(m_darkMode);
+        connect(m_velocidadDialog, &VelocidadDialog::requestAnchoCaja,
+                this,              &MainWindow::onAnchoCajaRequested);
+    }
+    m_velocidadDialog->show();
+    m_velocidadDialog->raise();
+    m_velocidadDialog->activateWindow();
+}
+
+void MainWindow::onAnchoCajaRequested(uint8_t anchoCm)
 {
     if (!m_serial->isOpen()) {
-        statusMsg("Sin conexión serial — no se puede medir.", 3000);
-        if (m_configDialog) m_configDialog->medicionFallo(field);
+        statusMsg("Sin conexión serial — no se puede enviar.", 3000);
         return;
     }
-    m_pendingMedirField = field;
-    m_serial->sendMedir();
-    statusMsg("Midiendo… esperando respuesta 0x61 del MCU.");
+    m_serial->sendAnchoCaja(anchoCm);
+    statusMsg(QString("Ancho de caja enviado: %1 cm (CMD 0x62)").arg(anchoCm));
 }
 
-void MainWindow::onMedicionLista(uint8_t cm)
+void MainWindow::onOpenAvanzado()
 {
-    if (m_configDialog)
-        m_configDialog->medicionRecibida(m_pendingMedirField, cm);
-    statusMsg(QString("Medición recibida: %1 cm").arg(cm));
-}
-
-void MainWindow::onMedicionTimeout()
-{
-    if (m_configDialog)
-        m_configDialog->medicionFallo(m_pendingMedirField);
-    statusMsg("⚠ Timeout: el MCU no respondió al comando 0x61.", 5000);
+    if (!m_avanzadoDialog) {
+        m_avanzadoDialog = new AvanzadoDialog(this);
+        m_avanzadoDialog->setDarkMode(m_darkMode);
+        connect(m_avanzadoDialog, &AvanzadoDialog::sendHcsr04,
+                this, [this](const Uner::Hcsr04Cfg &cfg) {
+            if (!m_serial->isOpen()) { statusMsg("Sin conexión serial.", 3000); return; }
+            m_serial->sendHcsr04Cfg(cfg);
+            statusMsg(QString("HC-SR04 enviado (0x64): pulse=%1µs timeout=%2µs")
+                      .arg(cfg.trig_pulse_us).arg(cfg.timeout_us));
+        });
+        connect(m_avanzadoDialog, &AvanzadoDialog::sendSg90,
+                this, [this](const Uner::Sg90Cfg &cfg) {
+            if (!m_serial->isOpen()) { statusMsg("Sin conexión serial.", 3000); return; }
+            m_serial->sendSg90Cfg(cfg);
+            statusMsg(QString("SG90 enviado (0x65): period=%1 min=%2 max=%3 neutral=%4")
+                      .arg(cfg.period_us).arg(cfg.pulse_min_us)
+                      .arg(cfg.pulse_max_us).arg(cfg.pulse_neutral_us));
+        });
+        connect(m_avanzadoDialog, &AvanzadoDialog::sendIrDebounce,
+                this, [this](uint8_t db) {
+            if (!m_serial->isOpen()) { statusMsg("Sin conexión serial.", 3000); return; }
+            m_serial->sendIrDebounce(db);
+            statusMsg(QString("Debounce IR enviado (0x66): %1 ticks").arg(db));
+        });
+        connect(m_avanzadoDialog, &AvanzadoDialog::sendTimers,
+                this, [this](const Uner::TimersCfg &cfg) {
+            if (!m_serial->isOpen()) { statusMsg("Sin conexión serial.", 3000); return; }
+            m_serial->sendTimersCfg(cfg);
+            statusMsg("Timers/cajas enviados (CMD 0x67).");
+        });
+    }
+    m_avanzadoDialog->show();
+    m_avanzadoDialog->raise();
+    m_avanzadoDialog->activateWindow();
 }
 
 // =============================================================
@@ -799,6 +811,7 @@ void MainWindow::toggleDarkMode(bool dark)
     applyTheme();
     if (m_configDialog)    m_configDialog->setDarkMode(dark);
     if (m_velocidadDialog) m_velocidadDialog->setDarkMode(dark);
+    if (m_avanzadoDialog)  m_avanzadoDialog->setDarkMode(dark);
     m_ledAlive->setDarkMode(dark);
 }
 
@@ -806,7 +819,6 @@ void MainWindow::applyTheme()
 {
     setStyleSheet(m_darkMode ? STYLE_DARK : STYLE_LIGHT);
 
-    // Ajustar colores de labels de contadores según tema
     const QString numColor = m_darkMode ? "#F9FAFB" : "#111827";
     for (QLabel *l : {m_lblEntradas, m_lblSalidas, m_lblTransito})
         if (l) l->setStyleSheet(
@@ -824,6 +836,7 @@ void MainWindow::setConnectedState(bool connected)
     m_btnReset->setEnabled(connected);
     m_spinVel->setEnabled(connected);
     m_btnBlindMode->setEnabled(connected && !m_running);
+    m_btnTrigger->setEnabled(connected);
     checkConfigLock();
 }
 
@@ -845,8 +858,6 @@ void MainWindow::checkConfigLock()
 void MainWindow::updateIrLabel(int idx)
 {
     const bool a = m_irState[idx];
-    // Usamos el objectName en el selector para que tenga mayor
-    // especificidad que el QLabel genérico del QSS del padre.
     const QString name = QString("lblIR%1").arg(idx);
     m_lblIR[idx]->setStyleSheet(
         QString("QLabel#%1 { font-size: 24px; color: %2; }")

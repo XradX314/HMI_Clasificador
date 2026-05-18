@@ -1,0 +1,102 @@
+\doxysection{Referencia del archivo comunicacion/\+\+Uner\+Protocol.h}
+\hypertarget{_uner_protocol_8h}{}\label{_uner_protocol_8h}\index{comunicacion/UnerProtocol.h@{comunicacion/UnerProtocol.h}}
+
+
+Definición del protocolo de comunicación serie UNER y el codificador/\+decodificador de tramas.  
+
+
+{\ttfamily \+\#include $<$QObject$>$}\newline
+{\ttfamily \+\#include $<$QByte\+Array$>$}\newline
+{\ttfamily \+\#include $<$cstdint$>$}\newline
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::\+\+Frame}}
+\begin{DoxyCompactList}\small\item\em Trama decodificada del protocolo UNER. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{Uner::\+\+Ciego\+Distancias}}
+\begin{DoxyCompactList}\small\item\em Datos para el comando 0x60 – Modo ciego y distancias. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::\+\+Calibracion\+Cfg}}
+\begin{DoxyCompactList}\small\item\em Datos para el comando 0x63 – Calibración. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Uner::\+\+Hcsr04\+Cfg}}
+\begin{DoxyCompactList}\small\item\em Datos para el comando 0x64 – Configuración del sensor HC-\/\+SR04. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Uner::\+\+Sg90\+Cfg}}
+\begin{DoxyCompactList}\small\item\em Datos para el comando 0x65 – Configuración del servo SG90. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Uner::\+\+Timers\+Cfg}}
+\begin{DoxyCompactList}\small\item\em Datos para el comando 0x67 – Timers y configuraciones generales. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_uner_protocol}{Uner\+Protocol}}
+\begin{DoxyCompactList}\small\item\em Codificador y decodificador de tramas del protocolo UNER. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Espacios de nombres}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespace_uner}{Uner}}
+\begin{DoxyCompactList}\small\item\em Espacio de nombres con todas las constantes, tipos y estructuras del protocolo UNER v2.\+0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum class \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::\+\+Tipo\+Caja}} :\+ uint8\+\_\+t \{ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a3c2d02846e5a80e529ffcaa9284521c2}{Uner::\+\+Ninguna}} = 0
+, \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54}{Uner::\+\+Pequenia}} = 6
+, \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251}{Uner::\+\+Mediana}} = 8
+, \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9}{Uner::\+\+Grande}} = 10
+ \}
+\begin{DoxyCompactList}\small\item\em Identificador del tipo de caja según su altura medida en cm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a0aebedc2fd186a5b6d21a4bfb6d7a7a6}{Uner::\+\+CMD\+\_\+\+ALIVE}} = 0x\+F0
+\begin{DoxyCompactList}\small\item\em Heartbeat bidireccional (MCU ↔ PC). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_afca05993a41dd34585be0d705daa67a3}{Uner::\+\+CMD\+\_\+\+START}} = 0x50
+\begin{DoxyCompactList}\small\item\em Iniciar clasificador con configuración de 3 salidas. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a676495b26ba39b493ae36eaa733de8c7}{Uner::\+\+CMD\+\_\+\+STOP}} = 0x51
+\begin{DoxyCompactList}\small\item\em Detener el sistema clasificador. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_ab814c2ae649f49d8527a8d3785d614f4}{Uner::\+\+CMD\+\_\+\+BRAZO}} = 0x52
+\begin{DoxyCompactList}\small\item\em Notificación /\+ ACK de actuación de brazo (bidireccional). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a15d208a58c117c92b26f05cb750118e2}{Uner::\+\+CMD\+\_\+\+RESET}} = 0x53
+\begin{DoxyCompactList}\small\item\em Reiniciar el sistema clasificador. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_ab0cdd5372c8d3aa19cb2d519038c49c4}{Uner::\+\+CMD\+\_\+\+VELOCIDAD}} = 0x54
+\begin{DoxyCompactList}\small\item\em Establecer velocidad de la cinta (índice 1–10, payload = idx×10). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a0988bb6598ead433f995bb8539acedc8}{Uner::\+\+CMD\+\_\+\+IR\+\_\+\+STATE}} = 0x5E
+\begin{DoxyCompactList}\small\item\em Estado de sensores IR (MCU→\+PC). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a413f855cf3558a82001e0325b0417854}{Uner::\+\+CMD\+\_\+\+CAJA\+\_\+\+DETECT}} = 0x5F
+\begin{DoxyCompactList}\small\item\em Detección de caja por sensor HC-\/\+SR04 (MCU→\+PC). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a1507aabd82f9907634dafec5f6ea91a2}{Uner::\+\+CMD\+\_\+\+BLIND\+\_\+\+DIST}} = 0x60
+\begin{DoxyCompactList}\small\item\em Activar/\+desactivar modo ciego y configurar distancias S0→salida (1–4 bytes). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_abd858d814c918aa8148613b285fbf1e3}{Uner::\+\+CMD\+\_\+\+TRIGGER}} = 0x61
+\begin{DoxyCompactList}\small\item\em Disparar trigger del sensor HC-\/\+SR04 (PC→\+MCU, sin payload). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a5cdf753b6b5df75bc7f332d42c799f43}{Uner::\+\+CMD\+\_\+\+ANCHO\+\_\+\+CAJA}} = 0x62
+\begin{DoxyCompactList}\small\item\em Informar al MCU el ancho de la caja de referencia para cálculo interno de velocidad. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_adcc4635278729b1d54f55fd6193b7dd8}{Uner::\+\+CMD\+\_\+\+CALIBRACION}} = 0x63
+\begin{DoxyCompactList}\small\item\em Enviar calibración completa:\+ alturas, tolerancia y tiempos de brazo (7 bytes). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_af5c34bd30e92c197c7ba38a958c65a7f}{Uner::\+\+CMD\+\_\+\+HCSR04\+\_\+\+CFG}} = 0x64
+\begin{DoxyCompactList}\small\item\em Configurar parámetros del sensor HC-\/\+SR04 (3 bytes). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a3e79d1598dc157214582591b25e2c06d}{Uner::\+\+CMD\+\_\+\+SG90\+\_\+\+CFG}} = 0x65
+\begin{DoxyCompactList}\small\item\em Configurar parámetros del servo SG90 (8 bytes, 4×uint16 hi/\+lo). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a30aa9967810290ef066831b2c40249fa}{Uner::\+\+CMD\+\_\+\+IR\+\_\+\+DEBOUNCE}} = 0x66
+\begin{DoxyCompactList}\small\item\em Configurar tiempo de debounce de los sensores IR (1 byte). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_ae0554b7119295ac2ab1ea48db2a00628}{Uner::\+\+CMD\+\_\+\+TIMERS\+\_\+\+CFG}} = 0x67
+\begin{DoxyCompactList}\small\item\em Configurar timers y ángulos generales del sistema (8 bytes). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a91f24d7b9c68d250cb0417314fdf2979}{Uner::\+\+PARAM\+\_\+\+ACK}} = 0x0D
+\begin{DoxyCompactList}\small\item\em Byte de ACK genérico (0x0D). \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \doxymbox{\hyperlink{namespace_uner_a3ecd19a554a991e5b7ff25794f410d40}{Uner::\+\+PARAM\+\_\+\+BRAZO\+\_\+\+ACK}} = 0x\+FF
+\begin{DoxyCompactList}\small\item\em Byte de ACK para confirmación de brazo retractado (0x\+FF). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Definición del protocolo de comunicación serie UNER y el codificador/\+decodificador de tramas. 
+
+El protocolo UNER es un protocolo binario orientado a tramas que opera sobre UART. Cada trama tiene la estructura:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[\ \textcolor{charliteral}{'U'}\ \textcolor{charliteral}{'N'}\ \textcolor{charliteral}{'E'}\ \textcolor{charliteral}{'R'}\ |\ len\ |\ \textcolor{charliteral}{':'}\ |\ cmd\ |\ payload\ (n\ bytes)\ |\ checksum\ ]}
+
+\end{DoxyCode}
+
+
+donde {\ttfamily len} = 1 + n + 1 y {\ttfamily checksum} es el XOR de todos los bytes anteriores al propio checksum.
+
+\begin{DoxyVersion}{Versión}
+2.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Autor}
+Proyecto UNER – UNER 
+\end{DoxyAuthor}

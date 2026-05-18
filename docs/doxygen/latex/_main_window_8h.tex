@@ -1,0 +1,34 @@
+\doxysection{Referencia del archivo Main\+Window.\+h}
+\hypertarget{_main_window_8h}{}\label{_main_window_8h}\index{MainWindow.h@{MainWindow.h}}
+
+
+Ventana principal del HMI del clasificador de paquetes.  
+
+
+{\ttfamily \+\#include $<$QMain\+Window$>$}\newline
+{\ttfamily \+\#include $<$QLabel$>$}\newline
+{\ttfamily \+\#include $<$QPush\+Button$>$}\newline
+{\ttfamily \+\#include $<$QCombo\+Box$>$}\newline
+{\ttfamily \+\#include $<$QSpin\+Box$>$}\newline
+{\ttfamily \+\#include $<$QGroup\+Box$>$}\newline
+{\ttfamily \+\#include $<$QStatus\+Bar$>$}\newline
+{\ttfamily \+\#include $<$QTimer$>$}\newline
+{\ttfamily \+\#include $<$QTab\+Widget$>$}\newline
+{\ttfamily \+\#include $<$QAction$>$}\newline
+{\ttfamily \+\#include "{}comunicacion/\+\+Serial\+Manager.\+h"{}}\newline
+{\ttfamily \+\#include "{}comunicacion/\+\+Uner\+Protocol.\+h"{}}\newline
+{\ttfamily \+\#include "{}widgets/\+\+Led\+Alive\+Widget.\+h"{}}\newline
+{\ttfamily \+\#include "{}widgets/\+\+Config\+Dialog.\+h"{}}\newline
+{\ttfamily \+\#include "{}widgets/\+\+Velocidad\+Dialog.\+h"{}}\newline
+{\ttfamily \+\#include "{}widgets/\+\+Avanzado\+Dialog.\+h"{}}\newline
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_main_window}{Main\+Window}}
+\begin{DoxyCompactList}\small\item\em Ventana principal del sistema HMI Clasificador de Paquetes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Ventana principal del HMI del clasificador de paquetes. 
+
+Define la clase \doxylink{class_main_window}{Main\+Window} que orquesta toda la interfaz gráfica y la comunicación con el MCU a través del \doxylink{class_serial_manager}{Serial\+Manager}. 

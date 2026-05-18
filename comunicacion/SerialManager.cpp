@@ -1,3 +1,7 @@
+/**
+ * @file SerialManager.cpp
+ * @brief Implementación del gestor de comunicación serie y despachador de tramas UNER.
+ */
 #include "SerialManager.h"
 #include <QDebug>
 
@@ -17,16 +21,6 @@ SerialManager::SerialManager(QObject *parent)
     m_heartbeatTimer->setSingleShot(false);
     m_heartbeatTimer->setInterval(HEARTBEAT_TIMEOUT_MS);
     connect(m_heartbeatTimer, &QTimer::timeout, this, &SerialManager::onHeartbeatTimeout);
-
-    m_medirTimer = new QTimer(this);
-    m_medirTimer->setSingleShot(true);
-    m_medirTimer->setInterval(3000);
-    connect(m_medirTimer, &QTimer::timeout, this, &SerialManager::onMedirTimeout);
-
-    m_velTimer = new QTimer(this);
-    m_velTimer->setSingleShot(true);
-    m_velTimer->setInterval(60000);   // 60 s para medición de velocidad
-    connect(m_velTimer, &QTimer::timeout, this, &SerialManager::onVelTimeout);
 }
 
 SerialManager::~SerialManager() { close(); }
@@ -77,22 +71,38 @@ void SerialManager::sendRaw(const QByteArray &frame)
     m_serial->write(frame);
 }
 
+// Control
 void SerialManager::sendStart(Uner::TipoCaja s0, Uner::TipoCaja s1, Uner::TipoCaja s2)
 { sendRaw(UnerProtocol::cmdStart(s0, s1, s2)); }
 
-void SerialManager::sendStop()             { sendRaw(UnerProtocol::cmdStop()); }
-void SerialManager::sendReset()            { sendRaw(UnerProtocol::cmdReset()); }
+void SerialManager::sendStop()    { sendRaw(UnerProtocol::cmdStop()); }
+void SerialManager::sendReset()   { sendRaw(UnerProtocol::cmdReset()); }
 void SerialManager::sendVelocidad(uint8_t v) { sendRaw(UnerProtocol::cmdVelocidad(v)); }
-void SerialManager::sendConfig(const Uner::ConfigUmbrales &cfg) { sendRaw(UnerProtocol::cmdConfig(cfg)); }
 
-void SerialManager::sendMedir()
-{
-    if (!m_serial->isOpen()) return;
-    m_esperandoMedir = true;
-    m_medirTimer->start();
-    sendRaw(UnerProtocol::cmdMedir());
-    qDebug() << "[SM] CMD_MEDIR enviado — modo exclusivo activo.";
-}
+// Configuración 0x60–0x67
+void SerialManager::sendBlindDist(const Uner::CiegoDistancias &cfg, uint8_t numBytes)
+{ sendRaw(UnerProtocol::cmdBlindDist(cfg, numBytes)); }
+
+void SerialManager::sendTrigger()
+{ sendRaw(UnerProtocol::cmdTrigger()); }
+
+void SerialManager::sendAnchoCaja(uint8_t anchoCm)
+{ sendRaw(UnerProtocol::cmdAnchoCaja(anchoCm)); }
+
+void SerialManager::sendCalibracion(const Uner::CalibracionCfg &cfg)
+{ sendRaw(UnerProtocol::cmdCalibracion(cfg)); }
+
+void SerialManager::sendHcsr04Cfg(const Uner::Hcsr04Cfg &cfg)
+{ sendRaw(UnerProtocol::cmdHcsr04Cfg(cfg)); }
+
+void SerialManager::sendSg90Cfg(const Uner::Sg90Cfg &cfg)
+{ sendRaw(UnerProtocol::cmdSg90Cfg(cfg)); }
+
+void SerialManager::sendIrDebounce(uint8_t debounce)
+{ sendRaw(UnerProtocol::cmdIrDebounce(debounce)); }
+
+void SerialManager::sendTimersCfg(const Uner::TimersCfg &cfg)
+{ sendRaw(UnerProtocol::cmdTimersCfg(cfg)); }
 
 // ─── Slots privados ───────────────────────────────────────
 void SerialManager::onDataReady()
@@ -124,66 +134,9 @@ void SerialManager::onFrameReceived(const Uner::Frame &frame)
     dispatchFrame(frame);
 }
 
-void SerialManager::sendMedirVelocidad(uint8_t anchoCm)
-{
-    if (!m_serial->isOpen()) return;
-    m_esperandoVel = true;
-    m_velTimer->start();
-    sendRaw(UnerProtocol::cmdMedirVelocidad(anchoCm));
-    qDebug() << "[SM] CMD_MEDIR_VEL enviado, ancho=" << anchoCm << "cm — esperando 0x62.";
-}
-
-void SerialManager::sendBlindMode(uint8_t velCmS)
-{
-    sendRaw(UnerProtocol::cmdBlind(velCmS));
-}
-
-void SerialManager::onMedirTimeout()
-{
-    m_esperandoMedir = false;
-    qWarning() << "[SM] CMD_MEDIR timeout — no llegó respuesta 0x61.";
-    emit medicionTimeout();
-}
-
-void SerialManager::onVelTimeout()
-{
-    m_esperandoVel = false;
-    qWarning() << "[SM] CMD_MEDIR_VEL timeout (60 s).";
-    emit velocidadTimeout();
-}
-
 // ─── Dispatch ─────────────────────────────────────────────
 void SerialManager::dispatchFrame(const Uner::Frame &frame)
 {
-    // ── Modo exclusivo: esperando 0x61 ────────────────────
-    if (m_esperandoMedir) {
-        if (frame.cmd == Uner::CMD_MEDIR) {
-            m_medirTimer->stop();
-            m_esperandoMedir = false;
-            const uint8_t cm = frame.payload.isEmpty()
-                                ? 0 : static_cast<uint8_t>(frame.payload.at(0));
-            qDebug() << "[SM] Medición recibida:" << cm << "cm";
-            emit medicionLista(cm);
-        } else {
-            qDebug() << "[SM] Frame ignorado (esperando 0x61):" << Qt::hex << frame.cmd;
-        }
-        return;
-    }
-
-    // ── Modo exclusivo: esperando 0x62 ────────────────────
-    if (m_esperandoVel) {
-        if (frame.cmd == Uner::CMD_MEDIR_VEL) {
-            m_velTimer->stop();
-            m_esperandoVel = false;
-            const uint8_t vel = frame.payload.isEmpty()
-                                 ? 0 : static_cast<uint8_t>(frame.payload.at(0));
-            qDebug() << "[SM] Velocidad medida:" << vel << "cm/s";
-            emit velocidadMedida(vel);
-        } else {
-            qDebug() << "[SM] Frame ignorado (esperando 0x62):" << Qt::hex << frame.cmd;
-        }
-        return;
-    }
     switch (frame.cmd) {
 
     case Uner::CMD_ALIVE:
@@ -193,7 +146,7 @@ void SerialManager::dispatchFrame(const Uner::Frame &frame)
         qDebug() << "[SerialManager] Heartbeat recibido → ACK enviado.";
         break;
 
-    // 0x5F: caja medida. payload[0] = altura en cm (6, 8 o 10)
+    // 0x5F: caja medida. payload[0] = altura en cm
     case Uner::CMD_CAJA_DETECT:
         if (!frame.payload.isEmpty()) {
             const uint8_t h = static_cast<uint8_t>(frame.payload.at(0));
@@ -211,15 +164,16 @@ void SerialManager::dispatchFrame(const Uner::Frame &frame)
         }
         break;
 
-    // 0x52: brazo actuado. payload[0]=servoIdx, payload[1]=0x00
+    // 0x52: brazo actuado. payload[0]=máscara servo, payload[1]=estado
     case Uner::CMD_BRAZO:
         if (frame.payload.size() >= 2) {
-            const uint8_t servoIdx = static_cast<uint8_t>(frame.payload.at(0));
-            if (servoIdx < 3) {
-                emit brazoActuado(servoIdx);
-                qDebug() << "[SerialManager] Brazo actuado, servo:" << servoIdx;
-            } else {
-                qWarning() << "[SM] CMD_BRAZO: índice inválido:" << servoIdx;
+            const uint8_t mask = static_cast<uint8_t>(frame.payload.at(0));
+            // El MCU envía la máscara de bits; encontramos el índice
+            for (uint8_t i = 0; i < 3; i++) {
+                if (mask & (1 << i)) {
+                    emit brazoActuado(i);
+                    qDebug() << "[SerialManager] Brazo actuado, servo:" << i;
+                }
             }
         }
         break;

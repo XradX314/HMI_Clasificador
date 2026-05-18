@@ -1,0 +1,1086 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Referencia de la clase UnerProtocol</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_uner_protocol.html','','class_uner_protocol-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia de la clase UnerProtocol</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Codificador y decodificador de tramas del protocolo UNER.  
+ <a href="#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_uner_protocol_8h_source.html">UnerProtocol.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de herencia de UnerProtocol</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_uner_protocol.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-signals" class="groupheader"><a id="signals" name="signals"></a>
+Señales</h2></td></tr>
+<tr class="memitem:a270372c4d6fbb290e8af0a5e68dd13fd" id="r_a270372c4d6fbb290e8af0a5e68dd13fd"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a270372c4d6fbb290e8af0a5e68dd13fd">frameReceived</a> (const <a class="el" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;frame)</td></tr>
+<tr class="memdesc:a270372c4d6fbb290e8af0a5e68dd13fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite cuando se recibe y verifica una trama completa.  <br /></td></tr>
+<tr class="memitem:a73fcef6a15fb59892cc4d07dc4a029da" id="r_a73fcef6a15fb59892cc4d07dc4a029da"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a73fcef6a15fb59892cc4d07dc4a029da">checksumError</a> (const QByteArray &amp;raw)</td></tr>
+<tr class="memdesc:a73fcef6a15fb59892cc4d07dc4a029da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se emite cuando el checksum de una trama no coincide.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a85a70b0855430811b4e6afd919e3b69a" id="r_a85a70b0855430811b4e6afd919e3b69a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a85a70b0855430811b4e6afd919e3b69a">UnerProtocol</a> (QObject *parent=nullptr)</td></tr>
+<tr class="memdesc:a85a70b0855430811b4e6afd919e3b69a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construye el objeto <a class="el" href="class_uner_protocol.html" title="Codificador y decodificador de tramas del protocolo UNER.">UnerProtocol</a>.  <br /></td></tr>
+<tr class="memitem:a4510e7e9b675aa7c0016856541b181bd" id="r_a4510e7e9b675aa7c0016856541b181bd"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4510e7e9b675aa7c0016856541b181bd">feed</a> (const QByteArray &amp;data)</td></tr>
+<tr class="memdesc:a4510e7e9b675aa7c0016856541b181bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alimenta el parser con bytes recibidos del puerto serie.  <br /></td></tr>
+<tr class="memitem:aea18560d903cf5f8a90fe487adfa168d" id="r_aea18560d903cf5f8a90fe487adfa168d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aea18560d903cf5f8a90fe487adfa168d">reset</a> ()</td></tr>
+<tr class="memdesc:aea18560d903cf5f8a90fe487adfa168d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinicia el estado interno del parser.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Métodos públicos estáticos</h2></td></tr>
+<tr class="memitem:a8b626c4f488afaa3c6bc61fd8499deec" id="r_a8b626c4f488afaa3c6bc61fd8499deec"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a8b626c4f488afaa3c6bc61fd8499deec">encode</a> (uint8_t cmd, const QByteArray &amp;payload={})</td></tr>
+<tr class="memdesc:a8b626c4f488afaa3c6bc61fd8499deec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construye una trama UNER completa con checksum XOR.  <br /></td></tr>
+<tr class="memitem:a7a806329f264ac2f56e3b61855f0cb85" id="r_a7a806329f264ac2f56e3b61855f0cb85"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a7a806329f264ac2f56e3b61855f0cb85">ackAlive</a> ()</td></tr>
+<tr class="memdesc:a7a806329f264ac2f56e3b61855f0cb85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de ACK de heartbeat (0xF0 + 0x0D).  <br /></td></tr>
+<tr class="memitem:a1f7d57639a72fb63aa58e24d177144ee" id="r_a1f7d57639a72fb63aa58e24d177144ee"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a1f7d57639a72fb63aa58e24d177144ee">cmdStart</a> (<a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s0, <a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s1, <a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> s2)</td></tr>
+<tr class="memdesc:a1f7d57639a72fb63aa58e24d177144ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de inicio del clasificador (0x50).  <br /></td></tr>
+<tr class="memitem:abcc9215e6717dca373d88f70026cdbe5" id="r_abcc9215e6717dca373d88f70026cdbe5"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#abcc9215e6717dca373d88f70026cdbe5">cmdStop</a> ()</td></tr>
+<tr class="memdesc:abcc9215e6717dca373d88f70026cdbe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de detención del sistema (0x51).  <br /></td></tr>
+<tr class="memitem:a1129ce91f8cf057a60016fa8cf24b8ca" id="r_a1129ce91f8cf057a60016fa8cf24b8ca"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a1129ce91f8cf057a60016fa8cf24b8ca">cmdReset</a> ()</td></tr>
+<tr class="memdesc:a1129ce91f8cf057a60016fa8cf24b8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de reset del sistema (0x53).  <br /></td></tr>
+<tr class="memitem:a27c1327e50dffd000ffa8592d65b207a" id="r_a27c1327e50dffd000ffa8592d65b207a"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a27c1327e50dffd000ffa8592d65b207a">ackBrazo</a> ()</td></tr>
+<tr class="memdesc:a27c1327e50dffd000ffa8592d65b207a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de ACK de brazo retractado (0x52 + 0xFF).  <br /></td></tr>
+<tr class="memitem:a5484fdf88f6053a074f436eaec1502d9" id="r_a5484fdf88f6053a074f436eaec1502d9"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a5484fdf88f6053a074f436eaec1502d9">cmdVelocidad</a> (uint8_t velIdx)</td></tr>
+<tr class="memdesc:a5484fdf88f6053a074f436eaec1502d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de velocidad de la cinta (0x54).  <br /></td></tr>
+<tr class="memitem:a4e78307056aeeb0324aa35ebce351934" id="r_a4e78307056aeeb0324aa35ebce351934"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a4e78307056aeeb0324aa35ebce351934">cmdBlindDist</a> (const <a class="el" href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a> &amp;cfg, uint8_t numBytes=4)</td></tr>
+<tr class="memdesc:a4e78307056aeeb0324aa35ebce351934"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de modo ciego y distancias (0x60).  <br /></td></tr>
+<tr class="memitem:a7da608c6526da2a0d99ae2056d80a07a" id="r_a7da608c6526da2a0d99ae2056d80a07a"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a7da608c6526da2a0d99ae2056d80a07a">cmdTrigger</a> ()</td></tr>
+<tr class="memdesc:a7da608c6526da2a0d99ae2056d80a07a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de disparo de trigger HC-SR04 (0x61).  <br /></td></tr>
+<tr class="memitem:acf65414ddffc1fbef089456e5e6509a9" id="r_acf65414ddffc1fbef089456e5e6509a9"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#acf65414ddffc1fbef089456e5e6509a9">cmdAnchoCaja</a> (uint8_t anchoCm)</td></tr>
+<tr class="memdesc:acf65414ddffc1fbef089456e5e6509a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de ancho de caja de referencia (0x62).  <br /></td></tr>
+<tr class="memitem:af5de8dcbbbc670e39f51e1b555fad046" id="r_af5de8dcbbbc670e39f51e1b555fad046"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#af5de8dcbbbc670e39f51e1b555fad046">cmdCalibracion</a> (const <a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:af5de8dcbbbc670e39f51e1b555fad046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de calibración completa (0x63).  <br /></td></tr>
+<tr class="memitem:acbb40127c728551e553a54bd3d998337" id="r_acbb40127c728551e553a54bd3d998337"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#acbb40127c728551e553a54bd3d998337">cmdHcsr04Cfg</a> (const <a class="el" href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:acbb40127c728551e553a54bd3d998337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de configuración del sensor HC-SR04 (0x64).  <br /></td></tr>
+<tr class="memitem:a51956427e8b6badffe35f8781f012893" id="r_a51956427e8b6badffe35f8781f012893"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a51956427e8b6badffe35f8781f012893">cmdSg90Cfg</a> (const <a class="el" href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:a51956427e8b6badffe35f8781f012893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de configuración del servo SG90 (0x65).  <br /></td></tr>
+<tr class="memitem:a3d5f19ad70d4c11edb15e9cf4d125bbb" id="r_a3d5f19ad70d4c11edb15e9cf4d125bbb"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a3d5f19ad70d4c11edb15e9cf4d125bbb">cmdIrDebounce</a> (uint8_t debounce)</td></tr>
+<tr class="memdesc:a3d5f19ad70d4c11edb15e9cf4d125bbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de debounce IR (0x66).  <br /></td></tr>
+<tr class="memitem:a3505c38a310e1d05f3f7cde3c8cc5b68" id="r_a3505c38a310e1d05f3f7cde3c8cc5b68"><td class="memItemLeft">static QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a3505c38a310e1d05f3f7cde3c8cc5b68">cmdTimersCfg</a> (const <a class="el" href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a> &amp;cfg)</td></tr>
+<tr class="memdesc:a3505c38a310e1d05f3f7cde3c8cc5b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera trama de timers y configuraciones generales (0x67).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-types" class="groupheader"><a id="pri-types" name="pri-types"></a>
+Tipos privados</h2></td></tr>
+<tr class="memitem:afa14f41e5c9180b483ad0f053895ecf3" id="r_afa14f41e5c9180b483ad0f053895ecf3"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3">ParseState</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9">WaitU</a> = 0
+, <a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872">WaitN</a>
+, <a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b">WaitE</a>
+, <a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd">WaitR</a>
+, <br />
+&#160;&#160;<a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf">ReadLen</a>
+, <a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297">WaitColon</a>
+, <a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0">ReadPayload</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:afa14f41e5c9180b483ad0f053895ecf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estados de la máquina de estados del decodificador.  <a href="#afa14f41e5c9180b483ad0f053895ecf3">Más...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:ad0d6c8881976494e62723a94263e55c6" id="r_ad0d6c8881976494e62723a94263e55c6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad0d6c8881976494e62723a94263e55c6">processPayload</a> ()</td></tr>
+<tr class="memdesc:ad0d6c8881976494e62723a94263e55c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procesa el payload interno cuando la trama está completa.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:a4bbbfb6c459ee5a2688fd9982ab52370" id="r_a4bbbfb6c459ee5a2688fd9982ab52370"><td class="memItemLeft"><a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3">ParseState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4bbbfb6c459ee5a2688fd9982ab52370">m_state</a> {<a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9">ParseState::WaitU</a>}</td></tr>
+<tr class="memdesc:a4bbbfb6c459ee5a2688fd9982ab52370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estado actual del parser.  <br /></td></tr>
+<tr class="memitem:ab65e73e19f6b3aeeb9cf98725b7a45d4" id="r_ab65e73e19f6b3aeeb9cf98725b7a45d4"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ab65e73e19f6b3aeeb9cf98725b7a45d4">m_len</a> {0}</td></tr>
+<tr class="memdesc:ab65e73e19f6b3aeeb9cf98725b7a45d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longitud total esperada (cmd + payload + cks).  <br /></td></tr>
+<tr class="memitem:a212e07b79197184885f8a0b68b8abc50" id="r_a212e07b79197184885f8a0b68b8abc50"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a212e07b79197184885f8a0b68b8abc50">m_remaining</a> {0}</td></tr>
+<tr class="memdesc:a212e07b79197184885f8a0b68b8abc50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes restantes por leer.  <br /></td></tr>
+<tr class="memitem:aabde0d0b200e8b118cfa5e004b563e9e" id="r_aabde0d0b200e8b118cfa5e004b563e9e"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aabde0d0b200e8b118cfa5e004b563e9e">m_cks</a> {0}</td></tr>
+<tr class="memdesc:aabde0d0b200e8b118cfa5e004b563e9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acumulador de checksum XOR.  <br /></td></tr>
+<tr class="memitem:aa071478084b208f0b8cdcccbdb96f7c1" id="r_aa071478084b208f0b8cdcccbdb96f7c1"><td class="memItemLeft">QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#aa071478084b208f0b8cdcccbdb96f7c1">m_payload</a></td></tr>
+<tr class="memdesc:aa071478084b208f0b8cdcccbdb96f7c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer interno de payload.  <br /></td></tr>
+<tr class="memitem:a2b6c03532804cace4ee670eeab0b7ec9" id="r_a2b6c03532804cace4ee670eeab0b7ec9"><td class="memItemLeft">QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#a2b6c03532804cace4ee670eeab0b7ec9">m_rawFrame</a></td></tr>
+<tr class="memdesc:a2b6c03532804cace4ee670eeab0b7ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer de la trama cruda (diagnóstico).  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Codificador y decodificador de tramas del protocolo UNER. </p>
+<p>Provee métodos estáticos para construir tramas (encoders) y un parser incremental orientado a bytes para decodificar el stream de datos recibido por el puerto serie (decoder).</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
+Uso del decoder</h2>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a85a70b0855430811b4e6afd919e3b69a">UnerProtocol</a> proto(parent);</div>
+<div class="line">connect(&amp;proto, &amp;<a class="code hl_signal" href="#a270372c4d6fbb290e8af0a5e68dd13fd">UnerProtocol::frameReceived</a>, <span class="keyword">this</span>, &amp;MiClase::onFrame);</div>
+<div class="line">proto.feed(datosRecibidos);</div>
+<div class="ttc" id="aclass_uner_protocol_html_a270372c4d6fbb290e8af0a5e68dd13fd"><div class="ttname"><a href="#a270372c4d6fbb290e8af0a5e68dd13fd">UnerProtocol::frameReceived</a></div><div class="ttdeci">void frameReceived(const Uner::Frame &amp;frame)</div><div class="ttdoc">Se emite cuando se recibe y verifica una trama completa.</div></div>
+<div class="ttc" id="aclass_uner_protocol_html_a85a70b0855430811b4e6afd919e3b69a"><div class="ttname"><a href="#a85a70b0855430811b4e6afd919e3b69a">UnerProtocol::UnerProtocol</a></div><div class="ttdeci">UnerProtocol(QObject *parent=nullptr)</div><div class="ttdoc">Construye el objeto UnerProtocol.</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:19</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Uso de los encoders</h2>
+<div class="fragment"><div class="line">QByteArray trama = <a class="code hl_function" href="#a1f7d57639a72fb63aa58e24d177144ee">UnerProtocol::cmdStart</a>(</div>
+<div class="line">    <a class="code hl_enumvalue" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54">Uner::TipoCaja::Pequenia</a>,</div>
+<div class="line">    <a class="code hl_enumvalue" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251">Uner::TipoCaja::Mediana</a>,</div>
+<div class="line">    <a class="code hl_enumvalue" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9">Uner::TipoCaja::Grande</a>);</div>
+<div class="line">puerto-&gt;write(trama);</div>
+<div class="ttc" id="aclass_uner_protocol_html_a1f7d57639a72fb63aa58e24d177144ee"><div class="ttname"><a href="#a1f7d57639a72fb63aa58e24d177144ee">UnerProtocol::cmdStart</a></div><div class="ttdeci">static QByteArray cmdStart(Uner::TipoCaja s0, Uner::TipoCaja s1, Uner::TipoCaja s2)</div><div class="ttdoc">Genera trama de inicio del clasificador (0x50).</div><div class="ttdef"><b>Definition</b> UnerProtocol.cpp:48</div></div>
+<div class="ttc" id="anamespace_uner_html_a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9"><div class="ttname"><a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9">Uner::TipoCaja::Grande</a></div><div class="ttdeci">@ Grande</div><div class="ttdoc">Caja grande – 10 cm.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:105</div></div>
+<div class="ttc" id="anamespace_uner_html_a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54"><div class="ttname"><a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54">Uner::TipoCaja::Pequenia</a></div><div class="ttdeci">@ Pequenia</div><div class="ttdoc">Caja pequeña – 6 cm.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:103</div></div>
+<div class="ttc" id="anamespace_uner_html_a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251"><div class="ttname"><a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251">Uner::TipoCaja::Mediana</a></div><div class="ttdeci">@ Mediana</div><div class="ttdoc">Caja mediana – 8 cm.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:104</div></div>
+</div><!-- fragment --> </div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentación de las enumeraciones miembro de la clase</h2>
+<a id="afa14f41e5c9180b483ad0f053895ecf3" name="afa14f41e5c9180b483ad0f053895ecf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa14f41e5c9180b483ad0f053895ecf3">&#9670;&#160;</a></span>ParseState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3">UnerProtocol::ParseState</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Estados de la máquina de estados del decodificador. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9" name="afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9"></a>WaitU&#160;</td><td class="fielddoc"><p>Esperando el byte 'U' del encabezado. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872" name="afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872"></a>WaitN&#160;</td><td class="fielddoc"><p>Esperando el byte 'N'. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b" name="afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b"></a>WaitE&#160;</td><td class="fielddoc"><p>Esperando el byte 'E'. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd" name="afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd"></a>WaitR&#160;</td><td class="fielddoc"><p>Esperando el byte 'R'. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf" name="afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf"></a>ReadLen&#160;</td><td class="fielddoc"><p>Leyendo el byte de longitud. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297" name="afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297"></a>WaitColon&#160;</td><td class="fielddoc"><p>Esperando el separador ':'. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0" name="afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0"></a>ReadPayload&#160;</td><td class="fielddoc"><p>Leyendo el payload + checksum. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentación de constructores y destructores</h2>
+<a id="a85a70b0855430811b4e6afd919e3b69a" name="a85a70b0855430811b4e6afd919e3b69a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85a70b0855430811b4e6afd919e3b69a">&#9670;&#160;</a></span>UnerProtocol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UnerProtocol::UnerProtocol </td>
+          <td>(</td>
+          <td class="paramtype">QObject *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construye el objeto <a class="el" href="class_uner_protocol.html" title="Codificador y decodificador de tramas del protocolo UNER.">UnerProtocol</a>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Objeto padre Qt (o nullptr). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones miembro</h2>
+<a id="a7a806329f264ac2f56e3b61855f0cb85" name="a7a806329f264ac2f56e3b61855f0cb85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a806329f264ac2f56e3b61855f0cb85">&#9670;&#160;</a></span>ackAlive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::ackAlive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de ACK de heartbeat (0xF0 + 0x0D). </p>
+
+</div>
+</div>
+<a id="a27c1327e50dffd000ffa8592d65b207a" name="a27c1327e50dffd000ffa8592d65b207a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27c1327e50dffd000ffa8592d65b207a">&#9670;&#160;</a></span>ackBrazo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::ackBrazo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de ACK de brazo retractado (0x52 + 0xFF). </p>
+
+</div>
+</div>
+<a id="a73fcef6a15fb59892cc4d07dc4a029da" name="a73fcef6a15fb59892cc4d07dc4a029da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73fcef6a15fb59892cc4d07dc4a029da">&#9670;&#160;</a></span>checksumError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UnerProtocol::checksumError </td>
+          <td>(</td>
+          <td class="paramtype">const QByteArray &amp;</td>          <td class="paramname"><span class="paramname"><em>raw</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite cuando el checksum de una trama no coincide. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">raw</td><td>Bytes crudos de la trama con error. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acf65414ddffc1fbef089456e5e6509a9" name="acf65414ddffc1fbef089456e5e6509a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf65414ddffc1fbef089456e5e6509a9">&#9670;&#160;</a></span>cmdAnchoCaja()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdAnchoCaja </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>anchoCm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de ancho de caja de referencia (0x62). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">anchoCm</td><td>Ancho de la caja en centímetros. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e78307056aeeb0324aa35ebce351934" name="a4e78307056aeeb0324aa35ebce351934"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e78307056aeeb0324aa35ebce351934">&#9670;&#160;</a></span>cmdBlindDist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdBlindDist </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>numBytes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">4</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de modo ciego y distancias (0x60). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Estructura con modo_ciego y dist_s0[3]. </td></tr>
+    <tr><td class="paramname">numBytes</td><td>Cantidad de bytes a incluir (1–4).<ul>
+<li>1: solo modo_ciego.</li>
+<li>2–4: incluye distancias progressivamente. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af5de8dcbbbc670e39f51e1b555fad046" name="af5de8dcbbbc670e39f51e1b555fad046"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5de8dcbbbc670e39f51e1b555fad046">&#9670;&#160;</a></span>cmdCalibracion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdCalibracion </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de calibración completa (0x63). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Estructura con 4 alturas, tolerancia y tiempos de brazo. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acbb40127c728551e553a54bd3d998337" name="acbb40127c728551e553a54bd3d998337"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbb40127c728551e553a54bd3d998337">&#9670;&#160;</a></span>cmdHcsr04Cfg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdHcsr04Cfg </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_hcsr04_cfg.html">Uner::Hcsr04Cfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de configuración del sensor HC-SR04 (0x64). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Estructura con pulso de trigger y timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3d5f19ad70d4c11edb15e9cf4d125bbb" name="a3d5f19ad70d4c11edb15e9cf4d125bbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d5f19ad70d4c11edb15e9cf4d125bbb">&#9670;&#160;</a></span>cmdIrDebounce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdIrDebounce </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>debounce</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de debounce IR (0x66). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">debounce</td><td>Número de ticks de debounce. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1129ce91f8cf057a60016fa8cf24b8ca" name="a1129ce91f8cf057a60016fa8cf24b8ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1129ce91f8cf057a60016fa8cf24b8ca">&#9670;&#160;</a></span>cmdReset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdReset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de reset del sistema (0x53). </p>
+
+</div>
+</div>
+<a id="a51956427e8b6badffe35f8781f012893" name="a51956427e8b6badffe35f8781f012893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51956427e8b6badffe35f8781f012893">&#9670;&#160;</a></span>cmdSg90Cfg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdSg90Cfg </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_sg90_cfg.html">Uner::Sg90Cfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de configuración del servo SG90 (0x65). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Estructura con período, pulso mínimo, máximo y neutro. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1f7d57639a72fb63aa58e24d177144ee" name="a1f7d57639a72fb63aa58e24d177144ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f7d57639a72fb63aa58e24d177144ee">&#9670;&#160;</a></span>cmdStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a></td>          <td class="paramname"><span class="paramname"><em>s0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a></td>          <td class="paramname"><span class="paramname"><em>s1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a></td>          <td class="paramname"><span class="paramname"><em>s2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de inicio del clasificador (0x50). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s0</td><td>Tipo de caja asignado a la salida 0. </td></tr>
+    <tr><td class="paramname">s1</td><td>Tipo de caja asignado a la salida 1. </td></tr>
+    <tr><td class="paramname">s2</td><td>Tipo de caja asignado a la salida 2. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abcc9215e6717dca373d88f70026cdbe5" name="abcc9215e6717dca373d88f70026cdbe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcc9215e6717dca373d88f70026cdbe5">&#9670;&#160;</a></span>cmdStop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdStop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de detención del sistema (0x51). </p>
+
+</div>
+</div>
+<a id="a3505c38a310e1d05f3f7cde3c8cc5b68" name="a3505c38a310e1d05f3f7cde3c8cc5b68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3505c38a310e1d05f3f7cde3c8cc5b68">&#9670;&#160;</a></span>cmdTimersCfg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdTimersCfg </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_timers_cfg.html">Uner::TimersCfg</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de timers y configuraciones generales (0x67). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Estructura con timers, ángulos de servo y alturas de caja. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7da608c6526da2a0d99ae2056d80a07a" name="a7da608c6526da2a0d99ae2056d80a07a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7da608c6526da2a0d99ae2056d80a07a">&#9670;&#160;</a></span>cmdTrigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdTrigger </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de disparo de trigger HC-SR04 (0x61). </p>
+<p>Sin payload. </p>
+
+</div>
+</div>
+<a id="a5484fdf88f6053a074f436eaec1502d9" name="a5484fdf88f6053a074f436eaec1502d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5484fdf88f6053a074f436eaec1502d9">&#9670;&#160;</a></span>cmdVelocidad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::cmdVelocidad </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>velIdx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera trama de velocidad de la cinta (0x54). </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">velIdx</td><td>Índice de velocidad en el rango [1, 10]. El MCU recibe velIdx×10. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8b626c4f488afaa3c6bc61fd8499deec" name="a8b626c4f488afaa3c6bc61fd8499deec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b626c4f488afaa3c6bc61fd8499deec">&#9670;&#160;</a></span>encode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::encode </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QByteArray &amp;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construye una trama UNER completa con checksum XOR. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>Byte de comando. </td></tr>
+    <tr><td class="paramname">payload</td><td>Payload (puede estar vacío). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Trama lista para escribir al puerto serie. </dd></dl>
+
+</div>
+</div>
+<a id="a4510e7e9b675aa7c0016856541b181bd" name="a4510e7e9b675aa7c0016856541b181bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4510e7e9b675aa7c0016856541b181bd">&#9670;&#160;</a></span>feed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UnerProtocol::feed </td>
+          <td>(</td>
+          <td class="paramtype">const QByteArray &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alimenta el parser con bytes recibidos del puerto serie. </p>
+<p>Se puede llamar con cualquier cantidad de bytes. Cuando se completa y verifica una trama emite la señal <a class="el" href="#a270372c4d6fbb290e8af0a5e68dd13fd" title="frameReceived">frameReceived</a>. </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Bytes recibidos (puede ser parcial o múltiples tramas). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a270372c4d6fbb290e8af0a5e68dd13fd" name="a270372c4d6fbb290e8af0a5e68dd13fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a270372c4d6fbb290e8af0a5e68dd13fd">&#9670;&#160;</a></span>frameReceived</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UnerProtocol::frameReceived </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_uner_1_1_frame.html">Uner::Frame</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Se emite cuando se recibe y verifica una trama completa. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td>Trama decodificada con cmd y payload. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad0d6c8881976494e62723a94263e55c6" name="ad0d6c8881976494e62723a94263e55c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0d6c8881976494e62723a94263e55c6">&#9670;&#160;</a></span>processPayload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UnerProtocol::processPayload </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Procesa el payload interno cuando la trama está completa. </p>
+<p>Extrae cmd y payload, luego emite <a class="el" href="#a270372c4d6fbb290e8af0a5e68dd13fd" title="frameReceived">frameReceived</a>. </p>
+
+</div>
+</div>
+<a id="aea18560d903cf5f8a90fe487adfa168d" name="aea18560d903cf5f8a90fe487adfa168d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea18560d903cf5f8a90fe487adfa168d">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UnerProtocol::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reinicia el estado interno del parser. </p>
+<p>Útil después de abrir el puerto o ante errores de comunicación. </p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentación de datos miembro</h2>
+<a id="aabde0d0b200e8b118cfa5e004b563e9e" name="aabde0d0b200e8b118cfa5e004b563e9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabde0d0b200e8b118cfa5e004b563e9e">&#9670;&#160;</a></span>m_cks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t UnerProtocol::m_cks {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Acumulador de checksum XOR. </p>
+
+</div>
+</div>
+<a id="ab65e73e19f6b3aeeb9cf98725b7a45d4" name="ab65e73e19f6b3aeeb9cf98725b7a45d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab65e73e19f6b3aeeb9cf98725b7a45d4">&#9670;&#160;</a></span>m_len</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t UnerProtocol::m_len {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Longitud total esperada (cmd + payload + cks). </p>
+
+</div>
+</div>
+<a id="aa071478084b208f0b8cdcccbdb96f7c1" name="aa071478084b208f0b8cdcccbdb96f7c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa071478084b208f0b8cdcccbdb96f7c1">&#9670;&#160;</a></span>m_payload</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::m_payload</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Buffer interno de payload. </p>
+
+</div>
+</div>
+<a id="a2b6c03532804cace4ee670eeab0b7ec9" name="a2b6c03532804cace4ee670eeab0b7ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b6c03532804cace4ee670eeab0b7ec9">&#9670;&#160;</a></span>m_rawFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray UnerProtocol::m_rawFrame</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Buffer de la trama cruda (diagnóstico). </p>
+
+</div>
+</div>
+<a id="a212e07b79197184885f8a0b68b8abc50" name="a212e07b79197184885f8a0b68b8abc50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a212e07b79197184885f8a0b68b8abc50">&#9670;&#160;</a></span>m_remaining</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t UnerProtocol::m_remaining {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bytes restantes por leer. </p>
+
+</div>
+</div>
+<a id="a4bbbfb6c459ee5a2688fd9982ab52370" name="a4bbbfb6c459ee5a2688fd9982ab52370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bbbfb6c459ee5a2688fd9982ab52370">&#9670;&#160;</a></span>m_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3">ParseState</a> UnerProtocol::m_state {<a class="el" href="#afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9">ParseState::WaitU</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Estado actual del parser. </p>
+
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li>comunicacion/<a class="el" href="_uner_protocol_8h_source.html">UnerProtocol.h</a></li>
+<li>comunicacion/<a class="el" href="_uner_protocol_8cpp.html">UnerProtocol.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_uner_protocol.html">UnerProtocol</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

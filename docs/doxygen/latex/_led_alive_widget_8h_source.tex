@@ -1,0 +1,66 @@
+\doxysection{Led\+Alive\+Widget.\+h}
+\hypertarget{_led_alive_widget_8h_source}{}\label{_led_alive_widget_8h_source}\index{widgets/LedAliveWidget.h@{widgets/LedAliveWidget.h}}
+\doxymbox{\hyperlink{_led_alive_widget_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QTimer>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QDateTime>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_led_alive_widget_a656c7e80b167ecbdbec2dd7e50f8df79}{LedAliveWidget}}\ :\ \textcolor{keyword}{public}\ QWidget}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_led_alive_widget_a656c7e80b167ecbdbec2dd7e50f8df79}{LedAliveWidget}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_led_alive_widget_a15e20684ac5fcd32621b94db293458de}{onAlive}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_led_alive_widget_ad979710c690508c932646ffbed9b1f18}{reset}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_led_alive_widget_a14744b033155c4b3efa253716e8507f1}{setDarkMode}}(\textcolor{keywordtype}{bool}\ dark);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_led_alive_widget_a3f0f9cbde941dbd04092c1cf2ade325e}{paintEvent}}(QPaintEvent\ *)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \ \ \ \ QSize\ \doxymbox{\hyperlink{class_led_alive_widget_a1fbe187ad94d03f511908d575b51b7da}{sizeHint}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00053\ \ \ \ \ QSize\ \doxymbox{\hyperlink{class_led_alive_widget_af76a1eee1f12cba940721ee8039ee021}{minimumSizeHint}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_led_alive_widget_a12880fef531920960fd698fb6df99692}{turnOff}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_led_alive_widget_ad2c4948e131c686e9b55cd00e8ae086c}{onWatchdogTimeout}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979}{LedState}}\ \{\ \doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36}{Off}},\ \doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979a521c36a31c2762741cf0f8890cbe05e3}{On}},\ \doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ac85a251cc457840f1e032f1b733e9398}{Timeout}}\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979}{LedState}}\ \ \doxymbox{\hyperlink{class_led_alive_widget_ab89ea56de9e0075e59e54a7403bffb66}{m\_state}}\ \ \ \{\doxymbox{\hyperlink{class_led_alive_widget_ab1669f3309bf3f7768dd445a66ca1979ad15305d7a4e34e02489c74a5ef542f36}{LedState::Off}}\};\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \doxymbox{\hyperlink{class_led_alive_widget_a4799e1e7e90ef3bcb93bcac09aa4b178}{m\_dark}}\ \ \ \ \{\textcolor{keyword}{false}\};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ QTimer\ \ \ *\doxymbox{\hyperlink{class_led_alive_widget_a29ead164e85d9b3c8f85a65063aa4735}{m\_offTimer}}\ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00070\ \ \ \ \ QTimer\ \ \ *\doxymbox{\hyperlink{class_led_alive_widget_a9498bd1532f7f60701c60d709d9175ac}{m\_watchdog}}\ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \doxymbox{\hyperlink{class_led_alive_widget_a9e5348fa004d2b4e8362dd04ec425c6c}{m\_count}}\ \ \ \{0\};\ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ qint64\ \ \ \ \doxymbox{\hyperlink{class_led_alive_widget_a39f140c5081a105521dd4d9697b1130a}{m\_lastTs}}\ \ \{0\};\ \ \ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ QLabel\ \ \ *\doxymbox{\hyperlink{class_led_alive_widget_a156c21b1b4bdbf5c30ff9e1fd37b319e}{m\_labelStatus}}\ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00076\ \ \ \ \ QLabel\ \ \ *\doxymbox{\hyperlink{class_led_alive_widget_af07d3783ed22b5bfe843913ba094ae19}{m\_labelCount}}\ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00077\ \ \ \ \ QLabel\ \ \ *\doxymbox{\hyperlink{class_led_alive_widget_a9ddd39d3cee9516a284338839a931a0f}{m\_labelInterval}}\ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00078\ \ \ \ \ QLabel\ \ \ *\doxymbox{\hyperlink{class_led_alive_widget_a20bed749fa348e1c2f7e9118d1867c52}{m\_labelLast}}\ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_led_alive_widget_a04bab846b89bc17b046d34f9c36a7f6d}{LED\_D}}\ \ \ =\ 36;\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_led_alive_widget_af5d1978263707a6400e5ed5b61bd3799}{LED\_PAD}}\ =\ 8;\ \ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_led_alive_widget_a3f57d71e316062c6dead8323ae065c92}{buildLayout}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_led_alive_widget_a4d2a6f3c9ad1261438c427b6476c8483}{refreshLabelStyles}}();}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_led_alive_widget_a008d4408c9d3d3b6bce162225f1e7bae}{updateLabels}}(qint64\ intervalMs);}
+\DoxyCodeLine{00094\ \};}
+
+\end{DoxyCode}

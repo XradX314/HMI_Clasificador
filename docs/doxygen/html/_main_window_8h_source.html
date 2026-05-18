@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HMI Clasificador de Paquetes: Archivo de código fuente MainWindow.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">HMI Clasificador de Paquetes<span id="projectnumber">&#160;v1.1</span>
+   </div>
+   <div id="projectbrief">Interfaz hombre-máquina para clasificador de paquetes por cinta transportadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_main_window_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MainWindow.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_main_window_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;QComboBox&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;QSpinBox&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;QGroupBox&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;QStatusBar&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;QTabWidget&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;QAction&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="_serial_manager_8h.html">comunicacion/SerialManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="_uner_protocol_8h.html">comunicacion/UnerProtocol.h</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="_led_alive_widget_8h.html">widgets/LedAliveWidget.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="_config_dialog_8h.html">widgets/ConfigDialog.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="_velocidad_dialog_8h.html">widgets/VelocidadDialog.h</a>&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="_avanzado_dialog_8h.html">widgets/AvanzadoDialog.h</a>&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_main_window.html">   45</a></span><span class="keyword">class </span><a class="code hl_function" href="class_main_window.html#a996c5a2b6f77944776856f08ec30858d">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    Q_OBJECT</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_main_window.html#a996c5a2b6f77944776856f08ec30858d">MainWindow</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_main_window.html#a4fb3de67ebec6c1920c8296bda45c993">   57</a></span>    <a class="code hl_function" href="class_main_window.html#a4fb3de67ebec6c1920c8296bda45c993">~MainWindow</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// ── Conexión serie ─────────────────────────────────────────</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#ab191d4445d7faca3b2d48e2374d1d35a">onConnectClicked</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#af8c244a4c358dadec9897025e52e7bb9">onConnected</a>(<span class="keyword">const</span> QString &amp;port);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#aa34b96b03c221e201ff14b278c59517a">onDisconnected</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a9847d9cba2e09160cf87e76b51d6d5ce">onConnectionLost</a>();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#ad677f75546d43f056bd7b2f546a358af">onSerialError</a>(<span class="keyword">const</span> QString &amp;msg);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a9cc4b9352cc8f0fb336fb4791e1f1ea0">onRefreshPorts</a>();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">// ── Frames entrantes ───────────────────────────────────────</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#ae34c3a1c138b30f9946f14dc5554937f">onCajaMedida</a>(uint8_t alturaCm);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#af35e02fd8f818e3ea696f1e0d6d916fc">onSensorIrActualizado</a>(uint8_t outNum, <span class="keywordtype">bool</span> activo);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#ade5ef2e777735c4c3e2ede2f75a69233">onBrazoActuado</a>(uint8_t servoIdx);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// ── Controles básicos ──────────────────────────────────────</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#ab84830888a3150e023334c3660a2b12e">onStartClicked</a>();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a0f2d4f7be0977337a8b7a9b084a60220">onStopClicked</a>();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a937ab9c2f59d6527e93069e9d8179e4e">onResetClicked</a>();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a075cc1fee960d45e90b2e406250ad1d2">onVelocidadChanged</a>(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#ad4dfed923fda5e525fb047838d5e5ab4">onTriggerClicked</a>();</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a601b2491b736d892f05143c63e465f14">onBlindModeToggled</a>(<span class="keywordtype">bool</span> checked);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="comment">// ── Diálogos de configuración ──────────────────────────────</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a902c208786fea110d01f19115df4c78c">onOpenConfig</a>();</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a1ae548115e844eea5a797a48d74eb703">onOpenVelocidad</a>();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a9503d8437b601a3c8b99f82f16568594">onOpenAvanzado</a>();</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a8543e63c870cc6a4f74e659cafb14b7f">onConfigApplied</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a> &amp;cfg);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a5913c40f5de1c503b8aa17e9b17d779d">onAnchoCajaRequested</a>(uint8_t anchoCm);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="comment">// ── UI general ─────────────────────────────────────────────</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#a557bc5c672739014a0dd0e6f9cff003f">toggleDarkMode</a>(<span class="keywordtype">bool</span> dark);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_main_window.html#ac901352cf165f353fac5b6b5ec401a70">checkConfigLock</a>();</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="comment">// ── Backend ───────────────────────────────────────────────</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="class_main_window.html#a0c1b196dcc6c92933433ba11783262b8">  175</a></span>    <a class="code hl_class" href="class_serial_manager.html">SerialManager</a>    *<a class="code hl_variable" href="class_main_window.html#a0c1b196dcc6c92933433ba11783262b8">m_serial</a>          {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="class_main_window.html#a98a07c7bf12f35e8d16ae74c6a93b535">  176</a></span>    <a class="code hl_class" href="class_config_dialog.html">ConfigDialog</a>     *<a class="code hl_variable" href="class_main_window.html#a98a07c7bf12f35e8d16ae74c6a93b535">m_configDialog</a>    {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="class_main_window.html#a01b5fe24b8a841d99702f21657fb4807">  177</a></span>    <a class="code hl_class" href="class_velocidad_dialog.html">VelocidadDialog</a>  *<a class="code hl_variable" href="class_main_window.html#a01b5fe24b8a841d99702f21657fb4807">m_velocidadDialog</a> {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="class_main_window.html#ac3f965097a463049036b3ccb0bd21ac9">  178</a></span>    <a class="code hl_class" href="class_avanzado_dialog.html">AvanzadoDialog</a>   *<a class="code hl_variable" href="class_main_window.html#ac3f965097a463049036b3ccb0bd21ac9">m_avanzadoDialog</a>  {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="comment">// ── Estado ───────────────────────────────────────────────</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="class_main_window.html#a2dc78344ad37cb35ef6d8dfc756f5809">  181</a></span>    <span class="keywordtype">bool</span>  <a class="code hl_variable" href="class_main_window.html#a2dc78344ad37cb35ef6d8dfc756f5809">m_running</a>       {<span class="keyword">false</span>}; </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="class_main_window.html#a21950ceb977e2c56556482cfdf572dd0">  182</a></span>    <span class="keywordtype">bool</span>  <a class="code hl_variable" href="class_main_window.html#a21950ceb977e2c56556482cfdf572dd0">m_darkMode</a>      {<span class="keyword">false</span>}; </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="class_main_window.html#a477dff5363c4a2f8c331ebfb268a71b8">  183</a></span>    <span class="keywordtype">int</span>   <a class="code hl_variable" href="class_main_window.html#a477dff5363c4a2f8c331ebfb268a71b8">m_cajasEntrada</a>  {0};     </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="class_main_window.html#ac9d0116d48832208f63ab511f43b8273">  184</a></span>    <span class="keywordtype">int</span>   <a class="code hl_variable" href="class_main_window.html#ac9d0116d48832208f63ab511f43b8273">m_cajasSalida</a>   {0};     </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="class_main_window.html#aa8528ac272933250f9617f039016d5c6">  185</a></span>    <span class="keywordtype">int</span>   <a class="code hl_variable" href="class_main_window.html#aa8528ac272933250f9617f039016d5c6">m_cajasTransito</a> {0};     </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="class_main_window.html#a66a34fbf04ccc88dedcc888aaa0c0880">  186</a></span>    <span class="keywordtype">bool</span>  <a class="code hl_variable" href="class_main_window.html#a66a34fbf04ccc88dedcc888aaa0c0880">m_irState</a>[4]    {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}; </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="class_main_window.html#a4bffac996a3ce7b702fbe50fe9ea2c9a">  187</a></span>    <span class="keywordtype">bool</span>  <a class="code hl_variable" href="class_main_window.html#a4bffac996a3ce7b702fbe50fe9ea2c9a">m_brazoState</a>[3] {<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>};        </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="class_main_window.html#ac999a2a186254dd3790fe590db58aab3">  190</a></span>    <a class="code hl_struct" href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a> <a class="code hl_variable" href="class_main_window.html#ac999a2a186254dd3790fe590db58aab3">m_ciegoCfg</a>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="comment">// ── Toolbar ──────────────────────────────────────────────</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="class_main_window.html#a95a25f47c40729700e50f287e57a860a">  193</a></span>    QComboBox   *<a class="code hl_variable" href="class_main_window.html#a95a25f47c40729700e50f287e57a860a">m_comboPuerto</a>  {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="class_main_window.html#ab894e2bcd5c1a5be872c82823f2d75ff">  194</a></span>    QComboBox   *<a class="code hl_variable" href="class_main_window.html#ab894e2bcd5c1a5be872c82823f2d75ff">m_comboBaud</a>    {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="class_main_window.html#a810545aafa47ab0734b39fe37c8427fd">  195</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a810545aafa47ab0734b39fe37c8427fd">m_btnConectar</a>  {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="comment">// ── Tab Monitor – conexión ───────────────────────────────</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="class_main_window.html#ae2fab5f6b64b5a7709237dfcca24057f">  198</a></span>    <a class="code hl_class" href="class_led_alive_widget.html">LedAliveWidget</a> *<a class="code hl_variable" href="class_main_window.html#ae2fab5f6b64b5a7709237dfcca24057f">m_ledAlive</a>    {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="class_main_window.html#a7a51de923de06eb06698fee5bdcd67fc">  199</a></span>    QLabel         *<a class="code hl_variable" href="class_main_window.html#a7a51de923de06eb06698fee5bdcd67fc">m_lblConexion</a> {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="comment">// ── Tab Monitor – control ────────────────────────────────</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="class_main_window.html#a2e6a37639e9a445ea92b7cbe43d912fd">  202</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a2e6a37639e9a445ea92b7cbe43d912fd">m_btnStart</a>     {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="class_main_window.html#ae001822fd679939850ab0757afba2f45">  203</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#ae001822fd679939850ab0757afba2f45">m_btnStop</a>      {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="class_main_window.html#a5d04e8f3ec83f531623a72a02bafc1dc">  204</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a5d04e8f3ec83f531623a72a02bafc1dc">m_btnReset</a>     {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="class_main_window.html#a3c42e98d2f5887c06f5ce959de44ba68">  205</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a3c42e98d2f5887c06f5ce959de44ba68">m_btnBlindMode</a> {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="class_main_window.html#a93ca5f34965b9f94b2a390d48f6aadf2">  206</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a93ca5f34965b9f94b2a390d48f6aadf2">m_btnTrigger</a>   {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="class_main_window.html#a3f36cca718ee8f0e63a07d21aa2b45c2">  207</a></span>    QSpinBox    *<a class="code hl_variable" href="class_main_window.html#a3f36cca718ee8f0e63a07d21aa2b45c2">m_spinVel</a>      {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="class_main_window.html#a83361a46f00014a12e64664b6ee3187b">  208</a></span>    QSpinBox    *<a class="code hl_variable" href="class_main_window.html#a83361a46f00014a12e64664b6ee3187b">m_spinDist</a>[3]  {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="comment">// ── Tab Monitor – salidas ────────────────────────────────</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="class_main_window.html#a4ccf258a9dd35ed93e3df74a12370098">  211</a></span>    QComboBox   *<a class="code hl_variable" href="class_main_window.html#a4ccf258a9dd35ed93e3df74a12370098">m_comboSalida</a>[3] {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="class_main_window.html#ad876d155bd1d6c58ff2f0196c6d7f39a">  212</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#ad876d155bd1d6c58ff2f0196c6d7f39a">m_btnAplicar</a>     {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="comment">// ── Tab Monitor – sensores ───────────────────────────────</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="class_main_window.html#a503bd70c0575ca6c78f7e9c05673f518">  215</a></span>    QLabel *<a class="code hl_variable" href="class_main_window.html#a503bd70c0575ca6c78f7e9c05673f518">m_lblIR</a>[4]          {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="class_main_window.html#aa31ba25de5eb2ead31990d785246180e">  216</a></span>    QLabel *<a class="code hl_variable" href="class_main_window.html#aa31ba25de5eb2ead31990d785246180e">m_lblBrazo</a>[3]       {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>};          </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="class_main_window.html#a912c077293ad374462e3059783668715">  217</a></span>    QLabel *<a class="code hl_variable" href="class_main_window.html#a912c077293ad374462e3059783668715">m_lblBrazoEstado</a>[3] {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>};          </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="comment">// ── Tab Monitor – contadores ─────────────────────────────</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="class_main_window.html#ae8dc7adb83340756838ff303de825110">  220</a></span>    QLabel *<a class="code hl_variable" href="class_main_window.html#ae8dc7adb83340756838ff303de825110">m_lblEntradas</a>   {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="class_main_window.html#aaa358d3d7e6b3ec50fed93415d8c3be7">  221</a></span>    QLabel *<a class="code hl_variable" href="class_main_window.html#aaa358d3d7e6b3ec50fed93415d8c3be7">m_lblSalidas</a>    {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="class_main_window.html#aac9163e684188327c99807d5d4ce44bf">  222</a></span>    QLabel *<a class="code hl_variable" href="class_main_window.html#aac9163e684188327c99807d5d4ce44bf">m_lblTransito</a>   {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="comment">// ── Tab Monitor – última caja ────────────────────────────</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="class_main_window.html#ac889fa671f2277d1ebf06d97e86523ce">  225</a></span>    QLabel *<a class="code hl_variable" href="class_main_window.html#ac889fa671f2277d1ebf06d97e86523ce">m_lblUltimaCajaCm</a>   {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="class_main_window.html#aeb554c9d40c3e816f0ccd9a5c2cb10b0">  226</a></span>    QLabel *<a class="code hl_variable" href="class_main_window.html#aeb554c9d40c3e816f0ccd9a5c2cb10b0">m_lblUltimaCajaTipo</a> {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="class_main_window.html#a941f57ded846f5cfea0058faea930caf">  227</a></span>    QLabel *<a class="code hl_variable" href="class_main_window.html#a941f57ded846f5cfea0058faea930caf">m_lblUltimaCajaTs</a>   {<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="comment">// ── Construcción de la UI ─────────────────────────────────</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#afe1bceaad866b6fed583ba83245ae195">buildUi</a>();</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#aaa74fb1075aadb2ab29cf19effc02b22">buildToolbar</a>();</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    QWidget *<a class="code hl_function" href="class_main_window.html#ab0f33e3ed5aafe88d32b6189a362fa3c">buildTabMonitor</a>();</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    QWidget *<a class="code hl_function" href="class_main_window.html#a23e9bbce9462e1606677e9b2a17399b1">buildPanelConexion</a>();</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    QWidget *<a class="code hl_function" href="class_main_window.html#a2e401d227ab6481ffb71d3475d6da2c6">buildPanelControl</a>();</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    QWidget *<a class="code hl_function" href="class_main_window.html#aea91700a38bf0800e9ef0d8cd990f4a6">buildPanelSalidas</a>();</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    QWidget *<a class="code hl_function" href="class_main_window.html#a1ce058d9c0ae3931ff1b75bbb0987f3f">buildPanelSensores</a>();</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    QWidget *<a class="code hl_function" href="class_main_window.html#a504d03f3a041f096b29da6764607137b">buildPanelBrazos</a>();</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    QWidget *<a class="code hl_function" href="class_main_window.html#a6da370ded8bb00a2c3019a10ebe0f38b">buildPanelContadores</a>();</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    QWidget *<a class="code hl_function" href="class_main_window.html#af396286e06c18a757aa32b6c592fe82c">buildPanelUltimaCaja</a>();</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="comment">// ── Helpers ──────────────────────────────────────────────</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a47049db3e783e63a325ab2a998a93efc">applyTheme</a>();</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#add7f5b4a7097aa5171422df87e460611">setConnectedState</a>(<span class="keywordtype">bool</span> connected);</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#ac6bca9f4de5d4facabdd6641dbeb2334">setRunningState</a>(<span class="keywordtype">bool</span> running);</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a8f399adb16eabd50d9c6b3fab842504a">updateIrLabel</a>(<span class="keywordtype">int</span> idx);</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a87e234de8ccf51be533307a6972f4c0b">updateBrazoLabel</a>(<span class="keywordtype">int</span> idx);</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a5a0b5711659826fed9b9b1699358ed4c">updateContadores</a>();</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#afbff4a71b6c607066f64f557c3bc2c28">statusMsg</a>(<span class="keyword">const</span> QString &amp;msg, <span class="keywordtype">int</span> ms = 4000);</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="keyword">static</span> QString <a class="code hl_function" href="class_main_window.html#ab388b3ed2120e1a2218ae347074c3a5d">tipoCajaStr</a>(uint8_t cm);</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <span class="keyword">static</span> <a class="code hl_enumeration" href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a> <a class="code hl_function" href="class_main_window.html#a2128259177bb00b145f1420ad4c4713f">comboToTipo</a>(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>};</div>
+</div>
+<div class="ttc" id="a_avanzado_dialog_8h_html"><div class="ttname"><a href="_avanzado_dialog_8h.html">AvanzadoDialog.h</a></div><div class="ttdoc">Diálogo de configuración avanzada de hardware (CMDs 0x64–0x67).</div></div>
+<div class="ttc" id="a_config_dialog_8h_html"><div class="ttname"><a href="_config_dialog_8h.html">ConfigDialog.h</a></div><div class="ttdoc">Diálogo de calibración del clasificador (CMD 0x63).</div></div>
+<div class="ttc" id="a_led_alive_widget_8h_html"><div class="ttname"><a href="_led_alive_widget_8h.html">LedAliveWidget.h</a></div><div class="ttdoc">Widget visual de indicador de heartbeat para el protocolo UNER (CMD 0xF0).</div></div>
+<div class="ttc" id="a_serial_manager_8h_html"><div class="ttname"><a href="_serial_manager_8h.html">SerialManager.h</a></div><div class="ttdoc">Gestión del puerto serie y despacho de tramas del protocolo UNER.</div></div>
+<div class="ttc" id="a_uner_protocol_8h_html"><div class="ttname"><a href="_uner_protocol_8h.html">UnerProtocol.h</a></div><div class="ttdoc">Definición del protocolo de comunicación serie UNER y el codificador/decodificador de tramas.</div></div>
+<div class="ttc" id="a_velocidad_dialog_8h_html"><div class="ttname"><a href="_velocidad_dialog_8h.html">VelocidadDialog.h</a></div><div class="ttdoc">Diálogo para enviar el ancho de la caja de referencia (CMD 0x62).</div></div>
+<div class="ttc" id="aclass_avanzado_dialog_html"><div class="ttname"><a href="class_avanzado_dialog.html">AvanzadoDialog</a></div><div class="ttdoc">Diálogo flotante con cuatro secciones de configuración de bajo nivel.</div><div class="ttdef"><b>Definition</b> AvanzadoDialog.h:30</div></div>
+<div class="ttc" id="aclass_config_dialog_html"><div class="ttname"><a href="class_config_dialog.html">ConfigDialog</a></div><div class="ttdoc">Diálogo flotante para configurar la calibración del sensor y los brazos.</div><div class="ttdef"><b>Definition</b> ConfigDialog.h:31</div></div>
+<div class="ttc" id="aclass_led_alive_widget_html"><div class="ttname"><a href="class_led_alive_widget.html">LedAliveWidget</a></div><div class="ttdoc">LED circular animado que muestra el estado del heartbeat con el MCU.</div><div class="ttdef"><b>Definition</b> LedAliveWidget.h:26</div></div>
+<div class="ttc" id="aclass_main_window_html_a01b5fe24b8a841d99702f21657fb4807"><div class="ttname"><a href="class_main_window.html#a01b5fe24b8a841d99702f21657fb4807">MainWindow::m_velocidadDialog</a></div><div class="ttdeci">VelocidadDialog * m_velocidadDialog</div><div class="ttdoc">Diálogo de ancho de caja (0x62).</div><div class="ttdef"><b>Definition</b> MainWindow.h:177</div></div>
+<div class="ttc" id="aclass_main_window_html_a075cc1fee960d45e90b2e406250ad1d2"><div class="ttname"><a href="class_main_window.html#a075cc1fee960d45e90b2e406250ad1d2">MainWindow::onVelocidadChanged</a></div><div class="ttdeci">void onVelocidadChanged(int value)</div><div class="ttdoc">Envía la velocidad de la cinta (0x54) al cambiar el SpinBox.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:679</div></div>
+<div class="ttc" id="aclass_main_window_html_a0c1b196dcc6c92933433ba11783262b8"><div class="ttname"><a href="class_main_window.html#a0c1b196dcc6c92933433ba11783262b8">MainWindow::m_serial</a></div><div class="ttdeci">SerialManager * m_serial</div><div class="ttdoc">Gestor del puerto serie.</div><div class="ttdef"><b>Definition</b> MainWindow.h:175</div></div>
+<div class="ttc" id="aclass_main_window_html_a0f2d4f7be0977337a8b7a9b084a60220"><div class="ttname"><a href="class_main_window.html#a0f2d4f7be0977337a8b7a9b084a60220">MainWindow::onStopClicked</a></div><div class="ttdeci">void onStopClicked()</div><div class="ttdoc">Envía CMD_STOP (0x51).</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:656</div></div>
+<div class="ttc" id="aclass_main_window_html_a1ae548115e844eea5a797a48d74eb703"><div class="ttname"><a href="class_main_window.html#a1ae548115e844eea5a797a48d74eb703">MainWindow::onOpenVelocidad</a></div><div class="ttdeci">void onOpenVelocidad()</div><div class="ttdoc">Abre o trae al frente el diálogo de ancho de caja (0x62).</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:743</div></div>
+<div class="ttc" id="aclass_main_window_html_a1ce058d9c0ae3931ff1b75bbb0987f3f"><div class="ttname"><a href="class_main_window.html#a1ce058d9c0ae3931ff1b75bbb0987f3f">MainWindow::buildPanelSensores</a></div><div class="ttdeci">QWidget * buildPanelSensores()</div><div class="ttdoc">Construye el panel de sensores IR.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:440</div></div>
+<div class="ttc" id="aclass_main_window_html_a2128259177bb00b145f1420ad4c4713f"><div class="ttname"><a href="class_main_window.html#a2128259177bb00b145f1420ad4c4713f">MainWindow::comboToTipo</a></div><div class="ttdeci">static Uner::TipoCaja comboToTipo(int index)</div><div class="ttdoc">Convierte el índice del ComboBox de salida al tipo de caja.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:905</div></div>
+<div class="ttc" id="aclass_main_window_html_a21950ceb977e2c56556482cfdf572dd0"><div class="ttname"><a href="class_main_window.html#a21950ceb977e2c56556482cfdf572dd0">MainWindow::m_darkMode</a></div><div class="ttdeci">bool m_darkMode</div><div class="ttdoc">true si el tema oscuro está activo.</div><div class="ttdef"><b>Definition</b> MainWindow.h:182</div></div>
+<div class="ttc" id="aclass_main_window_html_a23e9bbce9462e1606677e9b2a17399b1"><div class="ttname"><a href="class_main_window.html#a23e9bbce9462e1606677e9b2a17399b1">MainWindow::buildPanelConexion</a></div><div class="ttdeci">QWidget * buildPanelConexion()</div><div class="ttdoc">Construye el panel de heartbeat/conexión.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:284</div></div>
+<div class="ttc" id="aclass_main_window_html_a2dc78344ad37cb35ef6d8dfc756f5809"><div class="ttname"><a href="class_main_window.html#a2dc78344ad37cb35ef6d8dfc756f5809">MainWindow::m_running</a></div><div class="ttdeci">bool m_running</div><div class="ttdoc">true mientras el sistema está en marcha.</div><div class="ttdef"><b>Definition</b> MainWindow.h:181</div></div>
+<div class="ttc" id="aclass_main_window_html_a2e401d227ab6481ffb71d3475d6da2c6"><div class="ttname"><a href="class_main_window.html#a2e401d227ab6481ffb71d3475d6da2c6">MainWindow::buildPanelControl</a></div><div class="ttdeci">QWidget * buildPanelControl()</div><div class="ttdoc">Construye el panel de control (Start/Stop/Reset/Ciego/Trigger/Vel).</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:302</div></div>
+<div class="ttc" id="aclass_main_window_html_a2e6a37639e9a445ea92b7cbe43d912fd"><div class="ttname"><a href="class_main_window.html#a2e6a37639e9a445ea92b7cbe43d912fd">MainWindow::m_btnStart</a></div><div class="ttdeci">QPushButton * m_btnStart</div><div class="ttdoc">Botón Start (0x50).</div><div class="ttdef"><b>Definition</b> MainWindow.h:202</div></div>
+<div class="ttc" id="aclass_main_window_html_a3c42e98d2f5887c06f5ce959de44ba68"><div class="ttname"><a href="class_main_window.html#a3c42e98d2f5887c06f5ce959de44ba68">MainWindow::m_btnBlindMode</a></div><div class="ttdeci">QPushButton * m_btnBlindMode</div><div class="ttdoc">Botón checkable Modo Ciego (0x60).</div><div class="ttdef"><b>Definition</b> MainWindow.h:205</div></div>
+<div class="ttc" id="aclass_main_window_html_a3f36cca718ee8f0e63a07d21aa2b45c2"><div class="ttname"><a href="class_main_window.html#a3f36cca718ee8f0e63a07d21aa2b45c2">MainWindow::m_spinVel</a></div><div class="ttdeci">QSpinBox * m_spinVel</div><div class="ttdoc">SpinBox de velocidad (0x54).</div><div class="ttdef"><b>Definition</b> MainWindow.h:207</div></div>
+<div class="ttc" id="aclass_main_window_html_a47049db3e783e63a325ab2a998a93efc"><div class="ttname"><a href="class_main_window.html#a47049db3e783e63a325ab2a998a93efc">MainWindow::applyTheme</a></div><div class="ttdeci">void applyTheme()</div><div class="ttdoc">Aplica el tema QSS activo (claro u oscuro).</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:818</div></div>
+<div class="ttc" id="aclass_main_window_html_a477dff5363c4a2f8c331ebfb268a71b8"><div class="ttname"><a href="class_main_window.html#a477dff5363c4a2f8c331ebfb268a71b8">MainWindow::m_cajasEntrada</a></div><div class="ttdeci">int m_cajasEntrada</div><div class="ttdoc">Contador de cajas que entraron en sesión.</div><div class="ttdef"><b>Definition</b> MainWindow.h:183</div></div>
+<div class="ttc" id="aclass_main_window_html_a4bffac996a3ce7b702fbe50fe9ea2c9a"><div class="ttname"><a href="class_main_window.html#a4bffac996a3ce7b702fbe50fe9ea2c9a">MainWindow::m_brazoState</a></div><div class="ttdeci">bool m_brazoState[3]</div><div class="ttdoc">Estado de los 3 brazos.</div><div class="ttdef"><b>Definition</b> MainWindow.h:187</div></div>
+<div class="ttc" id="aclass_main_window_html_a4ccf258a9dd35ed93e3df74a12370098"><div class="ttname"><a href="class_main_window.html#a4ccf258a9dd35ed93e3df74a12370098">MainWindow::m_comboSalida</a></div><div class="ttdeci">QComboBox * m_comboSalida[3]</div><div class="ttdoc">Combo de tipo de caja por salida.</div><div class="ttdef"><b>Definition</b> MainWindow.h:211</div></div>
+<div class="ttc" id="aclass_main_window_html_a4fb3de67ebec6c1920c8296bda45c993"><div class="ttname"><a href="class_main_window.html#a4fb3de67ebec6c1920c8296bda45c993">MainWindow::~MainWindow</a></div><div class="ttdeci">~MainWindow() override=default</div><div class="ttdoc">Destructor por defecto.</div></div>
+<div class="ttc" id="aclass_main_window_html_a503bd70c0575ca6c78f7e9c05673f518"><div class="ttname"><a href="class_main_window.html#a503bd70c0575ca6c78f7e9c05673f518">MainWindow::m_lblIR</a></div><div class="ttdeci">QLabel * m_lblIR[4]</div><div class="ttdoc">LED textual de sensores IR.</div><div class="ttdef"><b>Definition</b> MainWindow.h:215</div></div>
+<div class="ttc" id="aclass_main_window_html_a504d03f3a041f096b29da6764607137b"><div class="ttname"><a href="class_main_window.html#a504d03f3a041f096b29da6764607137b">MainWindow::buildPanelBrazos</a></div><div class="ttdeci">QWidget * buildPanelBrazos()</div><div class="ttdoc">Construye el panel de brazos actuadores.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:471</div></div>
+<div class="ttc" id="aclass_main_window_html_a557bc5c672739014a0dd0e6f9cff003f"><div class="ttname"><a href="class_main_window.html#a557bc5c672739014a0dd0e6f9cff003f">MainWindow::toggleDarkMode</a></div><div class="ttdeci">void toggleDarkMode(bool dark)</div><div class="ttdoc">Alterna el tema claro/oscuro de toda la aplicación.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:808</div></div>
+<div class="ttc" id="aclass_main_window_html_a5913c40f5de1c503b8aa17e9b17d779d"><div class="ttname"><a href="class_main_window.html#a5913c40f5de1c503b8aa17e9b17d779d">MainWindow::onAnchoCajaRequested</a></div><div class="ttdeci">void onAnchoCajaRequested(uint8_t anchoCm)</div><div class="ttdoc">Envía el ancho de caja al MCU (0x62).</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:756</div></div>
+<div class="ttc" id="aclass_main_window_html_a5a0b5711659826fed9b9b1699358ed4c"><div class="ttname"><a href="class_main_window.html#a5a0b5711659826fed9b9b1699358ed4c">MainWindow::updateContadores</a></div><div class="ttdeci">void updateContadores()</div><div class="ttdoc">Actualiza los tres labels de contadores con los valores actuales.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:879</div></div>
+<div class="ttc" id="aclass_main_window_html_a5d04e8f3ec83f531623a72a02bafc1dc"><div class="ttname"><a href="class_main_window.html#a5d04e8f3ec83f531623a72a02bafc1dc">MainWindow::m_btnReset</a></div><div class="ttdeci">QPushButton * m_btnReset</div><div class="ttdoc">Botón Reset (0x53).</div><div class="ttdef"><b>Definition</b> MainWindow.h:204</div></div>
+<div class="ttc" id="aclass_main_window_html_a601b2491b736d892f05143c63e465f14"><div class="ttname"><a href="class_main_window.html#a601b2491b736d892f05143c63e465f14">MainWindow::onBlindModeToggled</a></div><div class="ttdeci">void onBlindModeToggled(bool checked)</div><div class="ttdoc">Envía CMD_BLIND_DIST (0x60) al alternar el botón Modo Ciego.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:692</div></div>
+<div class="ttc" id="aclass_main_window_html_a66a34fbf04ccc88dedcc888aaa0c0880"><div class="ttname"><a href="class_main_window.html#a66a34fbf04ccc88dedcc888aaa0c0880">MainWindow::m_irState</a></div><div class="ttdeci">bool m_irState[4]</div><div class="ttdoc">Estado de los 4 sensores IR.</div><div class="ttdef"><b>Definition</b> MainWindow.h:186</div></div>
+<div class="ttc" id="aclass_main_window_html_a6da370ded8bb00a2c3019a10ebe0f38b"><div class="ttname"><a href="class_main_window.html#a6da370ded8bb00a2c3019a10ebe0f38b">MainWindow::buildPanelContadores</a></div><div class="ttdeci">QWidget * buildPanelContadores()</div><div class="ttdoc">Construye el panel de contadores de sesión.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:505</div></div>
+<div class="ttc" id="aclass_main_window_html_a7a51de923de06eb06698fee5bdcd67fc"><div class="ttname"><a href="class_main_window.html#a7a51de923de06eb06698fee5bdcd67fc">MainWindow::m_lblConexion</a></div><div class="ttdeci">QLabel * m_lblConexion</div><div class="ttdoc">Label con el puerto o &quot;Desconectado&quot;.</div><div class="ttdef"><b>Definition</b> MainWindow.h:199</div></div>
+<div class="ttc" id="aclass_main_window_html_a810545aafa47ab0734b39fe37c8427fd"><div class="ttname"><a href="class_main_window.html#a810545aafa47ab0734b39fe37c8427fd">MainWindow::m_btnConectar</a></div><div class="ttdeci">QPushButton * m_btnConectar</div><div class="ttdoc">Botón Conectar/Desconectar.</div><div class="ttdef"><b>Definition</b> MainWindow.h:195</div></div>
+<div class="ttc" id="aclass_main_window_html_a83361a46f00014a12e64664b6ee3187b"><div class="ttname"><a href="class_main_window.html#a83361a46f00014a12e64664b6ee3187b">MainWindow::m_spinDist</a></div><div class="ttdeci">QSpinBox * m_spinDist[3]</div><div class="ttdoc">SpinBoxes de distancias S0→salida.</div><div class="ttdef"><b>Definition</b> MainWindow.h:208</div></div>
+<div class="ttc" id="aclass_main_window_html_a8543e63c870cc6a4f74e659cafb14b7f"><div class="ttname"><a href="class_main_window.html#a8543e63c870cc6a4f74e659cafb14b7f">MainWindow::onConfigApplied</a></div><div class="ttdeci">void onConfigApplied(const Uner::CalibracionCfg &amp;cfg)</div><div class="ttdoc">Envía la calibración al MCU cuando el usuario presiona Enviar 0x63.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:729</div></div>
+<div class="ttc" id="aclass_main_window_html_a87e234de8ccf51be533307a6972f4c0b"><div class="ttname"><a href="class_main_window.html#a87e234de8ccf51be533307a6972f4c0b">MainWindow::updateBrazoLabel</a></div><div class="ttdeci">void updateBrazoLabel(int idx)</div><div class="ttdoc">Actualiza el color y texto del indicador de un brazo.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:867</div></div>
+<div class="ttc" id="aclass_main_window_html_a8f399adb16eabd50d9c6b3fab842504a"><div class="ttname"><a href="class_main_window.html#a8f399adb16eabd50d9c6b3fab842504a">MainWindow::updateIrLabel</a></div><div class="ttdeci">void updateIrLabel(int idx)</div><div class="ttdoc">Actualiza el color del indicador LED de un sensor IR.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:858</div></div>
+<div class="ttc" id="aclass_main_window_html_a902c208786fea110d01f19115df4c78c"><div class="ttname"><a href="class_main_window.html#a902c208786fea110d01f19115df4c78c">MainWindow::onOpenConfig</a></div><div class="ttdeci">void onOpenConfig()</div><div class="ttdoc">Abre o trae al frente el diálogo de calibración (0x63).</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:715</div></div>
+<div class="ttc" id="aclass_main_window_html_a912c077293ad374462e3059783668715"><div class="ttname"><a href="class_main_window.html#a912c077293ad374462e3059783668715">MainWindow::m_lblBrazoEstado</a></div><div class="ttdeci">QLabel * m_lblBrazoEstado[3]</div><div class="ttdoc">Texto &quot;extendido/retraído&quot;.</div><div class="ttdef"><b>Definition</b> MainWindow.h:217</div></div>
+<div class="ttc" id="aclass_main_window_html_a937ab9c2f59d6527e93069e9d8179e4e"><div class="ttname"><a href="class_main_window.html#a937ab9c2f59d6527e93069e9d8179e4e">MainWindow::onResetClicked</a></div><div class="ttdeci">void onResetClicked()</div><div class="ttdoc">Envía CMD_RESET (0x53) y reinicia los contadores.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:664</div></div>
+<div class="ttc" id="aclass_main_window_html_a93ca5f34965b9f94b2a390d48f6aadf2"><div class="ttname"><a href="class_main_window.html#a93ca5f34965b9f94b2a390d48f6aadf2">MainWindow::m_btnTrigger</a></div><div class="ttdeci">QPushButton * m_btnTrigger</div><div class="ttdoc">Botón Trigger (0x61).</div><div class="ttdef"><b>Definition</b> MainWindow.h:206</div></div>
+<div class="ttc" id="aclass_main_window_html_a941f57ded846f5cfea0058faea930caf"><div class="ttname"><a href="class_main_window.html#a941f57ded846f5cfea0058faea930caf">MainWindow::m_lblUltimaCajaTs</a></div><div class="ttdeci">QLabel * m_lblUltimaCajaTs</div><div class="ttdoc">Timestamp de la última detección.</div><div class="ttdef"><b>Definition</b> MainWindow.h:227</div></div>
+<div class="ttc" id="aclass_main_window_html_a9503d8437b601a3c8b99f82f16568594"><div class="ttname"><a href="class_main_window.html#a9503d8437b601a3c8b99f82f16568594">MainWindow::onOpenAvanzado</a></div><div class="ttdeci">void onOpenAvanzado()</div><div class="ttdoc">Abre o trae al frente el diálogo de configuración avanzada (0x64–0x67).</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:766</div></div>
+<div class="ttc" id="aclass_main_window_html_a95a25f47c40729700e50f287e57a860a"><div class="ttname"><a href="class_main_window.html#a95a25f47c40729700e50f287e57a860a">MainWindow::m_comboPuerto</a></div><div class="ttdeci">QComboBox * m_comboPuerto</div><div class="ttdoc">Selector de puerto COM.</div><div class="ttdef"><b>Definition</b> MainWindow.h:193</div></div>
+<div class="ttc" id="aclass_main_window_html_a9847d9cba2e09160cf87e76b51d6d5ce"><div class="ttname"><a href="class_main_window.html#a9847d9cba2e09160cf87e76b51d6d5ce">MainWindow::onConnectionLost</a></div><div class="ttdeci">void onConnectionLost()</div><div class="ttdoc">Muestra alerta cuando el watchdog de heartbeat expira.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:569</div></div>
+<div class="ttc" id="aclass_main_window_html_a98a07c7bf12f35e8d16ae74c6a93b535"><div class="ttname"><a href="class_main_window.html#a98a07c7bf12f35e8d16ae74c6a93b535">MainWindow::m_configDialog</a></div><div class="ttdeci">ConfigDialog * m_configDialog</div><div class="ttdoc">Diálogo de calibración (0x63).</div><div class="ttdef"><b>Definition</b> MainWindow.h:176</div></div>
+<div class="ttc" id="aclass_main_window_html_a996c5a2b6f77944776856f08ec30858d"><div class="ttname"><a href="class_main_window.html#a996c5a2b6f77944776856f08ec30858d">MainWindow::MainWindow</a></div><div class="ttdeci">MainWindow(QWidget *parent=nullptr)</div><div class="ttdoc">Construye la ventana principal.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:149</div></div>
+<div class="ttc" id="aclass_main_window_html_a9cc4b9352cc8f0fb336fb4791e1f1ea0"><div class="ttname"><a href="class_main_window.html#a9cc4b9352cc8f0fb336fb4791e1f1ea0">MainWindow::onRefreshPorts</a></div><div class="ttdeci">void onRefreshPorts()</div><div class="ttdoc">Refresca la lista de puertos disponibles en el ComboBox.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:579</div></div>
+<div class="ttc" id="aclass_main_window_html_aa31ba25de5eb2ead31990d785246180e"><div class="ttname"><a href="class_main_window.html#aa31ba25de5eb2ead31990d785246180e">MainWindow::m_lblBrazo</a></div><div class="ttdeci">QLabel * m_lblBrazo[3]</div><div class="ttdoc">LED textual de brazos.</div><div class="ttdef"><b>Definition</b> MainWindow.h:216</div></div>
+<div class="ttc" id="aclass_main_window_html_aa34b96b03c221e201ff14b278c59517a"><div class="ttname"><a href="class_main_window.html#aa34b96b03c221e201ff14b278c59517a">MainWindow::onDisconnected</a></div><div class="ttdeci">void onDisconnected()</div><div class="ttdoc">Actualiza la UI al cerrarse el puerto serie.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:557</div></div>
+<div class="ttc" id="aclass_main_window_html_aa8528ac272933250f9617f039016d5c6"><div class="ttname"><a href="class_main_window.html#aa8528ac272933250f9617f039016d5c6">MainWindow::m_cajasTransito</a></div><div class="ttdeci">int m_cajasTransito</div><div class="ttdoc">Cajas actualmente en la cinta.</div><div class="ttdef"><b>Definition</b> MainWindow.h:185</div></div>
+<div class="ttc" id="aclass_main_window_html_aaa358d3d7e6b3ec50fed93415d8c3be7"><div class="ttname"><a href="class_main_window.html#aaa358d3d7e6b3ec50fed93415d8c3be7">MainWindow::m_lblSalidas</a></div><div class="ttdeci">QLabel * m_lblSalidas</div><div class="ttdoc">Número de cajas salidas.</div><div class="ttdef"><b>Definition</b> MainWindow.h:221</div></div>
+<div class="ttc" id="aclass_main_window_html_aaa74fb1075aadb2ab29cf19effc02b22"><div class="ttname"><a href="class_main_window.html#aaa74fb1075aadb2ab29cf19effc02b22">MainWindow::buildToolbar</a></div><div class="ttdeci">void buildToolbar()</div><div class="ttdoc">Construye la barra de herramientas de conexión.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:197</div></div>
+<div class="ttc" id="aclass_main_window_html_aac9163e684188327c99807d5d4ce44bf"><div class="ttname"><a href="class_main_window.html#aac9163e684188327c99807d5d4ce44bf">MainWindow::m_lblTransito</a></div><div class="ttdeci">QLabel * m_lblTransito</div><div class="ttdoc">Número de cajas en tránsito.</div><div class="ttdef"><b>Definition</b> MainWindow.h:222</div></div>
+<div class="ttc" id="aclass_main_window_html_ab0f33e3ed5aafe88d32b6189a362fa3c"><div class="ttname"><a href="class_main_window.html#ab0f33e3ed5aafe88d32b6189a362fa3c">MainWindow::buildTabMonitor</a></div><div class="ttdeci">QWidget * buildTabMonitor()</div><div class="ttdoc">Construye el tab Monitor.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:258</div></div>
+<div class="ttc" id="aclass_main_window_html_ab191d4445d7faca3b2d48e2374d1d35a"><div class="ttname"><a href="class_main_window.html#ab191d4445d7faca3b2d48e2374d1d35a">MainWindow::onConnectClicked</a></div><div class="ttdeci">void onConnectClicked()</div><div class="ttdoc">Alterna entre conectar y desconectar el puerto serie.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:540</div></div>
+<div class="ttc" id="aclass_main_window_html_ab388b3ed2120e1a2218ae347074c3a5d"><div class="ttname"><a href="class_main_window.html#ab388b3ed2120e1a2218ae347074c3a5d">MainWindow::tipoCajaStr</a></div><div class="ttdeci">static QString tipoCajaStr(uint8_t cm)</div><div class="ttdoc">Convierte una altura en cm al nombre del tipo de caja.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:895</div></div>
+<div class="ttc" id="aclass_main_window_html_ab84830888a3150e023334c3660a2b12e"><div class="ttname"><a href="class_main_window.html#ab84830888a3150e023334c3660a2b12e">MainWindow::onStartClicked</a></div><div class="ttdeci">void onStartClicked()</div><div class="ttdoc">Envía CMD_START (0x50) con la configuración de salidas actual.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:643</div></div>
+<div class="ttc" id="aclass_main_window_html_ab894e2bcd5c1a5be872c82823f2d75ff"><div class="ttname"><a href="class_main_window.html#ab894e2bcd5c1a5be872c82823f2d75ff">MainWindow::m_comboBaud</a></div><div class="ttdeci">QComboBox * m_comboBaud</div><div class="ttdoc">Selector de velocidad en baudios.</div><div class="ttdef"><b>Definition</b> MainWindow.h:194</div></div>
+<div class="ttc" id="aclass_main_window_html_ac3f965097a463049036b3ccb0bd21ac9"><div class="ttname"><a href="class_main_window.html#ac3f965097a463049036b3ccb0bd21ac9">MainWindow::m_avanzadoDialog</a></div><div class="ttdeci">AvanzadoDialog * m_avanzadoDialog</div><div class="ttdoc">Diálogo de config. avanzada (0x64–0x67).</div><div class="ttdef"><b>Definition</b> MainWindow.h:178</div></div>
+<div class="ttc" id="aclass_main_window_html_ac6bca9f4de5d4facabdd6641dbeb2334"><div class="ttname"><a href="class_main_window.html#ac6bca9f4de5d4facabdd6641dbeb2334">MainWindow::setRunningState</a></div><div class="ttdeci">void setRunningState(bool running)</div><div class="ttdoc">Habilita/deshabilita controles según el estado de marcha.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:843</div></div>
+<div class="ttc" id="aclass_main_window_html_ac889fa671f2277d1ebf06d97e86523ce"><div class="ttname"><a href="class_main_window.html#ac889fa671f2277d1ebf06d97e86523ce">MainWindow::m_lblUltimaCajaCm</a></div><div class="ttdeci">QLabel * m_lblUltimaCajaCm</div><div class="ttdoc">Altura en cm de la última caja.</div><div class="ttdef"><b>Definition</b> MainWindow.h:225</div></div>
+<div class="ttc" id="aclass_main_window_html_ac901352cf165f353fac5b6b5ec401a70"><div class="ttname"><a href="class_main_window.html#ac901352cf165f353fac5b6b5ec401a70">MainWindow::checkConfigLock</a></div><div class="ttdeci">void checkConfigLock()</div><div class="ttdoc">Bloquea/desbloquea los combos de salida durante el funcionamiento.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:852</div></div>
+<div class="ttc" id="aclass_main_window_html_ac999a2a186254dd3790fe590db58aab3"><div class="ttname"><a href="class_main_window.html#ac999a2a186254dd3790fe590db58aab3">MainWindow::m_ciegoCfg</a></div><div class="ttdeci">Uner::CiegoDistancias m_ciegoCfg</div><div class="ttdoc">Configuración actual de modo ciego y distancias (0x60).</div><div class="ttdef"><b>Definition</b> MainWindow.h:190</div></div>
+<div class="ttc" id="aclass_main_window_html_ac9d0116d48832208f63ab511f43b8273"><div class="ttname"><a href="class_main_window.html#ac9d0116d48832208f63ab511f43b8273">MainWindow::m_cajasSalida</a></div><div class="ttdeci">int m_cajasSalida</div><div class="ttdoc">Contador de cajas que salieron en sesión.</div><div class="ttdef"><b>Definition</b> MainWindow.h:184</div></div>
+<div class="ttc" id="aclass_main_window_html_ad4dfed923fda5e525fb047838d5e5ab4"><div class="ttname"><a href="class_main_window.html#ad4dfed923fda5e525fb047838d5e5ab4">MainWindow::onTriggerClicked</a></div><div class="ttdeci">void onTriggerClicked()</div><div class="ttdoc">Envía CMD_TRIGGER (0x61) al MCU.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:685</div></div>
+<div class="ttc" id="aclass_main_window_html_ad677f75546d43f056bd7b2f546a358af"><div class="ttname"><a href="class_main_window.html#ad677f75546d43f056bd7b2f546a358af">MainWindow::onSerialError</a></div><div class="ttdeci">void onSerialError(const QString &amp;msg)</div><div class="ttdoc">Muestra el error en la barra de estado.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:577</div></div>
+<div class="ttc" id="aclass_main_window_html_ad876d155bd1d6c58ff2f0196c6d7f39a"><div class="ttname"><a href="class_main_window.html#ad876d155bd1d6c58ff2f0196c6d7f39a">MainWindow::m_btnAplicar</a></div><div class="ttdeci">QPushButton * m_btnAplicar</div><div class="ttdoc">Botón Aplicar/Start del panel de salidas.</div><div class="ttdef"><b>Definition</b> MainWindow.h:212</div></div>
+<div class="ttc" id="aclass_main_window_html_add7f5b4a7097aa5171422df87e460611"><div class="ttname"><a href="class_main_window.html#add7f5b4a7097aa5171422df87e460611">MainWindow::setConnectedState</a></div><div class="ttdeci">void setConnectedState(bool connected)</div><div class="ttdoc">Habilita/deshabilita controles según el estado de conexión.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:832</div></div>
+<div class="ttc" id="aclass_main_window_html_ade5ef2e777735c4c3e2ede2f75a69233"><div class="ttname"><a href="class_main_window.html#ade5ef2e777735c4c3e2ede2f75a69233">MainWindow::onBrazoActuado</a></div><div class="ttdeci">void onBrazoActuado(uint8_t servoIdx)</div><div class="ttdoc">Actualiza el indicador del brazo y los contadores al recibir 0x52.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:621</div></div>
+<div class="ttc" id="aclass_main_window_html_ae001822fd679939850ab0757afba2f45"><div class="ttname"><a href="class_main_window.html#ae001822fd679939850ab0757afba2f45">MainWindow::m_btnStop</a></div><div class="ttdeci">QPushButton * m_btnStop</div><div class="ttdoc">Botón Stop (0x51).</div><div class="ttdef"><b>Definition</b> MainWindow.h:203</div></div>
+<div class="ttc" id="aclass_main_window_html_ae2fab5f6b64b5a7709237dfcca24057f"><div class="ttname"><a href="class_main_window.html#ae2fab5f6b64b5a7709237dfcca24057f">MainWindow::m_ledAlive</a></div><div class="ttdeci">LedAliveWidget * m_ledAlive</div><div class="ttdoc">LED animado de heartbeat.</div><div class="ttdef"><b>Definition</b> MainWindow.h:198</div></div>
+<div class="ttc" id="aclass_main_window_html_ae34c3a1c138b30f9946f14dc5554937f"><div class="ttname"><a href="class_main_window.html#ae34c3a1c138b30f9946f14dc5554937f">MainWindow::onCajaMedida</a></div><div class="ttdeci">void onCajaMedida(uint8_t alturaCm)</div><div class="ttdoc">Actualiza contadores y panel de última caja al recibir 0x5F.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:592</div></div>
+<div class="ttc" id="aclass_main_window_html_ae8dc7adb83340756838ff303de825110"><div class="ttname"><a href="class_main_window.html#ae8dc7adb83340756838ff303de825110">MainWindow::m_lblEntradas</a></div><div class="ttdeci">QLabel * m_lblEntradas</div><div class="ttdoc">Número de cajas entradas.</div><div class="ttdef"><b>Definition</b> MainWindow.h:220</div></div>
+<div class="ttc" id="aclass_main_window_html_aea91700a38bf0800e9ef0d8cd990f4a6"><div class="ttname"><a href="class_main_window.html#aea91700a38bf0800e9ef0d8cd990f4a6">MainWindow::buildPanelSalidas</a></div><div class="ttdeci">QWidget * buildPanelSalidas()</div><div class="ttdoc">Construye el panel de configuración de salidas.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:381</div></div>
+<div class="ttc" id="aclass_main_window_html_aeb554c9d40c3e816f0ccd9a5c2cb10b0"><div class="ttname"><a href="class_main_window.html#aeb554c9d40c3e816f0ccd9a5c2cb10b0">MainWindow::m_lblUltimaCajaTipo</a></div><div class="ttdeci">QLabel * m_lblUltimaCajaTipo</div><div class="ttdoc">Tipo inferido (&quot;Pequeña&quot;, etc.).</div><div class="ttdef"><b>Definition</b> MainWindow.h:226</div></div>
+<div class="ttc" id="aclass_main_window_html_af35e02fd8f818e3ea696f1e0d6d916fc"><div class="ttname"><a href="class_main_window.html#af35e02fd8f818e3ea696f1e0d6d916fc">MainWindow::onSensorIrActualizado</a></div><div class="ttdeci">void onSensorIrActualizado(uint8_t outNum, bool activo)</div><div class="ttdoc">Actualiza el indicador LED del sensor IR al recibir 0x5E.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:613</div></div>
+<div class="ttc" id="aclass_main_window_html_af396286e06c18a757aa32b6c592fe82c"><div class="ttname"><a href="class_main_window.html#af396286e06c18a757aa32b6c592fe82c">MainWindow::buildPanelUltimaCaja</a></div><div class="ttdeci">QWidget * buildPanelUltimaCaja()</div><div class="ttdoc">Construye el panel de última caja medida.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:412</div></div>
+<div class="ttc" id="aclass_main_window_html_af8c244a4c358dadec9897025e52e7bb9"><div class="ttname"><a href="class_main_window.html#af8c244a4c358dadec9897025e52e7bb9">MainWindow::onConnected</a></div><div class="ttdeci">void onConnected(const QString &amp;port)</div><div class="ttdoc">Actualiza la UI al establecerse la conexión.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:548</div></div>
+<div class="ttc" id="aclass_main_window_html_afbff4a71b6c607066f64f557c3bc2c28"><div class="ttname"><a href="class_main_window.html#afbff4a71b6c607066f64f557c3bc2c28">MainWindow::statusMsg</a></div><div class="ttdeci">void statusMsg(const QString &amp;msg, int ms=4000)</div><div class="ttdoc">Muestra un mensaje en la barra de estado.</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:886</div></div>
+<div class="ttc" id="aclass_main_window_html_afe1bceaad866b6fed583ba83245ae195"><div class="ttname"><a href="class_main_window.html#afe1bceaad866b6fed583ba83245ae195">MainWindow::buildUi</a></div><div class="ttdeci">void buildUi()</div><div class="ttdoc">Construye toda la UI (toolbar + tabs).</div><div class="ttdef"><b>Definition</b> MainWindow.cpp:178</div></div>
+<div class="ttc" id="aclass_serial_manager_html"><div class="ttname"><a href="class_serial_manager.html">SerialManager</a></div><div class="ttdoc">Gestiona la conexión serie y el ciclo de vida del protocolo UNER.</div><div class="ttdef"><b>Definition</b> SerialManager.h:30</div></div>
+<div class="ttc" id="aclass_velocidad_dialog_html"><div class="ttname"><a href="class_velocidad_dialog.html">VelocidadDialog</a></div><div class="ttdoc">Diálogo flotante para configurar el ancho de la caja de referencia.</div><div class="ttdef"><b>Definition</b> VelocidadDialog.h:24</div></div>
+<div class="ttc" id="anamespace_uner_html_a00367a55e50e11f85f8f665d6d76f1c3"><div class="ttname"><a href="namespace_uner.html#a00367a55e50e11f85f8f665d6d76f1c3">Uner::TipoCaja</a></div><div class="ttdeci">TipoCaja</div><div class="ttdoc">Identificador del tipo de caja según su altura medida en cm.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:101</div></div>
+<div class="ttc" id="astruct_uner_1_1_calibracion_cfg_html"><div class="ttname"><a href="struct_uner_1_1_calibracion_cfg.html">Uner::CalibracionCfg</a></div><div class="ttdoc">Datos para el comando 0x63 – Calibración.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:141</div></div>
+<div class="ttc" id="astruct_uner_1_1_ciego_distancias_html"><div class="ttname"><a href="struct_uner_1_1_ciego_distancias.html">Uner::CiegoDistancias</a></div><div class="ttdoc">Datos para el comando 0x60 – Modo ciego y distancias.</div><div class="ttdef"><b>Definition</b> UnerProtocol.h:130</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="_main_window_8h.html">MainWindow.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

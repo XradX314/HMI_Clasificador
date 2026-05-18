@@ -1,0 +1,106 @@
+\doxysection{Serial\+Manager.\+h}
+\hypertarget{_serial_manager_8h_source}{}\label{_serial_manager_8h_source}\index{comunicacion/SerialManager.h@{comunicacion/SerialManager.h}}
+\doxymbox{\hyperlink{_serial_manager_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QSerialPort>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <QSerialPortInfo>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <QTimer>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_uner_protocol_8h}{UnerProtocol.h}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_serial_manager_aa2d090c2f7dc822a3fb1f3ac432abd0d}{SerialManager}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ qint32\ \doxymbox{\hyperlink{class_serial_manager_a0ed36f65dd2e04e21e8d886726f96e05}{DEFAULT\_BAUD}}\ \ \ \ \ \ \ \ \ =\ 9600;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \ \ \ \doxymbox{\hyperlink{class_serial_manager_a927114c12f09c17bee2d2ea0ccc15bb0}{HEARTBEAT\_TIMEOUT\_MS}}\ =\ 7000;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_serial_manager_aa2d090c2f7dc822a3fb1f3ac432abd0d}{SerialManager}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \ \ \ \ \doxymbox{\hyperlink{class_serial_manager_a2b96975d8838b2f3a83ddc00fe9dc2bd}{\string~SerialManager}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ ──\ Gestión\ de\ conexión\ ────────────────────────────────────}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \doxymbox{\hyperlink{class_serial_manager_a1bf39fdb897211849981c9fa6790ccac}{open}}(\textcolor{keyword}{const}\ QString\ \&portName,\ qint32\ baud\ =\ \doxymbox{\hyperlink{class_serial_manager_a0ed36f65dd2e04e21e8d886726f96e05}{DEFAULT\_BAUD}});}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \doxymbox{\hyperlink{class_serial_manager_a281981027f9aa6ab540c19586041232c}{close}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \doxymbox{\hyperlink{class_serial_manager_a4c37e46fdace2987034668b81e9cee19}{isOpen}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \ \ \ \ QString\ \doxymbox{\hyperlink{class_serial_manager_aae090ab68f6d5b3d213f7e1d53140217}{currentPort}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{static}\ QStringList\ \doxymbox{\hyperlink{class_serial_manager_a7c134a1ca1df92b64e2b14c4dfbfc70d}{availablePorts}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ ──\ Comandos\ de\ control\ ────────────────────────────────────}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a15fd01ddb4c75098fb8de46c5fac7e91}{sendStart}}(\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::TipoCaja}}\ s0,\ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::TipoCaja}}\ s1,\ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::TipoCaja}}\ s2);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_aaba43a056cb5a164c373161afa0c9234}{sendStop}}();}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_ae846c1325ee7a5fc429b85c15ced9a4c}{sendReset}}();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_accfccf549d794bf550a94e190ab6c31c}{sendVelocidad}}(uint8\_t\ velIdx);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ ──\ Comandos\ de\ configuración\ (0x60–0x67)\ ─────────────────}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a90c9a1b403d3f61470bf8fc2418183b1}{sendBlindDist}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{Uner::CiegoDistancias}}\ \&cfg,\ uint8\_t\ numBytes\ =\ 4);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a420e78a97531f6b6ad698c8c016f4b73}{sendTrigger}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a9bdc52f0e51b29d0d4f5a2585a98cda8}{sendAnchoCaja}}(uint8\_t\ anchoCm);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_aab55b5999fd9371a4a9634f190b2943b}{sendCalibracion}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::CalibracionCfg}}\ \&cfg);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_ac025e98df7f822ed79dd84fbfd9ff760}{sendHcsr04Cfg}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Uner::Hcsr04Cfg}}\ \&cfg);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_ac83ee453af942d7bea7deb338774f019}{sendSg90Cfg}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Uner::Sg90Cfg}}\ \&cfg);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_aac64f8999d245cb0232947acb7c17213}{sendIrDebounce}}(uint8\_t\ debounce);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a0cbe9fedcac42e0eaa885e1d871080e6}{sendTimersCfg}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Uner::TimersCfg}}\ \&cfg);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a977d89604b4159656e8052a05a2a5dd0}{sendRaw}}(\textcolor{keyword}{const}\ QByteArray\ \&frame);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ signals:}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_aa8f14189331d7d377e1c8955e0fc5a92}{connected}}(\textcolor{keyword}{const}\ QString\ \&port);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a35c3260cdd251e6628824ff41fb1deee}{disconnected}}();}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_ad464ee521bbe5507d7a51ea85ed1b71c}{connectionLost}}();}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a9b3cd79603c051d48e2c88ad4f29225f}{errorOccurred}}(\textcolor{keyword}{const}\ QString\ \&msg);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a8b899ebe90cce007f3eba9916930f3b0}{frameReady}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::Frame}}\ \&frame);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_af373e7864feb43dbb301013f18da400f}{aliveReceived}}();}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_abdb8b9d0efc962b0c203bdcd380c9d0b}{cajaMedida}}(uint8\_t\ alturaCm);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a38fa6e820d63dd624c8cd19f5c7c9fb9}{sensorIrActualizado}}(uint8\_t\ outNum,\ \textcolor{keywordtype}{bool}\ activo);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a5971d65e88f270812b9c4f39185c8f12}{brazoActuado}}(uint8\_t\ servoIdx);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_ab1b59e460773686f62bf149b44475eab}{onDataReady}}();}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a39ca559f5c27d29c3b45d00f184b7975}{onSerialError}}(QSerialPort::SerialPortError\ error);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a10633a8286337ba6aa78f75f08d0dbee}{onHeartbeatTimeout}}();}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a3f3113d08a283e9253bce08074b0962a}{onFrameReceived}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::Frame}}\ \&frame);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00225\ \ \ \ \ QSerialPort\ \ *\doxymbox{\hyperlink{class_serial_manager_a4c410199582498ad63f7267eca103e2c}{m\_serial}}\ \ \ \ \ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00226\ \ \ \ \ \doxymbox{\hyperlink{class_uner_protocol}{UnerProtocol}}\ *\doxymbox{\hyperlink{class_serial_manager_a5d218707ed6b1b1c31b3e55ca11f8079}{m\_protocol}}\ \ \ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00227\ \ \ \ \ QTimer\ \ \ \ \ \ \ *\doxymbox{\hyperlink{class_serial_manager_afad30fe1617bd4993e1ffe0c94b1e38c}{m\_heartbeatTimer}}\ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_serial_manager_a48012723aff97c1cd60eb5dd0f4d1f4c}{dispatchFrame}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::Frame}}\ \&frame);}
+\DoxyCodeLine{00234\ \};}
+
+\end{DoxyCode}

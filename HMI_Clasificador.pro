@@ -12,7 +12,8 @@ SOURCES += \
     comunicacion/SerialManager.cpp \
     widgets/LedAliveWidget.cpp \
     widgets/ConfigDialog.cpp \
-    widgets/VelocidadDialog.cpp
+    widgets/VelocidadDialog.cpp \
+    widgets/AvanzadoDialog.cpp
 
 HEADERS += \
     MainWindow.h \
@@ -20,7 +21,8 @@ HEADERS += \
     comunicacion/SerialManager.h \
     widgets/LedAliveWidget.h \
     widgets/ConfigDialog.h \
-    widgets/VelocidadDialog.h
+    widgets/VelocidadDialog.h \
+    widgets/AvanzadoDialog.h
 
 QMAKE_CXXFLAGS += -Wall -Wextra
 

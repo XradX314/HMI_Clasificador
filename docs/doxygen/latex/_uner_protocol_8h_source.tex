@@ -1,0 +1,194 @@
+\doxysection{Uner\+Protocol.\+h}
+\hypertarget{_uner_protocol_8h_source}{}\label{_uner_protocol_8h_source}\index{comunicacion/UnerProtocol.h@{comunicacion/UnerProtocol.h}}
+\doxymbox{\hyperlink{_uner_protocol_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <QByteArray>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ \ Comandos\ del\ protocolo}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_uner}{Uner}}\ \{}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a0aebedc2fd186a5b6d21a4bfb6d7a7a6}{CMD\_ALIVE}}\ \ \ \ \ \ \ \ \ =\ 0xF0;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_afca05993a41dd34585be0d705daa67a3}{CMD\_START}}\ \ \ \ \ \ \ \ \ =\ 0x50;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a676495b26ba39b493ae36eaa733de8c7}{CMD\_STOP}}\ \ \ \ \ \ \ \ \ \ =\ 0x51;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_ab814c2ae649f49d8527a8d3785d614f4}{CMD\_BRAZO}}\ \ \ \ \ \ \ \ \ =\ 0x52;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a15d208a58c117c92b26f05cb750118e2}{CMD\_RESET}}\ \ \ \ \ \ \ \ \ =\ 0x53;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_ab0cdd5372c8d3aa19cb2d519038c49c4}{CMD\_VELOCIDAD}}\ \ \ \ \ =\ 0x54;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a0988bb6598ead433f995bb8539acedc8}{CMD\_IR\_STATE}}\ \ \ \ \ \ =\ 0x5E;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a413f855cf3558a82001e0325b0417854}{CMD\_CAJA\_DETECT}}\ \ \ =\ 0x5F;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a1507aabd82f9907634dafec5f6ea91a2}{CMD\_BLIND\_DIST}}\ \ \ \ =\ 0x60;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_abd858d814c918aa8148613b285fbf1e3}{CMD\_TRIGGER}}\ \ \ \ \ \ \ =\ 0x61;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a5cdf753b6b5df75bc7f332d42c799f43}{CMD\_ANCHO\_CAJA}}\ \ \ \ =\ 0x62;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_adcc4635278729b1d54f55fd6193b7dd8}{CMD\_CALIBRACION}}\ \ \ =\ 0x63;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_af5c34bd30e92c197c7ba38a958c65a7f}{CMD\_HCSR04\_CFG}}\ \ \ \ =\ 0x64;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a3e79d1598dc157214582591b25e2c06d}{CMD\_SG90\_CFG}}\ \ \ \ \ \ =\ 0x65;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a30aa9967810290ef066831b2c40249fa}{CMD\_IR\_DEBOUNCE}}\ \ \ =\ 0x66;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_ae0554b7119295ac2ab1ea48db2a00628}{CMD\_TIMERS\_CFG}}\ \ \ \ =\ 0x67;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a91f24d7b9c68d250cb0417314fdf2979}{PARAM\_ACK}}\ \ \ \ \ \ \ \ \ =\ 0x0D;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{constexpr}\ uint8\_t\ \doxymbox{\hyperlink{namespace_uner_a3ecd19a554a991e5b7ff25794f410d40}{PARAM\_BRAZO\_ACK}}\ \ \ =\ 0xFF;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ \ Tipos\ de\ caja}}
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{TipoCaja}}\ :\ uint8\_t\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a3c2d02846e5a80e529ffcaa9284521c2}{Ninguna}}\ \ =\ 0,\ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a61286d28309f5d117d0be687f4d1eb54}{Pequenia}}\ =\ 6,\ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3aa0677834f95bf450966365824164f251}{Mediana}}\ \ =\ 8,\ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3a44da8a01d1381c41e35c162b56af23a9}{Grande}}\ \ \ =\ 10\ \ \ }
+\DoxyCodeLine{00106\ \};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00109\ \textcolor{comment}{//\ \ Trama\ genérica}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_uner_1_1_frame}{Frame}}\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ uint8\_t\ \ \ \ \doxymbox{\hyperlink{struct_uner_1_1_frame_af5ba03106cd3c9415e6283197c135f32}{cmd}};\ \ \ \ \ \ }
+\DoxyCodeLine{00117\ \ \ \ \ QByteArray\ \doxymbox{\hyperlink{struct_uner_1_1_frame_ac00ac055fcd1cfe28fa6c8b5c549827c}{payload}};\ \ }
+\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00121\ \textcolor{comment}{//\ \ Estructuras\ de\ configuración}}
+\DoxyCodeLine{00122\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00130\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{CiegoDistancias}}\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias_a5d4d3b30a8a0e852a596b870101ab1bb}{modo\_ciego}}\ \{0\};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00132\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias_a54b0785d544aca346a6e0fee04aa8dbf}{dist\_s0}}[3]\ \{30,\ 60,\ 90\};\ }
+\DoxyCodeLine{00133\ \};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{CalibracionCfg}}\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg_a9347ae8bfe7455a3042a6bfbb6370002}{calibracion}}[4]\ \ \ \{30,\ 6,\ 8,\ 10\};\ }
+\DoxyCodeLine{00143\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg_aa17254287ff8691065ea3601c15a0ead}{tolerancia}}\ \ \ \ \ \ \ \ \{1\};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg_a9d45e533d4a9ca86d4a593926a50b047}{time\_arm\_extend}}\ \ \ \{125\};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00145\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg_ab064ef055cbd3201fb5eabfdcb69d41b}{time\_arm\_retract}}\ \ \{125\};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00146\ \};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00154\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Hcsr04Cfg}}\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ uint8\_t\ \ \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg_aad58d22050a3a8e412d0d7d32f35fde7}{trig\_pulse\_us}}\ \{10\};\ \ \ \ }
+\DoxyCodeLine{00156\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg_a6946da59a52390d4269aefff361963dd}{timeout\_us}}\ \ \ \ \{25000\};\ }
+\DoxyCodeLine{00157\ \};}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00165\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Sg90Cfg}}\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg_ad44257d83bde2b225fcfcf15abb37ef0}{period\_us}}\ \ \ \ \ \ \ \ \{20000\};\ }
+\DoxyCodeLine{00167\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg_a0b6882dfc915066d6cd50fdabcfb64af}{pulse\_min\_us}}\ \ \ \ \ \{600\};\ \ \ }
+\DoxyCodeLine{00168\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg_adeeb9ba0ed566065989453bd64c96621}{pulse\_max\_us}}\ \ \ \ \ \{2400\};\ \ }
+\DoxyCodeLine{00169\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg_aa3fe81f00616e786aa4c449813deb17e}{pulse\_neutral\_us}}\ \{1500\};\ \ }
+\DoxyCodeLine{00170\ \};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00179\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{TimersCfg}}\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_a14a144a46fa3a414defe4143b7bf182e}{retract\_timer}}\ \ \ \ \ \{125\};\ \ \ \ \ }
+\DoxyCodeLine{00181\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_a69df2fe958020696be2d9bc0db0b1a21}{sg90\_angle\_detect}}\ \{90\};\ \ \ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_ac7c0e33b91b015677e8e4b7e63dfec1e}{sg90\_angle\_repose}}\ \{0\};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00183\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_ad89311a8845954e5d81240264bfc27a5}{hcsr\_timer}}\ \ \ \ \ \ \ \ \{25\};\ \ \ \ \ \ }
+\DoxyCodeLine{00184\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_a8b03355f9f9d4e75b9fdf82277a8fb2d}{alive\_timer}}\ \ \ \ \ \ \ \{250\};\ \ \ \ \ }
+\DoxyCodeLine{00185\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg_a6181b1416376793f84afbe27bb855f8d}{config\_cajas}}[3]\ \ \ \{6,\ 8,\ 10\};\ }
+\DoxyCodeLine{00186\ \};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \}\ \textcolor{comment}{//\ namespace\ Uner}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00192\ \textcolor{comment}{//\ \ Clase\ UnerProtocol}}
+\DoxyCodeLine{00193\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00219\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_uner_protocol_a85a70b0855430811b4e6afd919e3b69a}{UnerProtocol}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00220\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_uner_protocol_a85a70b0855430811b4e6afd919e3b69a}{UnerProtocol}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ ──\ Encoder\ genérico\ ────────────────────────────────────}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a8b626c4f488afaa3c6bc61fd8499deec}{encode}}(uint8\_t\ cmd,\ \textcolor{keyword}{const}\ QByteArray\ \&payload\ =\ \{\});}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{comment}{//\ ──\ Encoders\ de\ control\ ─────────────────────────────────}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a7a806329f264ac2f56e3b61855f0cb85}{ackAlive}}();}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a1f7d57639a72fb63aa58e24d177144ee}{cmdStart}}(\doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::TipoCaja}}\ s0,\ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::TipoCaja}}\ s1,\ \doxymbox{\hyperlink{namespace_uner_a00367a55e50e11f85f8f665d6d76f1c3}{Uner::TipoCaja}}\ s2);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_abcc9215e6717dca373d88f70026cdbe5}{cmdStop}}();}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a1129ce91f8cf057a60016fa8cf24b8ca}{cmdReset}}();}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a27c1327e50dffd000ffa8592d65b207a}{ackBrazo}}();}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a5484fdf88f6053a074f436eaec1502d9}{cmdVelocidad}}(uint8\_t\ velIdx);}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{comment}{//\ ──\ Encoders\ de\ configuración\ (0x60–0x67)\ ──────────────}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a4e78307056aeeb0324aa35ebce351934}{cmdBlindDist}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_ciego_distancias}{Uner::CiegoDistancias}}\ \&cfg,\ uint8\_t\ numBytes\ =\ 4);}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a7da608c6526da2a0d99ae2056d80a07a}{cmdTrigger}}();}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_acf65414ddffc1fbef089456e5e6509a9}{cmdAnchoCaja}}(uint8\_t\ anchoCm);}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_af5de8dcbbbc670e39f51e1b555fad046}{cmdCalibracion}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::CalibracionCfg}}\ \&cfg);}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_acbb40127c728551e553a54bd3d998337}{cmdHcsr04Cfg}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_hcsr04_cfg}{Uner::Hcsr04Cfg}}\ \&cfg);}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a51956427e8b6badffe35f8781f012893}{cmdSg90Cfg}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_sg90_cfg}{Uner::Sg90Cfg}}\ \&cfg);}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a3d5f19ad70d4c11edb15e9cf4d125bbb}{cmdIrDebounce}}(uint8\_t\ debounce);}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a3505c38a310e1d05f3f7cde3c8cc5b68}{cmdTimersCfg}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_timers_cfg}{Uner::TimersCfg}}\ \&cfg);}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{comment}{//\ ──\ Decoder\ ─────────────────────────────────────────────}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_uner_protocol_a4510e7e9b675aa7c0016856541b181bd}{feed}}(\textcolor{keyword}{const}\ QByteArray\ \&data);}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_uner_protocol_aea18560d903cf5f8a90fe487adfa168d}{reset}}();}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ signals:}
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_uner_protocol_a270372c4d6fbb290e8af0a5e68dd13fd}{frameReceived}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_frame}{Uner::Frame}}\ \&frame);}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_uner_protocol_a73fcef6a15fb59892cc4d07dc4a029da}{checksumError}}(\textcolor{keyword}{const}\ QByteArray\ \&raw);}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3}{ParseState}}\ :\ uint8\_t\ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9}{WaitU}}\ =\ 0,\ \ \ \ \ }
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a7c19e9719d2d8793512a3d35ae1c2872}{WaitN}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a9c8fddfd225b003a5f04085d70fed36b}{WaitE}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a4246140d090188d607c745767cb110fd}{WaitR}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a848bf9bfecf6fc1a80b98eea08ca38cf}{ReadLen}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a6bea4facf162e9efc4df49d9d938b297}{WaitColon}},\ \ \ \ \ }
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3af2bae2fb6d0b152ae94a1be3977813b0}{ReadPayload}}\ \ \ \ }
+\DoxyCodeLine{00365\ \ \ \ \ \};}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3}{ParseState}}\ \doxymbox{\hyperlink{class_uner_protocol_a4bbbfb6c459ee5a2688fd9982ab52370}{m\_state}}\ \ \ \ \ \{\doxymbox{\hyperlink{class_uner_protocol_afa14f41e5c9180b483ad0f053895ecf3a8f26f8b4393ae01907e2ac77db9a47f9}{ParseState::WaitU}}\};\ }
+\DoxyCodeLine{00368\ \ \ \ \ uint8\_t\ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_ab65e73e19f6b3aeeb9cf98725b7a45d4}{m\_len}}\ \ \ \ \ \ \ \{0\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00369\ \ \ \ \ uint8\_t\ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_a212e07b79197184885f8a0b68b8abc50}{m\_remaining}}\ \{0\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00370\ \ \ \ \ uint8\_t\ \ \ \ \doxymbox{\hyperlink{class_uner_protocol_aabde0d0b200e8b118cfa5e004b563e9e}{m\_cks}}\ \ \ \ \ \ \ \{0\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00371\ \ \ \ \ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_aa071478084b208f0b8cdcccbdb96f7c1}{m\_payload}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00372\ \ \ \ \ QByteArray\ \doxymbox{\hyperlink{class_uner_protocol_a2b6c03532804cace4ee670eeab0b7ec9}{m\_rawFrame}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_uner_protocol_ad0d6c8881976494e62723a94263e55c6}{processPayload}}();}
+\DoxyCodeLine{00380\ \};}
+
+\end{DoxyCode}

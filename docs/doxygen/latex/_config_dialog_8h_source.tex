@@ -1,0 +1,48 @@
+\doxysection{Config\+Dialog.\+h}
+\hypertarget{_config_dialog_8h_source}{}\label{_config_dialog_8h_source}\index{widgets/ConfigDialog.h@{widgets/ConfigDialog.h}}
+\doxymbox{\hyperlink{_config_dialog_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QSpinBox>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_uner_protocol_8h}{comunicacion/UnerProtocol.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_config_dialog_a3a2bc25ec82fd25fe68a89c81b8b9a5a}{ConfigDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_config_dialog_a3a2bc25ec82fd25fe68a89c81b8b9a5a}{ConfigDialog}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::CalibracionCfg}}\ \&current,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::CalibracionCfg}}\ \doxymbox{\hyperlink{class_config_dialog_aadd018911602adbbb9457a74378dfa48}{config}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_config_dialog_a841e913418425d1f49c96e1e8a75a44d}{setDarkMode}}(\textcolor{keywordtype}{bool}\ dark);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ signals:}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_config_dialog_a0e877e11a6fd35cb5ad6cb33dfca5b26}{configApplied}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::CalibracionCfg}}\ \&cfg);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_config_dialog_a666fce5560ddb5bb5658c845cb233c34}{m\_spinPiso}}\ \ \ \ \ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00064\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_config_dialog_a45d454e227360da1c720058da78243ab}{m\_spinPequenia}}\ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00065\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_config_dialog_afb6e0bd97aa5866106f8187c4abf6a69}{m\_spinMediana}}\ \ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00066\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_config_dialog_a3b388a42bc9c769d6bd4566f0b319bf9}{m\_spinGrande}}\ \ \ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00067\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_config_dialog_a53564392c66b4820799f64f725c31a26}{m\_spinTolerancia}}\ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00068\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_config_dialog_a6f4bf7487c43d7ffc630f4c199922f3c}{m\_spinArmExtend}}\ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00069\ \ \ \ \ QSpinBox\ \ \ \ *\doxymbox{\hyperlink{class_config_dialog_a5a6fd2dbb2cc07f3bfc9337fbbef32ec}{m\_spinArmRetract}}\ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00070\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{class_config_dialog_a9157e36c0bbab5b671797efdb92c679b}{m\_btnAplicar}}\ \ \ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00071\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{class_config_dialog_a6cf613decbdde2473edfeaa218f98da4}{m\_btnCerrar}}\ \ \ \ \ \ \ \ \ \{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_config_dialog_aa75943969d9ee61b729241ff6906d3ba}{buildUi}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_uner_1_1_calibracion_cfg}{Uner::CalibracionCfg}}\ \&c);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_config_dialog_ab8d5aa76f3ef7e173d0e9218f33831d1}{applyDarkStyle}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_config_dialog_a9d9ab6d594430641c632d3bd3be250d2}{applyLightStyle}}();}
+\DoxyCodeLine{00084\ \};}
+
+\end{DoxyCode}

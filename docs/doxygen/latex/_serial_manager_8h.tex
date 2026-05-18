@@ -1,0 +1,23 @@
+\doxysection{Referencia del archivo comunicacion/\+\+Serial\+Manager.h}
+\hypertarget{_serial_manager_8h}{}\label{_serial_manager_8h}\index{comunicacion/SerialManager.h@{comunicacion/SerialManager.h}}
+
+
+Gestión del puerto serie y despacho de tramas del protocolo UNER.  
+
+
+{\ttfamily \+\#include $<$QObject$>$}\newline
+{\ttfamily \+\#include $<$QSerial\+Port$>$}\newline
+{\ttfamily \+\#include $<$QSerial\+Port\+Info$>$}\newline
+{\ttfamily \+\#include $<$QTimer$>$}\newline
+{\ttfamily \+\#include "{}Uner\+Protocol.\+h"{}}\newline
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_serial_manager}{Serial\+Manager}}
+\begin{DoxyCompactList}\small\item\em Gestiona la conexión serie y el ciclo de vida del protocolo UNER. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Gestión del puerto serie y despacho de tramas del protocolo UNER. 
+
+\doxylink{class_serial_manager}{Serial\+Manager} actúa como fachada entre la interfaz gráfica y el stack de comunicación. Encapsula la apertura/\+cierre del QSerial\+Port, el watchdog de heartbeat y la traducción entre señales Qt y tramas UNER. 
