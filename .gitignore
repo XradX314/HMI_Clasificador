@@ -24,3 +24,9 @@ Makefile
 
 # Claude Code
 .claude/
+
+# LaTeX build artifacts
+docs/informe/*.aux
+docs/informe/*.log
+docs/informe/*.out
+docs/informe/*.toc
