@@ -57,6 +57,7 @@ bool SerialManager::open(const QString &portName, qint32 baud)
 void SerialManager::close()
 {
     m_heartbeatTimer->stop();
+    m_medirTimer->stop();
     if (m_serial->isOpen()) { m_serial->close(); emit disconnected(); }
     m_protocol->reset();
 }
@@ -96,6 +97,7 @@ void SerialManager::sendTrigger()
 
 void SerialManager::sendMedir()
 {
+    if (m_esperandoMedir) return;
     m_esperandoMedir = true;
     m_medirTimer->start();
     sendRaw(UnerProtocol::cmdTrigger());
