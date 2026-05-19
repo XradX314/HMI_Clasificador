@@ -143,6 +143,9 @@ private slots:
      */
     void onBlindModeToggled(bool checked);
 
+    /** @brief Alterna entre modo automático y manual de velocidad. */
+    void onVelModoToggled(bool autoMode);
+
     // ── Diálogos de configuración ──────────────────────────────
 
     /** @brief Abre o trae al frente el diálogo de calibración (0x63). */
@@ -240,6 +243,10 @@ private:
     QPushButton *m_btnTrigger   {nullptr}; ///< Botón Trigger (0x61).
     QSpinBox    *m_spinVel      {nullptr}; ///< SpinBox de velocidad (0x54).
     QLabel      *m_lblVelCinta  {nullptr}; ///< Label con la velocidad de cinta medida.
+    bool        m_velModoAuto  {true};    ///< true = velocidad automática del MCU.
+    QPushButton *m_btnVelAuto  {nullptr}; ///< Botón toggle "Automático".
+    QPushButton *m_btnVelManual{nullptr}; ///< Botón toggle "Manual".
+    QPushButton *m_btnMedirVel {nullptr}; ///< Botón "Medir velocidad" (solo en Manual).
     QSpinBox    *m_spinDist[3]  {nullptr, nullptr, nullptr}; ///< SpinBoxes de distancias S0→salida.
 
     // ── Tab Monitor – salidas ────────────────────────────────

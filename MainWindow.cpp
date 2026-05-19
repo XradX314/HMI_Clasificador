@@ -82,6 +82,12 @@ QStatusBar { background: #F9FAFB; border-top: 1px solid #E5E7EB; color: #6B7280;
 
 QFrame#cardIR, QFrame#cardBrazo, QFrame#cardCounter, QFrame#cardUltima {
     background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; }
+QPushButton#btnVelAuto, QPushButton#btnVelManual { font-size: 11px; padding: 3px 8px; min-height: 22px; }
+QPushButton#btnVelAuto:checked  { background: #ECFDF5; border-color: #6EE7B7; color: #065F46; }
+QPushButton#btnVelManual:checked { background: #FFF7ED; border-color: #FED7AA; color: #C2410C; }
+QPushButton#btnMedirVel { background: #FFF7ED; border-color: #FED7AA; color: #C2410C; }
+QPushButton#btnMedirVel:hover { background: #FFEDD5; }
+QPushButton#btnMedirVel:disabled { background: #F9FAFB; color: #D1D5DB; border-color: #F3F4F6; }
 )";
 
 static const QString STYLE_DARK = R"(
@@ -140,6 +146,12 @@ QStatusBar { background: #1F2937; border-top: 1px solid #374151; color: #9CA3AF;
 
 QFrame#cardIR, QFrame#cardBrazo, QFrame#cardCounter, QFrame#cardUltima {
     background: #374151; border: 1px solid #4B5563; border-radius: 8px; }
+QPushButton#btnVelAuto, QPushButton#btnVelManual { font-size: 11px; padding: 3px 8px; min-height: 22px; }
+QPushButton#btnVelAuto:checked  { background: #064E3B; border-color: #065F46; color: #6EE7B7; }
+QPushButton#btnVelManual:checked { background: #431407; border-color: #C2410C; color: #FED7AA; }
+QPushButton#btnMedirVel { background: #431407; border-color: #C2410C; color: #FED7AA; }
+QPushButton#btnMedirVel:hover { background: #7C2D12; }
+QPushButton#btnMedirVel:disabled { background: #1F2937; color: #4B5563; border-color: #374151; }
 )";
 
 // =============================================================
@@ -337,6 +349,41 @@ QWidget *MainWindow::buildPanelControl()
     m_btnBlindMode->setToolTip("Activar/desactivar modo ciego (CMD 0x60)");
     connect(m_btnBlindMode, &QPushButton::toggled, this, &MainWindow::onBlindModeToggled);
     vl->addWidget(m_btnBlindMode);
+
+    // Toggle Auto/Manual velocidad
+    auto *hlVelToggle = new QHBoxLayout;
+    hlVelToggle->setSpacing(4);
+
+    m_btnVelAuto = new QPushButton("Automático");
+    m_btnVelAuto->setCheckable(true);
+    m_btnVelAuto->setChecked(true);
+    m_btnVelAuto->setObjectName("btnVelAuto");
+    m_btnVelAuto->setToolTip("Usar velocidad reportada automáticamente por el MCU");
+
+    m_btnVelManual = new QPushButton("Manual");
+    m_btnVelManual->setCheckable(true);
+    m_btnVelManual->setChecked(false);
+    m_btnVelManual->setObjectName("btnVelManual");
+    m_btnVelManual->setToolTip("Medir velocidad manualmente con countdown de 60 s");
+
+    hlVelToggle->addWidget(m_btnVelAuto);
+    hlVelToggle->addWidget(m_btnVelManual);
+    vl->addLayout(hlVelToggle);
+
+    m_btnMedirVel = new QPushButton("⏱  Medir velocidad");
+    m_btnMedirVel->setObjectName("btnMedirVel");
+    m_btnMedirVel->setVisible(false);
+    m_btnMedirVel->setEnabled(false);
+    m_btnMedirVel->setToolTip("Abrir diálogo de medición de velocidad con countdown 60 s");
+    vl->addWidget(m_btnMedirVel);
+
+    connect(m_btnVelAuto, &QPushButton::clicked, this, [this]() {
+        onVelModoToggled(true);
+    });
+    connect(m_btnVelManual, &QPushButton::clicked, this, [this]() {
+        onVelModoToggled(false);
+    });
+    connect(m_btnMedirVel, &QPushButton::clicked, this, &MainWindow::onOpenVelocidad);
 
     // Spinboxes de distancias S0→salida[0,1,2]
     const char *distLabels[3] = {"S0→Sal0:", "S0→Sal1:", "S0→Sal2:"};
@@ -746,6 +793,15 @@ void MainWindow::onBlindModeToggled(bool checked)
               .arg(m_ciegoCfg.dist_s0[2]));
 }
 
+void MainWindow::onVelModoToggled(bool autoMode)
+{
+    m_velModoAuto = autoMode;
+    m_btnVelAuto->setChecked(autoMode);
+    m_btnVelManual->setChecked(!autoMode);
+    m_btnMedirVel->setVisible(!autoMode);
+    m_btnMedirVel->setEnabled(!autoMode && m_serial->isOpen());
+}
+
 // =============================================================
 //  Slots – Diálogos de configuración
 // =============================================================
@@ -815,7 +871,7 @@ void MainWindow::onOpenVelocidad()
     if (!m_velocidadDialog) {
         m_velocidadDialog = new VelocidadDialog(this);
         m_velocidadDialog->setDarkMode(m_darkMode);
-        connect(m_velocidadDialog, &VelocidadDialog::requestAnchoCaja,
+        connect(m_velocidadDialog, &VelocidadDialog::requestMedirVelocidad,
                 this,              &MainWindow::onAnchoCajaRequested);
     }
     m_velocidadDialog->show();
@@ -827,13 +883,14 @@ void MainWindow::onAnchoCajaRequested(uint8_t anchoCm)
 {
     if (!m_serial->isOpen()) {
         statusMsg("Sin conexión serial — no se puede enviar.", 3000);
+        if (m_velocidadDialog) m_velocidadDialog->velocidadFallo();
         return;
     }
     m_anchoCaja = anchoCm;
     if (m_visualizadorDialog)
         m_visualizadorDialog->canvas()->setAnchoCaja(anchoCm);
     m_serial->sendAnchoCaja(anchoCm);
-    statusMsg(QString("Ancho de caja enviado: %1 cm (CMD 0x62)").arg(anchoCm));
+    statusMsg(QString("Ancho de caja enviado: %1 cm (CMD 0x62) — esperando velocidad…").arg(anchoCm));
 }
 
 void MainWindow::onVelocidadCintaActualizada(uint8_t vel)
@@ -841,6 +898,8 @@ void MainWindow::onVelocidadCintaActualizada(uint8_t vel)
     m_velCintaCms = vel;
     if (m_lblVelCinta)
         m_lblVelCinta->setText(QString("%1 cm/s").arg(vel));
+    if (!m_velModoAuto && m_velocidadDialog && m_velocidadDialog->isVisible())
+        m_velocidadDialog->velocidadRecibida(vel);
     if (m_visualizadorDialog)
         m_visualizadorDialog->canvas()->onVelocidadActualizada(vel);
 }
@@ -956,6 +1015,8 @@ void MainWindow::setConnectedState(bool connected)
     m_spinVel->setEnabled(connected);
     m_btnBlindMode->setEnabled(connected && !m_running);
     m_btnTrigger->setEnabled(connected);
+    if (m_btnMedirVel)
+        m_btnMedirVel->setEnabled(!m_velModoAuto && connected);
     checkConfigLock();
 }
 
