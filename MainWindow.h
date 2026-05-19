@@ -26,6 +26,7 @@
 #include "widgets/ConfigDialog.h"
 #include "widgets/VelocidadDialog.h"
 #include "widgets/AvanzadoDialog.h"
+#include "widgets/CintaVisualizador.h"
 
 /**
  * @class MainWindow
@@ -124,6 +125,15 @@ private slots:
      */
     void onVelocidadChanged(int value);
 
+    /**
+     * @brief Actualiza el label de velocidad de cinta al recibir 0x62 MCU→PC.
+     * @param vel Velocidad medida en cm/s.
+     */
+    void onVelocidadCintaActualizada(uint8_t vel);
+
+    /** @brief Abre o trae al frente el visualizador de cinta. */
+    void onOpenVisualizador();
+
     /** @brief Envía CMD_TRIGGER (0x61) al MCU. */
     void onTriggerClicked();
 
@@ -177,6 +187,7 @@ private:
     ConfigDialog     *m_configDialog    {nullptr}; ///< Diálogo de calibración (0x63).
     VelocidadDialog  *m_velocidadDialog {nullptr}; ///< Diálogo de ancho de caja (0x62).
     AvanzadoDialog   *m_avanzadoDialog  {nullptr}; ///< Diálogo de config. avanzada (0x64–0x67).
+    CintaVisualizador *m_visualizadorDialog {nullptr}; ///< Ventana de visualización de cinta.
 
     // ── Estado ───────────────────────────────────────────────
     bool  m_running  {false}; ///< true mientras el sistema está en marcha.
@@ -195,6 +206,8 @@ private:
 
     bool  m_irState[4]    {false, false, false, false}; ///< Estado de los 4 sensores IR.
     bool  m_brazoState[3] {false, false, false};        ///< Estado de los 3 brazos.
+    uint8_t m_velCintaCms {0};  ///< Última velocidad de cinta recibida en cm/s.
+    uint8_t m_anchoCaja   {10}; ///< Ancho de caja de referencia en cm.
 
     /** @brief Configuración actual de modo ciego y distancias (0x60). */
     Uner::CiegoDistancias m_ciegoCfg;
@@ -215,6 +228,7 @@ private:
     QPushButton *m_btnBlindMode {nullptr}; ///< Botón checkable Modo Ciego (0x60).
     QPushButton *m_btnTrigger   {nullptr}; ///< Botón Trigger (0x61).
     QSpinBox    *m_spinVel      {nullptr}; ///< SpinBox de velocidad (0x54).
+    QLabel      *m_lblVelCinta  {nullptr}; ///< Label con la velocidad de cinta medida.
     QSpinBox    *m_spinDist[3]  {nullptr, nullptr, nullptr}; ///< SpinBoxes de distancias S0→salida.
 
     // ── Tab Monitor – salidas ────────────────────────────────

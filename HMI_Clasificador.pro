@@ -13,7 +13,8 @@ SOURCES += \
     widgets/LedAliveWidget.cpp \
     widgets/ConfigDialog.cpp \
     widgets/VelocidadDialog.cpp \
-    widgets/AvanzadoDialog.cpp
+    widgets/AvanzadoDialog.cpp \
+    widgets/CintaVisualizador.cpp
 
 HEADERS += \
     MainWindow.h \
@@ -22,7 +23,8 @@ HEADERS += \
     widgets/LedAliveWidget.h \
     widgets/ConfigDialog.h \
     widgets/VelocidadDialog.h \
-    widgets/AvanzadoDialog.h
+    widgets/AvanzadoDialog.h \
+    widgets/CintaVisualizador.h
 
 QMAKE_CXXFLAGS += -Wall -Wextra
 

@@ -164,7 +164,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_serial, &SerialManager::aliveReceived,       m_ledAlive, &LedAliveWidget::onAlive);
     connect(m_serial, &SerialManager::cajaMedida,          this, &MainWindow::onCajaMedida);
     connect(m_serial, &SerialManager::sensorIrActualizado, this, &MainWindow::onSensorIrActualizado);
-    connect(m_serial, &SerialManager::brazoActuado,        this, &MainWindow::onBrazoActuado);
+    connect(m_serial, &SerialManager::brazoActuado,               this, &MainWindow::onBrazoActuado);
+    connect(m_serial, &SerialManager::velocidadCintaActualizada,  this, &MainWindow::onVelocidadCintaActualizada);
 
     setConnectedState(false);
     setRunningState(false);
@@ -247,6 +248,11 @@ void MainWindow::buildToolbar()
     btnAvanz->setToolTip("HC-SR04, SG90, debounce IR, timers (0x64–0x67)");
     connect(btnAvanz, &QPushButton::clicked, this, &MainWindow::onOpenAvanzado);
     tb->addWidget(btnAvanz);
+
+    auto *btnVis = new QPushButton("📹  Visualizar");
+    btnVis->setToolTip("Abrir visualizador de cinta en tiempo real");
+    connect(btnVis, &QPushButton::clicked, this, &MainWindow::onOpenVisualizador);
+    tb->addWidget(btnVis);
 
     addToolBar(tb);
 }
@@ -373,6 +379,14 @@ QWidget *MainWindow::buildPanelControl()
     connect(m_spinVel, &QSpinBox::valueChanged, this, &MainWindow::onVelocidadChanged);
     hl->addWidget(m_spinVel);
     vl->addLayout(hl);
+
+    auto *hlVel = new QHBoxLayout;
+    hlVel->addWidget(new QLabel("Cinta:"));
+    m_lblVelCinta = new QLabel("-- cm/s");
+    m_lblVelCinta->setStyleSheet("font-size: 11px; color: #9CA3AF;");
+    m_lblVelCinta->setToolTip("Velocidad de cinta medida por el MCU (CMD 0x62 MCU→PC)");
+    hlVel->addWidget(m_lblVelCinta);
+    vl->addLayout(hlVel);
 
     vl->addStretch();
     return gb;
@@ -783,8 +797,47 @@ void MainWindow::onAnchoCajaRequested(uint8_t anchoCm)
         statusMsg("Sin conexión serial — no se puede enviar.", 3000);
         return;
     }
+    m_anchoCaja = anchoCm;
+    if (m_visualizadorDialog)
+        m_visualizadorDialog->canvas()->setAnchoCaja(anchoCm);
     m_serial->sendAnchoCaja(anchoCm);
     statusMsg(QString("Ancho de caja enviado: %1 cm (CMD 0x62)").arg(anchoCm));
+}
+
+void MainWindow::onVelocidadCintaActualizada(uint8_t vel)
+{
+    m_velCintaCms = vel;
+    if (m_lblVelCinta)
+        m_lblVelCinta->setText(QString("%1 cm/s").arg(vel));
+    if (m_visualizadorDialog)
+        m_visualizadorDialog->canvas()->onVelocidadActualizada(vel);
+}
+
+void MainWindow::onOpenVisualizador()
+{
+    if (!m_visualizadorDialog) {
+        m_visualizadorDialog = new CintaVisualizador(this);
+        m_visualizadorDialog->setDarkMode(m_darkMode);
+        m_visualizadorDialog->canvas()->setAnchoCaja(m_anchoCaja);
+        m_visualizadorDialog->canvas()->setDistancias(
+            static_cast<uint8_t>(m_spinDist[0]->value()),
+            static_cast<uint8_t>(m_spinDist[1]->value()),
+            static_cast<uint8_t>(m_spinDist[2]->value()));
+        if (m_velCintaCms > 0)
+            m_visualizadorDialog->canvas()->onVelocidadActualizada(m_velCintaCms);
+
+        connect(m_serial, &SerialManager::cajaMedida,
+                m_visualizadorDialog->canvas(), &CintaCanvas::onCajaMedida);
+        connect(m_serial, &SerialManager::sensorIrActualizado,
+                m_visualizadorDialog->canvas(), &CintaCanvas::onSensorIr);
+        connect(m_serial, &SerialManager::brazoActuado,
+                m_visualizadorDialog->canvas(), &CintaCanvas::onBrazoActuado);
+        connect(m_serial, &SerialManager::velocidadCintaActualizada,
+                m_visualizadorDialog->canvas(), &CintaCanvas::onVelocidadActualizada);
+    }
+    m_visualizadorDialog->show();
+    m_visualizadorDialog->raise();
+    m_visualizadorDialog->activateWindow();
 }
 
 void MainWindow::onOpenAvanzado()
@@ -833,9 +886,10 @@ void MainWindow::toggleDarkMode(bool dark)
 {
     m_darkMode = dark;
     applyTheme();
-    if (m_configDialog)    m_configDialog->setDarkMode(dark);
-    if (m_velocidadDialog) m_velocidadDialog->setDarkMode(dark);
-    if (m_avanzadoDialog)  m_avanzadoDialog->setDarkMode(dark);
+    if (m_configDialog)       m_configDialog->setDarkMode(dark);
+    if (m_velocidadDialog)    m_velocidadDialog->setDarkMode(dark);
+    if (m_avanzadoDialog)     m_avanzadoDialog->setDarkMode(dark);
+    if (m_visualizadorDialog) m_visualizadorDialog->setDarkMode(dark);
     m_ledAlive->setDarkMode(dark);
 }
 
