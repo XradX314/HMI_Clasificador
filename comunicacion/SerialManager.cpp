@@ -178,6 +178,15 @@ void SerialManager::dispatchFrame(const Uner::Frame &frame)
         }
         break;
 
+    // 0x62 MCU→PC: velocidad medida (el PC→MCU ya lo envía via sendAnchoCaja)
+    case Uner::CMD_ANCHO_CAJA:
+        if (!frame.payload.isEmpty()) {
+            const uint8_t vel = static_cast<uint8_t>(frame.payload.at(0));
+            emit velocidadCintaActualizada(vel);
+            qDebug() << "[SerialManager] Vel. cinta:" << vel << "cm/s";
+        }
+        break;
+
     default:
         qDebug() << "[SerialManager] Frame no manejado:" << Qt::hex << frame.cmd;
         break;

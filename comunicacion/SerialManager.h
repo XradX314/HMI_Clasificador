@@ -202,6 +202,12 @@ signals:
      */
     void brazoActuado(uint8_t servoIdx);
 
+    /**
+     * @brief Se emite cuando el MCU reporta la velocidad medida (0x62 MCU→PC).
+     * @param vel_cm_s Velocidad de la cinta en cm/s.
+     */
+    void velocidadCintaActualizada(uint8_t vel_cm_s);
+
 private slots:
     /** @brief Slot invocado cuando hay datos disponibles en el puerto. */
     void onDataReady();
