@@ -758,6 +758,12 @@ void MainWindow::onOpenConfig()
         m_configDialog->setDarkMode(m_darkMode);
         connect(m_configDialog, &ConfigDialog::configApplied,
                 this,           &MainWindow::onConfigApplied);
+        connect(m_configDialog, &ConfigDialog::requestMedir,
+                this,           &MainWindow::onMedirRequested);
+        connect(m_serial,       &SerialManager::medicionRecibida,
+                this,           &MainWindow::onMedicionRecibida);
+        connect(m_serial,       &SerialManager::medicionTimeout,
+                this,           &MainWindow::onMedicionTimeout);
     }
     m_configDialog->show();
     m_configDialog->raise();
@@ -776,6 +782,32 @@ void MainWindow::onConfigApplied(const Uner::CalibracionCfg &cfg)
     } else {
         statusMsg("Calibración guardada (sin conexión serial).", 3000);
     }
+}
+
+void MainWindow::onMedirRequested(ConfigDialog::Field field)
+{
+    if (!m_serial->isOpen()) {
+        statusMsg("Sin conexión serial — no se puede medir.", 3000);
+        if (m_configDialog) m_configDialog->medicionFallo(field);
+        return;
+    }
+    m_pendingMedirField = field;
+    m_serial->sendMedir();
+    statusMsg("Midiendo con HC-SR04 (CMD 0x61)…", 0);
+}
+
+void MainWindow::onMedicionRecibida(uint8_t cm)
+{
+    if (m_configDialog)
+        m_configDialog->medicionRecibida(m_pendingMedirField, cm);
+    statusMsg(QString("Medición recibida: %1 cm").arg(cm));
+}
+
+void MainWindow::onMedicionTimeout()
+{
+    if (m_configDialog)
+        m_configDialog->medicionFallo(m_pendingMedirField);
+    statusMsg("Timeout de medición (3 s sin respuesta).", 4000);
 }
 
 void MainWindow::onOpenVelocidad()

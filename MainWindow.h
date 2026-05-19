@@ -160,6 +160,15 @@ private slots:
      */
     void onConfigApplied(const Uner::CalibracionCfg &cfg);
 
+    /** @brief Solicita medición live (CMD 0x61) para el campo del ConfigDialog. */
+    void onMedirRequested(ConfigDialog::Field field);
+
+    /** @brief Resultado de medición CMD 0x61: rellena el campo del ConfigDialog. */
+    void onMedicionRecibida(uint8_t cm);
+
+    /** @brief Timeout de medición: notifica al ConfigDialog. */
+    void onMedicionTimeout();
+
     /**
      * @brief Envía el ancho de caja al MCU (0x62).
      * @param anchoCm Ancho de la caja de referencia en cm.
@@ -211,6 +220,8 @@ private:
 
     /** @brief Configuración actual de modo ciego y distancias (0x60). */
     Uner::CiegoDistancias m_ciegoCfg;
+
+    ConfigDialog::Field m_pendingMedirField {ConfigDialog::Piso}; ///< Campo pendiente de medición.
 
     // ── Toolbar ──────────────────────────────────────────────
     QComboBox   *m_comboPuerto  {nullptr}; ///< Selector de puerto COM.
