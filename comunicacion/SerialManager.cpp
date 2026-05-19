@@ -21,6 +21,14 @@ SerialManager::SerialManager(QObject *parent)
     m_heartbeatTimer->setSingleShot(false);
     m_heartbeatTimer->setInterval(HEARTBEAT_TIMEOUT_MS);
     connect(m_heartbeatTimer, &QTimer::timeout, this, &SerialManager::onHeartbeatTimeout);
+
+    m_medirTimer = new QTimer(this);
+    m_medirTimer->setSingleShot(true);
+    m_medirTimer->setInterval(3000);
+    connect(m_medirTimer, &QTimer::timeout, this, [this]() {
+        m_esperandoMedir = false;
+        emit medicionTimeout();
+    });
 }
 
 SerialManager::~SerialManager() { close(); }
@@ -85,6 +93,13 @@ void SerialManager::sendBlindDist(const Uner::CiegoDistancias &cfg, uint8_t numB
 
 void SerialManager::sendTrigger()
 { sendRaw(UnerProtocol::cmdTrigger()); }
+
+void SerialManager::sendMedir()
+{
+    m_esperandoMedir = true;
+    m_medirTimer->start();
+    sendRaw(UnerProtocol::cmdTrigger());
+}
 
 void SerialManager::sendAnchoCaja(uint8_t anchoCm)
 { sendRaw(UnerProtocol::cmdAnchoCaja(anchoCm)); }
@@ -175,6 +190,16 @@ void SerialManager::dispatchFrame(const Uner::Frame &frame)
                     qDebug() << "[SerialManager] Brazo actuado, servo:" << i;
                 }
             }
+        }
+        break;
+
+    // 0x61 MCU→PC: respuesta a trigger (altura medida)
+    case Uner::CMD_TRIGGER:
+        if (m_esperandoMedir && !frame.payload.isEmpty()) {
+            m_medirTimer->stop();
+            m_esperandoMedir = false;
+            emit medicionRecibida(static_cast<uint8_t>(frame.payload.at(0)));
+            qDebug() << "[SerialManager] Medir result:" << frame.payload.at(0) << "cm";
         }
         break;
 

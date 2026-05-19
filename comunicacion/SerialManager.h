@@ -111,6 +111,9 @@ public:
     /** @brief Envía un disparo de trigger del HC-SR04 (0x61, sin payload). */
     void sendTrigger();
 
+    /** @brief Envía CMD_TRIGGER (0x61) y espera respuesta exclusiva (3 s timeout). */
+    void sendMedir();
+
     /**
      * @brief Envía el ancho de la caja de referencia (0x62).
      * @param anchoCm Ancho en centímetros.
@@ -208,6 +211,12 @@ signals:
      */
     void velocidadCintaActualizada(uint8_t vel_cm_s);
 
+    /** @brief Se emite cuando llega la respuesta 0x61 MCU→PC con la altura medida. */
+    void medicionRecibida(uint8_t cm);
+
+    /** @brief Se emite cuando el timer de 3 s expira sin respuesta al sendMedir(). */
+    void medicionTimeout();
+
 private slots:
     /** @brief Slot invocado cuando hay datos disponibles en el puerto. */
     void onDataReady();
@@ -231,6 +240,8 @@ private:
     QSerialPort  *m_serial          {nullptr}; ///< Puerto serie Qt.
     UnerProtocol *m_protocol        {nullptr}; ///< Parser/encoder del protocolo UNER.
     QTimer       *m_heartbeatTimer  {nullptr}; ///< Watchdog de heartbeat.
+    bool         m_esperandoMedir   {false};   ///< true mientras esperamos respuesta a sendMedir().
+    QTimer       *m_medirTimer      {nullptr}; ///< Timeout 3 s para sendMedir().
 
     /**
      * @brief Despacha una trama decodificada a la señal apropiada.
