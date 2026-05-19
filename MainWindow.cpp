@@ -179,6 +179,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_serial, &SerialManager::brazoActuado,               this, &MainWindow::onBrazoActuado);
     connect(m_serial, &SerialManager::velocidadCintaActualizada,  this, &MainWindow::onVelocidadCintaActualizada);
 
+    m_distDebounce = new QTimer(this);
+    m_distDebounce->setSingleShot(true);
+    m_distDebounce->setInterval(500);
+    connect(m_distDebounce, &QTimer::timeout, this, &MainWindow::onDistSendNow);
+
     setConnectedState(false);
     setRunningState(false);
     onRefreshPorts();
@@ -402,6 +407,9 @@ QWidget *MainWindow::buildPanelControl()
             QString("Distancia desde S0 a salida %1 (dist_s0_a_salida[%1])").arg(i));
         m_spinDist[i]->setMaximumWidth(90);
         hl->addWidget(m_spinDist[i]);
+        connect(m_spinDist[i], &QSpinBox::valueChanged, this, [this]() {
+            m_distDebounce->start();
+        });
         vl->addLayout(hl);
     }
 
@@ -791,6 +799,19 @@ void MainWindow::onBlindModeToggled(bool checked)
               .arg(m_ciegoCfg.dist_s0[0])
               .arg(m_ciegoCfg.dist_s0[1])
               .arg(m_ciegoCfg.dist_s0[2]));
+}
+
+void MainWindow::onDistSendNow()
+{
+    for (int i = 0; i < 3; i++)
+        m_ciegoCfg.dist_s0[i] = static_cast<uint8_t>(m_spinDist[i]->value());
+    if (m_serial->isOpen()) {
+        m_serial->sendBlindDist(m_ciegoCfg, 4);
+        statusMsg(QString("Distancias actualizadas: %1/%2/%3 cm")
+                  .arg(m_ciegoCfg.dist_s0[0])
+                  .arg(m_ciegoCfg.dist_s0[1])
+                  .arg(m_ciegoCfg.dist_s0[2]));
+    }
 }
 
 void MainWindow::onVelModoToggled(bool autoMode)

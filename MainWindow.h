@@ -178,6 +178,9 @@ private slots:
      */
     void onAnchoCajaRequested(uint8_t anchoCm);
 
+    /** @brief Envía las distancias S0→Sal al MCU tras el debounce. */
+    void onDistSendNow();
+
     // ── UI general ─────────────────────────────────────────────
 
     /**
@@ -223,6 +226,8 @@ private:
 
     /** @brief Configuración actual de modo ciego y distancias (0x60). */
     Uner::CiegoDistancias m_ciegoCfg;
+
+    QTimer *m_distDebounce {nullptr}; ///< Debounce 500 ms para envío de distancias.
 
     ConfigDialog::Field m_pendingMedirField {ConfigDialog::Piso}; ///< Campo pendiente de medición.
 
