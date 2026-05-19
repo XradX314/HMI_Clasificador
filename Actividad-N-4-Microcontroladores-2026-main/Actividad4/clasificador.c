@@ -65,8 +65,8 @@ static void pushFifo(uint8_t tramoId, uint8_t destino) {
 	}
 }
 
-// Extrae el destino más antiguo del buffer circular FIFO de la salida indicada
-// Retorna -1 si el buffer está vacío, indicando que no hay cajas encoladas
+// Extrae el destino mï¿½s antiguo del buffer circular FIFO de la salida indicada
+// Retorna -1 si el buffer estï¿½ vacï¿½o, indicando que no hay cajas encoladas
 static int8_t popFifo(uint8_t tramoId) {
 	if (tramos[tramoId].cantidad > 0) {
 		uint8_t dest = tramos[tramoId].destinos[tramos[tramoId].indiceLectura];
@@ -97,9 +97,9 @@ void Clasificador_On2Ms(void) {
 	}
 }
 
-// Evalúa el estado de los brazos y ejecuta las transiciones de la máquina de estados
-// Estados: 0=retraído, 1=extendido, 2=esperando ACK de retracción
-// Cuando el timer llega a 0 estando extendido, envía comando de retraer al simulador
+// Evalï¿½a el estado de los brazos y ejecuta las transiciones de la mï¿½quina de estados
+// Estados: 0=retraï¿½do, 1=extendido, 2=esperando ACK de retracciï¿½n
+// Cuando el timer llega a 0 estando extendido, envï¿½a comando de retraer al simulador
 void checkBrazos(void) {
 	for (uint8_t i = 0; i < 3; i++) {
 		if (brazos[i].activo && brazos[i].timer > 0) {
@@ -156,8 +156,8 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 			if (_output) _output(0);
         break;
 		
-		// Busca el brazo que estaba esperando confirmación (estado = 2) y lo libera.
-		// Si había una caja pendiente en esa salida, la procesa de inmediato:
+		// Busca el brazo que estaba esperando confirmaciï¿½n (estado = 2) y lo libera.
+		// Si habï¿½a una caja pendiente en esa salida, la procesa de inmediato:
 		// Extrae del FIFO, si coincide activa el brazo, si no transfiere al siguiente.
         case 0x52:
 			if (params[0] == 0xFF) {
@@ -199,15 +199,15 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 		break;
 		case 0x54:
 		    if (params[1] == 0x0D) {
-			    // Sin lógica adicional
+			    // Sin lï¿½gica adicional
 		    }
 		break;
 		// Se procesan los pares: outNum, IRState. 
-		// Lógica de encadenamiento de FIFOs:
+		// Lï¿½gica de encadenamiento de FIFOs:
 		// a) popFifo(outNum) extrae el destino esperado para esta salida.
 		// b) Si coincide (dest == outNum), se activa el brazo: es la salida correcta.
 		// c) Si no coincide (outNum < 2), se transfiere al FIFO de la siguiente salida.
-		// d) Si el FIFO está vacío, se guarda como pendiente hasta que llegue una caja.
+		// d) Si el FIFO estï¿½ vacï¿½o, se guarda como pendiente hasta que llegue una caja.
         case 0x5E:  
 			for (uint8_t i = 0; i < len; i += 2) {
 				uint8_t outNum = params[i];
@@ -274,19 +274,13 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 				dist_s0_a_salida[1] = params[3];
 				dist_s0_a_salida[2] = params[4];
 			}
-			if (modo_ciego == 1 && medir_auto == 1) {
-				vel_medida = 0;
-				midiendo_vel = 1;   
-			} else {
-				vel_medida = 1;     
-			}
+			vel_medida = 1;
 		break;
 		case 0x61:
 			if (_trigger) _trigger();
 		break;
 		case 0x62:
 			anchoCaja = params[0];
-			if (_velocidad) _velocidad(params[0]);
 		break;
 		case 0x63:
 			if (len >= 7) {

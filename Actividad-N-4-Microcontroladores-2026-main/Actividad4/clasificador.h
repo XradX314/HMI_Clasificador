@@ -21,7 +21,7 @@ typedef struct {
 	uint8_t pendiente;  
 } _sBrazo;
 
-// Estructura para registrar cajas que llegan al sensor mientras el brazo está ocupado.
+// Estructura para registrar cajas que llegan al sensor mientras el brazo estï¿½ ocupado.
 typedef struct {
 	uint8_t pendiente;
 	uint8_t outNum;
@@ -48,7 +48,6 @@ extern uint8_t configCajas[3];
 extern uint8_t  modo_ciego;
 extern float vel_cinta_cms;
 extern uint8_t vel_medida;
-extern uint8_t midiendo_vel;
 extern uint8_t medir_auto;
 extern float dist_s0_a_salida[3];
 

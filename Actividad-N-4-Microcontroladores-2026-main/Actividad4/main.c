@@ -11,7 +11,6 @@ static uint8_t time100ms;
 static uint16_t testServoTimer = 0;
 static uint32_t t_detect = 0;
 static uint8_t retractPending = 0;
-uint8_t midiendo_vel = 0;  
 uint16_t aliveTimer = 0;
 uint8_t retractTimer = 0;
 uint16_t hcsrTimer = 0;
@@ -56,7 +55,7 @@ void App_TriggerHCSR04(void);
 void App_IniciarVelocidad(uint8_t ancho_cm);
 void App_MoverBrazo(uint8_t cmd, uint8_t* payload, uint8_t n);
 
-// Interrupción del Timer 0 en modo CTC. Se dispara cada 2ms (125 ticks a 16MHz/256).
+// Interrupciï¿½n del Timer 0 en modo CTC. Se dispara cada 2ms (125 ticks a 16MHz/256).
 // Solo activa una bandera en GPIOR0 para que el loop principal procese On2Ms().
 ISR(TIMER0_COMPA_vect) {
 	static uint8_t contador = 0;
@@ -82,8 +81,8 @@ ISR(USART_RX_vect) {
 }
 
 // Se ejecuta cada 2ms cuando el loop principal detecta la bandera GPIOR00.
-// Centraliza toda la lógica de tiempo real: parpadeo del LED, heartbeat alive,
-// lectura de botones con debounce, y actualización de tiempos de brazos.
+// Centraliza toda la lï¿½gica de tiempo real: parpadeo del LED, heartbeat alive,
+// lectura de botones con debounce, y actualizaciï¿½n de tiempos de brazos.
 void On2Ms(void) {
 	GPIOR0 &= ~_BV(GPIOR00);
 	
@@ -224,34 +223,30 @@ void on_s0_detected(void) {
 			timer_ciego_activo[i] = 1;
 		}
 	}
-	if (midiendo_vel) {
-		t_detect = g_now_us;
-	}
+	t_detect = g_now_us;
 	PORTD |= (1 << PORTD6);
 	payload[0] = 0x03;
 	payload[1] = 0x01;
 	Encode(0x5E, payload, 2);
 	App_TriggerHCSR04();
-	//Encode(0x5F, payload, 1);
 }
 	
 void on_s0_released(void) {
-	if (midiendo_vel) {
+	if (t_detect > 0 && anchoCaja > 0) {
 		uint32_t dt_us = g_now_us - t_detect;
-		uint16_t vel = (uint16_t)(((uint32_t)anchoCaja * 1000000UL) / dt_us);
-		
-		if (vel > 255) vel = 255;
-		
-		vel_cinta_cms = (float)vel;
-
-		vel_medida = 1;
-		midiendo_vel = 0;
+		if (dt_us > 0) {
+			uint16_t vel = (uint16_t)(((uint32_t)anchoCaja * 1000000UL) / dt_us);
+			if (vel > 255) vel = 255;
+			vel_cinta_cms = (float)vel;
+			vel_medida    = 1;
+			uint8_t vbyte = (uint8_t)vel;
+			Encode(0x62, &vbyte, 1);
+		}
 	}
 	PORTD &= ~(1 << PORTD6);
 	payload[0] = 0x03;
 	payload[1] = 0x00;
 	Encode(0x5E, payload, 2);
-	//Encode(0x5F, payload, 1);
 }
 
 void on_s1_detected(void) {
@@ -342,7 +337,6 @@ void App_TriggerHCSR04(void) {
 
 void App_IniciarVelocidad(uint8_t ancho_cm) {
 	anchoCaja = ancho_cm;
-	midiendo_vel = 1;
 }
 
 void App_MoverBrazo(uint8_t cmd, uint8_t* payload, uint8_t n) {
@@ -368,12 +362,12 @@ void App_MoverBrazo(uint8_t cmd, uint8_t* payload, uint8_t n) {
 	}
 }
 
-// Orden de inicialización:
+// Orden de inicializaciï¿½n:
 // a) Protocolo y Clasificador primero 
-// b) Seteo de callbacks entre módulos 
+// b) Seteo de callbacks entre mï¿½dulos 
 // c) Inicializa UART, puertos y timer
 // d) Registro de botones 
-// f) sei() habilita interrupciones solo cuando todo está listo
+// f) sei() habilita interrupciones solo cuando todo estï¿½ listo
 int main(void) {
 	
 	cli();
